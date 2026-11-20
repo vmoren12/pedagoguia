@@ -141,13 +141,13 @@ svg.fill { fill: currentColor; stroke: none; }
   transition: border-color .2s var(--ease);
 }
 .site-header.is-scrolled { border-bottom-color: var(--line); }
-.header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; height: var(--header-h); }
-.brand { grid-column: 2; grid-row: 1; justify-self: center; display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-size: 1.2rem; letter-spacing: -.01em; }
+.header-inner { display: flex; align-items: center; gap: 20px; height: var(--header-h); }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-size: 1.2rem; letter-spacing: -.01em; }
 .brand-mark { width: 24px; height: 24px; stroke: var(--accent); stroke-width: 1.8; }
-.header-nav { grid-column: 1; grid-row: 1; justify-self: start; display: flex; gap: 2px; margin-left: -10px; }
+.header-nav { display: flex; gap: 2px; margin-left: 8px; }
 .header-nav a { padding: 6px 10px; border-radius: var(--radius-sm); font-size: .875rem; color: var(--muted); transition: color .15s, background-color .15s; }
 .header-nav a:hover { color: var(--ink); background: var(--sunken); }
-.header-actions { grid-column: 3; grid-row: 1; justify-self: end; display: flex; align-items: center; gap: 2px; margin-right: -8px; }
+.header-actions { display: flex; align-items: center; gap: 2px; margin-left: auto; margin-right: -8px; }
 
 .i-moon { display: none; }
 :root[data-theme="dark"] .i-sun { display: none; }
@@ -159,7 +159,7 @@ svg.fill { fill: currentColor; stroke: none; }
 
 /* 4. Introducció -------------------------------------------------------- */
 .intro { text-align: center; padding-top: clamp(28px, 4.5vw, 52px); padding-bottom: clamp(20px, 3vw, 30px); }
-.intro h1 { max-width: 28ch; margin-inline: auto; font-family: var(--serif); font-size: clamp(1.6rem, 3.2vw, 2.35rem); line-height: 1.15; letter-spacing: -.015em; }
+.intro h1 { font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 500; line-height: 1.04; letter-spacing: -.025em; }
 .intro-text { margin: 12px auto 0; max-width: 40rem; color: var(--ink-2); font-size: 1.05rem; line-height: 1.7; }
 .intro-meta { margin-top: 10px; font-size: .8125rem; color: var(--muted); min-height: 1.3em; }
 

@@ -10,6 +10,10 @@ Repositori obert de **guies pràctiques basades en la recerca per orientar decis
 | --- | --- | --- | --- |
 | *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Guia](https://vmoren12.github.io/pedagoguia/guies/9788411821865/) · [Síntesi A4](https://vmoren12.github.io/pedagoguia/guies/9788411821865/sintesi.html) |
 
+## Notes personals
+
+A les guies es pot seleccionar qualsevol text per subratllar-lo en cinc colors i afegir-hi comentaris i etiquetes. El visor de notes (a les guies i al catàleg) permet cercar, filtrar per color o etiqueta, saltar a cada subratllat i exportar o importar totes les notes de totes les guies (JSON) o descarregar-les en Markdown. Les notes es desen només al navegador de cada persona.
+
 ## Aportacions
 
 Qualsevol persona pot contribuir des del botó d'avís del web o directament a [Issues](https://github.com/vmoren12/pedagoguia/issues/new/choose):
@@ -26,6 +30,8 @@ index.html                  Pàgina d'inici del catàleg
 data/catalog.json           Font única de dades del catàleg
 assets/css/pedagoguia.css   Estils (tokens, tema clar i fosc, responsive)
 assets/js/catalog.js        Vistes, cerca, filtres, ordenació i diàleg d'aportacions
+assets/css/notes.css        Estils dels subratllats i del visor de notes
+assets/js/notes.js          Subratllats, comentaris, etiquetes, visor i importació/exportació
 assets/img/                 Icona del lloc
 guies/<ISBN>/               Cada guia: index.html, sintesi.html (A4) i cover.jpg
 .github/ISSUE_TEMPLATE/     Formularis d'aportació
