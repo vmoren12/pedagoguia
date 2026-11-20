@@ -1,0 +1,47 @@
+# Lecturia
+
+Repositori obert de **guies docents basades en llibres de l'àmbit educatiu**. Cada guia sintetitza un llibre de referència, l'organitza per consultar-lo en el moment de planificar i l'acompanya de propostes i eines per a l'aula.
+
+**Catàleg:** https://vmoren12.github.io/lecturia/
+
+## Guies publicades
+
+| Llibre | Autoria | Edició | Guia |
+| --- | --- | --- | --- |
+| *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Obre](https://vmoren12.github.io/lecturia/guies/9788411821865/) |
+
+## Aportacions
+
+Qualsevol persona pot contribuir des del botó d'avís del web o directament a [Issues](https://github.com/vmoren12/lecturia/issues/new/choose):
+
+- **Error de contingut**: una dada, una cita o una explicació que cal revisar.
+- **Suggeriment de llibre**: una obra que mereix la seva guia.
+- **Millora de l'aplicació**: errors, accessibilitat o idees per al web.
+
+## Estructura
+
+```
+index.html                  Pàgina d'inici del catàleg
+404.html                    Pàgina d'error
+data/catalog.json           Font única de dades del catàleg
+assets/css/lecturia.css     Estils (tokens, tema clar i fosc, responsive)
+assets/js/catalog.js        Renderitzat, cerca, filtres i diàleg d'aportacions
+assets/img/                 Icona del lloc
+guies/<ISBN>/index.html     Cada guia, autocontinguda
+.github/ISSUE_TEMPLATE/     Formularis d'aportació
+docs/                       Documentació de manteniment
+```
+
+Lloc estàtic sense dependències ni procés de compilació. Per afegir una guia, vegeu [docs/afegir-una-guia.md](docs/afegir-una-guia.md).
+
+## Treballar en local
+
+El catàleg carrega `data/catalog.json` amb `fetch`, de manera que cal servir la carpeta amb un servidor HTTP (no funciona obrint el fitxer directament):
+
+```sh
+npx serve .            # o bé: python -m http.server
+```
+
+## Avís
+
+Les guies són materials de suport i no substitueixen la lectura de les obres originals. Els drets dels llibres pertanyen als seus autors i editorials.

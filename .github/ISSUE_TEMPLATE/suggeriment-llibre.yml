@@ -1,0 +1,49 @@
+name: Suggeriment de llibre
+description: Una obra de l'àmbit educatiu que mereix la seva guia.
+title: "[Llibre] "
+labels: ["suggeriment-llibre"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prioritzem obres de referència, ben fonamentades i amb aplicació directa a l'aula.
+  - type: input
+    id: titol
+    attributes:
+      label: Títol
+    validations:
+      required: true
+  - type: input
+    id: autoria
+    attributes:
+      label: Autoria
+    validations:
+      required: true
+  - type: input
+    id: edicio
+    attributes:
+      label: Editorial i any
+      placeholder: "Graó, 2023"
+  - type: input
+    id: isbn
+    attributes:
+      label: ISBN
+      description: Opcional, però ajuda a identificar l'edició.
+  - type: dropdown
+    id: etapa
+    attributes:
+      label: Etapa educativa
+      multiple: true
+      options:
+        - Infantil
+        - Primària
+        - Secundària
+        - Batxillerat i FP
+        - Transversal
+  - type: textarea
+    id: motiu
+    attributes:
+      label: Per què és útil per als docents
+      description: Què aporta i a qui pot servir.
+    validations:
+      required: true

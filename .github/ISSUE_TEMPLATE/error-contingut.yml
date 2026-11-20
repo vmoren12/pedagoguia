@@ -1,0 +1,56 @@
+name: Error de contingut
+description: Una dada, una cita o una explicació d'una guia que cal revisar.
+title: "[Error] "
+labels: ["contingut"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gràcies per ajudar a millorar les guies. Com més concreta sigui la indicació, més fàcil serà revisar-la.
+  - type: input
+    id: guia
+    attributes:
+      label: Guia
+      description: Títol del llibre o ISBN.
+      placeholder: "Aprender a enseñar a leer y a escribir (ISBN 9788411821865)"
+    validations:
+      required: true
+  - type: input
+    id: seccio
+    attributes:
+      label: Secció o capítol
+      description: On apareix l'error. Pots enganxar l'enllaç de la secció.
+      placeholder: "Capítol 5 · La conciencia fonológica"
+    validations:
+      required: true
+  - type: dropdown
+    id: tipus
+    attributes:
+      label: Tipus d'error
+      options:
+        - Dada o afirmació incorrecta
+        - No es correspon amb el llibre
+        - Cita o referència
+        - Errada ortogràfica o de redacció
+        - Activitat o eina que no funciona bé
+        - Altres
+    validations:
+      required: true
+  - type: textarea
+    id: descripcio
+    attributes:
+      label: Què cal revisar
+      description: Copia el fragment i explica què hi falla.
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Proposta de correcció
+      description: Opcional. Com hauria de quedar.
+  - type: input
+    id: font
+    attributes:
+      label: Font
+      description: Opcional. Pàgina del llibre o referència que ho justifica.
+      placeholder: "p. 112"

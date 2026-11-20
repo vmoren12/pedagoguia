@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecturia · Guies docents basades en llibres d'educació</title>
+<meta name="description" content="Repositori obert de guies docents de consulta i d'aula elaborades a partir de llibres de referència de l'àmbit educatiu.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lecturia · Guies docents">
+<meta property="og:description" content="Guies de consulta i d'aula elaborades a partir de llibres de referència de l'àmbit educatiu.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="data/catalog.json" as="fetch" type="application/json" crossorigin>
+<link rel="stylesheet" href="assets/css/lecturia.css">
+<script>
+  /* Tema abans del primer pintat per evitar parpelleig */
+  (function () {
+    try {
+      var t = localStorage.getItem('lecturia:theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<script src="assets/js/catalog.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#cataleg">Ves al catàleg</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./" aria-label="Lecturia, inici">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7.5c3.6-1.4 7.2-1.2 11 1v17c-3.8-2.2-7.4-2.4-11-1z"/><path d="M27 7.5c-3.6-1.4-7.2-1.2-11 1v17c3.8-2.2 7.4-2.4 11-1z"/></svg>
+      <span>Lecturia</span>
+    </a>
+    <nav class="header-nav" aria-label="Principal">
+      <a href="#cataleg">Catàleg</a>
+      <a href="#sobre">Sobre el projecte</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-feedback aria-label="Notificar un error o fer un suggeriment" title="Notificar un error o fer un suggeriment">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.2 3.6c-.3.3-.8 0-.8-.4V16h0a1 1 0 0 1-1-1z"/><path d="M12 7.5v4"/><path d="M12 13.6v.01"/></svg>
+      </button>
+      <button class="icon-btn" type="button" id="themeToggle" aria-label="Canviar el tema de color" title="Canviar el tema de color">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/vmoren12/lecturia" target="_blank" rel="noopener" aria-label="Repositori a GitHub (s'obre en una pestanya nova)" title="Repositori a GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M12 2.2a9.8 9.8 0 0 0-3.1 19.1c.5.1.7-.2.7-.5v-1.7c-2.7.6-3.3-1.3-3.3-1.3-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.5 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A9.8 9.8 0 0 0 12 2.2z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Repositori obert per a docents</p>
+      <h1>Els llibres que transformen l'aula, convertits en guies de treball.</h1>
+      <p class="lede">Guies de consulta i d'aula elaborades a partir d'obres de referència de l'àmbit educatiu. Cada guia sintetitza les idees clau del llibre, les ordena per planificar i les acompanya de propostes i eines per aplicar-les.</p>
+      <dl class="stats" id="stats" aria-live="polite">
+        <div><dt>Guies</dt><dd data-stat="guides">—</dd></div>
+        <div><dt>Àmbits</dt><dd data-stat="areas">—</dd></div>
+        <div><dt>Darrera actualització</dt><dd data-stat="updated">—</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="catalog" id="cataleg" aria-labelledby="cataleg-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="cataleg-title">Catàleg</h2>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+      </div>
+
+      <div class="toolbar" role="search">
+        <label class="search">
+          <span class="visually-hidden">Cerca al catàleg</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+          <input id="search" type="search" placeholder="Cerca per títol, autoria, tema o ISBN" autocomplete="off" spellcheck="false">
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+        <div class="filters" id="filters" aria-label="Filtres"></div>
+      </div>
+
+      <ol class="book-list" id="bookList" aria-describedby="resultCount"></ol>
+
+      <div class="empty" id="emptyState" hidden>
+        <p class="empty-title">Cap guia coincideix amb la cerca.</p>
+        <p>Prova amb altres paraules o <button type="button" class="link-btn" id="clearFilters">esborra els filtres</button>. Si trobes a faltar un llibre, <button type="button" class="link-btn" data-feedback="book">suggereix-lo</button>.</p>
+      </div>
+
+      <noscript>
+        <ol class="book-list">
+          <li class="book"><div class="book-body">
+            <h3 class="book-title"><a href="guies/9788411821865/">Aprender a enseñar a leer y a escribir</a></h3>
+            <p class="book-authors">Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente · SM, 2024</p>
+          </div></li>
+        </ol>
+      </noscript>
+    </div>
+  </section>
+
+  <section class="about" id="sobre" aria-labelledby="sobre-title">
+    <div class="container about-grid">
+      <div class="about-intro">
+        <p class="eyebrow">Sobre el projecte</p>
+        <h2 id="sobre-title">Lectura rigorosa, aplicació directa.</h2>
+        <p>Lecturia recull guies que reorganitzen llibres d'educació per consultar-los ràpidament en el moment de planificar. El catàleg creix a poc a poc: cada guia es revisa abans de publicar-se i es manté oberta a correccions.</p>
+      </div>
+      <ol class="principles">
+        <li>
+          <span class="p-num">01</span>
+          <h3>Fidelitat a l'obra</h3>
+          <p>El contingut surt del llibre. Quan una proposta concreta o amplia el text original, s'indica, i es respecta la distinció que fan els autors entre el que té evidència sòlida i el que no.</p>
+        </li>
+        <li>
+          <span class="p-num">02</span>
+          <h3>Pensades per a l'aula</h3>
+          <p>Resums, esquemes, activitats i eines interactives organitzades per capítols, preparades per imprimir i per consultar des de qualsevol dispositiu.</p>
+        </li>
+        <li>
+          <span class="p-num">03</span>
+          <h3>Revisió oberta</h3>
+          <p>Qualsevol persona pot notificar un error, suggerir un llibre o proposar millores. Les aportacions es gestionen de manera pública a GitHub.</p>
+          <button type="button" class="text-btn" data-feedback>Fes una aportació
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-brand">Lecturia</p>
+    <p class="footer-note">Les guies són materials de suport i no substitueixen la lectura de les obres originals. Els drets dels llibres pertanyen als seus autors i editorials.</p>
+    <nav class="footer-nav" aria-label="Peu de pàgina">
+      <a href="https://github.com/vmoren12/lecturia" target="_blank" rel="noopener">GitHub</a>
+      <button type="button" class="link-btn" data-feedback>Notificar un error</button>
+    </nav>
+  </div>
+</footer>
+
+<template id="bookTemplate">
+  <li class="book">
+    <a class="book-cover" data-slot="link" tabindex="-1" aria-hidden="true">
+      <span class="cover">
+        <span class="cover-publisher" data-slot="coverPublisher"></span>
+        <span class="cover-title" data-slot="coverTitle"></span>
+        <span class="cover-authors" data-slot="coverAuthors"></span>
+      </span>
+    </a>
+    <div class="book-body">
+      <p class="book-meta">
+        <span data-slot="area"></span>
+        <span class="badge" data-slot="new" hidden>Nova</span>
+      </p>
+      <h3 class="book-title"><a data-slot="titleLink"></a></h3>
+      <p class="book-subtitle" data-slot="subtitle"></p>
+      <p class="book-authors" data-slot="authors"></p>
+      <p class="book-summary" data-slot="summary"></p>
+      <ul class="book-highlights" data-slot="highlights"></ul>
+      <dl class="book-facts">
+        <div><dt>Etapa</dt><dd data-slot="stages"></dd></div>
+        <div><dt>Edició</dt><dd data-slot="edition"></dd></div>
+        <div><dt>Idioma de la guia</dt><dd data-slot="language"></dd></div>
+        <div><dt>ISBN</dt><dd data-slot="isbn" class="mono"></dd></div>
+      </dl>
+      <div class="book-actions">
+        <a class="btn btn-primary" data-slot="open">Obre la guia
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button type="button" class="btn btn-ghost" data-slot="report">Notifica un error</button>
+      </div>
+    </div>
+  </li>
+</template>
+
+<dialog class="dialog" id="feedbackDialog" aria-labelledby="feedbackTitle">
+  <form method="dialog" class="dialog-inner">
+    <header class="dialog-head">
+      <h2 id="feedbackTitle">Fes una aportació</h2>
+      <button class="icon-btn" value="close" aria-label="Tanca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <p class="dialog-context" id="feedbackContext" hidden></p>
+    <div class="notice" role="note">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></svg>
+      <p>Les aportacions es gestionen a <strong>GitHub</strong>, en una pestanya nova. Hi necessitaràs un compte gratuït, i el que escriguis serà públic.</p>
+    </div>
+    <ul class="choice-list">
+      <li><a class="choice" data-kind="content" target="_blank" rel="noopener">
+        <span class="choice-text"><strong>Error de contingut</strong><span>Una dada, una cita o una explicació d'una guia que cal revisar.</span></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a></li>
+      <li><a class="choice" data-kind="book" target="_blank" rel="noopener">
+        <span class="choice-text"><strong>Suggeriment de llibre</strong><span>Una obra de l'àmbit educatiu que mereix la seva guia.</span></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a></li>
+      <li><a class="choice" data-kind="app" target="_blank" rel="noopener">
+        <span class="choice-text"><strong>Millora de l'aplicació</strong><span>Un problema de funcionament, d'accessibilitat o una idea per al web.</span></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a></li>
+    </ul>
+  </form>
+</dialog>
+</body>
+</html>

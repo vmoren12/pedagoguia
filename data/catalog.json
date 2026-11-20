@@ -1,0 +1,32 @@
+{
+  "site": {
+    "name": "Lecturia",
+    "repo": "https://github.com/vmoren12/lecturia",
+    "issueTemplates": {
+      "content": "error-contingut.yml",
+      "book": "suggeriment-llibre.yml",
+      "app": "millora-app.yml"
+    }
+  },
+  "guides": [
+    {
+      "isbn": "9788411821865",
+      "path": "guies/9788411821865/",
+      "title": "Aprender a enseñar a leer y a escribir",
+      "subtitle": "Cómo aplicar evidencias científicas sobre el aprendizaje de la lectura y la escritura",
+      "authors": ["Juan C. Ripoll", "Nadina Gómez Merino", "Vicenta Ávila Clemente"],
+      "publisher": "SM",
+      "collection": "Biblioteca de Innovación Educativa",
+      "year": 2024,
+      "area": "Lectoescriptura",
+      "stages": ["Infantil", "Primària"],
+      "language": "Castellà",
+      "summary": "Què diu la investigació sobre l'aprenentatge inicial de la lectura i l'escriptura i com portar-ho a l'aula: consciència fonològica, coneixement de les lletres, descodificació, escriptura inicial i primeres passes de la comprensió.",
+      "highlights": ["12 capítols", "Activitats d'aula", "Eines interactives", "Glossari"],
+      "tags": ["consciència fonològica", "descodificació", "mètodes de lectura", "comprensió lectora", "evidència científica", "grafomotricitat", "diversitat"],
+      "color": "#2f5d50",
+      "added": "2026-11-20",
+      "updated": "2026-11-20"
+    }
+  ]
+}

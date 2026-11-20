@@ -1,0 +1,33 @@
+name: Millora de l'aplicació
+description: Un problema de funcionament, d'accessibilitat o una idea per al web.
+title: "[Web] "
+labels: ["web"]
+body:
+  - type: dropdown
+    id: tipus
+    attributes:
+      label: Tipus
+      options:
+        - Alguna cosa no funciona
+        - Accessibilitat
+        - Disseny o usabilitat
+        - Nova funcionalitat
+    validations:
+      required: true
+  - type: textarea
+    id: descripcio
+    attributes:
+      label: Descripció
+      description: Què passa o què proposes. Si és un error, indica els passos per reproduir-lo.
+    validations:
+      required: true
+  - type: input
+    id: pagina
+    attributes:
+      label: Pàgina
+      description: Opcional. Enllaç a la pàgina afectada.
+  - type: input
+    id: entorn
+    attributes:
+      label: Dispositiu i navegador
+      placeholder: "Mòbil Android, Chrome"
