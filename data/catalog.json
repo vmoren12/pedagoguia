@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "Pedagoguia",
-    "repo": "https://github.com/vmoren12/lecturia",
+    "repo": "https://github.com/vmoren12/pedagoguia",
     "issueTemplates": {
       "content": "error-contingut.yml",
       "book": "suggeriment-llibre.yml",

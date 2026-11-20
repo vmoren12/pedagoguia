@@ -2,17 +2,17 @@
 
 Repositori obert de **guies pràctiques basades en la recerca per orientar decisions d'aula**, elaborades a partir de llibres de referència de l'àmbit educatiu. Cada guia sintetitza un llibre de referència, l'organitza per consultar-lo en el moment de planificar i l'acompanya de propostes i eines per a l'aula.
 
-**Catàleg:** https://vmoren12.github.io/lecturia/
+**Catàleg:** https://vmoren12.github.io/pedagoguia/
 
 ## Guies publicades
 
 | Llibre | Autoria | Edició | Guia |
 | --- | --- | --- | --- |
-| *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Guia](https://vmoren12.github.io/lecturia/guies/9788411821865/) · [Síntesi A4](https://vmoren12.github.io/lecturia/guies/9788411821865/sintesi.html) |
+| *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Guia](https://vmoren12.github.io/pedagoguia/guies/9788411821865/) · [Síntesi A4](https://vmoren12.github.io/pedagoguia/guies/9788411821865/sintesi.html) |
 
 ## Aportacions
 
-Qualsevol persona pot contribuir des del botó d'avís del web o directament a [Issues](https://github.com/vmoren12/lecturia/issues/new/choose):
+Qualsevol persona pot contribuir des del botó d'avís del web o directament a [Issues](https://github.com/vmoren12/pedagoguia/issues/new/choose):
 
 - **Error de contingut**: una dada, una cita o una explicació que cal revisar.
 - **Suggeriment de llibre**: una obra que mereix la seva guia.

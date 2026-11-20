@@ -7,7 +7,7 @@ Procés manual, pensat per fer-lo amb ajuda d'IA. Cada guia és una pàgina HTML
 Desa la guia a `guies/<ISBN-13 sense guions>/index.html`. L'ISBN fa d'identificador estable i de ruta pública:
 
 ```
-https://vmoren12.github.io/lecturia/guies/9788411821865/
+https://vmoren12.github.io/pedagoguia/guies/9788411821865/
 ```
 
 Requisits mínims de la pàgina:

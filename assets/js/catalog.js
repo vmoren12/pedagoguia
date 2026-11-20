@@ -124,7 +124,7 @@
   /* ---------- Aportacions ---------- */
   function issueUrl(kind, guide) {
     var site = state.site || {};
-    var repo = site.repo || 'https://github.com/vmoren12/lecturia';
+    var repo = site.repo || 'https://github.com/vmoren12/pedagoguia';
     var templates = site.issueTemplates || {};
     var params = new URLSearchParams();
     if (templates[kind]) params.set('template', templates[kind]);
