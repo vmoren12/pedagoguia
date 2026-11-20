@@ -29,19 +29,20 @@ Afegeix un objecte a `guides` dins de `data/catalog.json`:
 {
   "isbn": "9788411821865",
   "path": "guies/9788411821865/",
+  "cover": "guies/9788411821865/cover.jpg",
+  "color": "#2f5d50",
   "title": "Títol del llibre",
   "subtitle": "Subtítol (opcional)",
   "authors": ["Nom Cognom", "Nom Cognom"],
   "publisher": "Editorial",
   "collection": "Col·lecció (opcional)",
   "year": 2024,
-  "area": "Àmbit (p. ex. Lectoescriptura)",
+  "topics": ["Temàtica principal", "Temàtica secundària"],
   "stages": ["Infantil", "Primària"],
   "language": "Castellà",
   "summary": "Dues o tres línies en català sobre què aporta la guia.",
   "highlights": ["12 capítols", "Activitats d'aula"],
-  "tags": ["paraules", "per a", "la cerca"],
-  "color": "#2f5d50",
+  "tags": ["paraules", "clau", "del llibre"],
   "added": "AAAA-MM-DD",
   "updated": "AAAA-MM-DD"
 }
@@ -49,10 +50,16 @@ Afegeix un objecte a `guides` dins de `data/catalog.json`:
 
 Notes:
 
-- `color` és el color de la coberta tipogràfica. Tria un to fosc i sobri (el text de la coberta és clar).
-- `stages` alimenta els filtres per etapa. Fes servir sempre els mateixos noms: Infantil, Primària, Secundària, Batxillerat i FP, Transversal.
+- `cover` (opcional): portada original, desada com `guies/<ISBN>/cover.jpg`, vertical i d'uns 400 px d'amplada (JPG, menys de 80 kB). Es mostra com a llibre 3D animat. Si no n'hi ha, o no es carrega, es genera una coberta tipogràfica amb `color` (to fosc i sobri, perquè el text és clar).
+- Els filtres del catàleg es generen sols a partir de les dades:
+  - **Etapa** (`stages`): fes servir sempre els mateixos noms: Infantil, Primària, Secundària, Batxillerat i FP, Transversal.
+  - **Temàtica** (`topics`): la primera es mostra com a categoria principal de la fitxa. Reutilitza els noms existents abans de crear-ne de nous (p. ex. Lectoescriptura, Matemàtiques, Avaluació, Ciència cognitiva, Gestió d'aula, Inclusió).
+  - **Etiquetes** (`tags`): paraules clau concretes, en minúscula. També es poden clicar a la fitxa per filtrar.
+  - **Idioma de la guia** (`language`).
+- El cercador busca a títol, subtítol, autoria, editorial, temàtiques, etapes, etiquetes, resum i ISBN.
 - Les guies afegides fa menys de 45 dies mostren l'etiqueta «Nova».
-- L'ordre del catàleg és per data d'incorporació (`added`), de més recent a més antiga.
+- L'ordre per defecte és per data d'incorporació (`added`), de més recent a més antiga; també es pot ordenar per títol o per any.
+- Vistes: fitxes (detall), graella (portades) i llista (taula compacta). Amb més de 6 guies, la vista per defecte passa a ser la graella; la tria de cada usuari es recorda.
 
 ## 3. Comprovació i publicació
 

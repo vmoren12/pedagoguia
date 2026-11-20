@@ -25,9 +25,9 @@ index.html                  Pàgina d'inici del catàleg
 404.html                    Pàgina d'error
 data/catalog.json           Font única de dades del catàleg
 assets/css/lecturia.css     Estils (tokens, tema clar i fosc, responsive)
-assets/js/catalog.js        Renderitzat, cerca, filtres i diàleg d'aportacions
+assets/js/catalog.js        Vistes, cerca, filtres, ordenació i diàleg d'aportacions
 assets/img/                 Icona del lloc
-guies/<ISBN>/index.html     Cada guia, autocontinguda
+guies/<ISBN>/                Cada guia (index.html autocontingut + cover.jpg)
 .github/ISSUE_TEMPLATE/     Formularis d'aportació
 docs/                       Documentació de manteniment
 ```
