@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lecturia · Guies docents basades en llibres d'educació</title>
-<meta name="description" content="Repositori obert de guies docents de consulta i d'aula elaborades a partir de llibres de referència de l'àmbit educatiu.">
+<title>Pedagoguia · Guies pràctiques basades en la recerca</title>
+<meta name="description" content="Guies pràctiques basades en la recerca per orientar decisions d'aula, elaborades a partir de llibres de referència de l'àmbit educatiu.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lecturia · Guies docents">
+<meta property="og:title" content="Pedagoguia · Guies docents">
 <meta property="og:description" content="Guies de consulta i d'aula elaborades a partir de llibres de referència de l'àmbit educatiu.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="data/catalog.json" as="fetch" type="application/json" crossorigin>
-<link rel="stylesheet" href="assets/css/lecturia.css">
+<link rel="stylesheet" href="assets/css/pedagoguia.css">
 <script>
   /* Tema abans del primer pintat per evitar parpelleig */
   (function () {
     try {
-      var t = localStorage.getItem('lecturia:theme');
+      var t = localStorage.getItem('pedagoguia:theme');
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
   })();
@@ -30,9 +30,9 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="./" aria-label="Lecturia, inici">
+    <a class="brand" href="./" aria-label="Pedagoguia, inici">
       <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7.5c3.6-1.4 7.2-1.2 11 1v17c-3.8-2.2-7.4-2.4-11-1z"/><path d="M27 7.5c-3.6-1.4-7.2-1.2-11 1v17c3.8-2.2 7.4-2.4 11-1z"/></svg>
-      <span>Lecturia</span>
+      <span>Pedagoguia</span>
     </a>
     <nav class="header-nav" aria-label="Principal">
       <a href="#cataleg">Catàleg</a>
@@ -55,8 +55,8 @@
 
 <main>
   <section class="intro container">
-    <h1>Guies docents basades en llibres d'educació</h1>
-    <p class="intro-text">Resums, esquemes i propostes d'aula elaborats a partir d'obres de referència, per consultar-les ràpidament quan planifiques.</p>
+    <h1>Guies pràctiques basades en la recerca per orientar decisions d'aula</h1>
+    <p class="intro-text">Síntesis fidels de llibres de referència en educació: <span class="hl hl-1">la teoria que compta</span>, <span class="hl hl-2">pautes concretes</span> i eines per <span class="hl hl-3">portar-la a l'aula</span>.</p>
     <p class="intro-meta" id="introMeta" aria-live="polite"></p>
   </section>
 
@@ -126,7 +126,7 @@
     <div class="container about-grid">
       <div>
         <h2 id="sobre-title">Sobre el projecte</h2>
-        <p>Lecturia reorganitza llibres d'educació en guies per consultar-los en el moment de planificar. El catàleg creix a poc a poc i cada guia es manté oberta a correccions.</p>
+        <p>Pedagoguia reorganitza llibres d'educació en guies per consultar-los en el moment de planificar. El catàleg creix a poc a poc i cada guia es manté oberta a correccions.</p>
       </div>
       <dl class="principles">
         <div>

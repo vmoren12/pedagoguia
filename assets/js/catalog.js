@@ -1,4 +1,4 @@
-/* Lecturia — catàleg
+/* Pedagoguia — catàleg
    Llegeix data/catalog.json i pinta el catàleg: cerca, filtres per facetes,
    ordenació, tres vistes (fitxes, graella, llista), tema de color i diàleg
    d'aportacions (GitHub Issues). L'estat es reflecteix a l'URL. */
@@ -8,7 +8,7 @@
   var DATA_URL = 'data/catalog.json';
   var NEW_DAYS = 45;
   var TAG_LIMIT = 8;
-  var KEYS = { theme: 'lecturia:theme', view: 'lecturia:view' };
+  var KEYS = { theme: 'pedagoguia:theme', view: 'pedagoguia:view' };
   var VIEWS = ['fitxes', 'graella', 'llista'];
   var STAGE_ORDER = ['Infantil', 'Primària', 'Secundària', 'Batxillerat i FP', 'Transversal'];
 
@@ -66,7 +66,7 @@
     svg.appendChild(p);
     return svg;
   }
-  var ICON_ARROW = 'M5 12h14M13 6l6 6-6 6';
+  var ICON_FLAG = 'M5 21V4M5 4h12l-2.5 4.5L17 13H5';
   var ICON_X = 'M7 7l10 10M17 7 7 17';
 
   function normalize(s) {
@@ -316,7 +316,15 @@
     return h('li.book.book-card', { style: '--i:' + i }, [
       h('a.book-cover', { href: g.path, tabindex: '-1', 'aria-hidden': 'true' }, [book3d(g, i)]),
       h('div.book-body', {}, [
-        h('p.book-meta', {}, [h('span', { text: topicLabel(g) }), badgeNew(g)]),
+        h('div.book-meta', {}, [
+          h('span', { text: topicLabel(g) }),
+          badgeNew(g),
+          h('button.report-btn', {
+            type: 'button', title: 'Notifica un error en aquesta guia',
+            'aria-label': 'Notifica un error a la guia: ' + g.title,
+            onclick: function () { openFeedback(g); }
+          }, [icon(ICON_FLAG)])
+        ]),
         h('h3.book-title', {}, [h('a', { href: g.path, text: g.title })]),
         g.subtitle ? h('p.book-subtitle', { text: g.subtitle }) : null,
         h('p.book-authors', { text: joinList(g.authors) }),
@@ -333,13 +341,6 @@
           fact('Edició', g.publisher + ', ' + g.year),
           fact('Idioma de la guia', g.language),
           fact('ISBN', formatIsbn(g.isbn), 'mono')
-        ]),
-        h('div.book-actions', {}, [
-          h('a.btn.btn-primary', { href: g.path, 'aria-label': 'Obre la guia: ' + g.title }, ['Obre la guia', icon(ICON_ARROW)]),
-          h('button.btn.btn-ghost', {
-            type: 'button', text: 'Notifica un error', 'aria-label': 'Notifica un error a la guia: ' + g.title,
-            onclick: function () { openFeedback(g); }
-          })
         ])
       ])
     ]);
@@ -373,8 +374,7 @@
         h('span.row-col.row-topic', { text: topicLabel(g) }),
         h('span.row-col.row-stage', { text: (g.stages || []).join(', ') }),
         h('span.row-col.row-year', { text: g.publisher + ' · ' + g.year }),
-        h('span.row-col.row-lang', { text: g.language }),
-        h('span.row-arrow', {}, [icon(ICON_ARROW)])
+        h('span.row-col.row-lang', { text: g.language })
       ])
     ]);
   }

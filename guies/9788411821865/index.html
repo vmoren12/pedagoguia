@@ -238,10 +238,24 @@ footer{padding:48px 0;color:var(--muted);font-size:13.5px}
   .box,.card,.tw{break-inside:avoid}
   a{color:#000;text-decoration:none}
 }
-/* ---------- Lecturia: enlace al catálogo ---------- */
-.home-link{color:inherit;text-decoration:none;font-weight:600}
-.home-link:hover{color:var(--accent)}
-.topbar .home-btn{margin-left:auto;flex:none}
+/* ---------- Pedagoguia: volver al catálogo, síntesis y avisos ---------- */
+.back-link{display:inline-flex;align-items:center;gap:6px;margin:-6px 0 12px -8px;padding:4px 9px 4px 6px;border-radius:7px;color:var(--muted);text-decoration:none;font-size:13px}
+.back-link:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.back-link svg,.ico svg,.synth-btn svg,.back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav-foot .ico{margin-left:auto;padding:5px 6px;border-color:transparent;background:transparent;color:var(--muted)}
+.nav-foot .ico svg{width:15px;height:15px}
+.nav-foot .ico:hover{color:var(--warm);border-color:var(--line-2)}
+.synth-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border:1px solid var(--ink);border-radius:999px;background:#f5f4f1;color:var(--ink);font-size:13px;line-height:1.25;text-decoration:none;white-space:nowrap;transition:background-color .15s}
+.synth-btn:hover{background:#fff;color:var(--ink)}
+[data-theme="dark"] .synth-btn{background:#22231f}
+[data-theme="dark"] .synth-btn:hover{background:#2a2b27}
+main{position:relative}
+.synth-top{position:absolute;top:22px;right:clamp(20px,5vw,64px);z-index:5}
+.topbar .btn{white-space:nowrap;flex:none}
+.topbar .t{min-width:0;flex:1}
+.topbar .back-btn{padding:6px}
+.topbar .synth-btn{margin-left:auto;flex:none}
+@media (max-width:1000px){.synth-top{display:none}}
 </style>
 </head>
 <body>
@@ -249,7 +263,8 @@ footer{padding:48px 0;color:var(--muted);font-size:13.5px}
 <div class="scrim" onclick="document.body.classList.remove('menu')"></div>
 <aside class="nav" id="nav" aria-label="Índice">
   <div class="nav-head">
-    <p class="kicker"><a class="home-link" href="../../" title="Volver al catálogo de Lecturia">Lecturia</a> · Guía docente</p>
+    <a class="back-link noprint" href="../../" aria-label="Volver al catálogo de Pedagoguia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Pedagoguia</a>
+    <p class="kicker">Guía docente</p>
     <p class="t">Aprender a enseñar a leer y a escribir</p>
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -285,16 +300,18 @@ footer{padding:48px 0;color:var(--muted);font-size:13.5px}
     <button class="btn sm" id="themeBtn" type="button" title="Cambiar tema">◐ Tema</button>
     <button class="btn sm" type="button" onclick="window.print()" title="Imprimir o guardar como PDF">⎙ Imprimir</button>
     <button class="btn sm" id="expandBtn" type="button" aria-pressed="false">+ Ejercicios</button>
-    <a class="btn sm" href="../../?avis=error&amp;isbn=9788411821865" title="Comunicar un error de contenido (se gestiona en GitHub)">Notificar un error</a>
+    <a class="btn sm ico" href="../../?avis=error&amp;isbn=9788411821865" title="Notificar un error de contenido" aria-label="Notificar un error de contenido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4.5L17 13H5"/></svg></a>
   </div>
 </aside>
 
 <main id="main">
 <div class="topbar noprint">
+  <a class="btn sm back-btn" href="../../" aria-label="Volver al catálogo de Pedagoguia" title="Volver al catálogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
   <button class="btn sm" type="button" onclick="document.body.classList.toggle('menu')" aria-label="Abrir índice">☰ Índice</button>
   <span class="t">Aprender a enseñar a leer y a escribir</span>
-  <a class="btn sm home-btn" href="../../" title="Volver al catálogo de Lecturia">Lecturia</a>
+  <a class="synth-btn" href="sintesi.html" title="Síntesis imprimible en 2 páginas A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesis</a>
 </div>
+<a class="synth-btn synth-top noprint" href="sintesi.html" title="Síntesis imprimible en 2 páginas A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesis</a>
 <div class="wrap">
 
 <header class="hero" id="top">

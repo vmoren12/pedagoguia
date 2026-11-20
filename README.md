@@ -1,6 +1,6 @@
-# Lecturia
+# Pedagoguia
 
-Repositori obert de **guies docents basades en llibres de l'àmbit educatiu**. Cada guia sintetitza un llibre de referència, l'organitza per consultar-lo en el moment de planificar i l'acompanya de propostes i eines per a l'aula.
+Repositori obert de **guies pràctiques basades en la recerca per orientar decisions d'aula**, elaborades a partir de llibres de referència de l'àmbit educatiu. Cada guia sintetitza un llibre de referència, l'organitza per consultar-lo en el moment de planificar i l'acompanya de propostes i eines per a l'aula.
 
 **Catàleg:** https://vmoren12.github.io/lecturia/
 
@@ -8,7 +8,7 @@ Repositori obert de **guies docents basades en llibres de l'àmbit educatiu**. C
 
 | Llibre | Autoria | Edició | Guia |
 | --- | --- | --- | --- |
-| *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Obre](https://vmoren12.github.io/lecturia/guies/9788411821865/) |
+| *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Guia](https://vmoren12.github.io/lecturia/guies/9788411821865/) · [Síntesi A4](https://vmoren12.github.io/lecturia/guies/9788411821865/sintesi.html) |
 
 ## Aportacions
 
@@ -24,10 +24,10 @@ Qualsevol persona pot contribuir des del botó d'avís del web o directament a [
 index.html                  Pàgina d'inici del catàleg
 404.html                    Pàgina d'error
 data/catalog.json           Font única de dades del catàleg
-assets/css/lecturia.css     Estils (tokens, tema clar i fosc, responsive)
+assets/css/pedagoguia.css   Estils (tokens, tema clar i fosc, responsive)
 assets/js/catalog.js        Vistes, cerca, filtres, ordenació i diàleg d'aportacions
 assets/img/                 Icona del lloc
-guies/<ISBN>/                Cada guia (index.html autocontingut + cover.jpg)
+guies/<ISBN>/               Cada guia: index.html, sintesi.html (A4) i cover.jpg
 .github/ISSUE_TEMPLATE/     Formularis d'aportació
 docs/                       Documentació de manteniment
 ```

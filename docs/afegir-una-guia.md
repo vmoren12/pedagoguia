@@ -15,11 +15,16 @@ Requisits mínims de la pàgina:
 - Autocontinguda: CSS i JS en línia, sense dependències externes.
 - `lang` correcte a `<html>` segons l'idioma de la guia.
 - Icona: `<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">`.
-- Enllaç de tornada al catàleg: `href="../../"`.
+- Fletxa d'enrere al catàleg a la cantonada superior esquerra (menú lateral i barra mòbil): `href="../../"`.
 - Enllaç per notificar errors, que obre el diàleg d'avís del catàleg amb la guia ja identificada:
-  `href="../../?avis=error&amp;isbn=<ISBN>"`.
+  `href="../../?avis=error&amp;isbn=<ISBN>"`, com a icona petita i discreta al peu del menú lateral.
+- Botó «Síntesis» a la part superior dreta que obre `sintesi.html`.
 
-Pots prendre com a referència `guies/9788411821865/index.html` (classes `home-link` i `home-btn`).
+Pots prendre com a referència `guies/9788411821865/index.html` (classes `back-link`, `back-btn`, `synth-btn` i `ico`).
+
+### Síntesi imprimible
+
+Cada guia té una `guies/<ISBN>/sintesi.html`: un resum visual i esquemàtic en **dues pàgines A4**, fidel al llibre, amb la teoria més rellevant (pàgina 1) i les claus per orientar la pràctica d'aula (pàgina 2). Parteix de `guies/9788411821865/sintesi.html` i comprova que, en imprimir-la o desar-la en PDF, ocupa exactament dues pàgines.
 
 ## 2. Entrada al catàleg
 

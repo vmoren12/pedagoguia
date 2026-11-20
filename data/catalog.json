@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Lecturia",
+    "name": "Pedagoguia",
     "repo": "https://github.com/vmoren12/lecturia",
     "issueTemplates": {
       "content": "error-contingut.yml",

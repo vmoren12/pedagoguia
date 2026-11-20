@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Lecturia — full d'estil del catàleg
+   Pedagoguia — full d'estil del catàleg
    1. Tokens   2. Base   3. Capçalera   4. Introducció   5. Barra i filtres
    6. Resultats i vistes   7. Llibre 3D   8. Sobre   9. Peu   10. Diàleg
    11. Responsive
@@ -141,13 +141,13 @@ svg.fill { fill: currentColor; stroke: none; }
   transition: border-color .2s var(--ease);
 }
 .site-header.is-scrolled { border-bottom-color: var(--line); }
-.header-inner { display: flex; align-items: center; gap: 20px; height: var(--header-h); }
-.brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-size: 1.2rem; letter-spacing: -.01em; }
+.header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; height: var(--header-h); }
+.brand { grid-column: 2; grid-row: 1; justify-self: center; display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-size: 1.2rem; letter-spacing: -.01em; }
 .brand-mark { width: 24px; height: 24px; stroke: var(--accent); stroke-width: 1.8; }
-.header-nav { display: flex; gap: 2px; margin-left: 8px; }
+.header-nav { grid-column: 1; grid-row: 1; justify-self: start; display: flex; gap: 2px; margin-left: -10px; }
 .header-nav a { padding: 6px 10px; border-radius: var(--radius-sm); font-size: .875rem; color: var(--muted); transition: color .15s, background-color .15s; }
 .header-nav a:hover { color: var(--ink); background: var(--sunken); }
-.header-actions { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+.header-actions { grid-column: 3; grid-row: 1; justify-self: end; display: flex; align-items: center; gap: 2px; margin-right: -8px; }
 
 .i-moon { display: none; }
 :root[data-theme="dark"] .i-sun { display: none; }
@@ -158,10 +158,27 @@ svg.fill { fill: currentColor; stroke: none; }
 }
 
 /* 4. Introducció -------------------------------------------------------- */
-.intro { padding-top: clamp(24px, 4vw, 44px); padding-bottom: clamp(18px, 2.5vw, 26px); }
-.intro h1 { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; letter-spacing: -.015em; }
-.intro-text { margin-top: 8px; max-width: 42rem; color: var(--ink-2); font-size: 1.02rem; }
+.intro { text-align: center; padding-top: clamp(28px, 4.5vw, 52px); padding-bottom: clamp(20px, 3vw, 30px); }
+.intro h1 { max-width: 28ch; margin-inline: auto; font-family: var(--serif); font-size: clamp(1.6rem, 3.2vw, 2.35rem); line-height: 1.15; letter-spacing: -.015em; }
+.intro-text { margin: 12px auto 0; max-width: 40rem; color: var(--ink-2); font-size: 1.05rem; line-height: 1.7; }
 .intro-meta { margin-top: 10px; font-size: .8125rem; color: var(--muted); min-height: 1.3em; }
+
+/* Subratllats de retolador, com fets a mà, que es dibuixen en carregar */
+.hl { position: relative; z-index: 0; white-space: nowrap; color: var(--ink); }
+.hl::before {
+  content: ""; position: absolute; z-index: -1; left: -.22em; right: -.28em; bottom: .04em; height: .64em;
+  background: linear-gradient(100deg, transparent 0, var(--hl) 2.5%, var(--hl) 94%, transparent 100%);
+  border-radius: .7em .25em .8em .2em / .4em .7em .3em .6em;
+  transform: rotate(var(--rot, -1deg)) skewX(-12deg);
+  clip-path: inset(0 100% 0 0);
+  animation: hl-draw .75s cubic-bezier(.6, .1, .3, 1) forwards; animation-delay: var(--delay, .3s);
+}
+.hl-1 { --hl: #fff27a; --rot: -1.3deg; --delay: .35s; }
+.hl-2 { --hl: #ffc4de; --rot: .9deg; --delay: .8s; }
+.hl-3 { --hl: #b6f2cc; --rot: -.7deg; --delay: 1.25s; }
+@keyframes hl-draw { to { clip-path: inset(0 0 0 0); } }
+:root[data-theme="dark"] .hl::before { opacity: .34; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hl::before { opacity: .34; } }
 
 /* 5. Barra i filtres ---------------------------------------------------- */
 .catalog { padding-bottom: clamp(36px, 5vw, 56px); }
@@ -207,7 +224,7 @@ svg.fill { fill: currentColor; stroke: none; }
 
 .catalog-layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: clamp(24px, 3.5vw, 44px); margin-top: 20px; }
 
-.facets { position: sticky; top: calc(var(--header-h) + 16px); align-self: start; display: grid; gap: 22px; max-height: calc(100dvh - var(--header-h) - 32px); overflow: auto; padding-right: 4px; scrollbar-width: thin; }
+.facets { position: sticky; top: calc(var(--header-h) + 16px); align-self: start; display: grid; gap: 22px; max-height: calc(100dvh - var(--header-h) - 32px); overflow-x: hidden; overflow-y: auto; padding: 0 6px 0 8px; margin-left: -8px; scrollbar-width: thin; }
 .facet { margin: 0; padding: 0; border: 0; min-width: 0; }
 .facet legend { padding: 0; margin-bottom: 8px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .facet-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
@@ -273,6 +290,13 @@ input:disabled + .check:hover { background: transparent; }
 .book-cover { display: block; align-self: start; padding: 4px 0 10px; }
 .book-body { display: grid; align-content: start; gap: 6px; min-width: 0; }
 .book-meta { display: flex; align-items: center; gap: 8px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); min-height: 20px; }
+.report-btn {
+  display: inline-grid; place-items: center; width: 30px; height: 30px; margin: -6px -6px -6px auto;
+  border: 0; border-radius: 7px; background: transparent; color: var(--muted); cursor: pointer; opacity: .65;
+  transition: opacity .15s, color .15s, background-color .15s;
+}
+.report-btn svg { width: 15px; height: 15px; }
+.report-btn:hover, .report-btn:focus-visible { opacity: 1; color: var(--warm); background: var(--warm-soft); }
 .book-title { font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.75rem); line-height: 1.15; letter-spacing: -.01em; }
 .book-title a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .3s var(--ease); }
 .book-title a:hover { background-size: 100% 1px; }
@@ -293,7 +317,6 @@ input:disabled + .check:hover { background: transparent; }
 .book-facts div { display: grid; gap: 1px; min-width: 0; }
 .book-facts dt { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .book-facts dd { font-size: .875rem; color: var(--ink); }
-.book-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 
 /* Vista: graella */
 .books[data-view="graella"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px 24px; padding-top: 24px; }
@@ -306,7 +329,7 @@ input:disabled + .check:hover { background: transparent; }
 .tile-authors { font-size: .8rem; color: var(--muted); }
 
 /* Vista: llista */
-.books[data-view="llista"] { --cols: 36px minmax(0, 2.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, .9fr) minmax(0, .7fr) 18px; }
+.books[data-view="llista"] { --cols: 36px minmax(0, 2.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, .9fr) minmax(0, .7fr); }
 .row-head, .row-link { display: grid; grid-template-columns: var(--cols); align-items: center; gap: 16px; }
 .row-head { padding: 10px 8px 8px; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
 .row-head span:first-child { grid-column: span 2; }
@@ -321,8 +344,6 @@ input:disabled + .check:hover { background: transparent; }
 .row-title .badge { margin-left: 8px; }
 .row-authors { font-size: .8rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .row-col { font-size: .85rem; color: var(--ink-2); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.row-arrow svg { width: 16px; height: 16px; color: var(--muted); transition: transform .2s var(--ease), color .15s; }
-.row-link:hover .row-arrow svg { transform: translateX(3px); color: var(--accent); }
 
 /* 7. Llibre 3D ---------------------------------------------------------- */
 /* Coberta, llom i tall de pàgines amb perspectiva. Entra girant i es gira en passar-hi el ratolí. */
@@ -424,7 +445,7 @@ input:disabled + .check:hover { background: transparent; }
 
 /* 11. Responsive -------------------------------------------------------- */
 @media (max-width: 1080px) {
-  .books[data-view="llista"] { --cols: 36px minmax(0, 2.6fr) minmax(0, 1fr) minmax(0, 1fr) 18px; }
+  .books[data-view="llista"] { --cols: 36px minmax(0, 2.6fr) minmax(0, 1fr) minmax(0, 1fr); }
   .row-head span:nth-child(4), .row-head span:nth-child(5), .row-year, .row-lang { display: none; }
 }
 
@@ -432,7 +453,7 @@ input:disabled + .check:hover { background: transparent; }
   .filters-toggle { display: inline-flex; }
   .catalog-layout { grid-template-columns: 1fr; margin-top: 12px; gap: 16px; }
   .facets {
-    position: static; max-height: none; overflow: visible; display: none;
+    position: static; max-height: none; overflow: visible; display: none; margin-left: 0;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px 24px;
     padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
   }
@@ -449,11 +470,10 @@ input:disabled + .check:hover { background: transparent; }
   .book-card .book-body { display: contents; }
   .book-card .book-cover { grid-row: 1 / span 5; padding-bottom: 12px; }
   .book-card .book3d { --d: 8px; }
-  .book-summary, .book-card .tag-list, .book-facts, .book-actions { grid-column: 1 / -1; }
+  .book-summary, .book-card .tag-list, .book-facts { grid-column: 1 / -1; }
   .book-facts { gap: 8px 24px; }
-  .book-actions .btn { flex: 1 1 auto; }
   .books[data-view="graella"] { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 28px 18px; }
-  .books[data-view="llista"] { --cols: 36px minmax(0, 1fr) 18px; }
+  .books[data-view="llista"] { --cols: 36px minmax(0, 1fr); }
   .row-head { display: none; }
   .row-col { display: none; }
   .principles { grid-template-columns: 1fr; gap: 14px; }
@@ -464,7 +484,7 @@ input:disabled + .check:hover { background: transparent; }
 }
 
 @media print {
-  .site-header, .toolbar, .facets, .results-controls, .book-actions, .footer-nav, .dialog, .active-filters { display: none !important; }
+  .site-header, .toolbar, .facets, .results-controls, .report-btn, .footer-nav, .dialog, .active-filters { display: none !important; }
   .catalog-layout { grid-template-columns: 1fr; }
   .book { break-inside: avoid; }
 }
