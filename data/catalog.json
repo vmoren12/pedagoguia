@@ -71,6 +71,28 @@
       "publisherUrl": "https://science-teaching.org/es/libros/edumitos-ideas-sobre-el-aprendizaje-sin-respaldo-cientifico",
       "added": "2026-11-21",
       "updated": "2026-11-21"
+    },
+    {
+      "isbn": "9788446056805",
+      "isbnDisplay": "978-84-460-5680-5",
+      "path": "guies/9788446056805/",
+      "cover": "guies/9788446056805/cover.jpg",
+      "color": "#1f4e73",
+      "title": "Cómo se aprende",
+      "subtitle": "Aportaciones fundamentales en psicología de la educación y su significado en la práctica",
+      "authors": ["Paul A. Kirschner", "Carl Hendrick"],
+      "publisher": "Akal",
+      "collection": "Educación",
+      "year": 2025,
+      "topics": ["Ciència cognitiva", "Avaluació"],
+      "stages": ["Primària", "Secundària", "Batxillerat i FP"],
+      "language": "Català",
+      "summary": "Les obres clau de la psicologia de l'educació i què signifiquen a l'aula: memòria de treball i esquemes, novells i experts, càrrega cognitiva, motivació i autoeficàcia, bastida, instrucció directa, avaluació formativa i feedback, aprenentatge en context i els mites i mutacions letals que cal evitar.",
+      "highlights": ["35 capítols", "33 obres de referència", "Eines interactives", "Síntesi A4"],
+      "tags": ["càrrega cognitiva", "instrucció directa", "feedback", "mutacions letals"],
+      "publisherUrl": "https://www.akal.com/libro/como-se-aprende_54437/",
+      "added": "2026-11-22",
+      "updated": "2026-11-22"
     }
   ]
 }

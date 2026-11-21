@@ -84,6 +84,10 @@
     var s = String(isbn).replace(/\D/g, '');
     return s.length === 13 ? [s.slice(0, 3), s.slice(3, 5), s.slice(5, 10), s.slice(10, 12), s.slice(12)].join('-') : isbn;
   }
+  /* El guionat real depèn de la llargada del codi d'editorial: si la fitxa porta isbnDisplay, mana aquest. */
+  function isbnLabel(g) {
+    return g.isbnDisplay || formatIsbn(g.isbn);
+  }
   function formatMonth(iso) {
     try { return new Intl.DateTimeFormat('ca', { month: 'long', year: 'numeric' }).format(new Date(iso + 'T00:00:00')); }
     catch (e) { return iso; }
@@ -166,7 +170,7 @@
     return normalize([
       g.title, g.subtitle, (g.authors || []).join(' '), g.publisher, g.collection, g.year,
       (g.topics || []).join(' '), (g.stages || []).join(' '), (g.tags || []).join(' '),
-      g.language, g.summary, g.isbn, formatIsbn(g.isbn)
+      g.language, g.summary, g.isbn, isbnLabel(g)
     ].join(' '));
   }
 
@@ -352,7 +356,7 @@
           fact('Etapa', joinList(g.stages || [])),
           fact('Edició', g.publisher + ', ' + g.year),
           fact('Idioma de la guia', g.language),
-          fact('ISBN', formatIsbn(g.isbn), 'mono')
+          fact('ISBN', isbnLabel(g), 'mono')
         ])
       ])
     ]);

@@ -84,6 +84,7 @@ Notes:
   - **Etiquetes** (`tags`): com a màxim 4 paraules clau concretes, en minúscula. També es poden clicar a la fitxa per filtrar.
   - **Idioma de la guia** (`language`).
 - El cercador busca a títol, subtítol, autoria, editorial, temàtiques, etapes, etiquetes, resum i ISBN.
+- `isbnDisplay` (opcional): ISBN amb el guionat correcte, si no té un codi d'editorial de cinc xifres (p. ex. `978-84-460-5680-5`). Si no hi és, el catàleg el guiona com a `978-84-XXXXX-XX-X`.
 - `publisherUrl` (opcional): fitxa oficial del llibre a la web de l'editorial. Al catàleg es mostra com una icona per consultar-lo o comprar-ne un exemplar.
 - Les guies afegides fa menys de 45 dies mostren l'etiqueta «Nova».
 - L'ordre per defecte és per data d'incorporació (`added`), de més recent a més antiga; també es pot ordenar per títol o per any.
