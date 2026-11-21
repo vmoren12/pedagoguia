@@ -355,7 +355,7 @@
       h('a.tile-link', { href: g.path }, [
         book3d(g, i),
         h('span.tile-text', {}, [
-          h('span.tile-meta', {}, [topicLabel(g), badgeNew(g)]),
+          h('span.tile-meta', {}, [h('span.tile-topic', { text: topicLabel(g) }), badgeNew(g)]),
           h('span.tile-title', { text: g.title }),
           h('span.tile-authors', { text: shortAuthors(g.authors) + ' · ' + g.year })
         ])

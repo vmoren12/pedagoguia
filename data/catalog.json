@@ -28,6 +28,26 @@
       "tags": ["consciència fonològica", "descodificació", "mètodes de lectura", "comprensió lectora", "evidència científica", "grafomotricitat", "diversitat"],
       "added": "2026-11-20",
       "updated": "2026-11-20"
+    },
+    {
+      "isbn": "9788418058059",
+      "path": "guies/9788418058059/",
+      "cover": "guies/9788418058059/cover.jpg",
+      "color": "#c2541b",
+      "title": "¿Cómo aprendemos?",
+      "subtitle": "Una aproximación científica al aprendizaje y la enseñanza",
+      "authors": ["Héctor Ruiz Martín"],
+      "publisher": "Graó",
+      "collection": "Educación basada en evidencias",
+      "year": 2020,
+      "topics": ["Ciència cognitiva", "Avaluació"],
+      "stages": ["Primària", "Secundària", "Batxillerat i FP"],
+      "language": "Castellà",
+      "summary": "Què ha descobert la ciència cognitiva sobre com aprenem i què implica per ensenyar: memòria i pràctica de l'evocació, càrrega cognitiva, transferència, motivació, creences, autoregulació, feedback i avaluació, amb un annex sobre neuromites.",
+      "highlights": ["19 capítols", "Secció «Para aplicar»", "Eines interactives", "Síntesi A4"],
+      "tags": ["memòria", "pràctica de l'evocació", "pràctica espaiada", "càrrega cognitiva", "transferència", "motivació", "metacognició", "feedback", "avaluació formativa", "neuromites", "evidència científica"],
+      "added": "2026-11-21",
+      "updated": "2026-11-21"
     }
   ]
 }

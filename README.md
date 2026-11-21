@@ -9,6 +9,7 @@ Repositori obert de **guies pràctiques basades en la recerca per orientar decis
 | Llibre | Autoria | Edició | Guia |
 | --- | --- | --- | --- |
 | *Aprender a enseñar a leer y a escribir* | Juan C. Ripoll, Nadina Gómez Merino, Vicenta Ávila Clemente | SM, 2024 · ISBN 9788411821865 | [Guia](https://vmoren12.github.io/pedagoguia/guies/9788411821865/) · [Síntesi A4](https://vmoren12.github.io/pedagoguia/guies/9788411821865/sintesi.html) |
+| *¿Cómo aprendemos? Una aproximación científica al aprendizaje y la enseñanza* | Héctor Ruiz Martín | Graó, 2020 · ISBN 9788418058059 | [Guia](https://vmoren12.github.io/pedagoguia/guies/9788418058059/) · [Síntesi A4](https://vmoren12.github.io/pedagoguia/guies/9788418058059/sintesi.html) |
 
 ## Notes personals
 
