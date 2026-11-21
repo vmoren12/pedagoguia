@@ -54,6 +54,7 @@
     {
       "isbn": "9788412714784",
       "path": "guies/9788412714784/",
+      "cover": "guies/9788412714784/cover.jpg",
       "color": "#2d4a6b",
       "title": "«Edumitos»",
       "subtitle": "Ideas sobre el aprendizaje sin respaldo científico",
@@ -67,6 +68,7 @@
       "summary": "44 idees molt esteses sobre com aprenem que no se sostenen davant la recerca (estils d'aprenentatge, piràmides, emocions, lectura, neuromites, intel·ligències múltiples, tecnologia) i què sabem en lloc seu per decidir millor a l'aula.",
       "highlights": ["44 edumites", "Eines interactives", "Pla per al claustre", "Síntesi A4"],
       "tags": ["neuromites", "estils d'aprenentatge", "tècniques d'estudi", "pseudociència"],
+      "publisherUrl": "https://science-teaching.org/es/libros/edumitos-ideas-sobre-el-aprendizaje-sin-respaldo-cientifico",
       "added": "2026-11-21",
       "updated": "2026-11-21"
     }
