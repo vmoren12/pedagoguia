@@ -68,6 +68,7 @@
   }
   var ICON_FLAG = 'M5 21V4M5 4h12l-2.5 4.5L17 13H5';
   var ICON_X = 'M7 7l10 10M17 7 7 17';
+  var ICON_SHOP = 'M5.5 8.5h13l-1 11.5h-11zM9 8.5V7a3 3 0 0 1 6 0v1.5';
 
   function normalize(s) {
     return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -309,6 +310,16 @@
   }
 
   /* ---------- Vistes ---------- */
+  /* Fitxa oficial del llibre a l'editorial, per consultar-lo o comprar-ne un exemplar */
+  function shopLink(g, cls, placeholder) {
+    if (!g.publisherUrl) return placeholder ? h('span.shop-btn' + (cls || ''), { 'aria-hidden': 'true' }) : null;
+    return h('a.shop-btn' + (cls || ''), {
+      href: g.publisherUrl, target: '_blank', rel: 'noopener',
+      title: 'Fitxa del llibre a l’editorial (' + g.publisher + ')',
+      'aria-label': 'Fitxa de «' + g.title + '» a l’editorial ' + g.publisher + ' (s’obre en una pestanya nova)'
+    }, [icon(ICON_SHOP)]);
+  }
+
   function badgeNew(g) { return isNew(g.added) ? h('span.badge', { text: 'Nova' }) : null; }
   function topicLabel(g) { return (g.topics || [])[0] || ''; }
 
@@ -319,6 +330,7 @@
         h('div.book-meta', {}, [
           h('span', { text: topicLabel(g) }),
           badgeNew(g),
+          shopLink(g),
           h('button.report-btn', {
             type: 'button', title: 'Notifica un error en aquesta guia',
             'aria-label': 'Notifica un error a la guia: ' + g.title,
@@ -359,7 +371,8 @@
           h('span.tile-title', { text: g.title }),
           h('span.tile-authors', { text: shortAuthors(g.authors) + ' · ' + g.year })
         ])
-      ])
+      ]),
+      shopLink(g, '.tile-shop')
     ]);
   }
 
@@ -375,7 +388,8 @@
         h('span.row-col.row-stage', { text: (g.stages || []).join(', ') }),
         h('span.row-col.row-year', { text: g.publisher + ' · ' + g.year }),
         h('span.row-col.row-lang', { text: g.language })
-      ])
+      ]),
+      shopLink(g, '', true)
     ]);
   }
 

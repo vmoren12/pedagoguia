@@ -21,6 +21,7 @@ Requisits mínims de la pàgina:
 - Botó «Síntesis» a la part superior dreta que obre `sintesi.html`.
 
 - Peu del menú lateral en una sola filera: tema i imprimir com a icones, desplegables, notes i avís.
+- Tema compartit amb el catàleg: llegeix i desa `localStorage['pedagoguia:theme']` (`light` o `dark`) i l'aplica amb un petit script al `<head>`, abans del primer pintat. Parteix del codi d'una guia existent.
 
 Pots prendre com a referència `guies/9788411821865/index.html` (classes `back-link`, `back-btn`, `synth-btn`, `icon` i `ico`).
 
@@ -68,6 +69,7 @@ Afegeix un objecte a `guides` dins de `data/catalog.json`:
   "summary": "Dues o tres línies en català sobre què aporta la guia.",
   "highlights": ["12 capítols", "Activitats d'aula"],
   "tags": ["paraules", "clau", "del llibre"],
+  "publisherUrl": "https://editorial.example/fitxa-del-llibre",
   "added": "AAAA-MM-DD",
   "updated": "AAAA-MM-DD"
 }
@@ -79,9 +81,10 @@ Notes:
 - Els filtres del catàleg es generen sols a partir de les dades:
   - **Etapa** (`stages`): fes servir sempre els mateixos noms: Infantil, Primària, Secundària, Batxillerat i FP, Transversal.
   - **Temàtica** (`topics`): la primera es mostra com a categoria principal de la fitxa. Reutilitza els noms existents abans de crear-ne de nous (p. ex. Lectoescriptura, Matemàtiques, Avaluació, Ciència cognitiva, Gestió d'aula, Inclusió).
-  - **Etiquetes** (`tags`): paraules clau concretes, en minúscula. També es poden clicar a la fitxa per filtrar.
+  - **Etiquetes** (`tags`): com a màxim 4 paraules clau concretes, en minúscula. També es poden clicar a la fitxa per filtrar.
   - **Idioma de la guia** (`language`).
 - El cercador busca a títol, subtítol, autoria, editorial, temàtiques, etapes, etiquetes, resum i ISBN.
+- `publisherUrl` (opcional): fitxa oficial del llibre a la web de l'editorial. Al catàleg es mostra com una icona per consultar-lo o comprar-ne un exemplar.
 - Les guies afegides fa menys de 45 dies mostren l'etiqueta «Nova».
 - L'ordre per defecte és per data d'incorporació (`added`), de més recent a més antiga; també es pot ordenar per títol o per any.
 - Vistes: fitxes (detall), graella (portades) i llista (taula compacta). Amb més de 6 guies, la vista per defecte passa a ser la graella; la tria de cada usuari es recorda.

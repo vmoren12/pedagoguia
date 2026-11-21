@@ -159,7 +159,7 @@ svg.fill { fill: currentColor; stroke: none; }
 
 /* 4. Introducció -------------------------------------------------------- */
 .intro { text-align: center; padding-top: clamp(28px, 4.5vw, 52px); padding-bottom: clamp(20px, 3vw, 30px); }
-.intro h1 { font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 500; line-height: 1.04; letter-spacing: -.025em; }
+.intro h1 { font-family: var(--serif); font-size: clamp(2.7rem, 7vw, 4.75rem); font-weight: 500; line-height: 1.04; letter-spacing: -.025em; }
 .intro-text { margin: 12px auto 0; max-width: 40rem; color: var(--ink-2); font-size: 1.05rem; line-height: 1.7; }
 .intro-meta { margin-top: 10px; font-size: .8125rem; color: var(--muted); min-height: 1.3em; }
 
@@ -297,6 +297,17 @@ input:disabled + .check:hover { background: transparent; }
 }
 .report-btn svg { width: 15px; height: 15px; }
 .report-btn:hover, .report-btn:focus-visible { opacity: 1; color: var(--warm); background: var(--warm-soft); }
+/* Enllaç a la fitxa de l'editorial */
+.shop-btn {
+  display: inline-grid; place-items: center; flex: none; width: 30px; height: 30px;
+  border-radius: 7px; color: var(--muted); opacity: .65;
+  transition: opacity .15s, color .15s, background-color .15s;
+}
+.shop-btn svg { width: 16px; height: 16px; }
+a.shop-btn:hover, a.shop-btn:focus-visible { opacity: 1; color: var(--accent); background: var(--accent-soft); }
+.book-meta .shop-btn { margin: -6px 0 -6px auto; }
+.book-meta .shop-btn + .report-btn { margin-left: 0; }
+
 .book-title { font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.75rem); line-height: 1.15; letter-spacing: -.01em; }
 .book-title a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .3s var(--ease); }
 .book-title a:hover { background-size: 100% 1px; }
@@ -320,7 +331,18 @@ input:disabled + .check:hover { background: transparent; }
 
 /* Vista: graella */
 .books[data-view="graella"] { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px 24px; padding-top: 24px; }
+.book-tile { position: relative; }
 .tile-link { display: grid; gap: 14px; }
+.tile-shop {
+  position: absolute; top: 6px; right: 6px; z-index: 2; opacity: .92;
+  color: var(--ink); background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 0 1px 4px var(--book-shadow);
+}
+a.tile-shop:hover, a.tile-shop:focus-visible { opacity: 1; color: var(--accent); background: var(--surface); }
+@media (hover: hover) {
+  .tile-shop { opacity: 0; }
+  .book-tile:hover .tile-shop, .tile-shop:focus-visible { opacity: 1; }
+}
 .tile-text { display: grid; gap: 3px; }
 .tile-meta { display: flex; align-items: center; gap: 6px; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); height: 18px; }
 .tile-meta .badge { flex: none; padding: 3px 6px; font-size: .6rem; }
@@ -334,6 +356,9 @@ input:disabled + .check:hover { background: transparent; }
 .row-head, .row-link { display: grid; grid-template-columns: var(--cols); align-items: center; gap: 16px; }
 .row-head { padding: 10px 8px 8px; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
 .row-head span:first-child { grid-column: span 2; }
+.book-row { display: flex; align-items: center; gap: 4px; }
+.book-row .row-link { flex: 1; min-width: 0; }
+.books[data-view="llista"] .row-head { margin-right: 34px; }
 .row-link { padding: 10px 8px; border-bottom: 1px solid var(--line); border-radius: 6px; transition: background-color .12s; }
 .row-link:hover { background: var(--sunken); }
 .row-thumb { display: block; width: 36px; aspect-ratio: 385 / 588; border-radius: 2px; overflow: hidden; box-shadow: 0 1px 3px var(--book-shadow); }
@@ -485,7 +510,7 @@ input:disabled + .check:hover { background: transparent; }
 }
 
 @media print {
-  .site-header, .toolbar, .facets, .results-controls, .report-btn, .footer-nav, .dialog, .active-filters { display: none !important; }
+  .site-header, .toolbar, .facets, .results-controls, .report-btn, .shop-btn, .footer-nav, .dialog, .active-filters { display: none !important; }
   .catalog-layout { grid-template-columns: 1fr; }
   .book { break-inside: avoid; }
 }

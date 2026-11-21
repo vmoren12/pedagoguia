@@ -9,6 +9,10 @@
 <meta name="pg-guide-title" content="¿Cómo aprendemos?">
 <link rel="stylesheet" href="../../assets/css/notes.css">
 <script src="../../assets/js/notes.js" defer></script>
+<script>
+/* Tema compartit amb el catàleg (pedagoguia:theme), abans del primer pintat */
+(function(){try{var t=localStorage.getItem('pedagoguia:theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();
+</script>
 <meta name="description" content="Guía de estudio y de aula basada en el libro «¿Cómo aprendemos? Una aproximación científica al aprendizaje y la enseñanza» (Héctor Ruiz Martín, Graó, 2020).">
 <style>
 :root{
@@ -1525,10 +1529,12 @@ function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'
 
 /* ---------- theme ---------- */
 var root=document.documentElement;
-var th=store.get('theme',null);
+var TH_KEY='pedagoguia:theme';
+var th=null;try{th=localStorage.getItem(TH_KEY)}catch(e){}
+if(th!=='light'&&th!=='dark')th=null;
 if(!th){th=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
 root.setAttribute('data-theme',th);
-$('#themeBtn').addEventListener('click',function(){th=th==='dark'?'light':'dark';root.setAttribute('data-theme',th);store.set('theme',th)});
+$('#themeBtn').addEventListener('click',function(){th=th==='dark'?'light':'dark';root.setAttribute('data-theme',th);try{localStorage.setItem(TH_KEY,th)}catch(e){}});
 
 /* ---------- menu / progress / active toc ---------- */
 $$('#toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('menu')})});
