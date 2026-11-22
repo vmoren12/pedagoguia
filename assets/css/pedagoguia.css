@@ -149,22 +149,26 @@ svg.fill { fill: currentColor; stroke: none; }
 .header-nav a:hover { color: var(--ink); background: var(--sunken); }
 .header-actions { display: flex; align-items: center; gap: 2px; margin-left: auto; margin-right: -8px; }
 
-/* Selector d'idioma (CA · ES) */
-.lang-switch { display: inline-flex; margin-right: 6px; padding: 2px; border: 1px solid var(--line-2); border-radius: var(--radius-sm); background: var(--surface); }
-.lang-switch button {
-  min-width: 30px; height: 26px; padding: 0 6px; border: 0; border-radius: calc(var(--radius-sm) - 2px); background: transparent; cursor: pointer;
-  font: 600 .7rem/1 var(--sans); letter-spacing: .06em; color: var(--muted); transition: color .15s, background-color .15s;
+/* Ajustos: tema i idioma */
+.settings { position: relative; }
+.settings .icon-btn[aria-expanded="true"] { background: var(--sunken); color: var(--ink); }
+.settings-panel {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 60; width: 264px; padding: 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg);
 }
-.lang-switch button:hover { color: var(--ink); }
-.lang-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-ink); }
-
-.i-moon { display: none; }
-:root[data-theme="dark"] .i-sun { display: none; }
-:root[data-theme="dark"] .i-moon { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .i-sun { display: none; }
-  :root:not([data-theme="light"]) .i-moon { display: block; }
+.settings-title { margin: 0 0 12px; font: 600 .72rem/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.settings-row + .settings-row { margin-top: 12px; }
+.settings-label { display: block; margin-bottom: 6px; font-size: .82rem; color: var(--ink-2); }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px; border: 1px solid var(--line-2); border-radius: var(--radius-sm); background: var(--sunken); }
+.seg button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 8px;
+  border: 0; border-radius: calc(var(--radius-sm) - 2px); background: transparent; cursor: pointer;
+  font: 500 .84rem/1 var(--sans); color: var(--muted); transition: color .15s, background-color .15s;
 }
+.seg button svg { width: 15px; height: 15px; }
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--accent-ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+@media (max-width: 640px) { .settings-panel { right: -4px; width: min(264px, calc(100vw - 24px)); } }
 
 /* 4. Introducció -------------------------------------------------------- */
 .intro { text-align: center; padding-top: clamp(28px, 4.5vw, 52px); padding-bottom: clamp(20px, 3vw, 30px); }

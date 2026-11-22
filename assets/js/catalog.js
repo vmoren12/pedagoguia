@@ -66,7 +66,10 @@
     home: 'Pedagoguia, inicio',
     notes: 'Mis notas y subrayados',
     feedback: 'Notificar un error o hacer una sugerencia',
-    theme: 'Cambiar el tema de color',
+    settings: 'Ajustes',
+    themeLabel: 'Tema',
+    themeLight: 'Claro',
+    themeDark: 'Oscuro',
     lang: 'Idioma',
     github: 'Repositorio en GitHub (se abre en una pestaña nueva)',
     githubTitle: 'Repositorio en GitHub',
@@ -280,12 +283,48 @@
     if (set) return set;
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+  function syncTheme() {
+    var cur = currentTheme();
+    $$('[data-theme-set]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-theme-set') === cur));
+    });
+  }
   function initTheme() {
-    $('#themeToggle').addEventListener('click', function () {
-      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    $('#themeSwitch').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-theme-set]');
+      if (!b) return;
+      var next = b.getAttribute('data-theme-set');
       document.documentElement.setAttribute('data-theme', next);
       store(KEYS.theme, next);
+      syncTheme();
     });
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq.addEventListener) mq.addEventListener('change', syncTheme);
+    }
+    syncTheme();
+  }
+
+  /* ---------- Ajustos (tema i idioma) ---------- */
+  function initSettings() {
+    var wrap = $('#settings'), btn = $('#settingsBtn'), panel = $('#settingsPanel');
+    function isOpen() { return !panel.hidden; }
+    function open() {
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      var first = $('[aria-pressed="true"]', panel) || $('button', panel);
+      if (first) first.focus();
+    }
+    function close(focusBtn) {
+      if (!isOpen()) return;
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      if (focusBtn) btn.focus();
+    }
+    btn.addEventListener('click', function () { if (isOpen()) close(false); else open(); });
+    document.addEventListener('click', function (e) { if (isOpen() && !wrap.contains(e.target)) close(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen()) { e.preventDefault(); close(true); } });
+    panel.addEventListener('focusout', function (e) { if (e.relatedTarget && !wrap.contains(e.relatedTarget)) close(false); });
   }
 
   /* ---------- Capçalera ---------- */
@@ -734,6 +773,7 @@
 
     initLang();
     initTheme();
+    initSettings();
     initHeader();
     initFeedback();
     initControls();

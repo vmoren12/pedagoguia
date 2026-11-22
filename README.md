@@ -6,7 +6,7 @@ Repositori obert de **guies pràctiques basades en la recerca per orientar decis
 
 ## Dues llengües
 
-La interfície i totes les guies estan en **català i castellà**. El català és sempre la llengua per defecte, sigui quina sigui la llengua de l'obra original. Al catàleg, el selector CA/ES canvia la interfície i fa que els enllaços portin a la versió triada; a cada guia i síntesi, el botó CA/ES porta a l'altra versió i manté la secció on es llegia. La tria es recorda al navegador.
+La interfície i totes les guies estan en **català i castellà**. El català és sempre la llengua per defecte, sigui quina sigui la llengua de l'obra original. Al catàleg, el botó d'ajustos permet triar l'idioma (i el tema clar o fosc): canvia la interfície i fa que els enllaços portin a la versió triada. A cada guia, el selector CA/ES del peu de l'índex lateral porta a l'altra versió i manté la secció on es llegia; a les síntesis, el botó CA/ES de la barra superior. La tria es recorda al navegador.
 
 ## Guies publicades
 

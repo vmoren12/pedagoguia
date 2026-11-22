@@ -321,7 +321,7 @@ main{position:relative}
 .bars .b i.w{background:var(--warm)}
 .bars .v{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right}
 @media (max-width:640px){.bars li{grid-template-columns:110px 1fr 40px}.part-head .chs,.dims{grid-template-columns:1fr}.quad{grid-template-columns:1fr}.quad .h:first-child,.quad .rh{display:none}}
-.nav-head{position:relative}.nav-head .lang-btn{position:absolute;top:16px;right:18px}.lang-btn{font-weight:600;letter-spacing:.05em}
+.nav-foot{gap:4px;padding-left:12px;padding-right:12px}.nav-foot .icon{padding:6px}.nav-foot #expandBtn{padding:5px 7px}.lang-sel{display:inline-flex;flex:none;padding:1px;border:1px solid var(--line-2);border-radius:7px;background:var(--card)}.lang-sel>*{font:600 10px/1 var(--sans);letter-spacing:.03em;padding:5px 4px;border-radius:5px;color:var(--muted);text-decoration:none}.lang-sel>a:hover{color:var(--accent)}.lang-sel>[aria-current]{background:var(--accent-soft);color:var(--accent-ink)}
 </style>
 </head>
 <body>
@@ -330,7 +330,6 @@ main{position:relative}
 <aside class="nav" id="nav" aria-label="Índice">
   <div class="nav-head">
     <a class="back-link noprint" href="../../../" aria-label="Volver al catálogo de Pedagoguia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Pedagoguia</a>
-    <a class="btn sm lang-btn noprint" href="../" data-pg-lang="ca" hreflang="ca" lang="ca" title="Versió en català" aria-label="Versió en català">CA</a>
     <p class="kicker">Guía docente</p>
     <p class="t">Cómo se aprende</p>
     <div class="search">
@@ -393,7 +392,8 @@ main{position:relative}
     <button class="btn sm icon" id="themeBtn" type="button" title="Cambiar tema" aria-label="Cambiar tema"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
     <button class="btn sm icon" type="button" onclick="window.print()" title="Imprimir o guardar como PDF" aria-label="Imprimir o guardar como PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><path d="M7 14h10v6H7z"/></svg></button>
     <button class="btn sm" id="expandBtn" type="button" aria-pressed="false">+ Ejercicios</button>
-    <button class="btn sm icon push" type="button" data-pg-notes title="Mis notas y subrayados" aria-label="Mis notas y subrayados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
+    <div class="lang-sel push" role="group" aria-label="Idioma"><a href="../" data-pg-lang="ca" hreflang="ca" lang="ca" title="Versió en català" aria-label="Versió en català">CA</a><span aria-current="true" lang="es" title="Castellano">ES</span></div>
+    <button class="btn sm icon" type="button" data-pg-notes title="Mis notas y subrayados" aria-label="Mis notas y subrayados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
     <a class="btn sm icon ico" href="../../../?avis=error&amp;isbn=9788446056805" title="Notificar un error de contenido" aria-label="Notificar un error de contenido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4.5L17 13H5"/></svg></a>
   </div>
 </aside>
@@ -404,7 +404,6 @@ main{position:relative}
   <button class="btn sm" type="button" onclick="document.body.classList.toggle('menu')" aria-label="Abrir índice">☰ Índice</button>
   <span class="t">Cómo se aprende</span>
   <button class="btn sm back-btn" type="button" data-pg-notes title="Mis notas y subrayados" aria-label="Mis notas y subrayados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
-  <a class="btn sm back-btn lang-btn" href="../" data-pg-lang="ca" hreflang="ca" lang="ca" title="Versió en català" aria-label="Versió en català">CA</a>
   <a class="synth-btn" href="sintesi.html" title="Síntesis imprimible en 2 páginas A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesis</a>
 </div>
 <a class="synth-btn synth-top noprint" href="sintesi.html" title="Síntesis imprimible en 2 páginas A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesis</a>

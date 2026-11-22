@@ -27,10 +27,10 @@ Requisits mínims de cada pàgina:
   `href="../../?avis=error&amp;isbn=<ISBN>"`, com a icona petita i discreta al peu del menú lateral.
 - Botó «Síntesis» a la part superior dreta que obre `sintesi.html`.
 
-- Peu del menú lateral en una sola filera: tema i imprimir com a icones, desplegables, notes i avís.
+- Peu del menú lateral en una sola filera: tema i imprimir com a icones, desplegables, selector d'idioma, notes i avís. Comprova que hi cap en totes dues llengües (el menú fa 290 px).
 - Tema compartit amb el catàleg: llegeix i desa `localStorage['pedagoguia:theme']` (`light` o `dark`) i l'aplica amb un petit script al `<head>`, abans del primer pintat. Parteix del codi d'una guia existent.
 
-Pots prendre com a referència `guies/9788411821865/index.html` (classes `back-link`, `back-btn`, `synth-btn`, `lang-btn`, `icon` i `ico`).
+Pots prendre com a referència `guies/9788411821865/index.html` (classes `back-link`, `back-btn`, `synth-btn`, `lang-sel`, `icon` i `ico`).
 
 ### Selector de llengua
 
@@ -48,10 +48,17 @@ Cada pàgina enllaça amb la seva versió en l'altra llengua i declara totes due
 <script src="../../../assets/js/lang.js" defer></script>
 ```
 
-El botó és un enllaç amb `data-pg-lang` (i la classe `lang-btn`), a la capçalera del menú lateral i a la barra mòbil de la guia, i a la barra superior de la síntesi:
+A la guia, el selector és només al peu del menú lateral, a la mateixa filera que la resta de botons, abans del botó de notes (porta la classe `push`, que l'alinea a la dreta). La llengua actual és un `span` marcat i l'altra, un enllaç amb `data-pg-lang`:
 
 ```html
-<a class="btn sm lang-btn noprint" href="es/" data-pg-lang="es" hreflang="es" lang="es"
+<!-- Versió catalana -->
+<div class="lang-sel push" role="group" aria-label="Idioma"><span aria-current="true" lang="ca" title="Català">CA</span><a href="es/" data-pg-lang="es" hreflang="es" lang="es" title="Versión en castellano" aria-label="Versión en castellano">ES</a></div>
+```
+
+A la síntesi, el botó és un enllaç amb la classe `lang-btn` a la barra superior, abans del botó d'imprimir:
+
+```html
+<a class="lang-btn" href="es/sintesi.html" data-pg-lang="es" hreflang="es" lang="es"
    title="Versión en castellano" aria-label="Versión en castellano">ES</a>
 ```
 
