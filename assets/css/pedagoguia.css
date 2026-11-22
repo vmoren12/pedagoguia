@@ -455,7 +455,7 @@ a.tile-shop:hover, a.tile-shop:focus-visible { opacity: 1; color: var(--accent);
 .footer-nav { display: flex; gap: 18px; font-size: .85rem; }
 .footer-nav a, .footer-nav .link-btn { color: var(--ink-2); text-decoration: none; }
 .footer-nav a:hover, .footer-nav .link-btn:hover { color: var(--accent); }
-.footer-meta { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+.footer-meta { flex-basis: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 2px 5px; margin: 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: .72rem; line-height: 1.5; color: var(--muted); text-align: center; }
 .footer-meta .sep { color: var(--line-2, var(--muted)); }
 .footer-meta a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .footer-meta a:hover { color: var(--accent); text-decoration-color: currentColor; }
