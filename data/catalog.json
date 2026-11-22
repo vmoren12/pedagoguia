@@ -36,7 +36,12 @@
         "pseudociència": "pseudociencia",
         "instrucció directa": "instrucción directa",
         "feedback": "feedback",
-        "mutacions letals": "mutaciones letales"
+        "mutacions letals": "mutaciones letales",
+        "Inclusió": "Inclusión",
+        "dislèxia": "dislexia",
+        "discalcúlia": "discalculia",
+        "TDAH": "TDAH",
+        "altes capacitats": "altas capacidades"
       }
     }
   },
@@ -139,6 +144,31 @@
         "highlights": ["35 capítulos", "33 obras de referencia", "Herramientas interactivas", "Síntesis A4"]
       },
       "publisherUrl": "https://www.akal.com/libro/como-se-aprende_54437/",
+      "added": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "isbn": "9788411206839",
+      "isbnDisplay": "978-84-1120-683-9",
+      "path": "guies/9788411206839/",
+      "cover": "guies/9788411206839/cover.jpg",
+      "color": "#8e2b2b",
+      "title": "Comprender y atender a la diversidad",
+      "subtitle": "Dislexia, discalculia, TDAH y AACC",
+      "authors": ["Mariana Morales", "Beatriz Martín", "Isabel Orjales", "Iolanda López"],
+      "publisher": "SM",
+      "collection": "Biblioteca de Innovación Educativa",
+      "year": 2025,
+      "topics": ["Inclusió", "Lectoescriptura"],
+      "stages": ["Infantil", "Primària", "Secundària", "Batxillerat i FP"],
+      "language": "Castellà",
+      "summary": "Què són la dislèxia, la discalcúlia, el TDAH i l'alta capacitat, com detectar-los aviat i com atendre'ls a l'aula ordinària: vies alternatives a l'escrit, sentit numèric, adaptacions d'exàmens, enriquiment i flexibilització, amb el paper de l'administració, el centre i les famílies.",
+      "highlights": ["Introducció i 3 capítols", "Tests de mites", "Eines interactives", "Síntesi A4"],
+      "tags": ["dislèxia", "discalcúlia", "TDAH", "altes capacitats"],
+      "es": {
+        "summary": "Qué son la dislexia, la discalculia, el TDAH y la alta capacidad, cómo detectarlos pronto y cómo atenderlos en el aula ordinaria: vías alternativas a lo escrito, sentido numérico, adaptaciones de exámenes, enriquecimiento y flexibilización, con el papel de la administración, el centro y las familias.",
+        "highlights": ["Introducción y 3 capítulos", "Tests de mitos", "Herramientas interactivas", "Síntesis A4"]
+      },
       "added": "2026-11-22",
       "updated": "2026-11-22"
     }
