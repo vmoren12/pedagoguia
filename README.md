@@ -23,6 +23,10 @@ La interfície i totes les guies estan en **català i castellà**. El català é
 
 A les guies es pot seleccionar qualsevol text per subratllar-lo en cinc colors i afegir-hi comentaris i etiquetes. El visor de notes (a les guies i al catàleg) permet cercar, filtrar per color o etiqueta, saltar a cada subratllat i exportar o importar totes les notes de totes les guies (JSON) o descarregar-les en Markdown. Les notes es desen només al navegador de cada persona. Cada nota recorda en quina versió (catalana o castellana) es va fer, i el visor les agrupa per guia i versió.
 
+## Punt de lectura
+
+Cada guia recorda, en cada dispositiu, on s'ha deixat de llegir. En tornar-la a obrir des del catàleg, s'obre en aquell punt i un avís breu permet tornar a l'inici. La posició es desa per secció i apartat, de manera que també funciona si es canvia de llengua. Un enllaç que ja porta una secció (`#…`) té prioritat, i enrere o recarregar la pàgina deixen fer al navegador. Es desa només al navegador (`localStorage`, clau `pedagoguia:reading`).
+
 ## Aportacions
 
 Qualsevol persona pot contribuir des del botó d'avís del web o directament a [Issues](https://github.com/vmoren12/pedagoguia/issues/new/choose):
@@ -42,6 +46,7 @@ assets/js/catalog.js        Vistes, cerca, filtres, ordenació, idioma CA/ES i d
 assets/css/notes.css        Estils dels subratllats i del visor de notes
 assets/js/notes.js          Subratllats, comentaris, etiquetes, visor i importació/exportació
 assets/js/lang.js           Botó CA/ES de les guies: desa la tria i manté la secció
+assets/js/reading.js        Punt de lectura de les guies: el desa i el recupera en tornar-hi
 assets/img/                 Icona del lloc
 guies/<ISBN>/               Cada guia en català: index.html, sintesi.html (A4) i cover.jpg
 guies/<ISBN>/es/            La mateixa guia en castellà: index.html i sintesi.html

@@ -41,11 +41,13 @@ Cada pàgina enllaça amb la seva versió en l'altra llengua i declara totes due
 <link rel="alternate" hreflang="ca" href="./">
 <link rel="alternate" hreflang="es" href="es/">
 <script src="../../assets/js/lang.js" defer></script>
+<script src="../../assets/js/reading.js" defer></script>
 
 <!-- A guies/<ISBN>/es/index.html (castellà) -->
 <link rel="alternate" hreflang="ca" href="../">
 <link rel="alternate" hreflang="es" href="./">
 <script src="../../../assets/js/lang.js" defer></script>
+<script src="../../../assets/js/reading.js" defer></script>
 ```
 
 A la guia, el selector és només al peu del menú lateral, a la mateixa filera que la resta de botons, abans del botó de notes (porta la classe `push`, que l'alinea a la dreta). La llengua actual és un `span` marcat i l'altra, un enllaç amb `data-pg-lang`:
@@ -63,6 +65,10 @@ A la síntesi, el botó és un enllaç amb la classe `lang-btn` a la barra super
 ```
 
 `assets/js/lang.js` desa la tria a `localStorage['pedagoguia:lang']` (la mateixa clau que fa servir el catàleg) i afegeix a l'enllaç l'`id` de la secció que s'està llegint, perquè l'altra versió s'obri al mateix punt. Les guies no redirigeixen mai segons la preferència: la URL sempre mana.
+
+### Punt de lectura
+
+`assets/js/reading.js` (carregat just després de `lang.js`, només a les guies, no a les síntesis) desa a `localStorage['pedagoguia:reading']` l'últim element amb `id` que ha passat la línia de lectura (`main header`, `main section` i `main h3`) i la fracció recorreguda fins al següent. Per això convé que els apartats llargs tinguin `h3` amb `id`: el punt de lectura és més precís. Com que les dues llengües comparteixen els `id`, el punt de lectura és comú a totes dues. No restaura si l'adreça porta `#id` ni en navegar enrere o recarregar.
 
 ### Traduir una guia
 
