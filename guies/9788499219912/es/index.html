@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía docente · Neurociencia para educadores</title>
+<link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="ca" href="../">
+<link rel="alternate" hreflang="es" href="./">
+<script src="../../../assets/js/lang.js" defer></script>
+<meta name="pg-guide" content="9788499219912">
+<meta name="pg-guide-title" content="Neurociencia para educadores">
+<link rel="stylesheet" href="../../../assets/css/notes.css">
+<script src="../../../assets/js/notes.js" defer></script>
+<script>
+/* Tema compartit amb el catàleg (pedagoguia:theme), abans del primer pintat */
+(function(){try{var t=localStorage.getItem('pedagoguia:theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();
+</script>
+<meta name="description" content="Guía de referencia y de aula basada en el libro «Neurociencia para educadores» (David Bueno i Torrens, Octaedro, 2017): cómo se construye el cerebro desde los 0 años hasta la adolescencia, emociones, plasticidad, atención, motivación, creatividad, imitación, estrés y neuromitos.">
+<style>
+:root{
+  --paper:#fbfaf7; --card:#ffffff; --ink:#1d1d1b; --ink-2:#3a3a37; --muted:#6c6a64; --line:#e7e3da; --line-2:#d9d4c8;
+  --accent:#2f5d50; --accent-2:#3f7a69; --accent-soft:#eaf1ed; --accent-ink:#1f4037;
+  --warm:#9c4a2c; --warm-soft:#f7ece6; --gold:#8a6d1f; --gold-soft:#f6f0dc;
+  --serif:"Iowan Old Style","Charter","Palatino Linotype","Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --nav:290px; --measure:46rem; --radius:10px;
+}
+[data-theme="dark"]{
+  --paper:#141513; --card:#1b1c1a; --ink:#ebe8e1; --ink-2:#cfccc4; --muted:#9e9b93; --line:#2b2c29; --line-2:#3a3b37;
+  --accent:#8fc3af; --accent-2:#a9d4c3; --accent-soft:#1e2925; --accent-ink:#cfe7dd;
+  --warm:#e5a185; --warm-soft:#2b211c; --gold:#d8bd6a; --gold-soft:#29251a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;font-feature-settings:"kern","liga"}
+a{color:var(--accent);text-underline-offset:3px}
+::selection{background:var(--accent-soft)}
+/* ---------- progress ---------- */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .1s linear}
+/* ---------- sidebar ---------- */
+.nav{position:fixed;inset:0 auto 0 0;width:var(--nav);border-right:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;z-index:40}
+.nav-head{padding:22px 22px 14px;border-bottom:1px solid var(--line)}
+.nav-head .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.nav-head .t{font-family:var(--serif);font-size:19px;line-height:1.25;margin:0;color:var(--ink)}
+.search{position:relative;margin-top:14px}
+.search input{width:100%;font:inherit;font-size:14px;padding:8px 10px 8px 32px;border:1px solid var(--line-2);border-radius:8px;background:var(--card);color:var(--ink)}
+.search input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--muted)}
+.toc{overflow:auto;padding:10px 10px 30px;flex:1}
+.toc .part{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:14px 12px 4px}
+.toc a{display:flex;gap:10px;align-items:baseline;padding:6px 12px;border-radius:7px;color:var(--ink-2);text-decoration:none;font-size:14px;line-height:1.35}
+.toc a .n{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:18px}
+.toc a:hover{background:var(--accent-soft);color:var(--ink)}
+.toc a.active{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+.toc a.active .n{color:var(--accent)}
+.nav-foot{border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.nav-foot .btn{white-space:nowrap}
+.btn{font:inherit;font-size:13px;border:1px solid var(--line-2);background:var(--card);color:var(--ink-2);padding:7px 11px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .btn.primary{color:#0f1a16}
+.btn.primary:hover{background:var(--accent-2);color:#fff}
+.btn.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.sm{font-size:12px;padding:5px 9px}
+/* search results */
+#results{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line-2);border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.12);max-height:60vh;overflow:auto;z-index:80}
+#results.show{display:block}
+#results .r{display:block;padding:9px 12px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink-2);font-size:13px;line-height:1.4}
+#results .r:last-child{border-bottom:0}
+#results .r b{display:block;font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.02em;margin-bottom:2px}
+#results .r mark{background:var(--gold-soft);color:inherit;padding:0 1px;border-radius:2px}
+#results .empty{padding:12px;color:var(--muted);font-size:13px}
+.flash{animation:flash 1.8s ease}
+@keyframes flash{0%,40%{background:var(--gold-soft)}100%{background:transparent}}
+/* ---------- topbar (mobile) ---------- */
+.topbar{display:none}
+/* ---------- main ---------- */
+main{margin-left:var(--nav);padding:0 clamp(20px,5vw,64px) 120px}
+.wrap{max-width:var(--measure);margin:0 auto}
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.hero .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1.08;margin:0 0 18px;letter-spacing:-.01em}
+.hero p.sub{font-size:19px;color:var(--ink-2);margin:0 0 22px;max-width:38rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px;color:var(--muted)}
+.meta span b{color:var(--ink-2);font-weight:600}
+section.chapter{padding:56px 0 8px;border-bottom:1px solid var(--line)}
+.ch-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;display:flex;gap:10px;align-items:center}
+.ch-label .num{font-family:var(--mono);color:var(--accent);font-weight:600}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.6vw,38px);line-height:1.15;margin:0 0 16px;letter-spacing:-.005em}
+h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.3;margin:42px 0 10px}
+h4{font-size:15px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+.lead{font-size:19px;color:var(--ink-2);line-height:1.55}
+ul,ol{padding-left:1.25em;margin:0 0 16px}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+strong{font-weight:650}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+hr.soft{border:0;border-top:1px solid var(--line);margin:34px 0}
+/* ---------- callouts ---------- */
+.box{border-radius:var(--radius);padding:16px 18px;margin:20px 0;border:1px solid var(--line);background:var(--card)}
+.box > :last-child{margin-bottom:0}
+.box .lbl{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.key{border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0}
+.key .lbl{color:var(--accent)}
+.aula{background:var(--accent-soft);border-color:transparent}
+.aula .lbl{color:var(--accent-ink)}
+.evid{background:transparent;border-style:dashed}
+.evid .lbl{color:var(--gold)}
+.warn{background:var(--warm-soft);border-color:transparent}
+.warn .lbl{color:var(--warm)}
+.remember{background:var(--card);border:1px solid var(--line-2)}
+.remember .lbl{color:var(--ink-2)}
+.remember ul{list-style:none;padding:0}
+.remember li{padding-left:26px;position:relative;margin:8px 0}
+.remember li::before{content:"";position:absolute;left:3px;top:.45em;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.quote{font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--ink-2);border-left:2px solid var(--line-2);padding:4px 0 4px 18px;margin:22px 0}
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:18px 0 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:650;background:transparent}
+tr:last-child td{border-bottom:0}
+td.c{text-align:center}
+caption{caption-side:top;text-align:left;padding:12px 12px 2px;font-weight:650;font-size:14px;color:var(--ink-2)}
+.t-strong{color:var(--accent);font-weight:650}
+/* ---------- grids & cards ---------- */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:14px 16px}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p,.card ul{font-size:14.5px;margin-bottom:6px}
+.card .tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink-2);background:var(--card);margin:2px 3px 2px 0;white-space:nowrap}
+.pill.on{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .pill.on{color:#0f1a16}
+/* ---------- details (exercises) ---------- */
+details.ex{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin:10px 0}
+details.ex>summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;gap:12px;align-items:baseline;font-weight:600;font-size:15.5px}
+details.ex>summary::-webkit-details-marker{display:none}
+details.ex>summary .st-t{flex:1;min-width:0}
+details.ex>summary::before{content:"+";font-family:var(--mono);color:var(--accent);width:12px;flex:none}
+details.ex[open]>summary::before{content:"−"}
+details.ex>summary .meta-s{margin-left:auto;font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap}
+details.ex .body{padding:0 16px 14px 40px;font-size:15px}
+details.ex .body ol,details.ex .body ul{margin-bottom:10px}
+/* ---------- diagrams ---------- */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:18px 0}
+.flow .st{flex:1 1 120px;border:1px solid var(--line-2);border-radius:9px;padding:10px 12px;background:var(--card);font-size:14px}
+.flow .st b{display:block;font-size:12px;color:var(--accent);letter-spacing:.04em;margin-bottom:2px}
+.flow .ar{align-self:center;color:var(--muted);font-family:var(--mono)}
+.formula{font-family:var(--mono);font-size:22px;text-align:center;padding:16px;letter-spacing:.04em}
+.diagram{margin:20px 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:16px}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram .cap{font-size:13px;color:var(--muted);margin-top:8px}
+svg text{font-family:var(--sans)}
+/* ---------- tools ---------- */
+.tool{border:1px solid var(--line-2);border-radius:14px;background:var(--card);padding:18px 20px;margin:24px 0}
+.tool .tool-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.tool .tool-h h4{margin:0;font-size:16px}
+.tool .tool-h .tg{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.field select,.field input,.field textarea{font:inherit;font-size:14.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:8px;padding:7px 9px}
+.field textarea{min-height:84px;resize:vertical;font-family:var(--sans)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.row .field{flex:1 1 150px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.out{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--paper);border:1px solid var(--line)}
+.out .big{font-family:var(--serif);font-size:30px;line-height:1.1}
+.meter{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.45;cursor:pointer}
+.check:last-child{border-bottom:0}
+.check input{margin-top:3px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.check .ct{flex:1;min-width:0}
+.check .w{font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.grph{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.grph button{font:inherit;font-family:var(--mono);font-size:14px;min-width:38px;padding:5px 8px;border-radius:7px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.grph button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .grph button.on{color:#0f1a16}
+.word{display:inline-block;margin:4px 8px 4px 0;padding:3px 8px;border-radius:7px;border:1px solid var(--line-2);font-family:var(--mono);font-size:15px}
+.word.ok{border-color:var(--accent);background:var(--accent-soft)}
+.word.no{border-color:var(--warm);background:var(--warm-soft)}
+.word u{text-decoration:none;color:var(--warm);font-weight:700;border-bottom:2px solid var(--warm)}
+.seq{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px;counter-reset:s}
+.seq span{counter-increment:s;font-family:var(--mono);font-size:13px;border:1px solid var(--line-2);border-radius:7px;padding:4px 8px;background:var(--paper)}
+.seq span::before{content:counter(s);font-size:10px;color:var(--muted);margin-right:6px}
+/* quiz */
+.q{padding:12px 0;border-bottom:1px dashed var(--line)}
+.q:last-child{border-bottom:0}
+.q .qt{font-weight:600;font-size:15px;margin-bottom:8px}
+.q .opts{display:flex;gap:8px}
+.q .fb{display:none;margin-top:8px;font-size:14px;color:var(--ink-2);padding:8px 10px;border-radius:8px;background:var(--paper)}
+.q.done .fb{display:block}
+.q.right .fb{border-left:3px solid var(--accent)}
+.q.wrong .fb{border-left:3px solid var(--warm)}
+.q button.sel{outline:2px solid var(--accent)}
+/* phrase lists */
+.say{list-style:none;padding:0;margin:8px 0}
+.say li{padding:7px 12px;border-radius:8px;background:var(--paper);border:1px solid var(--line);margin:6px 0;font-size:14.5px}
+.say.good li{border-left:3px solid var(--accent)}
+.say.bad li{border-left:3px solid var(--warm);color:var(--muted)}
+/* source badges */
+.src{display:inline-block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:1px 6px;border-radius:4px;vertical-align:2px;margin-left:4px;border:1px solid var(--line-2);color:var(--muted);white-space:nowrap}
+.src.lib{border-color:var(--accent);color:var(--accent)}
+.src.ext{border-color:var(--gold);color:var(--gold)}
+.stage{border-left:3px solid var(--accent);padding:2px 0 2px 16px;margin:22px 0}
+.stage h4{margin:0 0 6px;font-size:16px}
+.stage .when{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+/* kbd-like letters */
+.lt{font-family:var(--mono);font-size:.95em;padding:0 4px;border-radius:4px;background:var(--accent-soft);color:var(--accent-ink)}
+.ph{font-family:var(--mono);font-size:.95em;color:var(--warm)}
+/* toc of chapter */
+.minitoc{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 6px}
+.minitoc a{font-size:12.5px;text-decoration:none;border:1px solid var(--line-2);padding:3px 9px;border-radius:99px;color:var(--ink-2)}
+.minitoc a:hover{border-color:var(--accent);color:var(--accent)}
+/* footer */
+footer{padding:48px 0;color:var(--muted);font-size:13.5px}
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .nav{transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 40px rgba(0,0,0,.18)}
+  body.menu .nav{transform:none}
+  main{margin-left:0}
+  .topbar{display:flex;position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 16px;align-items:center;gap:12px;margin:0 calc(-1*clamp(20px,5vw,64px))}
+  .topbar .t{font-family:var(--serif);font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hero{padding-top:36px}
+  .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:35}
+  body.menu .scrim{display:block}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .g2,.g3{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  details.ex .body{padding-left:16px}
+  h3{font-size:20px}
+}
+/* ---------- print ---------- */
+@media print{
+  .nav,.topbar,#progress,.scrim,.noprint,.tool .btn{display:none!important}
+  main{margin:0;padding:0}
+  body{background:#fff;color:#000;font-size:11pt}
+  section.chapter{break-before:page;border:0;padding-top:0}
+  details.ex{break-inside:avoid}
+  details.ex>.body{display:block}
+  .box,.card,.tw{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+/* ---------- Pedagoguia: tornar al catàleg, síntesi i avisos ---------- */
+.back-link{display:inline-flex;align-items:center;gap:6px;margin:-6px 0 12px -8px;padding:4px 9px 4px 6px;border-radius:7px;color:var(--muted);text-decoration:none;font-size:13px}
+.back-link:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.back-link svg,.ico svg,.synth-btn svg,.back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav-foot{flex-wrap:nowrap;align-items:center;gap:6px}
+.nav-foot .icon{padding:6px 7px}
+.nav-foot .icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav-foot .push{margin-left:auto}
+.nav-foot .ico{padding:6px 7px;border-color:transparent;background:transparent;color:var(--muted)}
+.nav-foot .ico:hover{color:var(--warm);border-color:var(--line-2)}
+.synth-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border:1px solid var(--ink);border-radius:999px;background:#f5f4f1;color:var(--ink);font-size:13px;line-height:1.25;text-decoration:none;white-space:nowrap;transition:background-color .15s}
+.synth-btn:hover{background:#fff;color:var(--ink)}
+[data-theme="dark"] .synth-btn{background:#22231f}
+[data-theme="dark"] .synth-btn:hover{background:#2a2b27}
+main{position:relative}
+.synth-top{position:absolute;top:22px;right:clamp(20px,5vw,64px);z-index:5}
+.topbar .btn{white-space:nowrap;flex:none}
+.topbar .t{min-width:0;flex:1}
+.topbar .back-btn{padding:6px}
+.topbar .synth-btn{margin-left:auto;flex:none}
+@media (max-width:1000px){.synth-top{display:none}}
+/* ---------- propis d'aquesta guia ---------- */
+.toc .part{margin-top:4px}
+.toc a{padding:5px 12px;font-size:13.5px}
+.work{display:flex;gap:10px;align-items:baseline;margin:0 0 14px;padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--card);font-size:13.5px;color:var(--ink-2);line-height:1.45}
+.work b{flex:none;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 4px}
+.seg button{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:99px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .seg button.on{color:#0f1a16}
+.panel{margin-top:12px}
+.panel h5{margin:12px 0 4px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.panel p,.panel li{font-size:14.5px}
+.scheme{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 6px}
+.scheme button{font:inherit;font-size:14px;font-weight:600;line-height:1.25;padding:12px 8px;border-radius:10px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.scheme button small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.scheme button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.scheme button.on small{color:inherit;opacity:.85}
+[data-theme="dark"] .scheme button.on{color:#0f1a16}
+.scheme .core{display:grid;place-items:center;border-radius:10px;background:var(--ink);color:var(--paper);font-family:var(--serif);font-size:21px;font-style:italic;letter-spacing:.02em;min-height:54px}
+.scheme .gap{visibility:hidden}
+.scheme-frame{display:grid;grid-template-columns:1fr;gap:6px;font-size:12.5px;color:var(--muted);text-align:center}
+.scheme-frame span{border:1px dashed var(--line-2);border-radius:8px;padding:5px 8px;background:var(--card)}
+.lesson{counter-reset:ls;list-style:none;padding:0;margin:14px 0}
+.lesson>li{counter-increment:ls;position:relative;padding:12px 14px 12px 52px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin:8px 0}
+.lesson>li::before{content:counter(ls);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);font:700 13px/26px var(--sans);text-align:center}
+.lesson>li b.t{display:block;font-size:15px;margin-bottom:2px}
+.ages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0}
+.ages>div{border-radius:10px;padding:12px 14px;background:var(--accent-soft);font-size:14px;line-height:1.45}
+.ages>div b{display:block;font-family:var(--serif);font-size:19px;font-weight:500;color:var(--accent-ink);margin-bottom:4px}
+.ages>div span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.vtxt{font-size:14.5px}
+.vtxt b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;margin-bottom:4px}
+@media (max-width:640px){.ages{grid-template-columns:1fr}.scheme button{font-size:13px;padding:10px 6px}.scheme .core{font-size:18px}}
+.nav-foot{gap:4px;padding-left:10px;padding-right:10px}.nav-foot .icon{padding:6px}.nav-foot #expandBtn{padding:5px 7px}.lang-sel{display:inline-flex;flex:none;height:29px;border:1px solid var(--line-2);border-radius:8px;background:var(--card);overflow:hidden}.lang-sel>*{display:inline-flex;align-items:center;font:600 12px/1 var(--sans);letter-spacing:.02em;padding:0 5px;color:var(--muted);text-decoration:none}.lang-sel>a:hover{color:var(--accent)}.lang-sel>[aria-current]{background:var(--accent-soft);color:var(--accent-ink)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="scrim" onclick="document.body.classList.remove('menu')"></div>
+<aside class="nav" id="nav" aria-label="Índice">
+  <div class="nav-head">
+    <a class="back-link noprint" href="../../../" aria-label="Volver al catálogo de Pedagoguia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Pedagoguia</a>
+    <p class="kicker">Guía docente</p>
+    <p class="t">Neurociencia para educadores</p>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Buscar en la guía…" autocomplete="off" aria-label="Buscar en la guía">
+      <div id="results" role="listbox"></div>
+    </div>
+  </div>
+  <nav class="toc" id="toc">
+    <a href="#inici"><span class="n">·</span>Cómo usar esta guía</a>
+    <a href="#claus"><span class="n">·</span>Las ideas esenciales</a>
+    <div class="part">Marco</div>
+    <a href="#intro"><span class="n">In</span>El oficio más viejo del mundo</a>
+    <div class="part">I · El cerebro y los genes</div>
+    <a href="#c1"><span class="n">01</span>Genes, ambiente y capacidades</a>
+    <a href="#c2"><span class="n">02</span>Cómo funciona el cerebro</a>
+    <a href="#c3"><span class="n">03</span>Neuromitos</a>
+    <div class="part">II · Un cerebro en construcción</div>
+    <a href="#c4"><span class="n">04</span>Antes de nacer</a>
+    <a href="#c5"><span class="n">05</span>De 0 a 3 años</a>
+    <a href="#c6"><span class="n">06</span>Las emociones</a>
+    <a href="#c7"><span class="n">07</span>De 4 a 11 años</a>
+    <a href="#c8"><span class="n">08</span>Cómo aprendemos y desaprendemos</a>
+    <a href="#interludi"><span class="n">✈</span>Interludio: cerebroflexia</a>
+    <div class="part">III · La adolescencia</div>
+    <a href="#c9"><span class="n">09</span>Control emocional y límites</a>
+    <a href="#c10"><span class="n">10</span>Novedades, drogas y atención</a>
+    <div class="part">IV · Maduración y entorno social</div>
+    <a href="#c11"><span class="n">11</span>Ritmos, idiomas y caminos</a>
+    <a href="#c12"><span class="n">12</span>Ambiente social, miradas y grupo</a>
+    <a href="#c13"><span class="n">13</span>Motivación y creatividad</a>
+    <a href="#c14"><span class="n">14</span>Imitación: ser aprendices</a>
+    <a href="#c15"><span class="n">15</span>Conciencia y autoconciencia</a>
+    <div class="part">V · Enemigos y aliados</div>
+    <a href="#c16"><span class="n">16</span>Estrés, placer y motivación</a>
+    <a href="#c17"><span class="n">17</span>Las «marías» y la tecnología</a>
+    <div class="part">Cierre</div>
+    <a href="#conclusions"><span class="n">11</span>Once claves del cerebro</a>
+    <a href="#bonus"><span class="n">★</span><span><i>Bonus track</i>: el esquema</span></a>
+    <div class="part">Para aplicar</div>
+    <a href="#pla"><span class="n">→</span>Ponlo en práctica</a>
+    <a href="#glossari"><span class="n">→</span>Glosario</a>
+    <a href="#fonts"><span class="n">→</span>Fuentes y autor</a>
+  </nav>
+  <div class="nav-foot noprint">
+    <button class="btn sm icon" id="themeBtn" type="button" title="Cambiar el tema" aria-label="Cambiar el tema"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+    <button class="btn sm icon" type="button" onclick="window.print()" title="Imprimir o guardar como PDF" aria-label="Imprimir o guardar como PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><path d="M7 14h10v6H7z"/></svg></button>
+    <button class="btn sm" id="expandBtn" type="button" aria-pressed="false">+ Ejercicios</button>
+    <div class="lang-sel push" role="group" aria-label="Idioma"><a href="../" data-pg-lang="ca" hreflang="ca" lang="ca" title="Versió en català" aria-label="Versió en català">CA</a><span aria-current="true" lang="es" title="Castellano">ES</span></div>
+    <button class="btn sm icon" type="button" data-pg-notes title="Mis notas y subrayados" aria-label="Mis notas y subrayados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
+    <a class="btn sm icon ico" href="../../../?avis=error&amp;isbn=9788499219912" title="Notificar un error de contenido" aria-label="Notificar un error de contenido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4.5L17 13H5"/></svg></a>
+  </div>
+</aside>
+
+<main id="main">
+<div class="topbar noprint">
+  <a class="btn sm back-btn" href="../../../" aria-label="Volver al catálogo de Pedagoguia" title="Volver al catálogo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+  <button class="btn sm" type="button" onclick="document.body.classList.toggle('menu')" aria-label="Abrir el índice">☰ Índice</button>
+  <span class="t">Neurociencia para educadores</span>
+  <button class="btn sm back-btn" type="button" data-pg-notes title="Mis notas y subrayados" aria-label="Mis notas y subrayados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
+  <a class="synth-btn" href="sintesi.html" title="Síntesis imprimible en 2 páginas A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesis</a>
+</div>
+<a class="synth-btn synth-top noprint" href="sintesi.html" title="Síntesis imprimible en 2 páginas A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesis</a>
+<div class="wrap">
+
+<header class="hero" id="top">
+  <p class="kicker">Guía docente de referencia y de aula</p>
+  <h1>Neurociencia para educadores</h1>
+  <p class="sub">Síntesis práctica del libro de David Bueno i Torrens: cómo se construye el cerebro de niños y adolescentes, cómo aprende, qué lo mueve y qué lo bloquea, y qué puede hacer la escuela con este conocimiento.</p>
+  <div class="meta">
+    <span><b>Obra:</b> <i>Neurociencia para educadores. Todo lo que los educadores siempre han querido saber sobre el cerebro de sus alumnos y nunca nadie se ha atrevido a explicárselo de manera comprensible y útil</i></span>
+    <span><b>Editorial:</b> Octaedro, 2017 · Colección «Rosa Sensat»</span>
+    <span><b>Autor:</b> David Bueno i Torrens</span>
+    <span><b>Original:</b> <i>Neurociència per a educadors</i> (en catalán)</span>
+  </div>
+</header>
+
+<section class="chapter" id="inici" style="border-bottom:0;padding-top:36px">
+  <p class="ch-label"><span class="num">00</span> Antes de empezar</p>
+  <h2>Cómo usar esta guía</h2>
+  <p>David Bueno es genetista e investigador de la formación del sistema nervioso. Su libro responde, en lenguaje llano, a las preguntas que más le hacen los docentes en conferencias y cursos: si las capacidades dependen de los genes, cómo funciona el cerebro, qué ocurre en cada etapa del desarrollo, por qué se aburren en clase, qué buscan los adolescentes cuando se saltan las normas, qué es la motivación, por qué importan las miradas o cuál es el enemigo número uno del aprendizaje. Son treinta y siete preguntas agrupadas en diecisiete capítulos, con un interludio en la mitad, unas conclusiones en once puntos y un esquema final.</p>
+  <p>Esta guía sigue el libro capítulo a capítulo para poder consultarlo cuando hay que entender una conducta, preparar una sesión o argumentar una decisión ante el equipo o las familias.</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Cada capítulo</span><p>La pregunta del libro, la respuesta del autor con los datos, los ejemplos y las comparaciones que utiliza, y lo que conviene no olvidar.</p></div>
+    <div class="card"><span class="tag">En el aula</span><p>Las consecuencias educativas que extrae el autor, concretadas en orientaciones para el aula, la tutoría y las familias.</p></div>
+    <div class="card"><span class="tag">Herramientas</span><p>Test de neuromitos, explorador de las etapas, revisor de motivación, listas de revisión y el esquema del <i>bonus track</i> interactivo. Se guardan en el navegador.</p></div>
+  </div>
+  <div class="box evid"><span class="lbl">Sobre esta guía</span>
+    <p>El libro se escribió en catalán (<i>Neurociència per a educadors</i>, Rosa Sensat) y se tradujo al castellano con la participación del autor. Esta guía parte de la edición castellana de Octaedro, de la que proceden las citas literales. Los datos, los ejemplos y las conclusiones son del autor. Cuando la guía añade una concreción propia (una plantilla, una secuencia, una lista), lo marca con la etiqueta <span class="src ext">Propuesta</span>.</p>
+  </div>
+  <div class="box warn"><span class="lbl">Leerlo con criterio</span>
+    <p>Es un libro de divulgación, escrito en 2016, que explica el cerebro con analogías (muebles, tuits, motos, semáforos) y que apenas cita estudios concretos en el texto; solo incluye una bibliografía breve al final. El propio autor pide a los lectores una lectura crítica. Algunas afirmaciones son simplificaciones o temas todavía abiertos en la investigación; cuando es útil, la guía lo señala con un recuadro «Con criterio» y remite a otras guías del catálogo que tratan el mismo tema desde la psicología cognitiva.</p>
+  </div>
+  <p class="small muted">La tesis de fondo del libro es que la neurociencia no viene a sustituir a la pedagogía, sino a explicar por qué funciona lo que la buena pedagogía ya hace: trabajar con emociones, en contexto, en grupo, con juego y con placer. Para el autor, el objetivo de la educación es ayudar a las personas a <b>crecer en dignidad</b>.</p>
+</section>
+
+<section class="chapter" id="claus">
+  <p class="ch-label"><span class="num">★</span> Síntesis</p>
+  <h2>Las ideas esenciales del libro</h2>
+  <p class="lead">Si solo puedes leer una página, que sea esta.</p>
+  <ol class="small" style="font-size:15.5px">
+    <li><b>Educar es cambiar el cerebro de los demás.</b> Todo lo que aprendemos queda en patrones de conexiones entre neuronas. La educación abre caminos, cierra otros y modela personas más reflexivas o más impulsivas. Y es bidireccional: los alumnos también cambian el nuestro. <a href="#c2">Cap. 2</a> · <a href="#conclusions">Conclusiones</a></li>
+    <li><b>Los genes condicionan, pero no determinan.</b> Cada alumno es biológicamente distinto, pero el margen del ambiente y de la educación es enorme. Por eso la educación debe ser social y, a la vez, individualizada. <a href="#c1">Cap. 1</a></li>
+    <li><b>El cerebro funciona como un todo integrado.</b> No hay hemisferio racional y hemisferio emocional, ni inteligencias separadas, ni usamos solo el 10 %. Los aprendizajes transversales y contextualizados activan más redes y se recuerdan y aplican mejor. <a href="#c3">Cap. 3</a> · <a href="#c8">8</a></li>
+    <li><b>Cada etapa tiene su ventana.</b> De 0 a 3 años se forma buena parte del carácter; de 4 a 11, las destrezas académicas y el gusto por aprender; en la adolescencia, los grandes aprendizajes conceptuales y la maduración del control emocional. Cada cerebro madura a su ritmo. <a href="#c5">Cap. 5</a> · <a href="#c7">7</a> · <a href="#c9">9</a> · <a href="#c11">11</a></li>
+    <li><b>Sin emoción, el cerebro no ve motivo para guardar nada.</b> Las emociones son el acelerador; la reflexión, el freno y el volante. Se puede aprender con miedo, pero nunca debe hacerse: quien aprende con miedo asocia aprender a miedo. <a href="#c6">Cap. 6</a></li>
+    <li><b>Lo que el cerebro considera más útil es la aceptación social.</b> Las conexiones que se mantienen son las que reciben valoración y reconocimiento de iguales, docentes y familias. El refuerzo positivo, la mirada y el trabajo cooperativo tienen un papel central. <a href="#c8">Cap. 8</a> · <a href="#c12">12</a></li>
+    <li><b>Aprender es fácil; desaprender, muy difícil.</b> Los errores quedan en la base de la red y solo pueden esquivarse con caminos nuevos. Por eso hay que preparar bien lo que se explica. <a href="#c8">Cap. 8</a> · <a href="#c11">11</a></li>
+    <li><b>La atención se despierta con la sorpresa y la novedad.</b> El tálamo solo se activa ante lo inesperado. Los niños necesitan que la provoquemos; los adolescentes deben aprender a gestionarla. <a href="#c10">Cap. 10</a></li>
+    <li><b>La motivación es el combustible del aprendizaje.</b> Pide objetivos tangibles, retos significativos, necesidades, poder elegir y optimismo. Tan importante es motivar como no desmotivar. La creatividad viene de serie: lo que hay que hacer es no bloquearla. <a href="#c13">Cap. 13</a></li>
+    <li><b>Las actitudes se aprenden por imitación.</b> Si los queremos motivados, respetuosos y curiosos, tenemos que serlo nosotros. El docente debe ser un aprendiz más, no solo un enseñante. <a href="#c14">Cap. 14</a></li>
+    <li><b>El estrés crónico es el enemigo número uno; el placer y la motivación, los grandes aliados.</b> El deporte, la música, las artes, la relajación, el sueño y el juego no son «marías»: favorecen la plasticidad y los aprendizajes de todas las materias. <a href="#c16">Cap. 16</a> · <a href="#c17">17</a></li>
+  </ol>
+</section>
+
+<section class="chapter" id="intro">
+  <p class="ch-label"><span class="num">In</span> Marco</p>
+  <h2>El oficio más viejo del mundo</h2>
+  <p class="lead">La educación es anterior a nuestra especie: todos los animales que cuidan de sus crías las educan, a menudo sin darse cuenta. Los humanos llevamos este proceso al máximo, porque no solo transmitimos estrategias para sobrevivir, sino todo el legado cultural, y porque también educamos en el cambio y la transformación.</p>
+  <p class="work"><b>Punto de partida</b>El cerebro no es solo el órgano que dirige el cuerpo: es el que nos permite adaptarnos al ambiente a través del comportamiento y, a la vez, transformarlo. La educación incide en él de lleno.</p>
+
+  <h3 id="intro-models">Modelos, no solo lecciones</h3>
+  <p>Los niños nacen con el instinto de aprender. Lo que más les llama la atención pocos días después de nacer es la mirada y la cara de las personas. Aprenden observando gestos, actitudes y miradas, a menudo inconscientes. Para aprender hacen falta, sobre todo, <b>modelos de aprendizaje</b>, no solo lecciones y currículos. La búsqueda de novedades, muy intensa en la infancia y explosiva en la adolescencia, es la puerta hacia el cambio.</p>
+
+  <h3 id="intro-dignitat">Para qué educamos: crecer en dignidad</h3>
+  <p>La educación puede perseguir objetivos muy distintos. Si se quieren personas crédulas y sumisas, «funcionará» el miedo y mutilar el espíritu crítico; si se quieren profesionales muy competitivos, el individualismo. El autor lo dice sin rodeos, porque todo el libro vuelve a ello: el principal objetivo de la educación debe ser <b>ayudar a las personas a crecer en dignidad</b>.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Dignidad entendida como el respeto que cada uno merece por el hecho de ser como es y que debe ofrecer a los demás; dignidad para aprovechar las fortalezas y afrontar sin miedo las debilidades, para relativizar amenazas y aprovechar oportunidades, y para construir una sociedad digna y dignificante. Incluye actitudes y aptitudes, conocimientos y profesionalización, creatividad, motivación, reflexividad, emociones, trabajo cooperativo e individual.</p></div>
+  <p>El libro se abre con dos canciones. <i>Another Brick in the Wall</i> (Pink Floyd) ilustra lo que la educación no debe ser: un sistema de control mental. <i>Satisfaction</i> (Rolling Stones) apunta lo que debe ser: una fuente de satisfacción que surge de la utilidad que estimula la imaginación.</p>
+
+  <h3 id="intro-neuro">Qué aporta la neurociencia</h3>
+  <p>Hay que distinguir la <b>mente</b> (el conjunto de facultades psíquicas y capacidades intelectuales) del <b>cerebro</b>, el órgano del que surge. La pedagogía, la psicología y la sociología estudian la mente. Las técnicas no invasivas (resonancia magnética funcional, estimulación eléctrica transcraneal) permiten estudiar el cerebro en situaciones cotidianas: cuando aprende, cuando se aburre, cuando se emociona.</p>
+  <div class="box aula"><span class="lbl">El mensaje para el claustro</span>
+    <p>La neurociencia <b>no obliga a replantear la educación desde cero</b> ni propone un paradigma nuevo. Sus datos se suman a lo que ya proponía la pedagogía moderna (el autor cita a Francesc Ferrer i Guàrdia y Rosa Sensat) y explican por qué funciona: el papel insustituible de las emociones y del trabajo cooperativo, por ejemplo. La conclusión del autor es clara: «lo estamos haciendo bien», pero conocer cómo lo percibe el cerebro ayuda a afinar más y da argumentos contra cualquier tentación de involución educativa.</p>
+  </div>
+
+  <h3 id="intro-tria">«Usted elige»</h3>
+  <p>Antes de la introducción, el libro pone al lector ante una decisión binaria: si quiere saber por qué empieza con canciones y por qué le hace elegir, que pase la página; si no, que deje el libro en la estantería y no lo vuelva a abrir nunca más. Y le promete un <i>bonus track</i> al final. Como se verá en el <a href="#c13">capítulo 13</a>, no es un juego gratuito: poder elegir entre dos opciones estimula la motivación. A lo largo del libro el autor utiliza conscientemente los recursos que recomienda (anécdotas personales, humor, sorpresa, un interludio en la mitad) para predicar con el ejemplo.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Todos educamos: familias, docentes, vecinos y la sociedad entera.</li>
+    <li>El objetivo de la educación, para el autor, es crecer en dignidad; las estrategias dependen de este objetivo.</li>
+    <li>La neurociencia no sustituye a la pedagogía: explica por qué funciona.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c1">
+  <p class="ch-label"><span class="num">01</span> Parte I · El cerebro y los genes</p>
+  <h2>Genes, ambiente y capacidades</h2>
+  <p class="work"><b>Pregunta</b>¿Las capacidades cognitivas dependen de nuestros genes?</p>
+  <p class="lead">Si los genes lo determinaran todo, la educación no pintaría nada. La respuesta es que los genes <b>condicionan, pero no determinan</b> las capacidades mentales. El ambiente, y dentro del ambiente la educación, tiene un margen enorme.</p>
+  <div class="minitoc"><a href="#c1-moble">Las instrucciones del mueble</a><a href="#c1-mao">Un gen real</a><a href="#c1-heretabilitat">Heredabilidad</a></div>
+
+  <h3 id="c1-moble">Las instrucciones de un mueble</h3>
+  <p>Antes de explicar qué es un gen, el autor se detiene: empezar con tecnicismos sin referentes hace que el alumnado se sienta superado. Sin conocimientos previos donde integrar la información, el cerebro lo vive como una amenaza y responde con estrés, que empeora aún más la percepción. Por eso recurre a una comparación cercana: las instrucciones para montar una mesa con cajón.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Instrucción del mueble</th><th>Equivalente genético</th><th>Papel de la educación</th></tr></thead>
+    <tbody>
+      <tr><td><b>«Enrosque la pata hasta el final.»</b> No hay alternativa.</td><td>Genes que se manifiestan sin opciones: todos debemos tener un grupo sanguíneo. Las variantes (A, B, 0…) también son fijas.</td><td>Ninguno. La heredabilidad del grupo sanguíneo es del 100 %.</td></tr>
+      <tr><td><b>«Ponga el cajón en el lado largo o en el corto.»</b> Las instrucciones condicionan el resultado, pero no lo determinan.</td><td>Genes que intervienen en la vida mental: no todos los cerebros son igualmente posibles, pero el resultado depende mucho del ambiente.</td><td>Muy grande. Es donde se juega el trabajo docente.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Tenemos unos 20 000 genes, la mayoría por duplicado (uno de la madre y uno del padre). Unos 8000 intervienen en la formación o el funcionamiento del cerebro y, por tanto, en cómo aprendemos.</p>
+
+  <h3 id="c1-mao">Un gen real: MAO-A</h3>
+  <p>El gen MAO-A gestiona algunos neurotransmisores y tiene dos variantes interesantes. La <b>larga</b> favorece un carácter más tranquilo y reflexivo; la <b>corta</b>, la impulsividad. Pero no siempre: una persona con la variante corta que crece en un ambiente estable no la manifiesta, o mucho menos que si crece en un ambiente conflictivo.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Los genes predisponen a un temperamento; el ambiente hace que se manifieste más o menos. Las personas reflexivas centran la atención con más facilidad, y la atención es clave para aprender. Un ambiente educativo relajado da espacio de reflexión incluso a quien tiene predisposición a la impulsividad; un ambiente estresante y amenazador hace a todos más impulsivos.</p></div>
+  <p>En un aula de veinticinco alumnos hay veinticinco constituciones genéticas distintas. Por eso una misma estrategia genera respuestas distintas y la educación, aunque sea un hecho social y funcione mejor de manera cooperativa, debe ser <b>necesariamente individualizada</b>.</p>
+
+  <h3 id="c1-heretabilitat">Cuánto pesan los genes: la heredabilidad</h3>
+  <p>La heredabilidad es el porcentaje de la variación entre personas, en una característica concreta, que se atribuye a diferencias genéticas. El resto depende del ambiente.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Característica</th><th>Heredabilidad que recoge el libro</th></tr></thead>
+    <tbody>
+      <tr><td>Grupo sanguíneo</td><td>100 %</td></tr>
+      <tr><td>Cociente intelectual (en niños)</td><td>≈ 45 % (se conocen unos cincuenta genes implicados)</td></tr>
+      <tr><td>Empatía</td><td>47 %</td></tr>
+      <tr><td>Creatividad</td><td>55 %</td></tr>
+      <tr><td>Impulsividad</td><td>62 %</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box aula"><span class="lbl">En el aula</span>
+    <p>Sobre la parte genética no podemos hacer nada; sobre el resto, mucho. El reto es que cada alumno saque el máximo provecho individual y colectivo de sus capacidades dentro de la diversidad del aula. Cada alumno será único desde el principio y responderá de manera distinta a las mismas estrategias.</p>
+  </div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Los genes cuentan, pero solo hasta cierto punto; el resultado se modula, se amplifica o se mutila con la educación.</li>
+    <li>Contextualiza con referentes cercanos: sin contexto, el cerebro se estresa y entiende peor.</li>
+    <li>Una educación social, cooperativa y, a la vez, individualizada.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c2">
+  <p class="ch-label"><span class="num">02</span> Parte I · El cerebro y los genes</p>
+  <h2>Cómo funciona el cerebro</h2>
+  <p class="work"><b>Pregunta</b>¿Cómo funciona el cerebro?</p>
+  <p class="lead">El cerebro tiene el tamaño de un coco, pesa kilo y medio y tiene unos 85 000 millones de neuronas. Su volumen varía mucho entre personas (de menos de un litro a casi litro y medio), pero <b>el tamaño no tiene ninguna relación con la inteligencia ni con la capacidad de aprender</b>. Lo que cuenta son las conexiones.</p>
+  <div class="minitoc"><a href="#c2-palau">El palacio de la memoria</a><a href="#c2-tuits">Tuits neuronales</a><a href="#c2-zones">Zonas especializadas</a><a href="#c2-mapa">Mapa mínimo</a></div>
+
+  <h3 id="c2-palau">No es un cajón ni un palacio</h3>
+  <p>El cerebro no es un cajón donde vamos metiendo cosas, ni un «palacio de la memoria» con habitaciones que hay que llenar. Las capacidades dependen de los <b>pasillos y las escaleras</b> que unen las habitaciones, de los atajos y de los pasadizos secretos. Un cerebro tiene, de media, más de cien billones de conexiones; puestas en fila, darían cuatro veces la vuelta a la Tierra. Todo lo que aprendemos se guarda en patrones concretos de conexiones.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p><b>Educar significa cambiar el cerebro de los demás.</b> Durante el proceso educativo abrimos caminos y cerramos puertas: alteramos físicamente las redes neurales del alumnado. Y es bidireccional: mientras modificamos sus conexiones, ellos modifican las nuestras. Para actuar sobre su cerebro, primero debemos interiorizar el nuestro.</p></div>
+
+  <h3 id="c2-tuits">Las neuronas se comunican como los tuits</h3>
+  <div class="flow">
+    <div class="st"><b>Escribir el mensaje</b>La neurona genera un impulso eléctrico que recorre el axón (como el móvil que procesa el tuit).</div><span class="ar">→</span>
+    <div class="st"><b>Cruzar el espacio</b>En la sinapsis las neuronas no se tocan: el axón libera neurotransmisores (como la onda electromagnética).</div><span class="ar">→</span>
+    <div class="st"><b>Recibir y decidir</b>La neurona receptora puede ignorar el mensaje, cambiar de actividad o «retuitearlo» a otras.</div>
+  </div>
+  <p>Hay más de media docena de neurotransmisores, especializados en tipos de mensajes distintos. Una <b>red neural</b> es un conjunto de neuronas interconectadas: cualquier proceso mental, idea, recuerdo, emoción, decisión o plan se asocia a un patrón de conexiones concreto.</p>
+
+  <h3 id="c2-zones">Zonas especializadas, pero no compartimentos estancos</h3>
+  <p>La corteza cerebral tiene zonas especializadas (lenguaje, empatía, movimiento voluntario, toma de decisiones, razonamiento, control de las emociones, planificación o control ejecutivo), pero no son impermeables: personas con lesiones recuperan capacidades «reciclando» otras zonas, y esto ya se aprovecha en cirugía. La corteza gestiona las actividades más complejas y típicamente humanas.</p>
+  <h3 id="c2-mapa">Mapa mínimo para seguir el libro</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Estructura</th><th>Qué hace, según el libro</th><th>Vuelve en los capítulos</th></tr></thead>
+    <tbody>
+      <tr><td><b>Corteza cerebral</b></td><td>Capa externa, de seis capas de neuronas. Procesos complejos: lenguaje, empatía, decisiones, creatividad, control ejecutivo.</td><td>5, 7, 9</td></tr>
+      <tr><td><b>Corteza prefrontal</b></td><td>Detrás de la frente. Razonamiento, planificación, control consciente de las emociones, pensamiento creativo.</td><td>9, 10, 13, 15</td></tr>
+      <tr><td><b>Amígdalas</b></td><td>Dos, en el interior del cerebro. Generan las emociones (no confundirlas con las del cuello).</td><td>5, 6, 7, 16</td></tr>
+      <tr><td><b>Hipocampo</b></td><td>Gestiona la memoria, pero los recuerdos no se guardan en él. Tiene forma de caballito de mar.</td><td>7, 8, 16</td></tr>
+      <tr><td><b>Tálamo</b></td><td>Activa la atención ante lo inesperado; filtra qué es relevante.</td><td>10, 12, 15</td></tr>
+      <tr><td><b>Núcleo accumbens</b></td><td>Gestiona la motivación e interviene en el placer.</td><td>13</td></tr>
+      <tr><td><b>Hipotálamo</b></td><td>Enlace entre el sistema nervioso y las hormonas; clave en la respuesta de estrés.</td><td>16</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box aula"><span class="lbl">En el aula</span><p>Lo que más potencia el buen funcionamiento de la mente es favorecer la <b>capacidad relacional</b>, el dinamismo entre ideas y conceptos, y no una memoria estancada. Lo importante no son las salas del palacio, sino los caminos que las unen.</p></div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>El tamaño del cerebro no hace más inteligente: las conexiones, sí.</li>
+    <li>Toda actividad mental es un patrón de conexiones; aprender es cambiarlo.</li>
+    <li>Relacionar ideas vale más que acumularlas.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c3">
+  <p class="ch-label"><span class="num">03</span> Parte I · El cerebro y los genes</p>
+  <h2>Neuromitos</h2>
+  <p class="work"><b>Pregunta</b>¿Existen las inteligencias múltiples? ¿Es cierto que solo utilizamos el 10 % del cerebro?</p>
+  <p class="lead">La investigación sobre el cerebro ha dejado por el camino una serie de mitos muy arraigados, algunos con implicaciones educativas. Desmontarlos es tan importante como saber cómo funciona el cerebro.</p>
+  <div class="minitoc"><a href="#c3-10">El 10 %</a><a href="#c3-hemisferis">Hemisferios</a><a href="#c3-sexe">Cerebro masculino y femenino</a><a href="#c3-materies">Materias y música</a><a href="#c3-im">Inteligencias múltiples</a><a href="#c3-quiz">Test</a></div>
+
+  <h3 id="c3-10">«Solo usamos el 10 % del cerebro»</h3>
+  <p>Falsamente atribuido a Einstein, el mito viene del siglo XIX, cuando se desconocía la función de la mayor parte de las células. Usamos todo el cerebro, pero no todo a la vez (no encendemos las luces de todas las habitaciones para cenar). Además, en la corteza hay unos 16 000 millones de neuronas acompañadas de unos 60 000 millones de células de glía, que no transmiten impulsos pero alimentan a las neuronas, limpian residuos, evitan inflamaciones y aíslan los axones.</p>
+  <div class="box key"><span class="lbl">Un dato sorprendente: la red en modo automático</span><p>Cuando no hacemos nada, el cerebro muestra su máxima actividad, en todas las redes, como los sistemas ABS de un coche, que deben estar siempre a punto. Cuando nos distraemos o dormimos, el cerebro <b>consolida lo aprendido</b> y conecta redes que normalmente no se relacionan, lo que estimula la creatividad. Por eso hay que alternar ratos de atención y trabajo con ratos para distraerse, y educar en la importancia de dormir bien.</p></div>
+
+  <h3 id="c3-hemisferis">Hemisferio «racional» y hemisferio «emocional»</h3>
+  <p>Los dos hemisferios, unidos por el cuerpo calloso, intervienen en todas las actividades mentales; que uno muestre más actividad en una tarea no significa que sea más importante. Es falso que convenga enseñar según el hemisferio dominante o según un supuesto estilo visual, auditivo o cinestésico. Los procesos cognitivos complejos implican siempre varias redes que trabajan de manera coordinada.</p>
+  <div class="box aula"><span class="lbl">En el aula</span><p>Actividades integradas, transversales y contextualizadas que activen el máximo de redes: aprender los números cantando, las letras jugando. ¿Y por qué no la física del movimiento parabólico jugando al baloncesto o la trigonometría en clase de historia, con las pirámides de Egipto?</p></div>
+
+  <h3 id="c3-sexe">Cerebro masculino y cerebro femenino: un mito doble</h3>
+  <p>Ni son tan distintos que hagan falta clases separadas, ni son absolutamente idénticos. Unos 130 genes funcionan de manera diferente según el sexo durante el desarrollo embrionario (al menos 85 en adultos), y eso se traduce en pequeñas diferencias de media. Pero las <b>capacidades intelectuales globales no difieren por sexo</b>, sino por persona, y las diferencias entre individuos son muy grandes. La cultura y la educación magnifican las diferencias iniciales: el estereotipo de que los chicos son mejores en matemáticas es cultural (véase el <a href="#c12-mirades">capítulo 12</a>).</p>
+
+  <h3 id="c3-materies">¿Hay materias más importantes que otras?</h3>
+  <p>Casi todos diríamos que no, pero nuestras actitudes (y algunos currículos) dicen lo contrario. La educación física mejora la concentración, la atención y la motivación; la educación artística estimula la creatividad y la socialización; la manipulación fina repercute en las zonas del lenguaje. Y la música: escuchar a un compositor concreto <b>no hace a los niños más inteligentes</b> (es marketing), pero toda la música estimula el sistema de recompensa, mejora la atención y el autocontrol y estimula las emociones.</p>
+
+  <h3 id="c3-im">Las inteligencias múltiples</h3>
+  <p>La hipótesis de Howard Gardner ayudó a desmontar otro mito pernicioso: considerar crucial el cociente intelectual medido con unos test que obvian gran parte de la persona. Pero el cerebro funciona como un todo integrado y <b>ningún estudio neurocientífico ha demostrado que existan inteligencias independientes</b>. Cuando trabajamos la supuesta inteligencia logicomatemática, participan también la lingüística, la interpersonal o la cinestésica. Como marco psicológico puede ayudar a planificar actividades más completas y transversales.</p>
+  <div class="box evid"><span class="lbl">Con criterio</span><p>La guía de <a href="../../9788412714784/es/">«Edumitos»</a> (Héctor Ruiz Martín) trata con detalle estos y otros mitos (estilos de aprendizaje, cerebro derecho e izquierdo, efecto Mozart, inteligencias múltiples) a partir de la investigación en psicología.</p></div>
+
+  <div class="tool" id="c3-quiz">
+    <div class="tool-h"><h4>Test: ¿mito o realidad?</h4><span class="tg">Autoevaluación</span></div>
+    <p class="small muted">Diez afirmaciones que aparecen en el libro. Decide si son verdaderas o falsas según el autor y comprueba la explicación.</p>
+    <div class="quiz" data-key="mites">
+      <div class="q" data-a="F"><p class="qt">1. Solo usamos el 10 % del cerebro.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Lo usamos entero, pero no todo a la vez. Cuando descansamos, de hecho, muestra su máxima actividad (<a href="#c3-10">cap. 3</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">2. Un cerebro más grande es un cerebro más inteligente.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. El tamaño no tiene relación con la inteligencia ni con la capacidad de aprender; cuentan las conexiones (<a href="#c2">cap. 2</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">3. Conviene detectar el hemisferio dominante de cada alumno para enseñarle según su estilo.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Los dos hemisferios intervienen en todos los procesos; hacen falta actividades integradas que activen muchas redes (<a href="#c3-hemisferis">cap. 3</a>).</p></div>
+      <div class="q" data-a="V"><p class="qt">4. Distraerse y dormir ayudan a consolidar lo aprendido.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Verdadero. El cerebro sigue muy activo, consolida y conecta redes (<a href="#c3-10">cap. 3</a> · <a href="#c8-son">cap. 8</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">5. Escuchar a Mozart hace a los niños más inteligentes.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Es marketing. Pero la música en general es muy beneficiosa para la atención, el autocontrol y las emociones (<a href="#c17-musica">cap. 17</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">6. Las capacidades intelectuales globales de chicos y chicas son distintas.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Hay pequeñas diferencias de media, pero no en las capacidades globales; las diferencias son entre personas (<a href="#c3-sexe">cap. 3</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">7. Ningún estudio ha encontrado diferencias entre el cerebro masculino y el femenino.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Hay genes que funcionan de manera diferente y pequeñas diferencias anatómicas de media. El mito es doble (<a href="#c3-sexe">cap. 3</a>).</p></div>
+      <div class="q" data-a="V"><p class="qt">8. «La letra con sangre entra»: con miedo también se aprende.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Verdadero, y por eso no debe aplicarse nunca: quien aprende con miedo asocia aprender a miedo y deja de querer aprender (<a href="#c6-por">cap. 6</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">9. La marihuana no hace daño porque es «natural».</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Afecta a la memoria y al estado de ánimo desde las primeras veces y puede provocar alteraciones graves, como la psicosis (<a href="#c10-drogues">cap. 10</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">10. Ser bilingüe desde pequeño confunde al cerebro y es una desventaja.</p><div class="opts"><button class="btn sm" data-v="V">Verdadero</button><button class="btn sm" data-v="F">Falso</button></div><p class="fb">Falso. Aumenta la reserva cognitiva y ejercita la toma de decisiones; como mucho, tardan unas semanas más en empezar a hablar (<a href="#c11-llengues">cap. 11</a>).</p></div>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:10px"><span class="small" data-quiz-score="mites"></span><button class="btn sm" type="button" data-quiz-reset="mites">Reiniciar</button></div>
+  </div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>El cerebro trabaja siempre integrado: nada de cerebros divididos ni de inteligencias separadas.</li>
+    <li>Alternar trabajo y descanso no es perder el tiempo: es consolidar.</li>
+    <li>Ninguna materia es una «maría» para el cerebro.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c4">
+  <p class="ch-label"><span class="num">04</span> Parte II · Un cerebro en construcción</p>
+  <h2>Antes de nacer</h2>
+  <p class="work"><b>Pregunta</b>¿Cómo se forma el cerebro? ¿Tiene alguna importancia el estilo de vida de los padres?</p>
+  <p class="lead">Somos la especie que nace más inmadura, también en cuanto al cerebro, que al nacer todavía está a medias. Es una gran oportunidad y una gran responsabilidad. El autor lo compara con una moto <i>custom</i>: los programas genéticos dan el modelo básico y el ambiente lo personaliza.</p>
+
+  <h3 id="c4-formacio">Cómo se forma</h3>
+  <div class="flow">
+    <div class="st"><b>Día 18</b>Unas células del ectodermo forman el tubo neural: delante, el cerebro; detrás, la médula.</div><span class="ar">→</span>
+    <div class="st"><b>Semana 25</b>El entramado básico ya está en su sitio; se forma la corteza, con seis capas.</div><span class="ar">→</span>
+    <div class="st"><b>Semana 28</b>Empieza la poda: mueren neuronas superfluas y remiten conexiones inútiles.</div><span class="ar">→</span>
+    <div class="st"><b>Después del parto</b>350 g al nacer, 700 g al año, 900 g a los dos años; tamaño casi final hacia los cuatro.</div>
+  </div>
+  <p>Antes del parto, el feto ya se mueve, capta sonidos, voces y música, y responde a ellos. Durante la infancia y la adolescencia los cambios tienen más que ver con las <b>conexiones</b> entre neuronas existentes que con el número de neuronas.</p>
+
+  <h3 id="c4-estil">El estilo de vida de los progenitores</h3>
+  <p>Puede parecer que esto queda fuera del trabajo docente, pero el alumnado de hoy será el padre y la madre de mañana: formarlos en esta responsabilidad también nos toca.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Lo que perjudica</span><ul class="small"><li>Fumar durante el embarazo (o ser fumadora pasiva) dificulta el crecimiento del cerebro y la conectividad; el libro recoge un aumento del 78 % de la probabilidad de sufrir algún trastorno mental en la edad adulta.</li><li>El alcohol y cualquier otra sustancia tóxica.</li><li>El tabaco y otras drogas pueden dañar el material genético de los espermatozoides y de los óvulos, desde la adolescencia.</li></ul></div>
+    <div class="card"><span class="tag">Lo que ayuda</span><ul class="small"><li>Deporte moderado durante el embarazo: activa la formación de neuronas y mejora la memoria de los hijos, que además hacen más deporte de mayores.</li><li>Muestras de afecto de la pareja hacia la madre: aumentan la oxitocina, que favorece conexiones de la memoria y la gestión de la ansiedad del feto.</li></ul></div>
+  </div>
+  <div class="box key"><span class="lbl">Idea clave</span><p>La responsabilidad de los progenitores en la construcción del cerebro de sus hijos <b>empieza antes de concebirlos</b>. Por eso hay que formar en ella a los futuros padres y madres, es decir, al alumnado actual.</p></div>
+
+  <h3 id="c4-finestres">Las tres ventanas después del nacimiento</h3>
+  <div class="ages">
+    <div><span>Ventana 1</span><b>0-3 años</b>Muchas conexiones dentro de la corteza: el cerebro se empapa del ambiente y adapta a él el comportamiento. <a href="#c5">Cap. 5</a></div>
+    <div><span>Ventana 2</span><b>4-11 años</b>La corteza se conecta con la amígdala y el hipocampo: conciencia de las emociones y de los recuerdos, destrezas académicas. <a href="#c7">Cap. 7</a></div>
+    <div><span>Ventana 3</span><b>Adolescencia</b>Conexiones entre zonas lejanas: grandes aprendizajes conceptuales y maduración del control emocional. <a href="#c9">Cap. 9</a> · <a href="#c10">10</a></div>
+  </div>
+  <p class="small muted">El autor hace notar que estas ventanas coinciden con las etapas educativas (0-3, infantil y primaria, secundaria y bachillerato). No es casual: la pedagogía se ha fijado en los cambios mentales, que reflejan cambios del cerebro.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>El cerebro nace a medias: el ambiente lo completa.</li>
+    <li>La salud de los futuros progenitores es tema de tutoría y de ciencias, no solo de familia.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c5">
+  <p class="ch-label"><span class="num">05</span> Parte II · Un cerebro en construcción</p>
+  <h2>De 0 a 3 años: la consistencia del cerebro</h2>
+  <p class="work"><b>Pregunta</b>¿Por qué los niños de 0 a 3 años parece que se encanten y se abstraigan por cualquier cosa? ¿Aprenden realmente algo a estas edades?</p>
+  <p class="lead">Respuesta breve: entre el nacimiento y los tres años los niños aprenden <b>las cosas más importantes de su vida</b>, las que más condicionarán su carácter y su temperamento adultos. No lo recordaremos, pero es la etapa más crucial.</p>
+  <div class="minitoc"><a href="#c5-fang">La figurita de barro</a><a href="#c5-adaptar">Adaptarse al ambiente</a><a href="#c5-conflicte">El ejemplo de la conflictividad</a><a href="#c5-novetats">Buscadores de novedades</a></div>
+
+  <h3 id="c5-fang">La figurita de barro</h3>
+  <p>Antes de modelar una figurita, el barro debe amasarse y humedecerse hasta el punto justo; del material inicial dependerá que la figura sea consistente y no se agriete al cocerla. Eso hace el cerebro en esta etapa: adquirir la <b>consistencia</b> (solidez y coherencia entre las partes) para el resto de la vida. Los programas genéticos hacen que las neuronas de la corteza establezcan muchas conexiones entre áreas cercanas; cuáles y cuántas, lo decide el ambiente. Por eso aprenden a hablar solos: escuchan, imitan, ensayan e integran.</p>
+
+  <h3 id="c5-adaptar">El cerebro sirve para adaptarse al ambiente</h3>
+  <p>Además de hacer latir el corazón o interpretar imágenes, el cerebro adapta el comportamiento al ambiente para sobrevivir. El momento más importante de esta adaptación es la primera infancia: el cerebro aprende a interpretar las señales de su entorno y ajusta a ellas las respuestas. Esta adaptación queda grabada en las conexiones de la corteza. Incluso el aprendizaje «automático» de la lengua forma parte de ella, porque el lenguaje es clave para integrarse en el grupo.</p>
+
+  <h3 id="c5-conflicte">Un ejemplo: crecer en un ambiente conflictivo</h3>
+  <p>Los adultos que de pequeños vivieron en ambientes de mucha conflictividad (familiar, social, estructural) presentan conexiones ligeramente distintas en la zona de control de las emociones y tienden a ser más impulsivos. Tiene lógica: ante amenazas frecuentes hay que responder rápido, sin reflexionar. El autor lo ilustra con un oso polar que se acerca por la playa: las emociones se disparan antes de que seamos conscientes.</p>
+  <div class="box warn"><span class="lbl">Las emociones ya están, el control todavía no</span><p>A estas edades las amígdalas generan emociones con toda su fuerza, pero la zona de control consciente aún no ha madurado (no empezará a hacerlo hasta la adolescencia). Por eso cuesta tanto consolar a un niño cuando llora o hacerle reflexionar cuando se enfada.</p></div>
+  <p>Estas conexiones cuestan mucho de deshacer: esta etapa imprime mucho el carácter. Y un alumno poco reflexivo tendrá más dificultades para aprender, porque aprender también debe ser reflexivo. Pero el ejemplo es solo un ejemplo:</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Estimulado</span><p>Un cerebro estimulado (nunca sobreestimulado, porque la sobreestimulación lleva al estrés) acaba con más conexiones.</p></div>
+    <div class="card"><span class="tag">Querido</span><p>Un niño querido y valorado desarrolla conexiones que le hacen sentirse seguro y confiado, y más capaz de amar y transmitir seguridad.</p></div>
+    <div class="card"><span class="tag">Tolerancia</span><p>Un niño que ve tolerancia a su alrededor tiene más activo el centro de la empatía.</p></div>
+  </div>
+
+  <h3 id="c5-novetats">Por qué parece que estén distraídos</h3>
+  <p>No están distraídos: su cerebro busca y detecta cualquier novedad para interiorizarla. Es la <b>búsqueda de novedades</b>, un comportamiento instintivo muy intenso en esta etapa. El autor propone un «experimento»: deje un objeto nuevo y seguro cerca de un niño de uno o dos años que le conozca mientras juega; lo dejará todo para ir a explorarlo.</p>
+  <div class="box aula"><span class="lbl">En la escuela infantil y en casa</span>
+    <ul>
+      <li>Un ambiente diverso, no sobreestimulante, donde puedan ir a su aire.</li>
+      <li>Parque, montaña y playa; que toquen la tierra y exploren.</li>
+      <li>Que estén presentes cuando hablamos con otras personas: observan e integran nuestras reacciones.</li>
+    </ul>
+  </div>
+  <p class="small muted">Casi nadie recuerda nada de antes de los tres años: estas experiencias quedan en conexiones inconscientes, lo que hace más difícil reconducir conductas que se originan en ellas. El porqué se explica en el <a href="#c7-hipocamp">capítulo 7</a>.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>De 0 a 3 años se construye buena parte del carácter y del temperamento adulto.</li>
+    <li>Estimular, sí; sobreestimular, no.</li>
+    <li>Afecto, estabilidad y tolerancia dejan una huella física.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c6">
+  <p class="ch-label"><span class="num">06</span> Parte II · Un cerebro en construcción</p>
+  <h2>Las emociones</h2>
+  <p class="work"><b>Pregunta</b>¿Qué son las emociones? ¿Tienen relación con los aprendizajes? ¿Y es cierto que «la letra con sangre entra»?</p>
+  <p class="lead">¿Qué elemento de una moto es más importante: el acelerador, el freno o el volante? Es una pregunta con trampa: los tres, combinados. Las <b>emociones son el acelerador</b>; la reflexión, el <b>freno y el volante</b>.</p>
+  <div class="minitoc"><a href="#c6-que">Qué son</a><a href="#c6-supervivencia">Emoción y supervivencia</a><a href="#c6-educacio">¿Educación emocional?</a><a href="#c6-por">Aprender con miedo</a><a href="#c6-plaer">Aprender con placer</a><a href="#c6-tool">Herramienta</a></div>
+
+  <h3 id="c6-que">Qué son las emociones</h3>
+  <p>Son <b>patrones de comportamiento que se desencadenan de forma automática y preconsciente</b> ante cualquier cambio en la situación, sobre todo si implica una posible amenaza, física o social. Las generan las amígdalas, en la parte más primitiva del cerebro, que compartimos con todos los vertebrados.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Emoción</span><p>Respuesta automática, preconsciente y primaria. Hay clasificaciones de hasta unas cuarenta; a menudo se habla de cuatro o seis básicas: miedo, ira, asco y alegría, y también tristeza y sorpresa.</p></div>
+    <div class="card"><span class="tag">Sentimiento</span><p>La racionalización y verbalización que hacemos de una emoción cuando somos conscientes de ella. Ya no es primario: influyen la cultura y la educación.</p></div>
+  </div>
+  <p>Cuando la amígdala pone en marcha una respuesta, informa a la corteza, que nos hace conscientes y nos permite reconducirla. El ejemplo del berberecho podrido: lo escupimos antes de darnos cuenta; después, como mucho, reconducimos la situación y lo hacemos en la mano en lugar de en medio de la mesa. La diferencia entre una persona impulsiva y una reflexiva es la facilidad con que se da cuenta de sus emociones y con que puede reconducirlas.</p>
+
+  <h3 id="c6-supervivencia">Emociones y supervivencia: la clave del aprendizaje</h3>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Cualquier aprendizaje con componentes emocionales, el cerebro lo interpreta como importante para sobrevivir: <b>lo almacena mejor y permite utilizarlo con más eficiencia</b>. Si no hay emoción, el cerebro no ve utilidad en guardarlo y lo olvida pronto o lo usa mal.</p></div>
+  <p>El autor añade que las emociones generan una especie de <b>resaca emocional</b>: durante unos treinta minutos después de una activación emocional, el cerebro asocia a esa emoción cualquier cosa que aprenda, aunque no tenga nada que ver.</p>
+  <div class="box evid"><span class="lbl">Con criterio</span><p>Que la emoción favorece la memoria es una idea ampliamente aceptada; que sea imprescindible para aprender es más discutido. La psicología cognitiva subraya que también se aprende pensando sobre lo que se aprende y que las emociones muy intensas pueden dificultar el aprendizaje escolar. Véase el capítulo sobre las emociones en la guía de <a href="../../9788418058059/es/#c9">«¿Cómo aprendemos?»</a>.</p></div>
+
+  <h3 id="c6-educacio">¿Hay que hacer educación emocional en el aula?</h3>
+  <p>Depende. Si el alumnado madura emocionalmente como corresponde a su edad, el autor cree que no hace falta una educación emocional específica (aunque no está de más). Lo que <b>siempre</b> es necesario es que los aprendizajes vayan asociados a emociones. Si hay alumnos con déficits de gestión emocional, la educación emocional se vuelve imprescindible. En un grupo de veinte o veinticinco, es fácil que haya alguno, y el resto también le sacará provecho.</p>
+
+  <h3 id="c6-por">«La letra con sangre entra»: cierta, pero no debe aplicarse nunca</h3>
+  <p>El miedo es una emoción muy poderosa y lo que se asocia a él queda grabado. Se puede aprender por miedo al castigo, al ridículo, al qué dirán, a quedarse sin recreo. Hay países que basan el aprendizaje en el miedo al fracaso y a la humillación familiar, y son también los que tienen más depresiones graves y suicidios adolescentes.</p>
+  <div class="box warn"><span class="lbl">La consecuencia a largo plazo</span><p>Si se aprende con miedo, el cerebro asocia aprender cosas nuevas al miedo. Cuando ya no tengan la obligación de ir a la escuela, quizá no quieran aprender nunca más por sí mismos, o no disfruten de seguir creciendo a través del aprendizaje.</p></div>
+  <p>El miedo puede ser muy sutil. Un maestro le contó al autor que, para estimular al alumnado de sexto, decía: «¡Ya veréis lo que es trabajar duro cuando el próximo curso hagáis la ESO!». Para algunos será un estímulo; para otros, empezar la ESO con miedo al fracaso. El autor lo plantea como elemento de reflexión, no para asustar a nadie: «en general estamos avanzando en la dirección correcta».</p>
+
+  <h3 id="c6-plaer">Aprender con alegría y placer</h3>
+  <p>El placer, la alegría y la sorpresa también dejan huella. No son tan potentes como el miedo, pero las consecuencias a medio y largo plazo son abismalmente distintas: <b>quien aprende con placer siente placer por aprender</b> cuando es adulto.</p>
+  <div class="box aula"><span class="lbl">La demostración del capítulo</span><p>El autor habla de sí mismo varias veces (el profesor de música que pegaba con la batuta, el buey en Indonesia) como experimento: las anécdotas de personas activan el <b>cerebro social</b>, conectado con las emociones, y recuperan la atención del lector. Contar anécdotas cercanas también funciona en el aula.</p></div>
+
+  <div class="tool" id="c6-tool">
+    <div class="tool-h"><h4>¿Dónde se esconde el miedo en mi aula?</h4><span class="tg">Lista de revisión</span></div>
+    <p class="small muted">Situaciones que, sin querer, pueden hacer que algún alumno asocie aprender a miedo o a incomodidad. Marca las que reconozcas. Se guarda en el navegador. <span class="src ext">Propuesta</span> construida con los capítulos <a href="#c6">6</a>, <a href="#c7-ritmes">7</a> y <a href="#c13-desmotivar">13</a>.</p>
+    <div class="checklist" data-key="por">
+      <label class="check"><input type="checkbox"><span class="ct">Anuncio la próxima etapa o el examen como una amenaza («ya veréis el año que viene»).</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hago leer en voz alta ante el grupo a alumnos que todavía no están preparados.</span><span class="w">cap. 7</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Comparo resultados entre alumnos en público.</span><span class="w">cap. 7</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hago bromas sobre una carencia concreta de alguien, aunque sea «en broma».</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Uso el recreo, más deberes o el ridículo como castigo por no haber aprendido.</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Miro siempre de la misma manera, con desaprobación, al mismo alumno.</span><span class="w">cap. 12</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Las correcciones llegan antes que el reconocimiento de lo que está bien hecho.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Pido a las familias que refuercen en casa sin explicarles que lo hagan sin prisa y con gusto.</span><span class="w">cap. 7</span></label>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="por"></span><button class="btn sm" type="button" data-reset="por">Reiniciar</button></div>
+    <p class="small muted" style="margin:10px 0 0">Cada casilla marcada es una oportunidad de cambio, no un reproche: para el autor, «el miedo es muy sutil» y a menudo no es intencionado.</p>
+  </div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Emociones (acelerador) y reflexión (freno y volante) trabajan juntas.</li>
+    <li>Con emoción se aprende más y mejor; con miedo se aprende a tener miedo a aprender.</li>
+    <li>Educar a través del placer prepara aprendices para toda la vida.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c7">
+  <p class="ch-label"><span class="num">07</span> Parte II · Un cerebro en construcción</p>
+  <h2>De 4 a 11 años: aprender a aprender… o a aburrirse</h2>
+  <p class="work"><b>Pregunta</b>¿Por qué las niñas y los niños de 4 a 11 años aprenden a aburrirse en clase? ¿Qué hay que transmitirles?</p>
+  <p class="lead">En esta segunda ventana la corteza empieza a conectarse con zonas más profundas, sobre todo la <b>amígdala</b> (emociones) y el <b>hipocampo</b> (memoria). Por primera vez pueden ser un poco conscientes de sus emociones y de sus recuerdos.</p>
+  <div class="minitoc"><a href="#c7-avorriment">Por qué se aburren</a><a href="#c7-quotidia">Aprender de lo cotidiano</a><a href="#c7-hipocamp">El hipocampo</a><a href="#c7-memoria">Aprender a memorizar</a><a href="#c7-ritmes">Ritmos de maduración</a></div>
+  <div class="box evid"><span class="lbl">Neurociencia y pedagogía</span><p>«Los estudios en neurociencia no pretenden, ni deben pretender en ningún caso, sustituir las tareas y las propuestas pedagógicas.» La neurociencia dice cómo funciona el cerebro; la pedagogía desarrolla las estrategias para aprovecharlo.</p></div>
+
+  <h3 id="c7-avorriment">Aprenden a aburrirse</h3>
+  <p>Hasta los tres años los niños no se aburren nunca, si están tranquilos y tienen un adulto de referencia cerca. A partir de los cuatro, como empiezan a ser conscientes de la <b>emoción de aprender</b>, cuando lo que hacen no va asociado a emociones, aprenden a aburrirse. No es que los docentes no pongamos emoción: lo que cuenta es cómo lo perciben ellos.</p>
+  <p>Hay una segunda causa: cuando un alumno, por el motivo que sea, nota que aprender le da miedo, puede desconectarse. Es el <b>apagón emocional</b>, que trae aburrimiento y puede iniciar un círculo vicioso que cierre la puerta a nuevos aprendizajes.</p>
+
+  <h3 id="c7-quotidia">Aprender de lo cotidiano</h3>
+  <p>Cualquier aprendizaje insertado en la realidad cotidiana es más significativo y activa el centro de las emociones: si es cotidiano, es que es importante para sobrevivir. Para estudiar los peces, ¿por qué no ir al mercado del barrio, por las calles que conocen, y pedir a la pescadera que enseñe las branquias y la cola? El libro de texto, después, cuando ya es significativo.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>A estas edades importa más la <b>calidad que la cantidad</b>. No se trata de aprender muchas cosas (eso será más importante en la adolescencia), sino de sentir placer e interés por aprender cosas nuevas.</p></div>
+
+  <h3 id="c7-hipocamp">El hipocampo: el centro de control del tráfico</h3>
+  <p>La memoria serían los semáforos repartidos por la ciudad; el hipocampo, el centro que sincroniza sus cambios según las necesidades. También puede pensarse como los «favoritos» del navegador: no guarda las páginas, solo la dirección. Como hasta los tres años todavía no hay conexiones entre la corteza y el hipocampo, <b>no recordamos conscientemente nada de antes de esa edad</b>. Quien dice recordar cosas de cuando tenía un año seguramente ha oído hablar de ellas y las ha incorporado como propias.</p>
+
+  <h3 id="c7-memoria">Aprender a memorizar por gusto</h3>
+  <p>Es la etapa de más influencia sobre las <b>destrezas académicas</b>: leer, escribir, razonar, relacionar, memorizar. No es el mejor momento para grandes aprendizajes memorísticos (vendrán en la adolescencia), pero sí para trabajar la memoria como destreza personal. El autor recuerda con pereza la lista de los reyes godos: no le era significativa y solo recuerda dos.</p>
+  <div class="box aula"><span class="lbl">En el aula</span><p>No es tan importante <b>qué</b> memorizan, sino que memoricen por gusto cosas que les interesen o que nosotros sepamos hacer interesantes: canciones, poemas, datos de su equipo o de su animal preferido.</p></div>
+
+  <h3 id="c7-ritmes">Respetar los ritmos de maduración: el caso de la lectura</h3>
+  <p>Cada cerebro madura a su ritmo. Según el libro, hacia los cinco años entre el 50 y el 60 % de los cerebros han madurado lo suficiente para empezar a leer; un 40 % todavía no. Si se les obliga, no aprenderán hasta que su cerebro madure y algunos asociarán leer a incomodidad, inseguridad o miedo. Ocurre lo mismo si en casa la lectura se hace con prisas, comparaciones o estrés.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Lo que no propone</span><p>Retrasar la lectura para todos. Muchos niños pueden disfrutarla con cinco o seis años y merecen que se les enseñe.</p></div>
+    <div class="card"><span class="tag">Lo que propone</span><p>Ser menos exigentes e intransigentes con quien aún no está maduro, tener los elementos a su alcance, estimular sin presionar y reconducir siempre hacia el placer. «Los currículos los podemos ajustar levemente. La maduración natural del cerebro, no.»</p></div>
+  </div>
+  <div class="box evid"><span class="lbl">Con criterio</span><p>El libro no detalla de dónde salen los porcentajes de maduración para la lectura. Para la didáctica de la lectura inicial (conciencia fonológica, método fónico, detección precoz de dificultades), véase la guía de <a href="../../9788411821865/es/">«Aprender a enseñar a leer y a escribir»</a>, que coincide en pedir una enseñanza ajustada al punto de partida de cada niño.</p></div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Sin emoción percibida, se aprende a aburrirse; con miedo, llega el apagón emocional.</li>
+    <li>Contexto cotidiano primero, libro después.</li>
+    <li>Memorizar por gusto y respetar los ritmos de cada uno.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c8">
+  <p class="ch-label"><span class="num">08</span> Parte II · Un cerebro en construcción</p>
+  <h2>Cómo aprendemos y cómo desaprendemos</h2>
+  <p class="work"><b>Pregunta</b>¿Cómo aprendemos? ¿Podemos desaprender?</p>
+  <p class="lead">Cualquier aprendizaje, conceptual, actitudinal o de aptitudes, queda fijado en un <b>patrón dinámico de conexiones</b>. Los aprendizajes significativos pasan por la amígdala (emociones) y por el hipocampo (memoria), pero las redes recorren todo el cerebro.</p>
+  <div class="minitoc"><a href="#c8-xarxes">Redes extensas</a><a href="#c8-formen">Cómo se forman</a><a href="#c8-repetir">Repetir con novedades</a><a href="#c8-utilitat">Qué es útil para el cerebro</a><a href="#c8-espiral">La espiral y los errores</a><a href="#c8-son">El sueño</a></div>
+
+  <h3 id="c8-xarxes">Cuanto más extensa es la red, mejor</h3>
+  <p>Si la red de un aprendizaje es extensa, lo recordamos mejor y lo usamos con más eficiencia. El ejemplo preferido del autor: el alumnado de secundaria con profesores de matemáticas que gesticulan mucho aplica mejor los conceptos. Por imitación, se activan sus neuronas motoras, que quedan asociadas a los conceptos y después se reaprovechan para resolver problemas.</p>
+  <div class="box aula"><span class="lbl">En el aula</span><p>Calcular porcentajes con los tiros libres de baloncesto en educación física, recordar un animal por una lectura en clase de lengua. Comprar mandarinas en el mercado activa a la vez matemáticas, física, ecología y emociones. No hace falta hacerlo todo transversal, pero sí <b>contextualizar siempre</b> con contextos cercanos. El autor apunta una contradicción: las pruebas clásicas, monotemáticas, no favorecen los conocimientos transversales.</p></div>
+
+  <h3 id="c8-formen">Cómo se forman las conexiones: hacer <i>zapping</i></h3>
+  <p>Cuando un axón llega a una neurona inactiva, «pasa» y busca otra, como quien hace <i>zapping</i> ante un canal en negro. Por tanto, <b>un cerebro estimulado acaba con más conexiones</b>. Atención: estimulado no significa sobreestimulado, que lleva al estrés. Si la conexión resulta útil, se mantiene; si es muy útil, se fabrican neurotrofinas que atraen más y la refuerzan. La experiencia es eso.</p>
+
+  <h3 id="c8-repetir">Repetir, sí, pero con pequeñas novedades</h3>
+  <p>El trabajo repetitivo consolida, y hay que seguir haciéndolo. Pero repetir siempre igual refuerza un solo patrón, hace perder el interés y lleva al aburrimiento. Introducir <b>pequeños elementos de novedad</b> que no distraigan del objetivo refuerza la red y, además, la amplía y la ramifica.</p>
+
+  <h3 id="c8-utilitat">Qué considera útil el cerebro</h3>
+  <p>En los aprendizajes motores es fácil de ver: cuando aprendemos a andar, las conexiones que hacen tropezar desaparecen y las que permiten avanzar se mantienen. En los aprendizajes conceptuales y actitudinales, lo que el cerebro percibe como máxima utilidad es <b>la aceptación, la valoración y el reconocimiento social</b> de compañeros, docentes y familias.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>El refuerzo positivo es clave. Es el fundamento del peso que el autor da a la mirada, al trabajo cooperativo y al placer social (<a href="#c12">cap. 12</a>).</p></div>
+
+  <h3 id="c8-espiral">La espiral y los errores</h3>
+  <p>Cada aprendizaje nuevo se asienta sobre las redes que ya contienen elementos parecidos, como añadir una torre a un castillo de piezas. Tiene dos consecuencias:</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Cuanto más sabes, más aprendes</span><p>Cuanto más ricas y relacionadas son las redes, más fácil es integrar lo nuevo. Con muchos surcos en el terreno, germinan más semillas.</p></div>
+    <div class="card"><span class="tag">Los errores quedan en la base</span><p>Si falta una columna en el castillo, no se puede construir nada encima. Una conexión consolidada cuesta mucho de deshacer: <b>aprender es muy fácil; desaprender, extremadamente complejo</b>.</p></div>
+  </div>
+  <p>Por eso los psicólogos no deshacen las conexiones de las conductas desadaptativas: crean otras nuevas, a través de la reflexión, el razonamiento y las emociones, que hacen de <b>baipás</b>, como un puente nuevo junto al viejo. Y por eso los docentes debemos preparar bien lo que no sabemos antes de explicarlo. Desaprender no es olvidar: se olvida lo que no ha quedado bien fijado.</p>
+
+  <h3 id="c8-son">El sueño consolida</h3>
+  <p>Lo que aprendemos durante el día queda en redes de memoria a corto plazo. El paso a la memoria a largo plazo se produce <b>cuando dormimos</b>. Cuanto más pequeños, más horas necesitan. Hay que enseñar a reducir el ritmo antes de acostarse; el estrés es el gran enemigo del sueño. En la adolescencia el sueño llega de forma natural más tarde, y el autor señala la paradoja de que justo entonces los horarios escolares a menudo se adelantan.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Aprendizajes contextualizados y transversales: redes más amplias.</li>
+    <li>Repetición con novedades; reconocimiento social como refuerzo.</li>
+    <li>Prepara bien lo que explicas: los errores cuestan mucho de deshacer.</li>
+    <li>Sin sueño no hay consolidación.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="interludi">
+  <p class="ch-label"><span class="num">✈</span> Interludio</p>
+  <h2>Hagamos un avión de papel: la cerebroflexia</h2>
+  <p class="lead">En la mitad del libro, el autor propone un descanso: hacer un avión de papel. Primero con un folio rectangular; después, con el mismo procedimiento, con un papel de otra forma. No sale igual.</p>
+  <p>¿Se puede hacer un buen avión con un papel irregular sin recortarlo? Sí: con un primer pliegue que lo convierta en rectángulo, o ensayando otras maneras de doblarlo. La forma inicial del papel equivale a los genes y a la biología de cada alumno, que no podemos cambiar (ni falta que hace). Lo que sí podemos hacer es concentrarnos en <b>cómo lo doblamos</b> para aprovecharlo al máximo y hacer un avión que vuele lo más alto posible.</p>
+  <div class="box key"><span class="lbl">Cerebroflexia</span><p>Es el nombre que el autor da a la capacidad de la educación, en la escuela, en la familia y en la sociedad, de modelar el cerebro de las personas. Es la gran responsabilidad y el gran reto de los educadores, y a menudo también un gozo.</p></div>
+  <details class="ex"><summary><span class="st-t">Actividad para un claustro o una reunión de familias</span><span class="meta-s">Propuesta · 20 min</span></summary><div class="body">
+    <ol>
+      <li>Repartid hojas de formas distintas (rectángulos, cuadrados, trapecios, triángulos) sin decirlo.</li>
+      <li>Todo el mundo hace el mismo modelo de avión siguiendo las mismas instrucciones y lo prueba.</li>
+      <li>Comparad los resultados: ¿quién ha tenido que adaptar el procedimiento? ¿Cómo?</li>
+      <li>Leed el párrafo de la cerebroflexia y relacionadlo con la diversidad del aula: ¿qué es el «papel» y qué son los «pliegues» en vuestra escuela?</li>
+      <li>Cerrad con una pregunta: ¿qué pliegue podemos hacer distinto la semana que viene?</li>
+    </ol>
+  </div></details>
+  <p class="small muted">El interludio es también una demostración práctica de la sorpresa como recurso para recuperar la atención (<a href="#c10-atencio">cap. 10</a>).</p>
+</section>
+
+<section class="chapter" id="c9">
+  <p class="ch-label"><span class="num">09</span> Parte III · La adolescencia</p>
+  <h2>Control emocional y límites</h2>
+  <p class="work"><b>Pregunta</b>¿Por qué la adolescencia es tan entretenida? ¿Y por qué los adolescentes intentan saltarse las normas?</p>
+  <p class="lead">Somos la única especie con una adolescencia tan profunda. Entran en ella niños dependientes y deben salir adultos capaces de vivir de forma independiente. Cada día se levantan con un cuerpo y una mente un poco distintos.</p>
+  <div class="minitoc"><a href="#c9-connexions">Grandes aprendizajes</a><a href="#c9-descontrol">El descontrol que madura</a><a href="#c9-grup">El peso del grupo</a><a href="#c9-limits">Límites para romper</a><a href="#c9-apagada">El apagón emocional</a></div>
+
+  <h3 id="c9-connexions">La época de los grandes aprendizajes</h3>
+  <p>El cerebro adolescente prioriza las conexiones entre <b>zonas lejanas</b>. Como los aprendizajes con redes extensas se recuerdan y aplican mejor, es el momento de los aprendizajes más conceptuales: literatura, filosofía, ciencias, historia, y también ética y moral. El cerebro adolescente busca su lugar en el mundo, y la ética sirve precisamente para encajar socialmente: por eso les interesan la justicia, la igualdad y la dignidad.</p>
+  <div class="box aula"><span class="lbl">En el aula</span><p>Ofrecer <b>elementos de reflexión ética</b> desde cualquier materia (educación física, literatura, física, biología) y, muy especialmente, desde la filosofía. Las emociones siguen siendo «el elemento multiplicador de la ecuación del aprendizaje»: sin ellas, quizá aprueben el examen, pero lo olvidarán.</p></div>
+
+  <h3 id="c9-descontrol">El descontrol emocional es la prueba de que maduran</h3>
+  <p>Cuando la amígdala pone en marcha una emoción, avisa a la corteza prefrontal, que nos hace conscientes y nos permite reconducirla: eso es el control emocional. En la adolescencia estas conexiones maduran: <b>ensayan su utilidad</b>. Se activan redes distintas para gestionar la misma emoción. Una nos parece adulta; la otra, una chiquillada.</p>
+  <div class="flow">
+    <div class="st"><b>Ensayo</b>El adolescente gestiona una emoción de una manera o de otra.</div><span class="ar">→</span>
+    <div class="st"><b>Reacción del entorno</b>Aceptación o rechazo de docentes, familia y, sobre todo, iguales.</div><span class="ar">→</span>
+    <div class="st"><b>Selección</b>Las conexiones valoradas se mantienen; las demás tienden a desaparecer.</div><span class="ar">→</span>
+    <div class="st"><b>Maduración</b>Año tras año se acumulan las más eficientes.</div>
+  </div>
+
+  <h3 id="c9-grup">El peso del grupo</h3>
+  <p>Los docentes somos una fuente de aprobación, pero limitada: cuentan la familia, la sociedad y, sobre todo, los iguales, con quienes construirán la sociedad futura. Un grupo que ríe las «animaladas» de un compañero favorece que esa manera de gestionar las emociones se implante. Por eso es tan importante velar por la dinámica del aula. Este proceso de ensayo y error da, hasta cierto punto, una oportunidad de reconducir conductas desadaptativas, a través de la reflexión y, sobre todo, de las emociones y de la sensación de aceptación o desaprobación que transmitimos.</p>
+
+  <h3 id="c9-limits">Límites hechos para romperse</h3>
+  <p>La maduración del control emocional trae el deseo de romper los límites: es la manera de encontrar su lugar. El impulso es biológico; la manera concreta de romperlos, cultural.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Si los límites…</th><th>…el cerebro adolescente</th></tr></thead>
+    <tbody>
+      <tr><td>No existen</td><td>No madura de manera suficientemente equilibrada.</td></tr>
+      <tr><td>Son tan estrictos que es imposible romperlos</td><td>Tampoco madura de manera equilibrada.</td></tr>
+      <tr><td>Existen y se pueden romper algunos</td><td>Madura mejor. «Se necesitan límites y es sano para su construcción como personas que los quieran romper, y que rompan algunos.»</td></tr>
+    </tbody>
+  </table></div>
+  <p>Cada adolescente necesita sus límites y los percibe a su manera. Hay que saber que querrán romperlos y tener pensado cómo responderemos, sin una pauta única: un adolescente tímido puede necesitar que valoremos que ha roto uno; uno demasiado irrespetuoso, justo lo contrario.</p>
+
+  <h3 id="c9-apagada">Atención al apagón emocional</h3>
+  <p>Las emociones nos dan ganas de vivir, de avanzar, de aprender. Cuando se apagan (el estrés es uno de los factores principales), la mirada se vuelve «muerta». Los primeros síntomas son la <b>apatía</b> y una atención baja y dispersa: el «paso de todo», «no me importa nada». No siempre decirlo es sentirlo, pero hay que estar al acecho.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Adolescencia: conexiones lejanas, aprendizajes conceptuales y éticos.</li>
+    <li>El descontrol es ensayo: nuestra reacción ayuda a seleccionar.</li>
+    <li>Límites, sí, y pensados para poder romper algunos.</li>
+    <li>Apatía y atención dispersa pueden ser el inicio de un apagón emocional.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c10">
+  <p class="ch-label"><span class="num">10</span> Parte III · La adolescencia</p>
+  <h2>Novedades, drogas y atención</h2>
+  <p class="work"><b>Pregunta</b>¿Por qué la adolescencia es la edad más tentadora para iniciarse en el consumo de drogas? Y ¿qué debemos hacer para que estén atentos a nuestras explicaciones?</p>
+  <p class="lead">En la adolescencia también se descubre la sexualidad, se dispara la búsqueda de novedades y maduran las áreas de la atención, de la lógica y el razonamiento y de la recompensa.</p>
+  <div class="minitoc"><a href="#c10-sexualitat">Sexualidad</a><a href="#c10-novetats">Búsqueda de novedades</a><a href="#c10-drogues">Drogas</a><a href="#c10-raonament">Razonamiento</a><a href="#c10-atencio">Atención</a><a href="#c10-recompensa">Recompensa</a></div>
+
+  <h3 id="c10-sexualitat">La sexualidad</h3>
+  <p>En los humanos la sexualidad es, sobre todo, un potente generador de vínculos sociales. El autor distingue tres aspectos: el <b>sexo biológico</b> (que depende de los genes), la <b>identidad de género</b> (sentirse hombre o mujer) y la <b>atracción sexual</b> (incluida la ausencia de deseo); los dos últimos dependen de circuitos en parte biológicos y en parte aprendidos. Desde el punto de vista del cerebro, todas las combinaciones son igual de naturales, aunque unas sean más frecuentes. Vivir este proceso con miedo o rechazo, o con apoyo, deja asociaciones para toda la vida. La función del docente es acompañar y velar por un ambiente de respeto desde la tutoría.</p>
+
+  <h3 id="c10-novetats">La búsqueda de novedades: una aliada</h3>
+  <p>Es un rasgo de personalidad ligado a la exploración del entorno físico e intelectual, que se dispara ante un estímulo nuevo. Tiene que ver con la dopamina, con la creatividad y con el deseo de romper límites. El cerebro adolescente la activa mucho porque está preparado para grandes aprendizajes.</p>
+  <div class="box aula"><span class="lbl">Contextos, preguntas y problemas</span>
+    <p>El autor coordinó durante nueve años la prueba de biología de las PAU en Cataluña, donde se planteaban preguntas con <b>contextos reales</b> (una noticia, un artículo científico) en lugar de «Las mitocondrias: estructura y función». La aceptación fue muy buena y el alumnado que elige biología en bachillerato creció espectacularmente. El mismo efecto tienen el aprendizaje basado en preguntas y problemas significativos, o explicar química a través de la cocina (y comerse las galletas en clase).</p>
+  </div>
+
+  <h3 id="c10-drogues">La cara oscura: las drogas</h3>
+  <p>Si no pueden satisfacer la búsqueda de novedades en su entorno, buscan en otros lugares, y las drogas las ofrecen. Según la encuesta estatal publicada en 2014 que cita el libro, en España aproximadamente el 30 % de los adolescentes de 14 a 18 años las habían consumido en los últimos treinta días, y casi el 80 % alguna vez. Todas, incluidas las socialmente aceptadas (alcohol, tabaco, marihuana), activan sobre todo la <b>dopamina</b>, la misma de la búsqueda de novedades, la motivación y la recompensa: de ahí su poder adictivo. La marihuana no es inocua por ser «natural».</p>
+  <div class="box key"><span class="lbl">La prevención que propone el autor</span>
+    <ul>
+      <li>Potenciar la creatividad y <b>canalizar la búsqueda de novedades</b> (no restringirla): novedades deportivas, intelectuales, sociales, culturales.</li>
+      <li>Poner límites sabiendo que intentarán romperlos.</li>
+      <li>Hacer que se sientan siempre aceptados y apoyados por la familia y la sociedad, para mantener el placer y la recompensa sociales.</li>
+    </ul>
+    <p>Es un buen antídoto contra las drogas y contra el apagón emocional, y a la vez una excelente estrategia de aprendizaje.</p>
+  </div>
+
+  <h3 id="c10-raonament">Razonamiento y lógica: practicarlos</h3>
+  <p>Para madurar, hay que practicar. Los grupos de discusión, en los que argumentan y usan la lógica, combinan estos procesos con el deseo de socializarse con los iguales, que es fuente de motivación y de placer.</p>
+
+  <h3 id="c10-atencio">La atención: el truco es la sorpresa</h3>
+  <p>La atención se origina en el <b>tálamo</b>. El autor lo explica con un viaje por Australia: una carretera recta de miles de kilómetros donde la atención decae. Las señales de canguros la recuperan un rato, hasta que dejan de ser una novedad; una señal de emús la despierta de nuevo; y una de <b>unicornios</b> hizo que, por un segundo, el biólogo soñara con ver uno.</p>
+  <div class="flow">
+    <div class="st"><b>Estímulo repetitivo</b>El tálamo no se activa: vamos con el piloto automático.</div><span class="ar">→</span>
+    <div class="st"><b>Estímulo inesperado</b>El tálamo se activa y despierta al hipocampo y a la amígdala.</div><span class="ar">→</span>
+    <div class="st"><b>Memoria y emoción activas</b>Justo las dos estructuras que hay que tener activas para aprender.</div>
+  </div>
+  <div class="box aula"><span class="lbl">En el aula</span><p>Las normas de acentuación con un chiste; una anécdota de ciencias o de historia que sorprenda y tenga relación con lo que se trabaja. En primaria hay que cambiar a menudo de actividad; poco a poco deben aprender a gestionar la atención solos, pero también a los adolescentes (y en la universidad) les conviene que los sorprendamos de vez en cuando. «El truco de la atención está en la capacidad de sorpresa.»</p></div>
+
+  <h3 id="c10-recompensa">Saber esperar la recompensa</h3>
+  <p>El área motivacional de premio y recompensa permite retrasar una recompensa: es imprescindible para planificar el futuro (forma parte del control ejecutivo). Para los niños, «mañana equivale al infinito»: la recompensa debe ser inmediata. Esta capacidad empieza a madurar en la adolescencia y, según el libro, no termina de hacerlo hasta los <b>34 años</b> de media.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Respeto y acompañamiento ante la diversidad sexual.</li>
+    <li>Canalizar la búsqueda de novedades protege de las drogas y ayuda a aprender.</li>
+    <li>Atención = sorpresa y novedad relacionadas con el contenido.</li>
+    <li>A los niños, recompensa inmediata; a los adolescentes, paciencia con la espera.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c11">
+  <p class="ch-label"><span class="num">11</span> Parte IV · Maduración y entorno social</p>
+  <h2>Ritmos, idiomas y caminos de vuelta</h2>
+  <p class="work"><b>Pregunta</b>¿Hay períodos críticos en la maduración del cerebro que no permitan volver atrás o es un camino reversible? ¿Por qué podemos aprender idiomas después de los 4 años?</p>
+  <p class="lead">Un capítulo «cajón de sastre» sobre tres cuestiones: los ritmos individuales de maduración, el aprendizaje de lenguas y la posibilidad de recuperar lo que no se consiguió en su momento.</p>
+
+  <h3 id="c11-ritmes">Cada cerebro, su ritmo</h3>
+  <p>Todas las edades del libro son medias. El autor lo ejemplifica con el bachillerato: todos los tutores avisan de que las notas de primero ya cuentan para el acceso a la universidad, y todos lo entienden racionalmente, pero unos estudian desde el primer día y otros no lo aplican hasta el final de segundo. Una de las causas es la distinta maduración de las redes de recompensa. Para un alumno de dieciséis años, esperar dos años es <b>una octava parte de su vida</b>.</p>
+
+  <h3 id="c11-llengues">Ser bilingüe: una ventaja</h3>
+  <p>El autor, trilingüe (catalán, castellano antes de los tres años e inglés de adolescente), recuerda la pregunta de unas familias en Oxford, en 1995: «¿Qué problemas tienes por ser bilingüe?». Entonces no había datos; ahora sí.</p>
+  <ul>
+    <li>Las personas bilingües aumentan la <b>reserva cognitiva</b> (el número de redes activas).</li>
+    <li>Tienen más desarrollada la zona de toma de decisiones: el cerebro decide continuamente en qué lengua hablar. Responden unas centésimas más tarde, pero hacen razonamientos más amplios y complejos.</li>
+    <li>Cada lengua tiene su lugar: hay que favorecer la que está en desventaja en el contexto social para que todas se asimilen de manera equilibrada, y distinguir lenguas maternas, de interés social y de interés académico.</li>
+    <li>Con la lengua materna se activan más las zonas emocionales; con las demás, las racionales.</li>
+  </ul>
+
+  <h3 id="c11-idiomes">Se puede aprender una lengua a cualquier edad, pero no de la misma manera</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Etapa</th><th>Cómo se aprende</th><th>Implicación</th></tr></thead>
+    <tbody>
+      <tr><td><b>Hasta los 4-5 años</b></td><td>Por contagio e imitación, como la lengua materna. Se pueden aprender varias a la vez sin confundirlas.</td><td>Momento idóneo para los sonidos y las entonaciones: cantar en varias lenguas, con personas nativas o que pronuncien como ellas.</td></tr>
+      <tr><td><b>4-11 años</b></td><td>La ventana natural se cierra un poco y se abre la de las destrezas académicas. Las zonas implicadas son algo distintas.</td><td>El contagio ya no funciona: la lengua como destreza.</td></tr>
+      <tr><td><b>Adolescencia</b></td><td>Etapa de los grandes aprendizajes.</td><td>Pedagogía también adaptada. El autor no se atreve a concretarla porque no es especialista.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="c11-revers">¿Se puede volver atrás?</h3>
+  <p>No: la maduración del cerebro no es un camino de doble sentido y cada etapa tiene sus características. Pero no es una visión desesperanzadora. Si nos saltamos una salida de la autovía, no podemos dar media vuelta, pero sí <b>buscar un desvío</b> que nos devuelva al buen camino. La plasticidad del cerebro permite reconducir aprendizajes no deshaciendo lo aprendido, sino potenciando rutas alternativas con ejemplos y contextos aún más significativos que el original.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>«Las estrategias de aprendizaje deben ser diferentes en función del estadio de desarrollo de cada cerebro con respecto a lo que han de aprender, para aprovechar al máximo la conectividad de cada momento.»</p></div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Las edades son medias: cada alumno madura a su ritmo.</li>
+    <li>El bilingüismo es una ventaja cognitiva.</li>
+    <li>No se puede volver atrás, pero siempre se puede buscar otro camino.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c12">
+  <p class="ch-label"><span class="num">12</span> Parte IV · Maduración y entorno social</p>
+  <h2>Ambiente social, miradas y grupo</h2>
+  <p class="work"><b>Pregunta</b>¿Cómo influye el ambiente social en los aprendizajes? ¿Qué importancia tiene la forma en que miramos a los alumnos? En definitiva, ¿cómo se aprende mejor, aislados o en grupo?</p>
+  <p class="lead">La evolución ha modelado nuestro cerebro para vivir en sociedad. El ambiente que más influye en los aprendizajes, con diferencia, es el <b>social</b>: la relación con los compañeros, los docentes, la familia y la sociedad.</p>
+  <div class="minitoc"><a href="#c12-cares">Las primeras caras</a><a href="#c12-mirades">Miradas que educan</a><a href="#c12-coop">Cooperar</a><a href="#c12-joc">Jugar</a></div>
+
+  <h3 id="c12-cares">Lo primero que interesa son las personas</h3>
+  <p>Tres días después de nacer, los bebés ya se fijan en la mirada de quien los cuida. El experimento del sonajero: el bebé lo mira para comprobar que no le golpeará y, enseguida, centra la mirada en su cara; si usted sonríe, sonríe; si pone mala cara, llora.</p>
+
+  <h3 id="c12-mirades">La mirada del docente</h3>
+  <p>Un estudio en aulas de primaria filmó la cara de los maestros cuando un alumno resolvía bien un problema de matemáticas. La mirada transmitía más aprobación si lo resolvía un chico que una chica, sin que el maestro (hombre o mujer) fuera consciente. Si miramos con más aprobación a los chicos, pueden acabar siendo mejores en matemáticas por la potenciación externa, no porque lo fueran de entrada. El libro recoge otros sesgos parecidos: miradas más emotivas hacia las bebés, currículos mejor puntuados con nombre masculino, profesores varones mejor valorados en la universidad.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Cuando percibimos una imagen, la amígdala le añade el tono emocional y el hipocampo busca recuerdos; si es desconocida o alarmante, el tálamo activa la atención. Por eso <b>cada mirada activa emociones</b> en el alumno: miedo, ira, alegría, indiferencia. La forma en que lo miramos (y cómo se miran entre ellos) influye en cómo percibe lo que aprende, el hecho de aprender y la imagen que construye de sí mismo. Sin igualdad no hay dignidad.</p></div>
+  <p>Que nadie se angustie: una mirada puntual de disgusto no es ningún problema. El problema es <b>mirar siempre igual</b> a una persona transmitiéndole emociones desagradables. Para evitarlo, primero hay que darse cuenta. Los niños lo saben pronto: el «¡mira, mamá, mira!» busca la mirada de aprobación más que la acción. Y a través de la mirada entre compañeros también se puede ejercer acoso.</p>
+
+  <h3 id="c12-coop">Cooperar: el placer social</h3>
+  <p>Si el cerebro busca vivir en sociedad y valora la aceptación social como lo más útil, hay que aprovecharlo. Trabajar en grupo no es sentarse alrededor de una mesa haciendo lo mismo, sino <b>saber que mi trabajo es importante para los demás y el de los demás para mí</b>. El trabajo individual también es imprescindible: la cooperación implica que cada uno aporte algo que sale de su trabajo individual.</p>
+  <div class="box warn"><span class="lbl">«Con el cooperativo se avanza menos»</span><p>A corto plazo, quizá sí en algunos casos. Pero la educación debe pensar a medio y largo plazo: alumnos que sepan trabajar solos y en grupo, que se motiven para seguir aprendiendo y busquen nuevos retos. Si el objetivo fuera solo formar profesionales competitivos, quizá bastaría con el trabajo individual y procesos selectivos; si es crecer en dignidad, la cooperación es clave.</p></div>
+
+  <h3 id="c12-joc">El juego, la manera natural de aprender</h3>
+  <p>Todas las crías de mamífero juegan, pero solo los humanos jugamos toda la vida. El juego surge de la curiosidad, la motivación y la búsqueda de novedades, y promueve la flexibilidad mental: a través del juego descubren posibilidades, interpretan la realidad, ensayan roles, aprenden reglas, regulan su comportamiento y descargan emociones. «El aprendizaje, a pesar de ser muy serio, debe ser vivido siempre por los niños como un juego.» Y los docentes debemos ser aprendices y «juguetones» con ellos.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Revisa a quién miras y cómo: las miradas sostenidas educan o desmotivan.</li>
+    <li>Cooperar = aportación individual imprescindible para un resultado común.</li>
+    <li>El juego es la forma instintiva de aprender.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c13">
+  <p class="ch-label"><span class="num">13</span> Parte IV · Maduración y entorno social</p>
+  <h2>Motivación y creatividad</h2>
+  <p class="work"><b>Pregunta</b>¿Qué es la motivación? ¿Y la creatividad? ¿Hay relación entre estos dos procesos mentales o los he agrupado en un mismo capítulo porque no se me ha ocurrido nada mejor?</p>
+  <p class="lead">Sin motivación, al alumnado se le forma un caparazón que lo hace impermeable a todo. Una moto preciosa y potente no sirve de nada sin gasolina: <b>la motivación es el combustible del aprendizaje</b>. Y la creatividad, en los niños, es tan normal como respirar.</p>
+  <div class="minitoc"><a href="#c13-que">Qué es</a><a href="#c13-ingredients">Los ingredientes</a><a href="#c13-optimisme">Motivación y optimismo</a><a href="#c13-desmotivar">No desmotivar</a><a href="#c13-tool">Revisor</a><a href="#c13-creativitat">Creatividad</a><a href="#c13-plaers">Los tres placeres</a></div>
+
+  <h3 id="c13-que">Qué es la motivación</h3>
+  <p>Un proceso interno del cerebro, un estado mental, que repercute en todo el cuerpo. Su finalidad biológica es <b>activar, dirigir y mantener una conducta para conseguir un objetivo concreto</b>. La gestiona el núcleo accumbens, que aumenta el flujo sanguíneo en el cerebro y en los músculos: por eso la notamos vigorizante. Los niños todavía no pueden motivarse voluntariamente; la capacidad de automotivarse madura en la adolescencia y, en parte, se aprende por imitación de los adultos.</p>
+
+  <h3 id="c13-ingredients">Los ingredientes de la motivación</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Ingrediente</th><th>Qué dice el libro</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><b>Objetivo tangible</b></td><td>Sin objetivos no hay motivación.</td><td>Un disfraz de astronauta motiva más que un cohete real para ir a Marte.</td></tr>
+      <tr><td><b>Reto significativo</b></td><td>Que forme parte de su día a día, importante para la «supervivencia», que incluye el lugar dentro del grupo.</td><td>Problemas de la vida real; el juego en los niños.</td></tr>
+      <tr><td><b>Necesidad</b></td><td>La motivación equilibra lo que nos pide el entorno y cómo debemos responder: para motivar hay que generar necesidades.</td><td>Una pregunta que necesitan responder para avanzar.</td></tr>
+      <tr><td><b>Poder elegir (riesgo)</b></td><td>Tener que elegir entre opciones, sin saber cuál es la mejor, motiva. Mejor una elección binaria: con opciones intermedias, elegimos la del medio y la motivación baja.</td><td>El «Usted elige» del inicio del libro.</td></tr>
+      <tr><td><b>Obstáculos con optimismo</b></td><td>Hay que saber que hay trabas que superar, pero percibirlas con optimismo.</td><td>Retos ajustados con éxitos visibles.</td></tr>
+      <tr><td><b>Novedad y emoción</b></td><td>Al cerebro le gusta aceptar retos, sobre todo sociales, y buscar respuestas a situaciones con carga emotiva.</td><td>Contextos sorprendentes.</td></tr>
+      <tr><td><b>Aceptación social</b></td><td>Nada la refuerza mejor.</td><td>Reconocimiento del grupo, del docente, de la familia.</td></tr>
+      <tr><td><b>Condiciones ambientales</b></td><td>Temperatura no demasiado elevada, luz lo más natural posible, sin cansancio ni estar atiborrados.</td><td>Revisar el aula.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="c13-optimisme">Motivación, placer y optimismo se retroalimentan</h3>
+  <p>Actuar con motivación libera neurohormonas que activan las reservas de energía y provocan placer: la motivación es en sí misma una recompensa y ayuda a retrasar otras. Los mismos neurotransmisores (serotonina, dopamina, endorfinas, noradrenalina) generan <b>optimismo</b>. Las personas motivadas son más optimistas y las optimistas se motivan con más facilidad. Por eso, cuando los adolescentes empiezan a motivarse de forma consciente, les motiva mucho discutir sobre cuestiones morales y éticas.</p>
+
+  <h3 id="c13-desmotivar">Tan importante como motivar es no desmotivar</h3>
+  <p>Las riñas injustificadas o excesivas, la ridiculización, la infravaloración o las simples miradas de desaprobación pueden desmotivar a un niño o un adolescente durante mucho tiempo y generar un bloqueo difícil de romper. Una broma «de adulto» sobre una carencia, delante de los compañeros, puede vivirse muy negativamente. El humor es un gran aliado, pero nunca dirigido a personas o colectivos concretos. El autor recuerda también el efecto de presentar a los estudiantes como «una generación perdida» durante la crisis: ¿qué motivación podían encontrar para aprender?</p>
+
+  <div class="tool" id="c13-tool">
+    <div class="tool-h"><h4>Revisor de motivación de una actividad</h4><span class="tg">Lista de revisión</span></div>
+    <p class="small muted">Piensa en una actividad concreta que tengas que hacer pronto y marca los ingredientes que tiene. Se guarda en el navegador. <span class="src ext">Propuesta</span> construida con el capítulo 13.</p>
+    <div class="checklist" data-key="motiv">
+      <label class="check"><input type="checkbox"><span class="ct">Tiene un objetivo concreto que el alumnado verá avanzar en poco tiempo.</span><span class="w">tangible</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Parte de un reto o un problema que forma parte de su vida.</span><span class="w">significativo</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Genera una necesidad: hay algo que necesitan saber o hacer para avanzar.</span><span class="w">necesidad</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Incluye una elección real entre dos opciones.</span><span class="w">elección</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Tiene dificultades superables y lo comunico con optimismo.</span><span class="w">optimismo</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hay un elemento de novedad o de sorpresa.</span><span class="w">novedad</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Tiene una dimensión emocional (una historia, una persona, una situación cercana).</span><span class="w">emoción</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">El resultado de cada uno importa a los demás (cooperación, público, reconocimiento).</span><span class="w">social</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Yo mismo me entusiasmo con ella y sabré transmitirlo.</span><span class="w">imitación</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">El aula tiene buena luz, temperatura moderada y el grupo no está agotado.</span><span class="w">ambiente</span></label>
+    </div>
+    <div class="out" data-verdict="motiv" data-t="4,7" data-m0="&lt;b&gt;Le falta combustible&lt;/b&gt;Elige uno o dos ingredientes fáciles de añadir: una elección binaria, un contexto cercano o una pequeña sorpresa." data-m1="&lt;b&gt;Va bien encaminada&lt;/b&gt;Revisa los ingredientes sociales y emocionales: son los que el cerebro más valora." data-m2="&lt;b&gt;Actividad bien cargada&lt;/b&gt;Recuerda que no hace falta tenerlo todo: según el &lt;i&gt;bonus track&lt;/i&gt;, tirando de un elemento, los demás vienen solos.">
+      <div class="meter"><i></i></div>
+      <div class="vtxt"></div>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="motiv"></span><button class="btn sm" type="button" data-reset="motiv">Reiniciar</button></div>
+  </div>
+
+  <h3 id="c13-creativitat">La creatividad viene de serie</h3>
+  <p>La creatividad es la <b>habilidad para cuestionar asunciones, romper límites intelectuales, reconocer patrones escondidos, observar el entorno de manera crítica y realizar nuevas conexiones entre elementos que no están vinculados</b>. Va ligada a la abstracción (la educación plástica la estimula) e intervienen en ella la corteza prefrontal y varios genes. Usar una piedra para abrir una nuez no es creativo; pulirla para que la abra mejor, sí. Clasificar botones en infantil es un acto creativo. Y el «experimento» de la botella: un niño aburrido con una botella de plástico la convertirá en cohete, muñeca o tren.</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Experiencia</span><p>Conocimiento, y aprender a aprender. Se adquiere con la edad.</p></div>
+    <div class="card"><span class="tag">Pensamiento creativo</span><p>El que todos los niños muestran espontáneamente. Con la edad tendemos a perderlo.</p></div>
+    <div class="card"><span class="tag">Motivación</span><p>Madura con la edad. Sin ella, no hay creatividad práctica.</p></div>
+  </div>
+  <p>Con la edad elaboramos bloqueos mentales: si lo mirásemos todo como nuevo, avanzaríamos muy despacio. Pero podemos conservarlo ante <b>cualquier novedad</b>, y si de pequeños hemos trabajado el cerebro creativo, de mayores nos será más fácil activarlo.</p>
+  <div class="box aula"><span class="lbl">Cómo mantener el pensamiento creativo</span>
+    <ul>
+      <li><b>Fluidez de ideas</b>: lluvia de ideas sin crítica ni rechazo inmediatos (responsables de buena parte del bloqueo creativo).</li>
+      <li>Opinión, diálogo y argumentación; clasificaciones; interpretar críticamente el entorno saliendo fuera.</li>
+      <li><b>Juego no guiado</b>, siempre creativo, y <b>humor</b>: un chiste rompe la expectativa y provoca un fogonazo de pensamiento divergente.</li>
+      <li><b>Tiempo para pensar</b>, estar relajados y distraerse. Los adultos somos más creativos cuando estamos cansados, porque la corteza frontal afloja el control sobre la prefrontal; no hace falta cansar al alumnado, pero sí dejar ratos libres y un ambiente relajado y motivador.</li>
+    </ul>
+  </div>
+
+  <h3 id="c13-plaers">Los tres placeres</h3>
+  <p>Lo que es clave para sobrevivir, la biología lo premia con placer.</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Físico</span><p>Comer, sexo. Todos los animales lo tienen.</p></div>
+    <div class="card"><span class="tag">Social</span><p>Estar con otros. Los humanos hemos socializado incluso los placeres físicos.</p></div>
+    <div class="card"><span class="tag">Intelectual</span><p>Aprender algo útil, crear, estar motivado por un proyecto. En los niños, aprender palabras nuevas activa los centros del placer.</p></div>
+  </div>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Aprender, crear y estar motivado forman parte de nuestro kit de supervivencia, y el nexo es el placer. Para favorecerlos, hay que hacerlo desde el placer.</p></div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Objetivos tangibles, retos significativos, necesidades, elección binaria y optimismo.</li>
+    <li>No desmotivar: nada de ridiculizar ni de bromas sobre carencias.</li>
+    <li>La creatividad no se enseña: se protege y se pone a trabajar.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c14">
+  <p class="ch-label"><span class="num">14</span> Parte IV · Maduración y entorno social</p>
+  <h2>Imitación: ser aprendices</h2>
+  <p class="work"><b>Pregunta</b>¿La imitación tiene valor educativo? ¿Qué importancia tienen los modelos que ofrecemos? En consecuencia, ¿qué debemos ser, enseñantes o aprendices?</p>
+  <p class="lead">El autor promete un capítulo corto para compensar el largo anterior, y luego dice que es pura casualidad. Es una pequeña broma: la sorpresa y el humor activan la atención. Hay que predicar con el ejemplo. ¿Por qué?</p>
+
+  <h3 id="c14-imitadors">Imitadores natos</h3>
+  <p>Saquen la lengua a un bebé de pocas semanas: no sonreirá, les imitará. Si quieren que sonría, sonríanle. Treinta y seis horas después de nacer ya prefieren la cara de su madre o de quien más los cuida. Imitamos lo que vemos hacer, lo que oímos decir e incluso lo que nos parece que sienten los demás, sobre todo en la infancia y la adolescencia.</p>
+  <p>La imitación sirve para adaptarse al entorno: si a un adulto le funciona un comportamiento, ¿por qué no debería funcionar a los jóvenes? Pero también perpetúa <b>estereotipos</b> (sexismo, racismo, clasismo), como hacen algunos programas de televisión, que se nutren de la sociedad y a la vez crean una.</p>
+
+  <h3 id="c14-mirall">Las neuronas espejo</h3>
+  <p>Esta capacidad se sustenta en las llamadas neuronas espejo, repartidas por muchas zonas (motoras, del lenguaje, de la empatía, del control emocional, de la creatividad). Por eso algunos investigadores prefieren decir que todo el cerebro funciona como un gran espejo. Nos permiten reproducir movimientos, expresiones, emociones y sentimientos, ponernos en la piel de los demás (empatía), imaginar acciones que leemos (por eso la buena literatura enseña tanto) e intuir intenciones a partir de pocos datos.</p>
+  <div class="box evid"><span class="lbl">Con criterio</span><p>El papel de las neuronas espejo en la empatía y en el aprendizaje social es un campo de investigación todavía abierto y debatido. La conclusión educativa del capítulo, sin embargo, no depende de ello: niños y adolescentes aprenden mucho por observación e imitación.</p></div>
+
+  <h3 id="c14-coherencia">Decir, pensar y hacer</h3>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Lo que decimos debe coincidir con lo que pensamos y hacemos, incluidas nuestras actitudes más inconscientes, porque el alumnado sabrá e imitará lo que pensamos y hacemos, no lo que decimos.</p></div>
+  <ul class="say good">
+    <li>Si queremos que vibren con la ciencia o la literatura, debemos vibrar nosotros y demostrarlo.</li>
+    <li>No les podemos pedir que estudien con gusto muchas horas si nosotros no estaríamos dispuestos a hacerlo.</li>
+    <li>No les podemos pedir respeto si no les respetamos, ni si no nos respetamos dentro del equipo docente.</li>
+    <li>No les podemos exigir que valoren a sus compañeros si nosotros no los valoramos a todos.</li>
+  </ul>
+  <p>No somos los únicos modelos: «competimos» con la sociedad. Por eso hay que reflexionar sobre los modelos que ofrecemos, sabiendo que no serán los únicos. Ofrecerles modelos alternativos ya les hace crecer.</p>
+
+  <h3 id="c14-aprenents">Aprendices, no enseñantes</h3>
+  <p>No se refiere a hacer cursos (que ya hacemos), sino a la <b>actitud en el aula</b>. Si nos comportamos como enseñantes, estimularemos sus circuitos de «enseñar»; si nos comportamos como aprendices, con un rol distinto al suyo, les estimularemos inconscientemente a aprender.</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Las actitudes no se explican: se imitan.</li>
+    <li>Coherencia entre lo que decimos, pensamos y hacemos.</li>
+    <li>En el aula, ser el primer aprendiz.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c15">
+  <p class="ch-label"><span class="num">15</span> Parte IV · Maduración y entorno social</p>
+  <h2>Conciencia y autoconciencia</h2>
+  <p class="work"><b>Pregunta</b>¿Se aprende conscientemente o preconscientemente? ¿Es necesario ser autoconscientes para aprender?</p>
+  <p class="lead">Muchas actitudes y conocimientos llegan al alumnado de forma preconsciente (emociones, imitación, dimensión social). Pero si el alumnado se hace consciente de sus aprendizajes, todo lo que aprenda le será mucho más fructífero. Hay que educar también en la autoconciencia.</p>
+
+  <h3 id="c15-coneix">«Conócete a ti mismo»</h3>
+  <p>El lema del templo de Delfos resume la idea: mirar hacia dentro de los propios procesos mentales, con autocrítica, para ganar libertad interior, que es la mejor puerta hacia la dignidad. El autor añade la distinción entre el «yo soy» y el «nosotros somos»: confundirlos («yo somos») es propio del totalitarismo; disolverse en el grupo («nosotros soy»), de la sumisión.</p>
+
+  <h3 id="c15-consciencia">La conciencia es una construcción (y un poco una ilusión)</h3>
+  <p>Una mañana soleada con olor a café: fuera de la mente no hay luz, sino energía electromagnética; ni olor, sino partículas volátiles. El cerebro lo integra todo en una percepción única y coherente, y para hacerlo debe <b>manipular la información</b>: los cambios de color se detectan unas 75 milésimas de segundo antes que los de movimiento, pero los vemos sincronizados. Si la imagen llega borrosa, el cerebro la reinterpreta según la experiencia previa y las expectativas. Los magos hace tiempo que lo aprovechan.</p>
+  <div class="box key"><span class="lbl">Idea clave</span><p>Todo lo que transmitimos al alumnado le llega filtrado y modificado por sus preconcepciones, deseos y expectativas. Por eso <b>ninguna estrategia funciona igual con todos</b> y hay que adaptar la metodología a cada situación.</p></div>
+
+  <h3 id="c15-auto">La autoconciencia</h3>
+  <p>Es la capacidad de ser conscientes de que somos conscientes: analizar de forma deliberada fragmentos de la actividad preconsciente. La usamos cuando reflexionamos sobre un aprendizaje, recuperamos recuerdos a voluntad o buscamos explicaciones alternativas. Es <b>la única manera de alterar de forma voluntaria y reflexiva los patrones de conducta preconscientes</b>. Y estos pensamientos conscientes también modelan el cerebro: amplían la red en la que se sustenta el aprendizaje.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Atención voluntaria</span><p>Fijarnos de forma dirigida en un hecho externo o un pensamiento interno para un objetivo. Es la vía que usa la autoconciencia para localizar los propios procesos mentales.</p></div>
+    <div class="card"><span class="tag">Atención refleja</span><p>La que captura un estímulo que «sacude» la mente (una imagen, un texto, un conflicto cognitivo). Sirve para activar la conciencia en su conjunto.</p></div>
+  </div>
+  <div class="box aula"><span class="lbl">En el aula</span>
+    <ul>
+      <li><b>Ratos de quietud</b> para que analicen conscientemente lo aprendido, también las actitudes: consolidan y desarrollan la crítica y la autocrítica.</li>
+      <li>Un <b>conflicto cognitivo</b> que cuestione lo que ya saben para despertar la conciencia; después, atención dirigida para trabajar sobre ello.</li>
+      <li>Un ambiente que permita mantener la atención y usar las emociones para estimularla.</li>
+    </ul>
+    <p>El alumnado que trabaja la autoconciencia es más crítico, menos manipulable y más dispuesto a colaborar.</p>
+  </div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Gran parte de lo que aprenden lo aprenden sin darse cuenta.</li>
+    <li>Hacerse consciente de un aprendizaje lo multiplica.</li>
+    <li>Cada alumno reinterpreta lo que explicamos: adaptémonos.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c16">
+  <p class="ch-label"><span class="num">16</span> Parte V · Enemigos y aliados</p>
+  <h2>Estrés, placer y motivación</h2>
+  <p class="work"><b>Pregunta</b>¿Cuál es el enemigo número uno de la educación? ¿Y cuáles son sus principales aliados?</p>
+  <p class="lead">Si la educación tuviera un Al Capone, sería el <b>estrés</b>; sus Eliot Ness, el <b>placer y la motivación</b>. Según el informe de 2012 de la Sociedad Española para el Estudio de la Ansiedad y el Estrés que cita el libro, un 8 % de los niños y un 20 % de los adolescentes sufren estrés crónico.</p>
+
+  <h3 id="c16-que">El estrés puntual es bueno</h3>
+  <p>El estrés es un estado de tensión ante una amenaza, física o psicológica, real o imaginada. Intervienen la amígdala, el hipocampo, la corteza prefrontal y el hipotálamo, que libera hormonas como el <b>cortisol</b>: dirige energía (glucosa) hacia los músculos, como quien tensa brazos y piernas al ver coches parados en la carretera, y focaliza la atención en la amenaza. El estrés puntual ayuda a afrontar retos e incluso es formativo: hay que aprender a gestionarlo. El problema es cuando se vuelve <b>crónico</b>.</p>
+
+  <h3 id="c16-cronic">Los efectos del estrés crónico</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Efecto</th><th>Consecuencia educativa</th></tr></thead>
+    <tbody>
+      <tr><td><b>Altera de forma permanente conexiones</b>, sobre todo en la amígdala, en personas de 9 a 24 años sometidas a estrés crónico intenso.</td><td>De adultos, más dificultad para gestionar emociones negativas, menos autoestima y autoconfianza, más reacciones agresivas.</td></tr>
+      <tr><td><b>Focaliza la atención</b> en un solo problema.</td><td>Las redes de los aprendizajes son más restringidas.</td></tr>
+      <tr><td><b>Reduce la plasticidad neural</b> (el cortisol).</td><td>Dificulta crear las conexiones nuevas que necesita cualquier aprendizaje.</td></tr>
+      <tr><td><b>Favorece estados depresivos.</b></td><td>Lo contrario del optimismo, la motivación, el placer y la creatividad.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Los estudios se hicieron en situaciones extremas (pobreza estructural, orfanatos), pero los autores admiten que situaciones más moderadas e igualmente crónicas pueden tener efectos parecidos: <b>acoso, exceso de extraescolares o de deberes</b>.</p>
+  <div class="box warn"><span class="lbl">Estrés y TDAH</span><p>Según el autor, el estrés agrava los síntomas del TDAH: obliga a estar pendiente de una sola preocupación (y se percibe como falta de atención para lo que queremos nosotros) y aumenta la necesidad de moverse para concentrarse. Hay personas que nunca lo manifestarán, otras con mucha predisposición y otras en las que dependerá del ambiente. En los casos acusados, la medicación controlada por un médico es muy útil; en todos, hay que reducir el estrés, y en los leves eso puede aliviar los síntomas. Para una visión especializada, véase la guía de <a href="../../9788410552128/es/#t1">«Comprender y atender a la diversidad»</a>.</p></div>
+
+  <div class="tool" id="c16-tool">
+    <div class="tool-h"><h4>Radar de estrés crónico</h4><span class="tg">Lista de revisión</span></div>
+    <p class="small muted">Fuentes de estrés sostenido que menciona el libro, para revisar un grupo, una etapa o el centro. Se guarda en el navegador. <span class="src ext">Propuesta</span></p>
+    <div class="checklist" data-key="estres">
+      <label class="check"><input type="checkbox"><span class="ct">Hay indicios de acoso, también a través de miradas y exclusiones.</span><span class="w">cap. 12 · 16</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">La carga de deberes sumada a las extraescolares deja poco tiempo libre.</span><span class="w">cap. 16</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Se usa el miedo al fracaso o al castigo como motor.</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Se les exigen destrezas para las que su cerebro todavía no está maduro.</span><span class="w">cap. 7 · 11</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">El entorno es sobreestimulante (ruido, actividades encadenadas, pocas pausas).</span><span class="w">cap. 5 · 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Duermen poco o mal; el horario no tiene en cuenta el sueño adolescente.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hay ridiculización, comparaciones o etiquetas que se repiten.</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hay alumnos con apatía, «paso de todo» o atención muy dispersa sostenidos.</span><span class="w">cap. 9</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Faltan ratos diarios de actividad física, música, relajación o juego libre.</span><span class="w">cap. 17</span></label>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="estres"></span><button class="btn sm" type="button" data-reset="estres">Reiniciar</button></div>
+  </div>
+
+  <h3 id="c16-aliats">Los aliados: placer y motivación</h3>
+  <p>El autor no vuelve a insistir (ya lo ha hecho en los capítulos <a href="#c6-plaer">6</a>, <a href="#c12-coop">12</a> y <a href="#c13">13</a>), pero subraya su importancia: el aprendizaje tiene que nutrirse de la motivación y el placer. Y cierra el capítulo tal como lo empezó, en tono dramático: «Viva el placer y la motivación, muera el estrés crónico».</p>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Estrés puntual: útil y formativo. Estrés crónico: deja huella y bloquea el aprendizaje.</li>
+    <li>Acoso, deberes y extraescolares excesivos también son estrés crónico.</li>
+    <li>Contra el estrés, placer y motivación.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c17">
+  <p class="ch-label"><span class="num">17</span> Parte V · Enemigos y aliados</p>
+  <h2>Las «marías» y la tecnología</h2>
+  <p class="work"><b>Pregunta</b>¿Tienen utilidad las «marías»? ¿Realmente tenemos que perder el tiempo con la música, la psicomotricidad y la plástica? ¿Y qué hay que decir de las nuevas tecnologías?</p>
+  <p class="lead">Con ironía, el autor recuerda la importancia de las materias «más relevantes» y después defiende las que tradicionalmente se han considerado «marías». La conclusión es siempre la misma: son cruciales para una educación integral y <b>favorecen los aprendizajes de las demás materias</b>.</p>
+  <p class="small muted">El autor explica que no habla de dislexia, TDAH o ansiedad porque no es su especialidad; ante la sospecha de un trastorno, hay que buscar la ayuda de un profesional.</p>
+
+  <h3 id="c17-esport">Educación física y psicomotricidad</h3>
+  <div class="flow">
+    <div class="st"><b>Coordinación</b>La genera el cerebro: trabajar el cuerpo enriquece la conectividad.</div><span class="ar">+</span>
+    <div class="st"><b>Endorfinas</b>Bienestar: relación directa entre actividad física y placer de aprender.</div><span class="ar">+</span>
+    <div class="st"><b>Menos cortisol</b>El deporte contribuye a eliminar la hormona del estrés.</div><span class="ar">+</span>
+    <div class="st"><b>Irisina → BDNF</b>Los músculos liberan irisina, que activa en el cerebro el gen BDNF, que activa la plasticidad neural.</div>
+  </div>
+  <p>La psicomotricidad, en infantil y primaria, exige planificar y ordenar una secuencia de movimientos, y las zonas que lo hacen son las mismas que después planifican el futuro e imaginan alternativas: control ejecutivo y creatividad.</p>
+
+  <h3 id="c17-relaxacio">Relajación y concentración</h3>
+  <p>Yoga, taichí o <i>mindfulness</i> (una denominación comercial de técnicas tradicionales) no son solo una moda. Además de combatir el estrés y favorecer la autoconciencia, la práctica regular activa la plasticidad, mejora la integración sensorial y motora, el control de la atención, la flexibilidad cognitiva, la maduración emocional, la empatía y la toma de decisiones. El autor propone dedicarle, cada día, ratos no necesariamente largos, igual que al deporte.</p>
+
+  <h3 id="c17-plastica">Educación plástica</h3>
+  <p>La manipulación fina y el lenguaje comparten redes (la evolución las ha reciclado para las dos funciones). ¿Queremos mejorar el lenguaje de los pequeños? Lengua, sí, y también manualidades tan a menudo como sea posible. Las artes plásticas mejoran las habilidades sociales, la abstracción, el control emocional y la toma de decisiones; el arte abstracto libera al cerebro de la «dominancia de la realidad» y favorece asociaciones nuevas, base de la creatividad.</p>
+
+  <h3 id="c17-musica">Música</h3>
+  <p>Según el libro, es prácticamente la única actividad que activa, estimula y utiliza <b>todo el cerebro</b>, y comparte redes con la lógica matemática, la toma de decisiones, el lenguaje y la corteza motora (por eso nos cuesta no seguir el ritmo). Estimula el sistema de recompensa, mejora la atención y el autocontrol y despierta emociones. Propuesta del autor: escuchar un poco de música cada día y practicarla de vez en cuando en ratos más largos.</p>
+
+  <h3 id="c17-tic">Las tecnologías digitales</h3>
+  <p>Es un tema abierto, con pocos datos concluyentes, porque es difícil comparar bien: los adultos no servimos de grupo control y los jóvenes sin tecnología suelen tener también menos estímulos educativos. Los estudios disponibles indican que los nativos digitales tienen más conexiones en la zona que gestiona, categoriza y evalúa la información, y menos en la que gestiona la memoria, que en parte hemos externalizado.</p>
+  <div class="box key"><span class="lbl">¿Beneficioso o perjudicial?</span><p>Es una pregunta con trampa: depende del punto de referencia. El cerebro se adapta siempre a lo que encuentra, y el mundo en el que vivirán es distinto del que tenemos. Por eso hay que <b>aprender a aprender</b> y encontrar placer en progresar. Todo tiene su medida: ni todo el día con pantallas ni prescindir de ellas.</p></div>
+  <div class="box aula"><span class="lbl">Lo que sí está claro</span><p>Los niños tienen que jugar con la arena, tocar hojas, palos y piedras, chapotear en los charcos, jugar con construcciones, muñecos, juegos de encaje y barro, pintar con pinceles y con los dedos, mancharse y lavarse… y empezar a gestionar las nuevas tecnologías.</p></div>
+  <div class="box remember"><span class="lbl">No lo olvides</span><ul>
+    <li>Deporte, relajación, plástica y música activan la plasticidad y reducen el estrés.</li>
+    <li>Cada día un rato de movimiento, de música y de calma.</li>
+    <li>Tecnología con medida; experiencias físicas y manipulativas, siempre.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="conclusions">
+  <p class="ch-label"><span class="num">11</span> Cierre</p>
+  <h2>Once claves del cerebro para la práctica educativa</h2>
+  <p class="lead">El autor no quiere hacer conclusiones cortas de un tema tan amplio, pero destaca once puntos para aplicar lo que sabemos del cerebro «sin parafernalias ni grandes cambios», desde el trabajo paciente y constante de cada docente. Cada clave va acompañada de su traducción al aula.</p>
+  <ol class="lesson">
+    <li><b class="t">Un órgano en construcción permanente</b>Parte de una base genética distinta para cada persona, pero se construye interactuando con el ambiente gracias a la plasticidad. <i>La educación altera físicamente las conexiones: según cómo sea, formará personas más críticas y reflexivas, o más impulsivas o sumisas.</i> <a href="#c1">Cap. 1</a> · <a href="#c2">2</a></li>
+    <li><b class="t">Lo más útil es lo que se valora socialmente</b>Las conexiones que el cerebro mantiene mejor son las de los aprendizajes bien valorados por iguales, docentes y familias. <i>El refuerzo positivo es clave.</i> <a href="#c8-utilitat">Cap. 8</a></li>
+    <li><b class="t">Lo más necesario es lo que emociona</b>Las emociones se relacionan con la supervivencia. <i>Estrategias que generen emociones positivas para que, de forma preconsciente, se asocie aprendizaje a placer.</i> <a href="#c6">Cap. 6</a></li>
+    <li><b class="t">Las conexiones dependen del uso</b><i>Un niño estimulado (jamás sobreestimulado) que pueda decidir, examinar, relacionar, memorizar y buscar novedades, y que sienta la necesidad de hacerlo, construye una base mejor.</i> <a href="#c8-formen">Cap. 8</a></li>
+    <li><b class="t">Un cerebro hecho para vivir en sociedad</b><i>Favorecer los aprendizajes cooperativos: no grupos donde todos hacen lo mismo, sino donde cada persona o subgrupo aporta una parte imprescindible.</i> <a href="#c12-coop">Cap. 12</a></li>
+    <li><b class="t">Novedad y sorpresa captan la atención</b><i>Clases ricas y plurales, con novedades y sorpresas, para que poco a poco aprendan a mantener la atención voluntariamente.</i> <a href="#c10-atencio">Cap. 10</a></li>
+    <li><b class="t">La motivación, detonante del «aprender a aprender»</b>Es energizante, fija la atención y va ligada al optimismo. <i>Estimularla y mostrar modelos para que aprendan a motivarse solos.</i> <a href="#c13">Cap. 13</a></li>
+    <li><b class="t">Las actitudes se aprenden por imitación</b><i>Si los queremos motivados, respetuosos, atentos y creativos, tenemos que serlo nosotros con ellos.</i> <a href="#c14">Cap. 14</a></li>
+    <li><b class="t">El cerebro es un todo integrado</b>Compartimentar los conocimientos contraviene su funcionamiento natural. <i>Aprendizajes transversales (intelectuales, artísticos, psicomotrices) que se aplican mejor.</i> <a href="#c3">Cap. 3</a> · <a href="#c8-xarxes">8</a></li>
+    <li><b class="t">Maduración progresiva y ritmos propios</b>Atención, espera de la recompensa, automotivación, abstracción, control emocional. <i>Respetar los tiempos: adelantarse puede ser contraproducente.</i> <a href="#c7-ritmes">Cap. 7</a> · <a href="#c11">11</a></li>
+    <li><b class="t">El estrés crónico, enemigo número uno</b>Altera las zonas de la reflexión, el control emocional, las decisiones y el control ejecutivo. <i>Forma personas más impulsivas y menos autónomas.</i> <a href="#c16">Cap. 16</a></li>
+  </ol>
+  <div class="box key"><span class="lbl">Y como colofón</span><p class="quote" style="margin:6px 0 0;border:0;padding:0">«El principal aliado de la educación es el placer.»</p></div>
+</section>
+
+<section class="chapter" id="bonus">
+  <p class="ch-label"><span class="num">★</span> Cierre</p>
+  <h2><i>Bonus track</i>: todo está conectado</h2>
+  <p class="lead">El premio por llegar al final es un esquema que relaciona la motivación, la creatividad, el placer y el resto de elementos del libro. Lo más importante: <b>todas las flechas son bidireccionales</b>.</p>
+  <p>El esquema se estructura sobre tres aspectos: las emociones y la racionalidad (arriba), la biología del cerebro, es decir, las neuronas espejo y la plasticidad (abajo), y la dimensión de grupo, con la recompensa social de familia, compañeros, profesores y sociedad (a la izquierda). En el centro, el placer. Los docentes no somos superhéroes: no hace falta tirar de todos los hilos a la vez. Si somos buenos motivando, motivemos; si nos sentimos más cómodos ayudando a buscar novedades, hagámoslo por ahí. El resto de elementos vendrán solos. Y si podemos tirar desde dos o tres lugares, aún mejor.</p>
+
+  <div class="tool" id="bonus-tool">
+    <div class="tool-h"><h4>Elige tu puerta de entrada</h4><span class="tg">Esquema interactivo</span></div>
+    <p class="small muted">Toca el elemento en el que te sientes más fuerte. Verás qué dice el libro, cómo tirar de él en el aula y qué arrastra. Reconstrucción del esquema del libro.</p>
+    <div class="switch" data-key="bonus">
+      <div class="scheme-frame"><span>Racionalidad · <b>Emoción</b></span></div>
+      <div class="scheme">
+        <span class="gap"></span>
+        <button type="button" data-val="motivacio">Motivación<small>energía para aprender</small></button>
+        <span class="gap"></span>
+        <button type="button" data-val="optimisme">Optimismo<small>se puede conseguir</small></button>
+        <div class="core">Placer</div>
+        <button type="button" data-val="novetats">Búsqueda de novedades<small>curiosidad</small></button>
+        <button type="button" data-val="creativitat">Creatividad<small>conexiones nuevas</small></button>
+        <span class="gap"></span>
+        <button type="button" data-val="risc">Riesgo<small>posibilidad de elección</small></button>
+      </div>
+      <div class="scheme-frame" style="grid-template-columns:1fr 1fr"><span>Grupo: colaboración y recompensa social</span><span>Neuronas espejo y plasticidad neural</span></div>
+      <div class="panel" data-panel="motivacio">
+        <h5>Qué dice el libro</h5><p>Activa, dirige y mantiene la conducta hacia un objetivo; energiza y es en sí misma una recompensa. <a href="#c13">Cap. 13</a></p>
+        <h5>Cómo tirar de ella</h5><ul><li>Objetivos tangibles que vean avanzar.</li><li>Retos de su día a día y necesidades reales.</li><li>Mostrar tu propia motivación: se imita.</li></ul>
+        <h5>Arrastra</h5><p>Optimismo (los mismos neurotransmisores), búsqueda de novedades y creatividad.</p>
+      </div>
+      <div class="panel" data-panel="optimisme" hidden>
+        <h5>Qué dice el libro</h5><p>Motivación y optimismo comparten neurotransmisores y se retroalimentan; la luz natural también lo favorece. <a href="#c13-optimisme">Cap. 13</a></p>
+        <h5>Cómo tirar de él</h5><ul><li>Presentar las dificultades como superables.</li><li>Hacer visibles los avances y los éxitos.</li><li>Evitar mensajes de condena («generación perdida»).</li></ul>
+        <h5>Arrastra</h5><p>Motivación y creatividad.</p>
+      </div>
+      <div class="panel" data-panel="novetats" hidden>
+        <h5>Qué dice el libro</h5><p>Rasgo instintivo, muy intenso a los 0-3 años y en la adolescencia, ligado a la dopamina; despierta la atención a través del tálamo. <a href="#c10-novetats">Cap. 10</a></p>
+        <h5>Cómo tirar de ella</h5><ul><li>Contextos reales, preguntas y problemas.</li><li>Sorpresas relacionadas con el contenido.</li><li>Repeticiones con pequeñas variaciones.</li></ul>
+        <h5>Arrastra</h5><p>Motivación, riesgo y creatividad. Y protege de las drogas.</p>
+      </div>
+      <div class="panel" data-panel="creativitat" hidden>
+        <h5>Qué dice el libro</h5><p>Viene de serie; con la edad se bloquea, pero se mantiene ante cualquier novedad. <a href="#c13-creativitat">Cap. 13</a></p>
+        <h5>Cómo tirar de ella</h5><ul><li>Lluvia de ideas sin crítica inmediata.</li><li>Juego libre, humor, plástica.</li><li>Tiempo para pensar y para distraerse.</li></ul>
+        <h5>Arrastra</h5><p>Optimismo, riesgo y motivación.</p>
+      </div>
+      <div class="panel" data-panel="risc" hidden>
+        <h5>Qué dice el libro</h5><p>Tener que elegir entre opciones sin saber cuál es la mejor estimula la motivación; mejor una elección binaria. <a href="#c13-ingredients">Cap. 13</a> · <a href="#intro-tria">«Usted elige»</a></p>
+        <h5>Cómo tirar de él</h5><ul><li>Dos opciones reales de tarea, de formato o de orden.</li><li>Evitar la opción intermedia «segura».</li><li>Aceptar los errores de la elección como parte de aprender.</li></ul>
+        <h5>Arrastra</h5><p>Motivación, búsqueda de novedades y creatividad.</p>
+      </div>
+    </div>
+  </div>
+  <p>A lo largo del libro el autor ha predicado con el ejemplo: canciones (emociones), una elección entre dos opciones (riesgo), anécdotas personales y del entorno (dimensión social), un interludio (sorpresa). «Sin placer nuestro trabajo, que debe ser ayudar a los alumnos a crecer en dignidad, estará predestinado al fracaso.»</p>
+</section>
+
+<section class="chapter" id="pla">
+  <p class="ch-label"><span class="num">→</span> Para aplicar</p>
+  <h2>Ponlo en práctica</h2>
+  <p class="lead">El autor insiste en que la neurociencia explica el «qué» y la pedagogía hace las propuestas. Esta sección traduce las conclusiones del libro en herramientas para un docente y para un equipo.</p>
+  <div class="box evid"><span class="lbl">Cómo leer esta sección</span>
+    <p>Las propuestas marcadas como <span class="src lib">Libro</span> recogen orientaciones de la obra; las marcadas como <span class="src ext">Propuesta</span> son concreciones de esta guía (secuencias, plantillas, listas) construidas con los principios del libro. Adaptadlas a vuestra etapa y a vuestro contexto.</p>
+  </div>
+  <div class="minitoc"><a href="#pla-etapes">Qué pide cada etapa</a><a href="#pla-sessio">Una sesión</a><a href="#pla-repetir">Repetir con novedades</a><a href="#pla-unitat">Revisar una unidad</a><a href="#pla-llenguatge">Lenguaje</a><a href="#pla-families">Familias</a><a href="#pla-claustre">Claustro</a></div>
+
+  <h3 id="pla-etapes">1 · Qué pide cada etapa</h3>
+  <div class="tool">
+    <div class="tool-h"><h4>Explorador de las ventanas del desarrollo</h4><span class="tg">Consulta</span></div>
+    <p class="small muted">Elige una etapa para ver qué prioriza el cerebro, qué le conviene y qué hay que evitar, según el libro.</p>
+    <div class="switch" data-key="etapes">
+      <div class="seg" role="group" aria-label="Etapa"><button type="button" data-val="e03">0-3 años</button><button type="button" data-val="e411">4-11 años</button><button type="button" data-val="eado">Adolescencia</button></div>
+      <div class="panel" data-panel="e03">
+        <h5>Qué pasa en el cerebro</h5><p>Muchas conexiones entre áreas cercanas de la corteza. El cerebro se empapa del ambiente y adapta a él el comportamiento. Las emociones se disparan, pero todavía no se pueden controlar. No quedarán recuerdos conscientes. <a href="#c5">Cap. 5</a></p>
+        <h5>Qué le conviene</h5><ul><li>Afecto, seguridad y estabilidad.</li><li>Un entorno diverso donde explorar a su aire.</li><li>Estar presente en las conversaciones de los adultos.</li><li>Lenguas por contagio, con hablantes nativos; canciones.</li></ul>
+        <h5>Qué hay que evitar</h5><ul><li>Ambientes de conflictividad sostenida.</li><li>La sobreestimulación.</li></ul>
+      </div>
+      <div class="panel" data-panel="e411" hidden>
+        <h5>Qué pasa en el cerebro</h5><p>La corteza se conecta con la amígdala y el hipocampo: empiezan a ser conscientes de las emociones y de los recuerdos. Máxima influencia sobre las destrezas académicas. <a href="#c7">Cap. 7</a></p>
+        <h5>Qué le conviene</h5><ul><li>Aprendizajes vinculados a la vida cotidiana y con emoción.</li><li>Calidad antes que cantidad; placer por aprender.</li><li>Memorizar por gusto cosas significativas.</li><li>Cambiar a menudo de actividad y recompensas inmediatas.</li><li>Lenguas como destreza, no por contagio.</li></ul>
+        <h5>Qué hay que evitar</h5><ul><li>Aprendizajes sin emoción: aprenden a aburrirse.</li><li>Exigir destrezas (como la lectura) antes de la maduración.</li><li>El miedo: lleva al apagón emocional.</li></ul>
+      </div>
+      <div class="panel" data-panel="eado" hidden>
+        <h5>Qué pasa en el cerebro</h5><p>Conexiones entre zonas lejanas; maduración por ensayo y error del control emocional; búsqueda de novedades; maduración de la atención, el razonamiento y la recompensa diferida (hasta los 34 años). <a href="#c9">Cap. 9</a> · <a href="#c10">10</a></p>
+        <h5>Qué le conviene</h5><ul><li>Grandes aprendizajes conceptuales y reflexión ética.</li><li>Contextos, preguntas y problemas reales.</li><li>Grupos de discusión con iguales.</li><li>Límites de los que puedan romper algunos.</li><li>Sorpresas que mantengan la atención.</li></ul>
+        <h5>Qué hay que evitar</h5><ul><li>No poner ningún límite, o ponerlos irrompibles.</li><li>Restringir la búsqueda de novedades.</li><li>Ignorar la apatía sostenida.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="pla-sessio">2 · Una sesión que el cerebro aprovecha</h3>
+  <p class="small muted">Secuencia orientativa construida con las once claves. No es una receta: elige los pasos que encajen con tu sesión. <span class="src ext">Propuesta</span></p>
+  <ol class="lesson">
+    <li><b class="t">Abrir con una sorpresa o una pregunta</b>Una imagen, una noticia, un objeto o un chiste relacionado con el contenido, para que el tálamo se active. <a href="#c10-atencio">Cap. 10</a></li>
+    <li><b class="t">Situar en un contexto cercano</b>Conectar con lo que ya saben y con su vida (el barrio, el mercado, la cocina, el deporte). <a href="#c7-quotidia">Cap. 7</a> · <a href="#c8-espiral">8</a></li>
+    <li><b class="t">Explicar con cuerpo y relato</b>Gestos, anécdotas de personas y entusiasmo visible: se imitan. <a href="#c8-xarxes">Cap. 8</a> · <a href="#c14">14</a></li>
+    <li><b class="t">Elegir</b>Ofrecer dos opciones reales para hacer la tarea. <a href="#c13-ingredients">Cap. 13</a></li>
+    <li><b class="t">Cooperar con aportación individual</b>Cada miembro tiene una parte imprescindible para el resultado común. <a href="#c12-coop">Cap. 12</a></li>
+    <li><b class="t">Un rato de quietud</b>¿Qué he aprendido? ¿Qué pensaba antes? ¿Qué me ha sorprendido? <a href="#c15">Cap. 15</a></li>
+    <li><b class="t">Cerrar con reconocimiento</b>Hacer visibles los avances del grupo y de cada uno. <a href="#c8-utilitat">Cap. 8</a></li>
+  </ol>
+
+  <h3 id="pla-repetir">3 · Repetir con pequeñas novedades</h3>
+  <p class="small muted">Formas de practicar el mismo contenido sin repetir el mismo patrón. <a href="#c8-repetir">Cap. 8</a> <span class="src ext">Propuesta</span></p>
+  <div class="tw"><table>
+    <thead><tr><th>Variación</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><b>Cambiar el contexto</b></td><td>Los porcentajes en las rebajas, en los tiros libres, en la previsión del tiempo.</td></tr>
+      <tr><td><b>Cambiar el canal</b></td><td>Explicarlo cantando, dibujando, con el cuerpo o haciendo un esquema.</td></tr>
+      <tr><td><b>Cambiar el rol</b></td><td>Que lo expliquen a un compañero o a un grupo de menor edad.</td></tr>
+      <tr><td><b>Cambiar la materia</b></td><td>Usar el contenido de matemáticas en ciencias sociales o en educación física.</td></tr>
+      <tr><td><b>Añadir un reto</b></td><td>Tiempo, una restricción creativa, una elección binaria.</td></tr>
+      <tr><td><b>Hacerlo juego</b></td><td>Un concurso cooperativo, una adivinanza, un juego de cartas.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="pla-unitat">4 · Revisar una unidad</h3>
+  <div class="tool">
+    <div class="tool-h"><h4>Lista de revisión de una unidad o un proyecto</h4><span class="tg">Lista de revisión</span></div>
+    <p class="small muted">Recorre las once claves del libro. Se guarda en el navegador.</p>
+    <div class="checklist" data-key="unitat">
+      <label class="check"><input type="checkbox"><span class="ct">La unidad parte de un contexto cercano y cotidiano para el alumnado.</span><span class="w">cap. 7 · 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hay un componente emocional (una historia, un reto, una persona).</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Conecta con otras materias y activa redes diversas (cuerpo, arte, música, lengua).</span><span class="w">cap. 3 · 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He previsto sorpresas y novedades a lo largo de la unidad, no solo al inicio.</span><span class="w">cap. 10</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Tiene un objetivo tangible y un reto significativo.</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Incluye momentos de elección entre dos opciones.</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hay trabajo cooperativo en el que cada aportación es imprescindible, y también trabajo individual.</span><span class="w">cap. 12</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He previsto cómo reconoceré los avances (refuerzo positivo).</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Las repeticiones incorporan pequeñas variaciones.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hay ratos de quietud para tomar conciencia de lo que se aprende.</span><span class="w">cap. 15</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Las exigencias se ajustan a los ritmos de maduración, con flexibilidad para quien va más despacio.</span><span class="w">cap. 7 · 11</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He revisado que nada genere estrés sostenido (carga, miedo, comparaciones).</span><span class="w">cap. 16</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He preparado bien los contenidos que domino menos, para no introducir errores.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">La evaluación valora también los conocimientos transversales, no solo pruebas monotemáticas.</span><span class="w">cap. 8</span></label>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="unitat"></span><button class="btn sm" type="button" data-reset="unitat">Reiniciar</button></div>
+  </div>
+
+  <h3 id="pla-llenguatge">5 · Lenguaje que motiva y que desmotiva</h3>
+  <p class="small muted">Frases modelo construidas con los capítulos <a href="#c6">6</a>, <a href="#c12">12</a> y <a href="#c13">13</a>. <span class="src ext">Propuesta</span></p>
+  <div class="g2">
+    <div><p class="small"><b>Mejor así</b></p><ul class="say good">
+      <li>«El año que viene descubriréis cosas que ahora ni os imagináis.»</li>
+      <li>«Costará un poco, pero tenéis todo lo necesario para conseguirlo.»</li>
+      <li>«Podéis hacerlo de esta manera o de esta otra: elegid.»</li>
+      <li>«Tu parte es imprescindible para que el grupo termine.»</li>
+      <li>«Mira cómo has mejorado desde la semana pasada.»</li>
+      <li>«Hoy yo también he aprendido algo nuevo: os lo cuento.»</li>
+    </ul></div>
+    <div><p class="small"><b>Mejor evitar</b></p><ul class="say bad">
+      <li>«Ya veréis lo que es trabajar duro el año que viene.»</li>
+      <li>«Esto es facilísimo, debería saberlo hacer todo el mundo.»</li>
+      <li>«Hazlo así porque lo digo yo.»</li>
+      <li>«Mirad lo que ha hecho este…» (en tono de burla).</li>
+      <li>«Tu hermano sí que sabía.»</li>
+      <li>«No sé por qué os lo explico, si no os interesa.»</li>
+    </ul></div>
+  </div>
+
+  <h3 id="pla-families">6 · Mensajes para las familias</h3>
+  <p class="small muted">Ideas del libro que conviene compartir en reuniones y tutorías. <span class="src lib">Libro</span></p>
+  <div class="g2">
+    <div class="card"><span class="tag">Sueño y calma</span><p>Lo que se aprende se consolida durmiendo. Reducir el ritmo antes de acostarse; a los adolescentes el sueño les llega más tarde de forma natural. <a href="#c8-son">Cap. 8</a></p></div>
+    <div class="card"><span class="tag">Leer con gusto</span><p>Leer juntos sin prisa y por placer; nunca comparar con otros niños ni convertirlo en una obligación estresante. <a href="#c7-ritmes">Cap. 7</a></p></div>
+    <div class="card"><span class="tag">Tiempo libre</span><p>Extraescolares y deberes con medida: el exceso puede ser estrés crónico. Juego libre, naturaleza, mancharse. <a href="#c16">Cap. 16</a> · <a href="#c17-tic">17</a></p></div>
+    <div class="card"><span class="tag">Modelos</span><p>Los hijos imitan lo que hacemos, no lo que decimos: leer, interesarse, respetar, motivarse. <a href="#c14">Cap. 14</a></p></div>
+    <div class="card"><span class="tag">Límites</span><p>En la adolescencia hacen falta límites, y es sano que quieran romper algunos. Pensar cómo responder. <a href="#c9-limits">Cap. 9</a></p></div>
+    <div class="card"><span class="tag">Aceptación</span><p>Sentirse aceptado y apoyado es la mejor protección ante las drogas y el apagón emocional. <a href="#c10-drogues">Cap. 10</a></p></div>
+  </div>
+
+  <h3 id="pla-claustre">7 · Hoja de ruta para un claustro</h3>
+  <p class="small muted">Una manera de trabajar el libro en un curso escolar. <span class="src ext">Propuesta</span></p>
+  <div class="stage"><span class="when">Primer trimestre</span><h4>El cerebro y las emociones</h4><ul class="small"><li>Lectura compartida de la introducción y de los capítulos 1-3 y 6.</li><li>Test de neuromitos en una sesión de claustro.</li><li>Revisar con la lista «¿Dónde se esconde el miedo?» las prácticas habituales.</li></ul></div>
+  <div class="stage"><span class="when">Segundo trimestre</span><h4>Etapas, atención y motivación</h4><ul class="small"><li>Cada ciclo lee el capítulo de su etapa (5, 7, 9-10).</li><li>Acordar recursos comunes de sorpresa y de contexto.</li><li>Revisar una unidad por ciclo con la lista de revisión.</li></ul></div>
+  <div class="stage"><span class="when">Tercer trimestre</span><h4>Grupo, estrés y «marías»</h4><ul class="small"><li>Lectura de los capítulos 12, 16 y 17.</li><li>Radar de estrés crónico por etapas: deberes, extraescolares, horarios.</li><li>Ratos diarios de movimiento, música o calma en el horario.</li><li>Actividad del avión de papel con las familias.</li></ul></div>
+  <details class="ex"><summary><span class="st-t">Preguntas para un seminario de lectura</span><span class="meta-s">Claustro</span></summary><div class="body">
+    <ol>
+      <li>¿Qué prácticas del centro «ya hacemos bien» según el libro? ¿Por qué funcionan?</li>
+      <li>¿Dónde puede aparecer el miedo sin que queramos: transiciones de etapa, exámenes, lectura en voz alta?</li>
+      <li>¿A quién miramos más y cómo? ¿Cómo podríamos comprobarlo?</li>
+      <li>¿Qué límites ponemos a los adolescentes y cuáles se pueden romper?</li>
+      <li>¿Qué consideramos «marías» en el horario y qué perdemos si las recortamos?</li>
+      <li>¿Qué afirmaciones del libro querríamos contrastar con otras fuentes antes de aplicarlas?</li>
+    </ol>
+  </div></details>
+</section>
+
+<section class="chapter" id="glossari">
+  <p class="ch-label"><span class="num">→</span> Para consultar</p>
+  <h2>Glosario</h2>
+  <div class="tw"><table><tbody>
+    <tr><td><b>Amígdala</b></td><td>Estructura profunda del cerebro (hay dos) que genera las emociones.</td></tr>
+    <tr><td><b>Apagón emocional</b></td><td>Desconexión emocional ante los aprendizajes, a menudo por miedo o estrés. Trae aburrimiento y apatía.</td></tr>
+    <tr><td><b>Atención voluntaria / refleja</b></td><td>Dirigida a un objetivo / capturada por un estímulo inesperado que procesa el tálamo.</td></tr>
+    <tr><td><b>Autoconciencia</b></td><td>Ser conscientes de que somos conscientes: analizar deliberadamente los propios procesos mentales.</td></tr>
+    <tr><td><b>BDNF e irisina</b></td><td>Factor neurotrófico derivado del cerebro, que activa la plasticidad; el deporte lo activa a través de la irisina que liberan los músculos.</td></tr>
+    <tr><td><b>Búsqueda de novedades</b></td><td>Rasgo instintivo de exploración del entorno, muy intenso a los 0-3 años y en la adolescencia, ligado a la dopamina.</td></tr>
+    <tr><td><b>Cerebroflexia</b></td><td>Término del autor para la capacidad de la educación de modelar el cerebro, como quien dobla un papel.</td></tr>
+    <tr><td><b>Cerebro social</b></td><td>Conjunto de zonas, muchas de la corteza, que nos permiten navegar por las relaciones sociales; conectado con las emociones.</td></tr>
+    <tr><td><b>Control ejecutivo</b></td><td>Capacidad de planificar el futuro y adecuar a él el comportamiento.</td></tr>
+    <tr><td><b>Corteza (prefrontal)</b></td><td>Capa externa del cerebro, sede de los procesos más complejos; la prefrontal, detrás de la frente, razona, planifica y controla las emociones.</td></tr>
+    <tr><td><b>Cortisol</b></td><td>Hormona del estrés. En exceso sostenido reduce la plasticidad y favorece estados depresivos.</td></tr>
+    <tr><td><b>Creatividad</b></td><td>Cuestionar asunciones, romper límites, reconocer patrones escondidos y conectar elementos no vinculados. La práctica requiere experiencia, pensamiento creativo y motivación.</td></tr>
+    <tr><td><b>Dopamina</b></td><td>Neurotransmisor de la búsqueda de novedades, la motivación, el placer y la recompensa; también el que activan las drogas.</td></tr>
+    <tr><td><b>Emoción / sentimiento</b></td><td>Respuesta automática y preconsciente / racionalización consciente de esa respuesta, influida por la cultura.</td></tr>
+    <tr><td><b>Heredabilidad</b></td><td>Porcentaje de la variación entre personas en una característica atribuible a diferencias genéticas.</td></tr>
+    <tr><td><b>Hipocampo</b></td><td>Centro gestor de la memoria; no guarda los recuerdos, sino las «direcciones».</td></tr>
+    <tr><td><b>Neuronas espejo</b></td><td>Neuronas que se activan tanto si hacemos una acción como si la vemos hacer; base de la imitación y de la empatía según el libro.</td></tr>
+    <tr><td><b>Neurotransmisor</b></td><td>Molécula que transmite el mensaje de una neurona a otra a través de la sinapsis.</td></tr>
+    <tr><td><b>Núcleo accumbens</b></td><td>Zona que gestiona la motivación e interviene en el placer; la más afectada por las adicciones.</td></tr>
+    <tr><td><b>Oxitocina</b></td><td>Neurohormona de la socialización y del afecto.</td></tr>
+    <tr><td><b>Plasticidad neural</b></td><td>Capacidad de crear conexiones nuevas y reforzar las existentes; base de todo aprendizaje.</td></tr>
+    <tr><td><b>Poda</b></td><td>Eliminación programada de neuronas y conexiones que no resultan útiles.</td></tr>
+    <tr><td><b>Red en modo automático</b></td><td>Actividad máxima del cerebro cuando no hacemos nada; consolida y conecta redes.</td></tr>
+    <tr><td><b>Red neural</b></td><td>Conjunto de neuronas interconectadas; cada proceso mental es un patrón de conexiones.</td></tr>
+    <tr><td><b>Reserva cognitiva</b></td><td>Número de redes neurales activas; aumenta, por ejemplo, con el bilingüismo.</td></tr>
+    <tr><td><b>Resaca emocional</b></td><td>Sensibilización de los circuitos emocionales durante unos treinta minutos después de una emoción, según el libro.</td></tr>
+    <tr><td><b>Sinapsis</b></td><td>Zona de conexión entre dos neuronas, que no llegan a tocarse.</td></tr>
+    <tr><td><b>Tálamo</b></td><td>Estructura que decide qué estímulos son relevantes y activa la atención ante lo inesperado.</td></tr>
+    <tr><td><b>Ventana</b></td><td>Etapa del desarrollo en la que el cerebro prioriza un tipo de conexiones: 0-3, 4-11 y adolescencia.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="chapter" id="fonts" style="border-bottom:0">
+  <p class="ch-label"><span class="num">→</span> Para profundizar</p>
+  <h2>Fuentes y autor</h2>
+  <h3>Bibliografía para saber más (selección del autor)</h3>
+  <div class="g2 small">
+    <ul>
+      <li>Blakemore, S. J. y Frith, U. (2011). <i>Cómo aprende el cerebro</i>. Ariel.</li>
+      <li>Bueno, D. (2011). <i>El enigma de la libertad</i>. Bromera / PUV.</li>
+      <li>Bueno, D. (2015). «¿Otro ladrillo en el muro?». En <i>Humanidades e investigación científica</i>. Edicions de la UB.</li>
+      <li>Bueno, D. (2016). <i>Cerebroflexia. El arte de construir el cerebro</i>. Plataforma.</li>
+      <li>Burguet, M. y Bueno, D. (2014). <i>Educació per a una cultura de pau</i>. Edicions de la UB.</li>
+      <li>Forés, A. y otros (2015). <i>Neuromitos en la educación</i>. Plataforma.</li>
+    </ul>
+    <ul>
+      <li>Mora, F. (2014). <i>Neuroeducación</i>. Alianza.</li>
+      <li>Mora, F. (2014). <i>Cómo funciona el cerebro</i>. Alianza.</li>
+      <li>Redolar, D. (ed.) (2014). <i>Neurociencia cognitiva</i>. Médica Panamericana.</li>
+      <li>Sánchez, X. y otros (2014). <i>¿Somos una especie violenta?</i> Edicions de la UB.</li>
+      <li>Swaab, D. F. (2014). <i>Somos nuestro cerebro</i>. Plataforma.</li>
+    </ul>
+  </div>
+  <h3>Sobre el autor</h3>
+  <p class="small">David Bueno i Torrens (Barcelona, 1965) es profesor e investigador de genética en la Universidad de Barcelona y ha sido investigador en la Universidad de Oxford. Su investigación se centra en la formación del sistema nervioso y su relación con la conducta y el aprendizaje. Ha dedicado una parte importante de su trabajo a la divulgación científica. Los datos biográficos corresponden a la edición del libro.</p>
+  <h3>Otras guías relacionadas del catálogo</h3>
+  <ul class="small">
+    <li><a href="../../9788418058059/es/"><i>¿Cómo aprendemos?</i></a> (Héctor Ruiz Martín): memoria, emociones, motivación y evaluación desde la ciencia cognitiva.</li>
+    <li><a href="../../9788412714784/es/"><i>«Edumitos»</i></a> (Héctor Ruiz Martín): neuromitos e ideas sin respaldo científico.</li>
+    <li><a href="../../9788446056805/es/"><i>Cómo se aprende</i></a> (Kirschner y Hendrick): las obras clave de la psicología de la educación.</li>
+  </ul>
+  <footer>
+    <p><b>Fuente única:</b> Bueno i Torrens, D. (2017). <i>Neurociencia para educadores. Todo lo que los educadores siempre han querido saber sobre el cerebro de sus alumnos y nunca nadie se ha atrevido a explicárselo de manera comprensible y útil</i>. Octaedro, colección «Rosa Sensat». Traducción de Maria Tricas y David Bueno. ISBN 978-84-9921-991-2.</p>
+    <p>Guía elaborada a partir del libro para uso docente. Resume y parafrasea su contenido y no sustituye la lectura de la obra original.</p>
+    <p class="noprint"><a href="#top">↑ Volver al inicio</a></p>
+  </footer>
+</section>
+
+</div><!-- /wrap -->
+</main>
+<script>
+(function(){
+"use strict";
+var store={get:function(k,d){try{var v=localStorage.getItem('guiaNPE:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+           set:function(k,v){try{localStorage.setItem('guiaNPE:'+k,JSON.stringify(v))}catch(e){}}};
+function $(s,c){return (c||document).querySelector(s)}
+function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---------- theme ---------- */
+var root=document.documentElement;
+var TH_KEY='pedagoguia:theme';
+var th=null;try{th=localStorage.getItem(TH_KEY)}catch(e){}
+if(th!=='light'&&th!=='dark')th=null;
+if(!th){th=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+root.setAttribute('data-theme',th);
+$('#themeBtn').addEventListener('click',function(){th=th==='dark'?'light':'dark';root.setAttribute('data-theme',th);try{localStorage.setItem(TH_KEY,th)}catch(e){}});
+
+/* ---------- menu / progress / active toc ---------- */
+$$('#toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('menu')})});
+var bar=$('#progress');
+function onScroll(){var h=document.documentElement;var p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);bar.style.width=(p*100).toFixed(2)+'%'}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+var links={};$$('#toc a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id;$$('#toc a.active').forEach(function(x){x.classList.remove('active')});if(links[id]){links[id].classList.add('active')}}})},{rootMargin:'-35% 0px -60% 0px'});
+  $$('section.chapter').forEach(function(s){io.observe(s)});
+}
+
+/* ---------- expand / print ---------- */
+var eb=$('#expandBtn');
+function syncExpand(){var ds=$$('details.ex');var open=ds.length&&ds.every(function(d){return d.open});eb.classList.toggle('on',open);eb.setAttribute('aria-pressed',open?'true':'false');eb.innerHTML=open?'− Ejercicios':'+ Ejercicios';eb.title=open?'Cerrar todos los ejercicios desplegables':'Abrir todos los ejercicios desplegables'}
+eb.addEventListener('click',function(){var open=eb.getAttribute('aria-pressed')!=='true';$$('details.ex').forEach(function(d){d.open=open});syncExpand()});
+document.addEventListener('toggle',function(e){if(e.target.matches&&e.target.matches('details.ex'))syncExpand()},true);
+syncExpand();
+var printState=[];
+window.addEventListener('beforeprint',function(){printState=$$('details').map(function(d){var o=d.open;d.open=true;return o})});
+window.addEventListener('afterprint',function(){$$('details').forEach(function(d,i){d.open=printState[i]})});
+
+/* ---------- search ---------- */
+var q=$('#q'),res=$('#results'),idx=[];
+function buildIndex(){
+  idx=[];
+  $$('main section.chapter').forEach(function(sec){
+    var h2=$('h2',sec);var title=h2?h2.textContent:'';
+    $$('p,li,td,h3,h4,summary,.card',sec).forEach(function(el){
+      if(el.closest('.tool')&&!el.closest('.checklist'))return;
+      if(el.matches('.card')&&$('p,li,h4',el))return;
+      var t=el.textContent.replace(/\s+/g,' ').trim();if(t.length<3)return;
+      idx.push({el:el,t:t,n:norm(t),sec:title});
+    });
+  });
+}
+buildIndex();
+function doSearch(){
+  var v=q.value.trim();if(v.length<2){res.classList.remove('show');res.innerHTML='';return}
+  var nv=norm(v),out=[],seen=new Set();
+  for(var i=0;i<idx.length&&out.length<30;i++){var it=idx[i];var p=it.n.indexOf(nv);if(p<0)continue;var key=it.sec+'|'+it.t.slice(0,60);if(seen.has(key))continue;seen.add(key);
+    var s=Math.max(0,p-50),e=Math.min(it.t.length,p+nv.length+70);
+    var snip=(s>0?'…':'')+esc(it.t.slice(s,p))+'<mark>'+esc(it.t.slice(p,p+nv.length))+'</mark>'+esc(it.t.slice(p+nv.length,e))+(e<it.t.length?'…':'');
+    out.push('<a class="r" href="#" data-i="'+i+'"><b>'+esc(it.sec)+'</b>'+snip+'</a>')}
+  res.innerHTML=out.length?out.join(''):'<div class="empty">Sin resultados para «'+esc(v)+'».</div>';res.classList.add('show');
+}
+q.addEventListener('input',doSearch);q.addEventListener('focus',doSearch);
+document.addEventListener('click',function(e){if(!e.target.closest('.search'))res.classList.remove('show')});
+q.addEventListener('keydown',function(e){if(e.key==='Escape'){q.value='';doSearch();q.blur()}if(e.key==='Enter'){var f=$('.r',res);if(f)f.click()}});
+res.addEventListener('click',function(e){var a=e.target.closest('.r');if(!a)return;e.preventDefault();var it=idx[+a.dataset.i];var d=it.el.closest('details');if(d)d.open=true;
+  res.classList.remove('show');document.body.classList.remove('menu');it.el.scrollIntoView({behavior:'smooth',block:'center'});it.el.classList.remove('flash');void it.el.offsetWidth;it.el.classList.add('flash')});
+
+
+/* ---------- checklists ---------- */
+$$('.checklist').forEach(function(cl){var key=cl.dataset.key;var st=store.get('ck-'+key,{});var boxes=$$('input[type=checkbox]',cl);
+  function update(){var n=boxes.filter(function(b){return b.checked}).length;var cnt=$('[data-count="'+key+'"]');if(cnt)cnt.textContent=n+' de '+boxes.length+' marcados'}
+  boxes.forEach(function(b,i){b.checked=!!st[i];b.addEventListener('change',function(){st[i]=b.checked;store.set('ck-'+key,st);update()})});
+  var rb=$('[data-reset="'+key+'"]');if(rb)rb.addEventListener('click',function(){st={};store.set('ck-'+key,st);boxes.forEach(function(b){b.checked=false});update()});
+  update()});
+
+/* ---------- quizzes ---------- */
+$$('.quiz').forEach(function(qz){var key=qz.dataset.key;var st=store.get('quiz-'+key,{});var qs=$$('.q',qz);var score=$('[data-quiz-score="'+key+'"]');
+  function paint(q,i){var v=st[i];q.classList.remove('done','right','wrong');$$('button',q).forEach(function(b){b.classList.toggle('sel',b.dataset.v===v)});
+    if(v){q.classList.add('done',v===q.dataset.a?'right':'wrong')}}
+  function upd(){var ans=0,ok=0;qs.forEach(function(q,i){if(st[i]){ans++;if(st[i]===q.dataset.a)ok++}});
+    if(score)score.textContent=ans?(ok+' de '+ans+' aciertos'+(ans<qs.length?' · quedan '+(qs.length-ans):' · completado')):qs.length+' preguntas'}
+  qs.forEach(function(q,i){paint(q,i);$$('button',q).forEach(function(b){b.addEventListener('click',function(){st[i]=b.dataset.v;store.set('quiz-'+key,st);paint(q,i);upd()})})});
+  var rb=$('[data-quiz-reset="'+key+'"]');if(rb)rb.addEventListener('click',function(){st={};store.set('quiz-'+key,st);qs.forEach(paint);upd()});
+  upd()});
+
+/* ---------- panells commutables (etapes, esquema) ---------- */
+$$('.switch').forEach(function(sw){var key=sw.dataset.key;var btns=$$('[data-val]',sw);var pans=$$('[data-panel]',sw);if(!btns.length)return;
+  var cur=store.get('sw-'+key,btns[0].dataset.val);
+  if(!btns.some(function(b){return b.dataset.val===cur}))cur=btns[0].dataset.val;
+  function show(v){cur=v;btns.forEach(function(b){var on=b.dataset.val===v;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false')});pans.forEach(function(p){p.hidden=p.dataset.panel!==v});store.set('sw-'+key,v)}
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.val)})});
+  show(cur)});
+
+/* ---------- valoració de les llistes ---------- */
+$$('[data-verdict]').forEach(function(out){var key=out.dataset.verdict;var cl=$('.checklist[data-key="'+key+'"]');if(!cl)return;
+  var boxes=$$('input[type=checkbox]',cl);var t=out.dataset.t.split(',').map(Number);var bar=$('.meter i',out),txt=$('.vtxt',out);
+  function upd(){var n=boxes.filter(function(b){return b.checked}).length;var lvl=n<t[0]?0:(n<t[1]?1:2);txt.innerHTML=out.getAttribute('data-m'+lvl);if(bar)bar.style.width=(100*n/boxes.length).toFixed(0)+'%'}
+  boxes.forEach(function(b){b.addEventListener('change',upd)});
+  var rb=$('[data-reset="'+key+'"]');if(rb)rb.addEventListener('click',function(){setTimeout(upd,0)});
+  upd()});
+
+})();
+</script>
+</body>
+</html>

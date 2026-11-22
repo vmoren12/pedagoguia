@@ -41,7 +41,11 @@
         "dislèxia": "dislexia",
         "discalcúlia": "discalculia",
         "TDAH": "TDAH",
-        "altes capacitats": "altas capacidades"
+        "altes capacitats": "altas capacidades",
+        "Neuroeducació": "Neuroeducación",
+        "plasticitat neural": "plasticidad neural",
+        "emocions": "emociones",
+        "adolescència": "adolescencia"
       }
     }
   },
@@ -170,6 +174,32 @@
         "highlights": ["Introducción y 3 capítulos", "Tests de mitos", "Herramientas interactivas", "Síntesis A4"]
       },
       "publisherUrl": "https://tienda.grupo-sm.com/producto/comprender-y-atender-a-la-diversidad/",
+      "added": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "isbn": "9788499219912",
+      "isbnDisplay": "978-84-9921-991-2",
+      "path": "guies/9788499219912/",
+      "cover": "guies/9788499219912/cover.jpg",
+      "color": "#4a3566",
+      "title": "Neurociencia para educadores",
+      "subtitle": "Todo lo que los educadores siempre han querido saber sobre el cerebro de sus alumnos y nunca nadie se ha atrevido a explicárselo de manera comprensible y útil",
+      "authors": ["David Bueno i Torrens"],
+      "publisher": "Octaedro",
+      "collection": "Rosa Sensat",
+      "year": 2017,
+      "topics": ["Neuroeducació", "Ciència cognitiva"],
+      "stages": ["Infantil", "Primària", "Secundària", "Batxillerat i FP"],
+      "language": "Castellà",
+      "summary": "Com es construeix i com aprèn el cervell, explicat per a docents: gens i ambient, les etapes de 0 a 3 anys, de 4 a 11 i l'adolescència, emocions, plasticitat, atenció, motivació, creativitat, imitació i estrès, amb neuromites desmuntats i el valor de l'educació física, artística i musical.",
+      "highlights": ["17 capítols", "Etapes del desenvolupament", "Eines interactives", "Síntesi A4"],
+      "tags": ["plasticitat neural", "emocions", "adolescència", "motivació"],
+      "es": {
+        "summary": "Cómo se construye y cómo aprende el cerebro, explicado para docentes: genes y ambiente, las etapas de 0 a 3 años, de 4 a 11 y la adolescencia, emociones, plasticidad, atención, motivación, creatividad, imitación y estrés, con neuromitos desmontados y el valor de la educación física, artística y musical.",
+        "highlights": ["17 capítulos", "Etapas del desarrollo", "Herramientas interactivas", "Síntesis A4"]
+      },
+      "publisherUrl": "https://octaedro.com/libro/neurociencia-para-educadores/",
       "added": "2026-11-22",
       "updated": "2026-11-22"
     }

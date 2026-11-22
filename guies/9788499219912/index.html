@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia docent · Neurociencia para educadores</title>
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="ca" href="./">
+<link rel="alternate" hreflang="es" href="es/">
+<script src="../../assets/js/lang.js" defer></script>
+<meta name="pg-guide" content="9788499219912">
+<meta name="pg-guide-title" content="Neurociencia para educadores">
+<link rel="stylesheet" href="../../assets/css/notes.css">
+<script src="../../assets/js/notes.js" defer></script>
+<script>
+/* Tema compartit amb el catàleg (pedagoguia:theme), abans del primer pintat */
+(function(){try{var t=localStorage.getItem('pedagoguia:theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();
+</script>
+<meta name="description" content="Guia de referència i d'aula, en català, basada en el llibre «Neurociencia para educadores» (David Bueno i Torrens, Octaedro, 2017): com es construeix el cervell de 0 anys a l'adolescència, emocions, plasticitat, atenció, motivació, creativitat, imitació, estrès i neuromites.">
+<style>
+:root{
+  --paper:#fbfaf7; --card:#ffffff; --ink:#1d1d1b; --ink-2:#3a3a37; --muted:#6c6a64; --line:#e7e3da; --line-2:#d9d4c8;
+  --accent:#2f5d50; --accent-2:#3f7a69; --accent-soft:#eaf1ed; --accent-ink:#1f4037;
+  --warm:#9c4a2c; --warm-soft:#f7ece6; --gold:#8a6d1f; --gold-soft:#f6f0dc;
+  --serif:"Iowan Old Style","Charter","Palatino Linotype","Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --nav:290px; --measure:46rem; --radius:10px;
+}
+[data-theme="dark"]{
+  --paper:#141513; --card:#1b1c1a; --ink:#ebe8e1; --ink-2:#cfccc4; --muted:#9e9b93; --line:#2b2c29; --line-2:#3a3b37;
+  --accent:#8fc3af; --accent-2:#a9d4c3; --accent-soft:#1e2925; --accent-ink:#cfe7dd;
+  --warm:#e5a185; --warm-soft:#2b211c; --gold:#d8bd6a; --gold-soft:#29251a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;font-feature-settings:"kern","liga"}
+a{color:var(--accent);text-underline-offset:3px}
+::selection{background:var(--accent-soft)}
+/* ---------- progress ---------- */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .1s linear}
+/* ---------- sidebar ---------- */
+.nav{position:fixed;inset:0 auto 0 0;width:var(--nav);border-right:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;z-index:40}
+.nav-head{padding:22px 22px 14px;border-bottom:1px solid var(--line)}
+.nav-head .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.nav-head .t{font-family:var(--serif);font-size:19px;line-height:1.25;margin:0;color:var(--ink)}
+.search{position:relative;margin-top:14px}
+.search input{width:100%;font:inherit;font-size:14px;padding:8px 10px 8px 32px;border:1px solid var(--line-2);border-radius:8px;background:var(--card);color:var(--ink)}
+.search input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--muted)}
+.toc{overflow:auto;padding:10px 10px 30px;flex:1}
+.toc .part{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:14px 12px 4px}
+.toc a{display:flex;gap:10px;align-items:baseline;padding:6px 12px;border-radius:7px;color:var(--ink-2);text-decoration:none;font-size:14px;line-height:1.35}
+.toc a .n{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:18px}
+.toc a:hover{background:var(--accent-soft);color:var(--ink)}
+.toc a.active{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+.toc a.active .n{color:var(--accent)}
+.nav-foot{border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.nav-foot .btn{white-space:nowrap}
+.btn{font:inherit;font-size:13px;border:1px solid var(--line-2);background:var(--card);color:var(--ink-2);padding:7px 11px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .btn.primary{color:#0f1a16}
+.btn.primary:hover{background:var(--accent-2);color:#fff}
+.btn.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.sm{font-size:12px;padding:5px 9px}
+/* search results */
+#results{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line-2);border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.12);max-height:60vh;overflow:auto;z-index:80}
+#results.show{display:block}
+#results .r{display:block;padding:9px 12px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink-2);font-size:13px;line-height:1.4}
+#results .r:last-child{border-bottom:0}
+#results .r b{display:block;font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.02em;margin-bottom:2px}
+#results .r mark{background:var(--gold-soft);color:inherit;padding:0 1px;border-radius:2px}
+#results .empty{padding:12px;color:var(--muted);font-size:13px}
+.flash{animation:flash 1.8s ease}
+@keyframes flash{0%,40%{background:var(--gold-soft)}100%{background:transparent}}
+/* ---------- topbar (mobile) ---------- */
+.topbar{display:none}
+/* ---------- main ---------- */
+main{margin-left:var(--nav);padding:0 clamp(20px,5vw,64px) 120px}
+.wrap{max-width:var(--measure);margin:0 auto}
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.hero .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1.08;margin:0 0 18px;letter-spacing:-.01em}
+.hero p.sub{font-size:19px;color:var(--ink-2);margin:0 0 22px;max-width:38rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px;color:var(--muted)}
+.meta span b{color:var(--ink-2);font-weight:600}
+section.chapter{padding:56px 0 8px;border-bottom:1px solid var(--line)}
+.ch-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;display:flex;gap:10px;align-items:center}
+.ch-label .num{font-family:var(--mono);color:var(--accent);font-weight:600}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.6vw,38px);line-height:1.15;margin:0 0 16px;letter-spacing:-.005em}
+h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.3;margin:42px 0 10px}
+h4{font-size:15px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+.lead{font-size:19px;color:var(--ink-2);line-height:1.55}
+ul,ol{padding-left:1.25em;margin:0 0 16px}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+strong{font-weight:650}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+hr.soft{border:0;border-top:1px solid var(--line);margin:34px 0}
+/* ---------- callouts ---------- */
+.box{border-radius:var(--radius);padding:16px 18px;margin:20px 0;border:1px solid var(--line);background:var(--card)}
+.box > :last-child{margin-bottom:0}
+.box .lbl{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.key{border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0}
+.key .lbl{color:var(--accent)}
+.aula{background:var(--accent-soft);border-color:transparent}
+.aula .lbl{color:var(--accent-ink)}
+.evid{background:transparent;border-style:dashed}
+.evid .lbl{color:var(--gold)}
+.warn{background:var(--warm-soft);border-color:transparent}
+.warn .lbl{color:var(--warm)}
+.remember{background:var(--card);border:1px solid var(--line-2)}
+.remember .lbl{color:var(--ink-2)}
+.remember ul{list-style:none;padding:0}
+.remember li{padding-left:26px;position:relative;margin:8px 0}
+.remember li::before{content:"";position:absolute;left:3px;top:.45em;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.quote{font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--ink-2);border-left:2px solid var(--line-2);padding:4px 0 4px 18px;margin:22px 0}
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:18px 0 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:650;background:transparent}
+tr:last-child td{border-bottom:0}
+td.c{text-align:center}
+caption{caption-side:top;text-align:left;padding:12px 12px 2px;font-weight:650;font-size:14px;color:var(--ink-2)}
+.t-strong{color:var(--accent);font-weight:650}
+/* ---------- grids & cards ---------- */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:14px 16px}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p,.card ul{font-size:14.5px;margin-bottom:6px}
+.card .tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink-2);background:var(--card);margin:2px 3px 2px 0;white-space:nowrap}
+.pill.on{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .pill.on{color:#0f1a16}
+/* ---------- details (exercises) ---------- */
+details.ex{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin:10px 0}
+details.ex>summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;gap:12px;align-items:baseline;font-weight:600;font-size:15.5px}
+details.ex>summary::-webkit-details-marker{display:none}
+details.ex>summary .st-t{flex:1;min-width:0}
+details.ex>summary::before{content:"+";font-family:var(--mono);color:var(--accent);width:12px;flex:none}
+details.ex[open]>summary::before{content:"−"}
+details.ex>summary .meta-s{margin-left:auto;font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap}
+details.ex .body{padding:0 16px 14px 40px;font-size:15px}
+details.ex .body ol,details.ex .body ul{margin-bottom:10px}
+/* ---------- diagrams ---------- */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:18px 0}
+.flow .st{flex:1 1 120px;border:1px solid var(--line-2);border-radius:9px;padding:10px 12px;background:var(--card);font-size:14px}
+.flow .st b{display:block;font-size:12px;color:var(--accent);letter-spacing:.04em;margin-bottom:2px}
+.flow .ar{align-self:center;color:var(--muted);font-family:var(--mono)}
+.formula{font-family:var(--mono);font-size:22px;text-align:center;padding:16px;letter-spacing:.04em}
+.diagram{margin:20px 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:16px}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram .cap{font-size:13px;color:var(--muted);margin-top:8px}
+svg text{font-family:var(--sans)}
+/* ---------- tools ---------- */
+.tool{border:1px solid var(--line-2);border-radius:14px;background:var(--card);padding:18px 20px;margin:24px 0}
+.tool .tool-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.tool .tool-h h4{margin:0;font-size:16px}
+.tool .tool-h .tg{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.field select,.field input,.field textarea{font:inherit;font-size:14.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:8px;padding:7px 9px}
+.field textarea{min-height:84px;resize:vertical;font-family:var(--sans)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.row .field{flex:1 1 150px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.out{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--paper);border:1px solid var(--line)}
+.out .big{font-family:var(--serif);font-size:30px;line-height:1.1}
+.meter{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.45;cursor:pointer}
+.check:last-child{border-bottom:0}
+.check input{margin-top:3px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.check .ct{flex:1;min-width:0}
+.check .w{font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.grph{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.grph button{font:inherit;font-family:var(--mono);font-size:14px;min-width:38px;padding:5px 8px;border-radius:7px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.grph button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .grph button.on{color:#0f1a16}
+.word{display:inline-block;margin:4px 8px 4px 0;padding:3px 8px;border-radius:7px;border:1px solid var(--line-2);font-family:var(--mono);font-size:15px}
+.word.ok{border-color:var(--accent);background:var(--accent-soft)}
+.word.no{border-color:var(--warm);background:var(--warm-soft)}
+.word u{text-decoration:none;color:var(--warm);font-weight:700;border-bottom:2px solid var(--warm)}
+.seq{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px;counter-reset:s}
+.seq span{counter-increment:s;font-family:var(--mono);font-size:13px;border:1px solid var(--line-2);border-radius:7px;padding:4px 8px;background:var(--paper)}
+.seq span::before{content:counter(s);font-size:10px;color:var(--muted);margin-right:6px}
+/* quiz */
+.q{padding:12px 0;border-bottom:1px dashed var(--line)}
+.q:last-child{border-bottom:0}
+.q .qt{font-weight:600;font-size:15px;margin-bottom:8px}
+.q .opts{display:flex;gap:8px}
+.q .fb{display:none;margin-top:8px;font-size:14px;color:var(--ink-2);padding:8px 10px;border-radius:8px;background:var(--paper)}
+.q.done .fb{display:block}
+.q.right .fb{border-left:3px solid var(--accent)}
+.q.wrong .fb{border-left:3px solid var(--warm)}
+.q button.sel{outline:2px solid var(--accent)}
+/* phrase lists */
+.say{list-style:none;padding:0;margin:8px 0}
+.say li{padding:7px 12px;border-radius:8px;background:var(--paper);border:1px solid var(--line);margin:6px 0;font-size:14.5px}
+.say.good li{border-left:3px solid var(--accent)}
+.say.bad li{border-left:3px solid var(--warm);color:var(--muted)}
+/* source badges */
+.src{display:inline-block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:1px 6px;border-radius:4px;vertical-align:2px;margin-left:4px;border:1px solid var(--line-2);color:var(--muted);white-space:nowrap}
+.src.lib{border-color:var(--accent);color:var(--accent)}
+.src.ext{border-color:var(--gold);color:var(--gold)}
+.stage{border-left:3px solid var(--accent);padding:2px 0 2px 16px;margin:22px 0}
+.stage h4{margin:0 0 6px;font-size:16px}
+.stage .when{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+/* kbd-like letters */
+.lt{font-family:var(--mono);font-size:.95em;padding:0 4px;border-radius:4px;background:var(--accent-soft);color:var(--accent-ink)}
+.ph{font-family:var(--mono);font-size:.95em;color:var(--warm)}
+/* toc of chapter */
+.minitoc{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 6px}
+.minitoc a{font-size:12.5px;text-decoration:none;border:1px solid var(--line-2);padding:3px 9px;border-radius:99px;color:var(--ink-2)}
+.minitoc a:hover{border-color:var(--accent);color:var(--accent)}
+/* footer */
+footer{padding:48px 0;color:var(--muted);font-size:13.5px}
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .nav{transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 40px rgba(0,0,0,.18)}
+  body.menu .nav{transform:none}
+  main{margin-left:0}
+  .topbar{display:flex;position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 16px;align-items:center;gap:12px;margin:0 calc(-1*clamp(20px,5vw,64px))}
+  .topbar .t{font-family:var(--serif);font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hero{padding-top:36px}
+  .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:35}
+  body.menu .scrim{display:block}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .g2,.g3{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  details.ex .body{padding-left:16px}
+  h3{font-size:20px}
+}
+/* ---------- print ---------- */
+@media print{
+  .nav,.topbar,#progress,.scrim,.noprint,.tool .btn{display:none!important}
+  main{margin:0;padding:0}
+  body{background:#fff;color:#000;font-size:11pt}
+  section.chapter{break-before:page;border:0;padding-top:0}
+  details.ex{break-inside:avoid}
+  details.ex>.body{display:block}
+  .box,.card,.tw{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+/* ---------- Pedagoguia: tornar al catàleg, síntesi i avisos ---------- */
+.back-link{display:inline-flex;align-items:center;gap:6px;margin:-6px 0 12px -8px;padding:4px 9px 4px 6px;border-radius:7px;color:var(--muted);text-decoration:none;font-size:13px}
+.back-link:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.back-link svg,.ico svg,.synth-btn svg,.back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav-foot{flex-wrap:nowrap;align-items:center;gap:6px}
+.nav-foot .icon{padding:6px 7px}
+.nav-foot .icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav-foot .push{margin-left:auto}
+.nav-foot .ico{padding:6px 7px;border-color:transparent;background:transparent;color:var(--muted)}
+.nav-foot .ico:hover{color:var(--warm);border-color:var(--line-2)}
+.synth-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border:1px solid var(--ink);border-radius:999px;background:#f5f4f1;color:var(--ink);font-size:13px;line-height:1.25;text-decoration:none;white-space:nowrap;transition:background-color .15s}
+.synth-btn:hover{background:#fff;color:var(--ink)}
+[data-theme="dark"] .synth-btn{background:#22231f}
+[data-theme="dark"] .synth-btn:hover{background:#2a2b27}
+main{position:relative}
+.synth-top{position:absolute;top:22px;right:clamp(20px,5vw,64px);z-index:5}
+.topbar .btn{white-space:nowrap;flex:none}
+.topbar .t{min-width:0;flex:1}
+.topbar .back-btn{padding:6px}
+.topbar .synth-btn{margin-left:auto;flex:none}
+@media (max-width:1000px){.synth-top{display:none}}
+/* ---------- propis d'aquesta guia ---------- */
+.toc .part{margin-top:4px}
+.toc a{padding:5px 12px;font-size:13.5px}
+.work{display:flex;gap:10px;align-items:baseline;margin:0 0 14px;padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--card);font-size:13.5px;color:var(--ink-2);line-height:1.45}
+.work b{flex:none;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 4px}
+.seg button{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:99px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="dark"] .seg button.on{color:#0f1a16}
+.panel{margin-top:12px}
+.panel h5{margin:12px 0 4px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.panel p,.panel li{font-size:14.5px}
+.scheme{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 6px}
+.scheme button{font:inherit;font-size:14px;font-weight:600;line-height:1.25;padding:12px 8px;border-radius:10px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.scheme button small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.scheme button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.scheme button.on small{color:inherit;opacity:.85}
+[data-theme="dark"] .scheme button.on{color:#0f1a16}
+.scheme .core{display:grid;place-items:center;border-radius:10px;background:var(--ink);color:var(--paper);font-family:var(--serif);font-size:21px;font-style:italic;letter-spacing:.02em;min-height:54px}
+.scheme .gap{visibility:hidden}
+.scheme-frame{display:grid;grid-template-columns:1fr;gap:6px;font-size:12.5px;color:var(--muted);text-align:center}
+.scheme-frame span{border:1px dashed var(--line-2);border-radius:8px;padding:5px 8px;background:var(--card)}
+.lesson{counter-reset:ls;list-style:none;padding:0;margin:14px 0}
+.lesson>li{counter-increment:ls;position:relative;padding:12px 14px 12px 52px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin:8px 0}
+.lesson>li::before{content:counter(ls);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);font:700 13px/26px var(--sans);text-align:center}
+.lesson>li b.t{display:block;font-size:15px;margin-bottom:2px}
+.ages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0}
+.ages>div{border-radius:10px;padding:12px 14px;background:var(--accent-soft);font-size:14px;line-height:1.45}
+.ages>div b{display:block;font-family:var(--serif);font-size:19px;font-weight:500;color:var(--accent-ink);margin-bottom:4px}
+.ages>div span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.vtxt{font-size:14.5px}
+.vtxt b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;margin-bottom:4px}
+@media (max-width:640px){.ages{grid-template-columns:1fr}.scheme button{font-size:13px;padding:10px 6px}.scheme .core{font-size:18px}}
+.nav-foot{gap:4px;padding-left:10px;padding-right:10px}.nav-foot .icon{padding:6px}.nav-foot #expandBtn{padding:5px 7px}.lang-sel{display:inline-flex;flex:none;height:29px;border:1px solid var(--line-2);border-radius:8px;background:var(--card);overflow:hidden}.lang-sel>*{display:inline-flex;align-items:center;font:600 12px/1 var(--sans);letter-spacing:.02em;padding:0 5px;color:var(--muted);text-decoration:none}.lang-sel>a:hover{color:var(--accent)}.lang-sel>[aria-current]{background:var(--accent-soft);color:var(--accent-ink)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="scrim" onclick="document.body.classList.remove('menu')"></div>
+<aside class="nav" id="nav" aria-label="Índex">
+  <div class="nav-head">
+    <a class="back-link noprint" href="../../" aria-label="Tornar al catàleg de Pedagoguia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Pedagoguia</a>
+    <p class="kicker">Guia docent</p>
+    <p class="t">Neurociencia para educadores</p>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Cerca a la guia…" autocomplete="off" aria-label="Cerca a la guia">
+      <div id="results" role="listbox"></div>
+    </div>
+  </div>
+  <nav class="toc" id="toc">
+    <a href="#inici"><span class="n">·</span>Com fer servir aquesta guia</a>
+    <a href="#claus"><span class="n">·</span>Les idees essencials</a>
+    <div class="part">Marc</div>
+    <a href="#intro"><span class="n">In</span>L'ofici més antic del món</a>
+    <div class="part">I · El cervell i els gens</div>
+    <a href="#c1"><span class="n">01</span>Gens, ambient i capacitats</a>
+    <a href="#c2"><span class="n">02</span>Com funciona el cervell</a>
+    <a href="#c3"><span class="n">03</span>Neuromites</a>
+    <div class="part">II · Un cervell en construcció</div>
+    <a href="#c4"><span class="n">04</span>Abans de néixer</a>
+    <a href="#c5"><span class="n">05</span>De 0 a 3 anys</a>
+    <a href="#c6"><span class="n">06</span>Les emocions</a>
+    <a href="#c7"><span class="n">07</span>De 4 a 11 anys</a>
+    <a href="#c8"><span class="n">08</span>Com aprenem i desaprenem</a>
+    <a href="#interludi"><span class="n">✈</span>Interludi: cerebroflèxia</a>
+    <div class="part">III · L'adolescència</div>
+    <a href="#c9"><span class="n">09</span>Control emocional i límits</a>
+    <a href="#c10"><span class="n">10</span>Novetats, drogues i atenció</a>
+    <div class="part">IV · Maduració i entorn social</div>
+    <a href="#c11"><span class="n">11</span>Ritmes, idiomes i camins</a>
+    <a href="#c12"><span class="n">12</span>Ambient social, mirades i grup</a>
+    <a href="#c13"><span class="n">13</span>Motivació i creativitat</a>
+    <a href="#c14"><span class="n">14</span>Imitació: ser aprenents</a>
+    <a href="#c15"><span class="n">15</span>Consciència i autoconsciència</a>
+    <div class="part">V · Enemics i aliats</div>
+    <a href="#c16"><span class="n">16</span>Estrès, plaer i motivació</a>
+    <a href="#c17"><span class="n">17</span>Les «maries» i la tecnologia</a>
+    <div class="part">Tancament</div>
+    <a href="#conclusions"><span class="n">11</span>Onze claus del cervell</a>
+    <a href="#bonus"><span class="n">★</span><span><i>Bonus track</i>: l'esquema</span></a>
+    <div class="part">Per aplicar</div>
+    <a href="#pla"><span class="n">→</span>Posa-ho en pràctica</a>
+    <a href="#glossari"><span class="n">→</span>Glossari</a>
+    <a href="#fonts"><span class="n">→</span>Fonts i autor</a>
+  </nav>
+  <div class="nav-foot noprint">
+    <button class="btn sm icon" id="themeBtn" type="button" title="Canvia el tema" aria-label="Canvia el tema"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+    <button class="btn sm icon" type="button" onclick="window.print()" title="Imprimeix o desa com a PDF" aria-label="Imprimeix o desa com a PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><path d="M7 14h10v6H7z"/></svg></button>
+    <button class="btn sm" id="expandBtn" type="button" aria-pressed="false">+ Exercicis</button>
+    <div class="lang-sel push" role="group" aria-label="Idioma"><span aria-current="true" lang="ca" title="Català">CA</span><a href="es/" data-pg-lang="es" hreflang="es" lang="es" title="Versión en castellano" aria-label="Versión en castellano">ES</a></div>
+    <button class="btn sm icon" type="button" data-pg-notes title="Les meves notes i subratllats" aria-label="Les meves notes i subratllats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
+    <a class="btn sm icon ico" href="../../?avis=error&amp;isbn=9788499219912" title="Notifica un error de contingut" aria-label="Notifica un error de contingut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4.5L17 13H5"/></svg></a>
+  </div>
+</aside>
+
+<main id="main">
+<div class="topbar noprint">
+  <a class="btn sm back-btn" href="../../" aria-label="Tornar al catàleg de Pedagoguia" title="Tornar al catàleg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+  <button class="btn sm" type="button" onclick="document.body.classList.toggle('menu')" aria-label="Obre l'índex">☰ Índex</button>
+  <span class="t">Neurociencia para educadores</span>
+  <button class="btn sm back-btn" type="button" data-pg-notes title="Les meves notes i subratllats" aria-label="Les meves notes i subratllats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg></button>
+  <a class="synth-btn" href="sintesi.html" title="Síntesi imprimible en 2 pàgines A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesi</a>
+</div>
+<a class="synth-btn synth-top noprint" href="sintesi.html" title="Síntesi imprimible en 2 pàgines A4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M10 11h5M10 14h5M10 17h3"/></svg>Síntesi</a>
+<div class="wrap">
+
+<header class="hero" id="top">
+  <p class="kicker">Guia docent de referència i d'aula</p>
+  <h1>Neurociencia para educadores</h1>
+  <p class="sub">Síntesi pràctica, en català, del llibre de David Bueno i Torrens: com es construeix el cervell dels infants i adolescents, com aprèn, què el mou i què el bloqueja, i què pot fer l'escola amb aquest coneixement.</p>
+  <div class="meta">
+    <span><b>Obra:</b> <i>Neurociencia para educadores. Todo lo que los educadores siempre han querido saber sobre el cerebro de sus alumnos y nunca nadie se ha atrevido a explicárselo de manera comprensible y útil</i></span>
+    <span><b>Editorial:</b> Octaedro, 2017 · Col·lecció «Rosa Sensat»</span>
+    <span><b>Autor:</b> David Bueno i Torrens</span>
+    <span><b>Original:</b> <i>Neurociència per a educadors</i> (en català)</span>
+  </div>
+</header>
+
+<section class="chapter" id="inici" style="border-bottom:0;padding-top:36px">
+  <p class="ch-label"><span class="num">00</span> Abans de començar</p>
+  <h2>Com fer servir aquesta guia</h2>
+  <p>David Bueno és genetista i investigador de la formació del sistema nerviós. El seu llibre respon, en llenguatge planer, les preguntes que més li fan els docents en conferències i cursos: si les capacitats depenen dels gens, com funciona el cervell, què passa en cada etapa del desenvolupament, per què s'avorreixen a classe, què busquen els adolescents quan es salten les normes, què és la motivació, per què importen les mirades o quin és l'enemic número u de l'aprenentatge. Són trenta-set preguntes agrupades en disset capítols, amb un interludi a la meitat, unes conclusions en onze punts i un esquema final.</p>
+  <p>Aquesta guia segueix el llibre capítol per capítol perquè es pugui consultar quan cal entendre una conducta, preparar una sessió o argumentar una decisió davant l'equip o les famílies.</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Cada capítol</span><p>La pregunta del llibre, la resposta de l'autor amb les dades, els exemples i les comparacions que fa servir, i el que convé no oblidar.</p></div>
+    <div class="card"><span class="tag">A l'aula</span><p>Les conseqüències educatives que n'extreu l'autor, concretades en orientacions per a l'aula, la tutoria i les famílies.</p></div>
+    <div class="card"><span class="tag">Eines</span><p>Test de neuromites, explorador de les etapes, revisor de motivació, llistes de revisió i l'esquema del <i>bonus track</i> interactiu. Es desen al navegador.</p></div>
+  </div>
+  <div class="box evid"><span class="lbl">Sobre aquesta guia</span>
+    <p>El llibre es va escriure en català (<i>Neurociència per a educadors</i>, Rosa Sensat) i es va traduir al castellà amb la participació de l'autor. Aquesta guia parteix de l'edició castellana d'Octaedro; les cites són traducció pròpia. Les dades, els exemples i les conclusions són de l'autor. Quan la guia afegeix una concreció pròpia (una plantilla, una seqüència, una llista), ho marca amb l'etiqueta <span class="src ext">Proposta</span>.</p>
+  </div>
+  <div class="box warn"><span class="lbl">Llegir-lo amb criteri</span>
+    <p>És un llibre de divulgació, escrit el 2016, que explica el cervell amb analogies (mobles, tuits, motos, semàfors) i que gairebé no cita estudis concrets dins del text; només inclou una bibliografia breu al final. L'autor mateix demana als lectors una lectura crítica. Algunes afirmacions són simplificacions o temes encara oberts a la recerca; quan és útil, la guia ho assenyala amb un requadre «Amb criteri» i remet a altres guies del catàleg que tracten el mateix tema des de la psicologia cognitiva.</p>
+  </div>
+  <p class="small muted">La tesi de fons del llibre és que la neurociència no ve a substituir la pedagogia, sinó a explicar per què funciona el que la bona pedagogia ja fa: treballar amb emocions, en context, en grup, amb joc i amb plaer. Per a l'autor, l'objectiu de l'educació és ajudar les persones a <b>créixer en dignitat</b>.</p>
+</section>
+
+<section class="chapter" id="claus">
+  <p class="ch-label"><span class="num">★</span> Síntesi</p>
+  <h2>Les idees essencials del llibre</h2>
+  <p class="lead">Si només pots llegir una pàgina, que sigui aquesta.</p>
+  <ol class="small" style="font-size:15.5px">
+    <li><b>Educar és canviar el cervell dels altres.</b> Tot el que aprenem queda en patrons de connexions entre neurones. L'educació obre camins, en tanca d'altres i modela persones més reflexives o més impulsives. I és bidireccional: els alumnes també canvien el nostre. <a href="#c2">Cap. 2</a> · <a href="#conclusions">Conclusions</a></li>
+    <li><b>Els gens condicionen, però no determinen.</b> Cada alumne és biològicament diferent, però el marge de l'ambient i de l'educació és enorme. Per això l'educació ha de ser social i, alhora, individualitzada. <a href="#c1">Cap. 1</a></li>
+    <li><b>El cervell funciona com un tot integrat.</b> No hi ha hemisferi racional i hemisferi emocional, ni intel·ligències separades, ni fem servir només el 10 %. Els aprenentatges transversals i contextualitzats activen més xarxes i es recorden i s'apliquen millor. <a href="#c3">Cap. 3</a> · <a href="#c8">8</a></li>
+    <li><b>Cada etapa té la seva finestra.</b> De 0 a 3 anys es forma bona part del caràcter; de 4 a 11, les destreses acadèmiques i el gust per aprendre; a l'adolescència, els grans aprenentatges conceptuals i la maduració del control emocional. Cada cervell madura al seu ritme. <a href="#c5">Cap. 5</a> · <a href="#c7">7</a> · <a href="#c9">9</a> · <a href="#c11">11</a></li>
+    <li><b>Sense emoció, el cervell no veu cap motiu per guardar res.</b> Les emocions són l'accelerador; la reflexió, el fre i el volant. Es pot aprendre amb por, però no s'ha de fer mai: qui aprèn amb por associa aprendre a por. <a href="#c6">Cap. 6</a></li>
+    <li><b>El que el cervell considera més útil és l'acceptació social.</b> Les connexions que es mantenen són les que reben valoració i reconeixement d'iguals, docents i famílies. El refermament positiu, la mirada i el treball cooperatiu hi tenen un paper central. <a href="#c8">Cap. 8</a> · <a href="#c12">12</a></li>
+    <li><b>Aprendre és fàcil; desaprendre, molt difícil.</b> Els errors queden a la base de la xarxa i només es poden esquivar amb camins nous. Per això cal preparar bé el que s'explica. <a href="#c8">Cap. 8</a> · <a href="#c11">11</a></li>
+    <li><b>L'atenció es desperta amb la sorpresa i la novetat.</b> El tàlem només s'activa davant del que és inesperat. Els infants necessiten que la provoquem; els adolescents l'han d'aprendre a gestionar. <a href="#c10">Cap. 10</a></li>
+    <li><b>La motivació és el combustible de l'aprenentatge.</b> Demana objectius tangibles, reptes significatius, necessitats, poder triar i optimisme. Tan important és motivar com no desmotivar. La creativitat ve de sèrie: el que cal és no bloquejar-la. <a href="#c13">Cap. 13</a></li>
+    <li><b>Les actituds s'aprenen per imitació.</b> Si els volem motivats, respectuosos i curiosos, ho hem de ser nosaltres. El docent ha de ser un aprenent més, no només un ensenyant. <a href="#c14">Cap. 14</a></li>
+    <li><b>L'estrès crònic és l'enemic número u; el plaer i la motivació, els grans aliats.</b> L'esport, la música, les arts, la relaxació, el son i el joc no són «maries»: afavoreixen la plasticitat i els aprenentatges de totes les matèries. <a href="#c16">Cap. 16</a> · <a href="#c17">17</a></li>
+  </ol>
+</section>
+
+<section class="chapter" id="intro">
+  <p class="ch-label"><span class="num">In</span> Marc</p>
+  <h2>L'ofici més antic del món</h2>
+  <p class="lead">L'educació és anterior a la nostra espècie: tots els animals que tenen cura de les cries les eduquen, sovint sense adonar-se'n. Els humans portem aquest procés al màxim, perquè no només transmetem estratègies per sobreviure, sinó tot el llegat cultural, i perquè també eduquem en el canvi i la transformació.</p>
+  <p class="work"><b>Punt de partida</b>El cervell no és només l'òrgan que dirigeix el cos: és el que ens permet adaptar-nos a l'ambient a través del comportament i, alhora, transformar-lo. L'educació hi incideix de ple.</p>
+
+  <h3 id="intro-models">Models, no només lliçons</h3>
+  <p>Els infants neixen amb l'instint d'aprendre. El que més els crida l'atenció pocs dies després de néixer és la mirada i la cara de les persones. Aprenen observant gestos, actituds i mirades, sovint inconscients. Per aprendre calen, sobretot, <b>models d'aprenentatge</b>, i no només lliçons i currículums. La cerca de novetats, molt intensa en la infància i explosiva a l'adolescència, és la porta cap al canvi.</p>
+
+  <h3 id="intro-dignitat">Per a què eduquem: créixer en dignitat</h3>
+  <p>L'educació pot perseguir objectius molt diferents. Si es volen persones crèdules i submises, «funcionarà» la por i mutilar l'esperit crític; si es volen professionals molt competitius, l'individualisme. L'autor ho diu sense embuts, perquè tot el llibre hi torna: l'objectiu principal de l'educació ha de ser <b>ajudar les persones a créixer en dignitat</b>.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>Dignitat entesa com el respecte que cadascú mereix pel fet de ser com és i que ha d'oferir als altres; dignitat per aprofitar les fortaleses i afrontar sense por les febleses, per relativitzar amenaces i aprofitar oportunitats, i per construir una societat digna i dignificant. Inclou actituds i aptituds, coneixements i professionalització, creativitat, motivació, reflexivitat, emocions, treball cooperatiu i individual.</p></div>
+  <p>El llibre s'obre amb dues cançons. <i>Another Brick in the Wall</i> (Pink Floyd) il·lustra el que l'educació no ha de ser: un sistema de control mental. <i>Satisfaction</i> (Rolling Stones) apunta el que ha de ser: una font de satisfacció que neix de la utilitat que estimula la imaginació.</p>
+
+  <h3 id="intro-neuro">Què aporta la neurociència</h3>
+  <p>Cal distingir la <b>ment</b> (el conjunt de facultats psíquiques i capacitats intel·lectuals) del <b>cervell</b>, l'òrgan del qual sorgeix. La pedagogia, la psicologia i la sociologia estudien la ment. Les tècniques no invasives (ressonància magnètica funcional, estimulació elèctrica transcranial) permeten estudiar el cervell en situacions quotidianes: quan aprèn, quan s'avorreix, quan s'emociona.</p>
+  <div class="box aula"><span class="lbl">El missatge per al claustre</span>
+    <p>La neurociència <b>no obliga a replantejar l'educació des de zero</b> ni proposa un paradigma nou. Les seves dades se sumen al que ja proposava la pedagogia moderna (l'autor cita Francesc Ferrer i Guàrdia i Rosa Sensat) i expliquen per què funciona: el paper insubstituïble de les emocions i del treball cooperatiu, per exemple. La conclusió de l'autor és clara: «ho estem fent bé», però conèixer com ho percep el cervell ajuda a afinar més i dona arguments contra qualsevol temptació d'involució educativa.</p>
+  </div>
+
+  <h3 id="intro-tria">«Vostè tria»</h3>
+  <p>Abans de la introducció, el llibre posa el lector davant d'una decisió binària: si vol saber per què comença amb cançons i per què el fa triar, que passi pàgina; si no, que deixi el llibre a la prestatgeria i no l'obri mai més. I li promet un <i>bonus track</i> al final. Com es veurà al <a href="#c13">capítol 13</a>, no és un joc gratuït: poder triar entre dues opcions estimula la motivació. Al llarg del llibre l'autor fa servir conscientment els recursos que recomana (anècdotes personals, humor, sorpresa, un interludi a la meitat) per predicar amb l'exemple.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Tots eduquem: famílies, docents, veïns i la societat sencera.</li>
+    <li>L'objectiu de l'educació, per a l'autor, és créixer en dignitat; les estratègies depenen d'aquest objectiu.</li>
+    <li>La neurociència no substitueix la pedagogia: explica per què funciona.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c1">
+  <p class="ch-label"><span class="num">01</span> Part I · El cervell i els gens</p>
+  <h2>Gens, ambient i capacitats</h2>
+  <p class="work"><b>Pregunta</b>Les capacitats cognitives depenen dels nostres gens?</p>
+  <p class="lead">Si els gens ho determinessin tot, l'educació no hi pintaria res. La resposta és que els gens <b>condicionen, però no determinen</b> les capacitats mentals. L'ambient, i dins l'ambient l'educació, hi té un marge enorme.</p>
+  <div class="minitoc"><a href="#c1-moble">Les instruccions del moble</a><a href="#c1-mao">Un gen real</a><a href="#c1-heretabilitat">Heretabilitat</a></div>
+
+  <h3 id="c1-moble">Les instruccions d'un moble</h3>
+  <p>Abans d'explicar què és un gen, l'autor s'atura: començar amb tecnicismes sense referents fa que l'alumnat se senti superat. Sense coneixements previs on integrar la informació, el cervell ho viu com una amenaça i respon amb estrès, que encara empitjora la percepció. Per això recorre a una comparació propera: les instruccions per muntar una taula amb calaix.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Instrucció del moble</th><th>Equivalent genètic</th><th>Paper de l'educació</th></tr></thead>
+    <tbody>
+      <tr><td><b>«Enrosqueu la pota fins al final.»</b> No hi ha alternativa.</td><td>Gens que es manifesten sense opcions: tots hem de tenir un grup sanguini. Les variants (A, B, 0…) també són fixes.</td><td>Cap. L'heretabilitat del grup sanguini és del 100 %.</td></tr>
+      <tr><td><b>«Poseu el calaix al costat llarg o al curt.»</b> Les instruccions condicionen el resultat, però no el determinen.</td><td>Gens que intervenen en la vida mental: no tots els cervells són igualment possibles, però el resultat depèn molt de l'ambient.</td><td>Molt gran. És on es juga la feina docent.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Tenim uns 20.000 gens, la majoria per duplicat (un de la mare i un del pare). Uns 8.000 intervenen en la formació o el funcionament del cervell i, per tant, en com aprenem.</p>
+
+  <h3 id="c1-mao">Un gen real: MAO-A</h3>
+  <p>El gen MAO-A gestiona alguns neurotransmissors i té dues variants interessants. La <b>llarga</b> afavoreix un caràcter més tranquil i reflexiu; la <b>curta</b>, la impulsivitat. Però no sempre: una persona amb la variant curta que creix en un ambient estable no la manifesta, o molt menys que si creix en un ambient conflictiu.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>Els gens predisposen a un temperament; l'ambient fa que es manifesti més o menys. Les persones reflexives centren l'atenció més fàcilment, i l'atenció és clau per aprendre. Un ambient educatiu relaxat dona espai de reflexió fins i tot a qui té predisposició a la impulsivitat; un ambient estressant i amenaçador fa tothom més impulsiu.</p></div>
+  <p>En una aula de vint-i-cinc alumnes hi ha vint-i-cinc constitucions genètiques diferents. Per això una mateixa estratègia genera respostes diferents i l'educació, encara que sigui un fet social i funcioni millor de manera cooperativa, ha de ser <b>necessàriament individualitzada</b>.</p>
+
+  <h3 id="c1-heretabilitat">Quant pesen els gens: l'heretabilitat</h3>
+  <p>L'heretabilitat és el percentatge de la variació entre persones, en una característica concreta, que s'atribueix a diferències genètiques. La resta depèn de l'ambient.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Característica</th><th>Heretabilitat que recull el llibre</th></tr></thead>
+    <tbody>
+      <tr><td>Grup sanguini</td><td>100 %</td></tr>
+      <tr><td>Coeficient intel·lectual (en infants)</td><td>≈ 45 % (s'hi coneixen una cinquantena de gens implicats)</td></tr>
+      <tr><td>Empatia</td><td>47 %</td></tr>
+      <tr><td>Creativitat</td><td>55 %</td></tr>
+      <tr><td>Impulsivitat</td><td>62 %</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box aula"><span class="lbl">A l'aula</span>
+    <p>Sobre la part genètica no podem fer res; sobre la resta, molt. El repte és que cada alumne tregui el màxim profit individual i col·lectiu de les seves capacitats dins la diversitat de l'aula. Cada alumne serà únic des del principi i respondrà de manera diferent a les mateixes estratègies.</p>
+  </div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Els gens compten, però només fins a cert punt; el resultat es modula, s'amplifica o es mutila amb l'educació.</li>
+    <li>Contextualitza amb referents propers: sense contextos, el cervell s'estressa i entén pitjor.</li>
+    <li>Una educació social, cooperativa i, alhora, individualitzada.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c2">
+  <p class="ch-label"><span class="num">02</span> Part I · El cervell i els gens</p>
+  <h2>Com funciona el cervell</h2>
+  <p class="work"><b>Pregunta</b>Com funciona el cervell?</p>
+  <p class="lead">El cervell té la mida d'un coco, pesa un quilo i mig i té uns 85.000 milions de neurones. El seu volum varia molt entre persones (de menys d'un litre a gairebé un litre i mig), però <b>la mida no té cap relació amb la intel·ligència ni amb la capacitat d'aprendre</b>. El que compta són les connexions.</p>
+  <div class="minitoc"><a href="#c2-palau">El palau de la memòria</a><a href="#c2-tuits">Tuits neuronals</a><a href="#c2-zones">Zones especialitzades</a><a href="#c2-mapa">Mapa mínim</a></div>
+
+  <h3 id="c2-palau">No és un calaix ni un palau</h3>
+  <p>El cervell no és un calaix on es van ficant coses, ni un «palau de la memòria» amb habitacions que cal omplir. Les capacitats depenen dels <b>passadissos i les escales</b> que uneixen les habitacions, dels dreceres i dels passadissos secrets. Un cervell té, de mitjana, més de cent bilions de connexions; posades en fila, farien quatre vegades la volta a la Terra. Tot el que aprenem es desa en patrons concrets de connexions.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p><b>Educar significa canviar el cervell dels altres.</b> Durant el procés educatiu obrim camins i tanquem portes: alterem físicament les xarxes neurals de l'alumnat. I és bidireccional: mentre modifiquem les seves connexions, ells modifiquen les nostres. Per actuar sobre el seu cervell, primer hem d'interioritzar el nostre.</p></div>
+
+  <h3 id="c2-tuits">Les neurones es comuniquen com els tuits</h3>
+  <div class="flow">
+    <div class="st"><b>Escriure el missatge</b>La neurona genera un impuls elèctric que recorre l'axó (com el mòbil que processa el tuit).</div><span class="ar">→</span>
+    <div class="st"><b>Creuar l'espai</b>A la sinapsi les neurones no es toquen: l'axó allibera neurotransmissors (com l'ona electromagnètica).</div><span class="ar">→</span>
+    <div class="st"><b>Rebre i decidir</b>La neurona receptora pot ignorar el missatge, canviar d'activitat o «retuitejar-lo» a d'altres.</div>
+  </div>
+  <p>Hi ha més de mitja dotzena de neurotransmissors, especialitzats en tipus de missatges diferents. Una <b>xarxa neural</b> és un conjunt de neurones interconnectades: qualsevol procés mental, idea, record, emoció, decisió o pla s'associa a un patró de connexions concret.</p>
+
+  <h3 id="c2-zones">Zones especialitzades, però no compartiments estancs</h3>
+  <p>L'escorça cerebral té zones especialitzades (llenguatge, empatia, moviment voluntari, presa de decisions, raonament, control de les emocions, planificació o control executiu), però no són impermeables: persones amb lesions recuperen capacitats «reciclant» altres zones, i això ja s'aprofita en cirurgia. L'escorça gestiona les activitats més complexes i típicament humanes.</p>
+  <h3 id="c2-mapa">Mapa mínim per seguir el llibre</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Estructura</th><th>Què hi fa, segons el llibre</th><th>Hi torna als capítols</th></tr></thead>
+    <tbody>
+      <tr><td><b>Escorça cerebral</b></td><td>Capa externa, de sis capes de neurones. Processos complexos: llenguatge, empatia, decisions, creativitat, control executiu.</td><td>5, 7, 9</td></tr>
+      <tr><td><b>Escorça prefrontal</b></td><td>Darrere el front. Raonament, planificació, control conscient de les emocions, pensament creatiu.</td><td>9, 10, 13, 15</td></tr>
+      <tr><td><b>Amígdales</b></td><td>Dues, al fons del cervell. Generen les emocions (no confondre-les amb les del coll).</td><td>5, 6, 7, 16</td></tr>
+      <tr><td><b>Hipocamp</b></td><td>Gestiona la memòria, però els records no s'hi desen. Té forma de cavallet de mar.</td><td>7, 8, 16</td></tr>
+      <tr><td><b>Tàlem</b></td><td>Activa l'atenció davant del que és inesperat; filtra què és rellevant.</td><td>10, 12, 15</td></tr>
+      <tr><td><b>Nucli accumbens</b></td><td>Gestiona la motivació i intervé en el plaer.</td><td>13</td></tr>
+      <tr><td><b>Hipotàlem</b></td><td>Enllaç entre el sistema nerviós i les hormones; clau en la resposta d'estrès.</td><td>16</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box aula"><span class="lbl">A l'aula</span><p>El que més potencia el bon funcionament de la ment és afavorir la <b>capacitat relacional</b>, el dinamisme entre idees i conceptes, i no una memòria estancada. Allò important no són les sales del palau, sinó els camins que les uneixen.</p></div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>La mida del cervell no fa més intel·ligent: les connexions, sí.</li>
+    <li>Tota activitat mental és un patró de connexions; aprendre és canviar-lo.</li>
+    <li>Relacionar idees val més que acumular-les.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c3">
+  <p class="ch-label"><span class="num">03</span> Part I · El cervell i els gens</p>
+  <h2>Neuromites</h2>
+  <p class="work"><b>Pregunta</b>Existeixen les intel·ligències múltiples? És cert que només fem servir el 10 % del cervell?</p>
+  <p class="lead">La recerca sobre el cervell ha deixat pel camí una sèrie de mites molt arrelats, alguns amb implicacions educatives. Desmuntar-los és tan important com saber com funciona el cervell.</p>
+  <div class="minitoc"><a href="#c3-10">El 10 %</a><a href="#c3-hemisferis">Hemisferis</a><a href="#c3-sexe">Cervell masculí i femení</a><a href="#c3-materies">Matèries i música</a><a href="#c3-im">Intel·ligències múltiples</a><a href="#c3-quiz">Test</a></div>
+
+  <h3 id="c3-10">«Només fem servir el 10 % del cervell»</h3>
+  <p>Falsament atribuït a Einstein, el mite ve del segle XIX, quan es desconeixia la funció de la major part de cèl·lules. Fem servir tot el cervell, però no tot alhora (no encenem els llums de totes les habitacions per sopar). A més, a l'escorça hi ha uns 16.000 milions de neurones acompanyades d'uns 60.000 milions de cèl·lules de glia, que no transmeten impulsos però alimenten les neurones, netegen residus, eviten inflamacions i aïllen els axons.</p>
+  <div class="box key"><span class="lbl">Una dada sorprenent: la xarxa en mode automàtic</span><p>Quan no fem res, el cervell mostra la seva màxima activitat, a totes les xarxes, com els sistemes ABS d'un cotxe que han d'estar sempre a punt. Quan ens distraiem o dormim, el cervell <b>consolida el que hem après</b> i connecta xarxes que normalment no es relacionen, cosa que estimula la creativitat. Per això cal alternar estones d'atenció i treball amb estones per distreure's, i educar en la importància de dormir bé.</p></div>
+
+  <h3 id="c3-hemisferis">Hemisferi «racional» i hemisferi «emocional»</h3>
+  <p>Els dos hemisferis, units pel cos callós, intervenen en totes les activitats mentals; que un mostri més activitat en una tasca no vol dir que sigui més important. És fals que convingui ensenyar segons l'hemisferi dominant o segons un suposat estil visual, auditiu o cinestèsic. Els processos cognitius complexos impliquen sempre diverses xarxes que treballen de manera coordinada.</p>
+  <div class="box aula"><span class="lbl">A l'aula</span><p>Activitats integrades, transversals i contextualitzades que activin el màxim de xarxes: aprendre els números cantant, les lletres jugant. I per què no la física del moviment parabòlic jugant a bàsquet o la trigonometria a classe d'història, amb les piràmides d'Egipte?</p></div>
+
+  <h3 id="c3-sexe">Cervell masculí i cervell femení: un mite doble</h3>
+  <p>Ni són tan diferents que calguin classes separades, ni són absolutament idèntics. Uns 130 gens funcionen diferent segons el sexe durant el desenvolupament embrionari (almenys 85 en adults), i això es tradueix en petites diferències de mitjana. Però les <b>capacitats intel·lectuals globals no difereixen per sexe</b>, sinó per persona, i les diferències entre individus són molt grans. La cultura i l'educació magnifiquen les diferències inicials: l'estereotip que els nois són millors en matemàtiques és cultural (vegeu el <a href="#c12-mirades">capítol 12</a>).</p>
+
+  <h3 id="c3-materies">Hi ha matèries més importants que d'altres?</h3>
+  <p>Gairebé tots diríem que no, però les nostres actituds (i alguns currículums) diuen el contrari. L'educació física millora la concentració, l'atenció i la motivació; l'educació artística estimula la creativitat i la socialització; la manipulació fina repercuteix en les zones del llenguatge. I la música: escoltar un compositor concret <b>no fa els infants més intel·ligents</b> (és màrqueting), però tota la música estimula el sistema de recompensa, millora l'atenció i l'autocontrol i estimula les emocions.</p>
+
+  <h3 id="c3-im">Les intel·ligències múltiples</h3>
+  <p>La hipòtesi de Howard Gardner va ajudar a desmuntar un altre mite perniciós: considerar crucial el coeficient intel·lectual mesurat amb uns tests que obvien gran part de la persona. Però el cervell funciona com un tot integrat i <b>cap estudi neurocientífic no ha demostrat que existeixin intel·ligències independents</b>. Quan treballem la suposada intel·ligència logicomatemàtica, hi participen també la lingüística, la interpersonal o la cinestèsica. Com a marc psicològic pot ajudar a planificar activitats més completes i transversals.</p>
+  <div class="box evid"><span class="lbl">Amb criteri</span><p>La guia de <a href="../9788412714784/">«Edumitos»</a> (Héctor Ruiz Martín) tracta amb detall aquests i altres mites (estils d'aprenentatge, cervell dret i esquerre, efecte Mozart, intel·ligències múltiples) a partir de la recerca en psicologia.</p></div>
+
+  <div class="tool" id="c3-quiz">
+    <div class="tool-h"><h4>Test: mite o realitat?</h4><span class="tg">Autoavaluació</span></div>
+    <p class="small muted">Deu afirmacions que surten al llibre. Decideix si són vertaderes o falses segons l'autor i comprova'n l'explicació.</p>
+    <div class="quiz" data-key="mites">
+      <div class="q" data-a="F"><p class="qt">1. Només fem servir el 10 % del cervell.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. El fem servir tot, però no tot alhora. Quan descansem, de fet, mostra la màxima activitat (<a href="#c3-10">cap. 3</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">2. Un cervell més gran és un cervell més intel·ligent.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. La mida no té relació amb la intel·ligència ni amb la capacitat d'aprendre; compten les connexions (<a href="#c2">cap. 2</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">3. Convé detectar l'hemisferi dominant de cada alumne per ensenyar-li d'acord amb el seu estil.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. Els dos hemisferis intervenen en tots els processos; cal activitats integrades que activin moltes xarxes (<a href="#c3-hemisferis">cap. 3</a>).</p></div>
+      <div class="q" data-a="V"><p class="qt">4. Distreure's i dormir ajuden a consolidar el que s'ha après.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Vertader. El cervell continua molt actiu, consolida i connecta xarxes (<a href="#c3-10">cap. 3</a> · <a href="#c8-son">cap. 8</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">5. Escoltar Mozart fa els infants més intel·ligents.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. És màrqueting. Però la música en general és molt beneficiosa per a l'atenció, l'autocontrol i les emocions (<a href="#c17-musica">cap. 17</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">6. Les capacitats intel·lectuals globals dels nois i les noies són diferents.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. Hi ha petites diferències de mitjana, però no en les capacitats globals; les diferències són entre persones (<a href="#c3-sexe">cap. 3</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">7. Cap estudi no ha trobat diferències entre el cervell masculí i el femení.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. Hi ha gens que funcionen diferent i petites diferències anatòmiques de mitjana. El mite és doble (<a href="#c3-sexe">cap. 3</a>).</p></div>
+      <div class="q" data-a="V"><p class="qt">8. «La letra con sangre entra»: amb por també s'aprèn.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Vertader, i per això no s'ha d'aplicar mai: qui aprèn amb por associa aprendre a por i deixa de voler aprendre (<a href="#c6-por">cap. 6</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">9. La marihuana no fa mal perquè és «natural».</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. Afecta la memòria i l'estat d'ànim des de les primeres vegades i pot provocar alteracions greus, com la psicosi (<a href="#c10-drogues">cap. 10</a>).</p></div>
+      <div class="q" data-a="F"><p class="qt">10. Ser bilingüe des de petit confon el cervell i és un desavantatge.</p><div class="opts"><button class="btn sm" data-v="V">Vertader</button><button class="btn sm" data-v="F">Fals</button></div><p class="fb">Fals. Augmenta la reserva cognitiva i exercita la presa de decisions; com a molt, tarden unes setmanes més a començar a parlar (<a href="#c11-llengues">cap. 11</a>).</p></div>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:10px"><span class="small" data-quiz-score="mites"></span><button class="btn sm" type="button" data-quiz-reset="mites">Reinicia</button></div>
+  </div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>El cervell treballa sempre integrat: res de cervells dividits ni d'intel·ligències separades.</li>
+    <li>Alternar treball i descans no és perdre el temps: és consolidar.</li>
+    <li>Cap matèria és una «maria» per al cervell.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c4">
+  <p class="ch-label"><span class="num">04</span> Part II · Un cervell en construcció</p>
+  <h2>Abans de néixer</h2>
+  <p class="work"><b>Pregunta</b>Com es forma el cervell? Té importància l'estil de vida dels pares?</p>
+  <p class="lead">Som l'espècie que neix més immadura, també pel que fa al cervell, que en néixer encara està a mitges. És una gran oportunitat i una gran responsabilitat. L'autor ho compara amb una moto <i>custom</i>: els programes genètics donen el model bàsic i l'ambient el personalitza.</p>
+
+  <h3 id="c4-formacio">Com es forma</h3>
+  <div class="flow">
+    <div class="st"><b>Dia 18</b>Unes cèl·lules de l'ectoderma formen el tub neural: davant, el cervell; darrere, la medul·la.</div><span class="ar">→</span>
+    <div class="st"><b>Setmana 25</b>L'entramat bàsic ja és al seu lloc; es forma l'escorça, amb sis capes.</div><span class="ar">→</span>
+    <div class="st"><b>Setmana 28</b>Comença la poda: moren neurones supèrflues i remeten connexions inútils.</div><span class="ar">→</span>
+    <div class="st"><b>Després del part</b>350 g en néixer, 700 g a l'any, 900 g als dos anys; mida gairebé final cap als quatre.</div>
+  </div>
+  <p>Abans del part, el fetus ja es mou, capta sons, veus i música, i hi respon. Durant la infància i l'adolescència els canvis tenen més a veure amb les <b>connexions</b> entre neurones existents que amb el nombre de neurones.</p>
+
+  <h3 id="c4-estil">L'estil de vida dels progenitors</h3>
+  <p>Pot semblar que això queda fora de la feina docent, però l'alumnat d'avui serà el pare i la mare de demà: formar-los en aquesta responsabilitat també ens toca.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">El que perjudica</span><ul class="small"><li>Fumar durant l'embaràs (o ser-ne fumadora passiva) dificulta el creixement del cervell i la connectivitat; el llibre recull un augment del 78 % de la probabilitat de patir algun trastorn mental adult.</li><li>L'alcohol i qualsevol altra substància tòxica.</li><li>El tabac i altres drogues poden danyar el material genètic dels espermatozoides i dels òvuls, des de l'adolescència.</li></ul></div>
+    <div class="card"><span class="tag">El que ajuda</span><ul class="small"><li>Esport moderat durant l'embaràs: activa la formació de neurones i millora la memòria dels fills, que a més fan més esport de grans.</li><li>Mostres d'afecte de la parella cap a la mare: augmenten l'oxitocina, que afavoreix connexions de la memòria i la gestió de l'ansietat del fetus.</li></ul></div>
+  </div>
+  <div class="box key"><span class="lbl">Idea clau</span><p>La responsabilitat dels progenitors en la construcció del cervell dels fills <b>comença abans de concebre'ls</b>. Per això cal formar-hi els futurs pares i mares, és a dir, l'alumnat actual.</p></div>
+
+  <h3 id="c4-finestres">Les tres finestres després del naixement</h3>
+  <div class="ages">
+    <div><span>Finestra 1</span><b>0-3 anys</b>Moltes connexions dins l'escorça: el cervell s'impregna de l'ambient i hi adapta el comportament. <a href="#c5">Cap. 5</a></div>
+    <div><span>Finestra 2</span><b>4-11 anys</b>L'escorça es connecta amb l'amígdala i l'hipocamp: consciència de les emocions i dels records, destreses acadèmiques. <a href="#c7">Cap. 7</a></div>
+    <div><span>Finestra 3</span><b>Adolescència</b>Connexions entre zones llunyanes: grans aprenentatges conceptuals i maduració del control emocional. <a href="#c9">Cap. 9</a> · <a href="#c10">10</a></div>
+  </div>
+  <p class="small muted">L'autor fa notar que aquestes finestres coincideixen amb les etapes educatives (0-3, infantil i primària, secundària i batxillerat). No és casual: la pedagogia s'ha fixat en els canvis mentals, que reflecteixen canvis del cervell.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>El cervell neix a mitges: l'ambient el completa.</li>
+    <li>La salut dels futurs progenitors és tema de tutoria i de ciències, no només de família.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c5">
+  <p class="ch-label"><span class="num">05</span> Part II · Un cervell en construcció</p>
+  <h2>De 0 a 3 anys: la consistència del cervell</h2>
+  <p class="work"><b>Pregunta</b>Per què sembla que els infants de 0 a 3 anys s'encantin i s'abstreguin amb qualsevol cosa? Aprenen realment alguna cosa a aquestes edats?</p>
+  <p class="lead">Resposta breu: entre el naixement i els tres anys els infants aprenen <b>les coses més importants de la seva vida</b>, les que més condicionaran el caràcter i el temperament adults. No ho recordarem, però és l'etapa més crucial.</p>
+  <div class="minitoc"><a href="#c5-fang">La figureta de fang</a><a href="#c5-adaptar">Adaptar-se a l'ambient</a><a href="#c5-conflicte">L'exemple de la conflictivitat</a><a href="#c5-novetats">Cercadors de novetats</a></div>
+
+  <h3 id="c5-fang">La figureta de fang</h3>
+  <p>Abans de modelar una figureta, el fang s'ha de pastar i humitejar fins al punt just; del material inicial dependrà que la figura sigui consistent i no s'esquerdi en coure-la. Això fa el cervell en aquesta etapa: adquirir la <b>consistència</b> (solidesa i coherència entre les parts) per a la resta de la vida. Els programes genètics fan que les neurones de l'escorça estableixin moltes connexions entre àrees properes; quines i quantes, ho decideix l'ambient. Per això aprenen a parlar sols: escolten, imiten, assagen i integren.</p>
+
+  <h3 id="c5-adaptar">El cervell serveix per adaptar-se a l'ambient</h3>
+  <p>A més de fer bategar el cor o interpretar imatges, el cervell adapta el comportament a l'ambient per sobreviure. El moment més important d'aquesta adaptació és la primera infància: el cervell aprèn a interpretar els senyals del seu entorn i hi ajusta les respostes. Aquesta adaptació queda gravada a les connexions de l'escorça. Fins i tot l'aprenentatge «automàtic» de la llengua forma part d'aquesta adaptació, perquè el llenguatge és clau per integrar-se al grup.</p>
+
+  <h3 id="c5-conflicte">Un exemple: créixer en un ambient conflictiu</h3>
+  <p>Els adults que de petits van viure en ambients de molta conflictivitat (familiar, social, estructural) presenten connexions lleugerament diferents a la zona de control de les emocions i tendeixen a ser més impulsius. Té lògica: davant d'amenaces freqüents cal respondre ràpid, sense reflexionar. L'autor ho il·lustra amb un ós polar que s'acosta per la platja: les emocions es disparen abans que en siguem conscients.</p>
+  <div class="box warn"><span class="lbl">Les emocions ja hi són, el control encara no</span><p>A aquestes edats les amígdales generen emocions amb tota la força, però la zona de control conscient encara no ha madurat (no ho començarà a fer fins a l'adolescència). Per això costa tant consolar un infant quan plora o fer-lo reflexionar quan s'enfada.</p></div>
+  <p>Aquestes connexions costen molt de desfer: aquesta etapa imprimeix molt el caràcter. I un alumne poc reflexiu tindrà més dificultats per aprendre, perquè aprendre també ha de ser reflexiu. Però l'exemple és només un exemple:</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Estimulat</span><p>Un cervell estimulat (mai sobreestimulat, perquè la sobreestimulació porta a l'estrès) acaba amb més connexions.</p></div>
+    <div class="card"><span class="tag">Estimat</span><p>Un infant estimat i valorat desenvolupa connexions que el fan sentir segur i confiat, i més capaç d'estimar i donar seguretat.</p></div>
+    <div class="card"><span class="tag">Tolerància</span><p>Un infant que veu tolerància al seu voltant té més actiu el centre de l'empatia.</p></div>
+  </div>
+
+  <h3 id="c5-novetats">Per què sembla que estiguin distrets</h3>
+  <p>No estan distrets: el seu cervell busca i detecta qualsevol novetat per interioritzar-la. És la <b>cerca de novetats</b>, un comportament instintiu molt intens en aquesta etapa. L'autor proposa un «experiment»: deixeu un objecte nou i segur a prop d'un infant d'un o dos anys que us coneix mentre juga; el deixarà tot per anar-lo a explorar.</p>
+  <div class="box aula"><span class="lbl">A l'escola bressol i a casa</span>
+    <ul>
+      <li>Un ambient divers, no sobreestimulant, on puguin anar al seu aire.</li>
+      <li>Parc, muntanya i platja; que toquin la terra i explorin.</li>
+      <li>Que estiguin presents quan parlem amb altres persones: observen i integren les nostres reaccions.</li>
+    </ul>
+  </div>
+  <p class="small muted">Gairebé ningú no recorda res d'abans dels tres anys: aquestes experiències queden en connexions inconscients, cosa que fa més difícil reconduir conductes que s'hi originen. El perquè s'explica al <a href="#c7-hipocamp">capítol 7</a>.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>De 0 a 3 anys es construeix bona part del caràcter i del temperament adult.</li>
+    <li>Estimular, sí; sobreestimular, no.</li>
+    <li>Afecte, estabilitat i tolerància deixen una empremta física.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c6">
+  <p class="ch-label"><span class="num">06</span> Part II · Un cervell en construcció</p>
+  <h2>Les emocions</h2>
+  <p class="work"><b>Pregunta</b>Què són les emocions? Tenen relació amb els aprenentatges? I és cert que «la letra con sangre entra»?</p>
+  <p class="lead">Quin element d'una moto és més important: l'accelerador, el fre o el volant? És una pregunta trampa: tots tres, combinats. Les <b>emocions són l'accelerador</b>; la reflexió, el <b>fre i el volant</b>.</p>
+  <div class="minitoc"><a href="#c6-que">Què són</a><a href="#c6-supervivencia">Emoció i supervivència</a><a href="#c6-educacio">Cal educació emocional?</a><a href="#c6-por">Aprendre amb por</a><a href="#c6-plaer">Aprendre amb plaer</a><a href="#c6-tool">Eina</a></div>
+
+  <h3 id="c6-que">Què són les emocions</h3>
+  <p>Són <b>patrons de comportament que es desencadenen de manera automàtica i preconscient</b> davant de qualsevol canvi en la situació, sobretot si implica una possible amenaça, física o social. Les generen les amígdales, a la part més primitiva del cervell, que compartim amb tots els vertebrats.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Emoció</span><p>Resposta automàtica, preconscient i primària. N'hi ha classificacions de fins a una quarantena; sovint es parla de quatre o sis de bàsiques: por, ira, fàstic i alegria, i també tristesa i sorpresa.</p></div>
+    <div class="card"><span class="tag">Sentiment</span><p>La racionalització i verbalització que fem d'una emoció quan en som conscients. Ja no és primari: hi influeixen la cultura i l'educació.</p></div>
+  </div>
+  <p>Quan l'amígdala engega una resposta, n'informa l'escorça, que ens en fa conscients i ens permet reconduir-la. L'exemple del berberetxo podrit: l'escopim abans d'adonar-nos-en; després, com a molt, reconduïm la situació i ho fem a la mà en lloc del mig de la taula. La diferència entre una persona impulsiva i una de reflexiva és la facilitat amb què s'adona de les seves emocions i amb què les pot reconduir.</p>
+
+  <h3 id="c6-supervivencia">Emocions i supervivència: la clau de l'aprenentatge</h3>
+  <div class="box key"><span class="lbl">Idea clau</span><p>Qualsevol aprenentatge amb components emocionals, el cervell l'interpreta com a important per sobreviure: <b>el desa millor i permet fer-lo servir amb més eficiència</b>. Si no hi ha emoció, el cervell no hi veu utilitat i l'oblida aviat o el fa servir malament.</p></div>
+  <p>L'autor afegeix que les emocions generen una mena de <b>ressaca emocional</b>: durant uns trenta minuts després d'una activació emocional, el cervell associa a aquella emoció qualsevol cosa que aprengui, encara que no hi tingui res a veure.</p>
+  <div class="box evid"><span class="lbl">Amb criteri</span><p>Que l'emoció afavoreix la memòria és una idea àmpliament acceptada; que sigui imprescindible per aprendre és més discutit. La psicologia cognitiva subratlla que també s'aprèn pensant sobre el que s'aprèn i que les emocions molt intenses poden dificultar l'aprenentatge escolar. Vegeu el capítol sobre les emocions a la guia de <a href="../9788418058059/#c9">«¿Cómo aprendemos?»</a>.</p></div>
+
+  <h3 id="c6-educacio">Cal fer educació emocional a l'aula?</h3>
+  <p>Depèn. Si l'alumnat madura emocionalment com correspon a l'edat, l'autor creu que no cal una educació emocional específica (tot i que no sobra). El que <b>sempre</b> cal és que els aprenentatges vagin associats a emocions. Si hi ha alumnes amb dèficits de gestió emocional, l'educació emocional esdevé imprescindible. En un grup de vint o vint-i-cinc, és fàcil que n'hi hagi algun, i la resta també en traurà profit.</p>
+
+  <h3 id="c6-por">«La letra con sangre entra»: certa, però no s'ha d'aplicar mai</h3>
+  <p>La por és una emoció molt poderosa i el que s'hi associa queda gravat. Es pot aprendre per por al càstig, al ridícul, al què diran, a quedar-se sense pati. Hi ha països que basen l'aprenentatge en la por al fracàs i a la humiliació familiar, i són també els que tenen més depressions greus i suïcidis adolescents.</p>
+  <div class="box warn"><span class="lbl">La conseqüència a llarg termini</span><p>Si s'aprèn amb por, el cervell associa aprendre coses noves a la por. Quan ja no hi hagi l'obligació d'anar a l'escola, potser no voldran aprendre mai més per si mateixos, o no gaudiran de continuar creixent a través de l'aprenentatge.</p></div>
+  <p>La por pot ser molt subtil. Un mestre li va explicar a l'autor que, per estimular l'alumnat de sisè, deia: «Ja veureu el que és treballar de valent quan feu l'ESO!». Per a alguns serà un estímul; per a d'altres, començar l'ESO amb por al fracàs. L'autor ho planteja com a element de reflexió, no per espantar ningú: «en general avancem en la bona direcció».</p>
+
+  <h3 id="c6-plaer">Aprendre amb alegria i plaer</h3>
+  <p>El plaer, l'alegria i la sorpresa també deixen petjada. No són tan potents com la por, però les conseqüències a mitjà i llarg termini són abismalment diferents: <b>qui aprèn amb plaer sent plaer per aprendre</b> quan és adult.</p>
+  <div class="box aula"><span class="lbl">La demostració del capítol</span><p>L'autor parla de si mateix diverses vegades (el professor de música que pegava amb la batuta, el bou a Indonèsia) com a experiment: les anècdotes de persones activen el <b>cervell social</b>, connectat amb les emocions, i recuperen l'atenció del lector. Explicar anècdotes properes també funciona a l'aula.</p></div>
+
+  <div class="tool" id="c6-tool">
+    <div class="tool-h"><h4>On s'amaga la por a la meva aula?</h4><span class="tg">Llista de revisió</span></div>
+    <p class="small muted">Situacions que, sense voler-ho, poden fer que algun alumne associï aprendre a por o a incomoditat. Marca les que reconeguis. Es desa al navegador. <span class="src ext">Proposta</span> construïda amb els capítols <a href="#c6">6</a>, <a href="#c7-ritmes">7</a> i <a href="#c13-desmotivar">13</a>.</p>
+    <div class="checklist" data-key="por">
+      <label class="check"><input type="checkbox"><span class="ct">Anuncio la propera etapa o l'examen com una amenaça («ja veureu l'any que ve»).</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Faig llegir en veu alta davant del grup alumnes que encara no estan preparats.</span><span class="w">cap. 7</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Comparo resultats entre alumnes en públic.</span><span class="w">cap. 7</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Faig bromes sobre una mancança concreta d'algú, encara que sigui «de broma».</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Faig servir el pati, més deures o el ridícul com a càstig per no haver après.</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Miro sempre de la mateixa manera, amb desaprovació, el mateix alumne.</span><span class="w">cap. 12</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Les correccions arriben abans que el reconeixement del que està ben fet.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Demano a les famílies que reforcin a casa sense explicar-los que ho facin sense pressa i amb gust.</span><span class="w">cap. 7</span></label>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="por"></span><button class="btn sm" type="button" data-reset="por">Reinicia</button></div>
+    <p class="small muted" style="margin:10px 0 0">Cada casella marcada és una oportunitat de canvi, no un retret: per a l'autor, la por «és molt subtil» i sovint no és intencionat.</p>
+  </div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Emocions (accelerador) i reflexió (fre i volant) treballen juntes.</li>
+    <li>Amb emoció s'aprèn més i millor; amb por s'aprèn a tenir por d'aprendre.</li>
+    <li>Educar a través del plaer prepara aprenents per a tota la vida.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c7">
+  <p class="ch-label"><span class="num">07</span> Part II · Un cervell en construcció</p>
+  <h2>De 4 a 11 anys: aprendre a aprendre… o a avorrir-se</h2>
+  <p class="work"><b>Pregunta</b>Per què les nenes i els nens de 4 a 11 anys aprenen a avorrir-se a classe? Què els hem de transmetre?</p>
+  <p class="lead">En aquesta segona finestra l'escorça comença a connectar-se amb zones més profundes, sobretot l'<b>amígdala</b> (emocions) i l'<b>hipocamp</b> (memòria). Per primera vegada poden ser una mica conscients de les seves emocions i dels seus records.</p>
+  <div class="minitoc"><a href="#c7-avorriment">Per què s'avorreixen</a><a href="#c7-quotidia">Aprendre del que és quotidià</a><a href="#c7-hipocamp">L'hipocamp</a><a href="#c7-memoria">Aprendre a memoritzar</a><a href="#c7-ritmes">Ritmes de maduració</a></div>
+  <div class="box evid"><span class="lbl">Neurociència i pedagogia</span><p>«Els estudis en neurociència no pretenen, ni han de pretendre, substituir les tasques i les propostes pedagògiques.» La neurociència diu com funciona el cervell; la pedagogia desenvolupa les estratègies per aprofitar-ho.</p></div>
+
+  <h3 id="c7-avorriment">Aprenen a avorrir-se</h3>
+  <p>Fins als tres anys els infants no s'avorreixen mai, si estan tranquils i tenen un adult de referència a prop. A partir dels quatre, com que comencen a ser conscients de l'<b>emoció d'aprendre</b>, quan el que fan no va associat a emocions, aprenen a avorrir-se. No és que els docents no hi posem emoció: el que compta és com ho perceben ells.</p>
+  <p>Hi ha una segona causa: quan un alumne, pel motiu que sigui, nota que aprendre li fa por, es pot desconnectar. És l'<b>apagada emocional</b>, que porta avorriment i pot iniciar un cercle viciós que tanca la porta a nous aprenentatges.</p>
+
+  <h3 id="c7-quotidia">Aprendre del que és quotidià</h3>
+  <p>Qualsevol aprenentatge inserit en la realitat quotidiana és més significatiu i activa el centre de les emocions: si és quotidià, és que és important per sobreviure. Per estudiar els peixos, per què no anar al mercat del barri, pels carrers que coneixen, i demanar a la peixatera que ensenyi les brànquies i la cua? El llibre de text, després, quan ja és significatiu.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>A aquestes edats importa més la <b>qualitat que la quantitat</b>. No es tracta d'aprendre moltes coses (això serà més important a l'adolescència), sinó de sentir plaer i interès per aprendre coses noves.</p></div>
+
+  <h3 id="c7-hipocamp">L'hipocamp: el centre de control del trànsit</h3>
+  <p>La memòria serien els semàfors repartits per la ciutat; l'hipocamp, el centre que en sincronitza els canvis segons les necessitats. També es pot pensar com els «preferits» del navegador: no desa les pàgines, només l'adreça. Com que fins als tres anys encara no hi ha connexions entre l'escorça i l'hipocamp, <b>no recordem conscientment res d'abans d'aquesta edat</b>. Qui diu que recorda coses d'un any segurament n'ha sentit parlar i les ha incorporat com a pròpies.</p>
+
+  <h3 id="c7-memoria">Aprendre a memoritzar per gust</h3>
+  <p>És l'etapa de més influència sobre les <b>destreses acadèmiques</b>: llegir, escriure, raonar, relacionar, memoritzar. No és el millor moment per a grans aprenentatges memorístics (vindran a l'adolescència), però sí per treballar la memòria com a destresa personal. L'autor recorda amb mandra la llista dels reis gots: no li era significativa i només en recorda dos.</p>
+  <div class="box aula"><span class="lbl">A l'aula</span><p>No és tan important <b>què</b> memoritzen, sinó que memoritzin per gust coses que els interessin o que nosaltres sapiguem fer interessants: cançons, poemes, dades del seu equip o del seu animal preferit.</p></div>
+
+  <h3 id="c7-ritmes">Respectar els ritmes de maduració: el cas de la lectura</h3>
+  <p>Cada cervell madura al seu ritme. Segons el llibre, cap als cinc anys entre el 50 i el 60 % dels cervells estan prou madurs per començar a llegir; un 40 % encara no. Si se'ls obliga, no aprendran fins que el seu cervell maduri i alguns associaran llegir a incomoditat, inseguretat o por. Passa el mateix si a casa la lectura es fa amb presses, comparacions o estrès.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">El que no proposa</span><p>Endarrerir la lectura per a tothom. Molts infants poden gaudir-la amb cinc o sis anys i mereixen que se'ls ensenyi.</p></div>
+    <div class="card"><span class="tag">El que proposa</span><p>Ser menys exigents i intransigents amb qui encara no està madur, tenir els elements a l'abast, estimular sense pressionar i reconduir sempre cap al plaer. «Els currículums els podem ajustar lleugerament. La maduració natural del cervell, no.»</p></div>
+  </div>
+  <div class="box evid"><span class="lbl">Amb criteri</span><p>El llibre no detalla d'on surten els percentatges de maduració per a la lectura. Per a la didàctica de la lectura inicial (consciència fonològica, mètode fònic, detecció precoç de dificultats), vegeu la guia d'<a href="../9788411821865/">«Aprender a enseñar a leer y a escribir»</a>, que coincideix a demanar un ensenyament ajustat al punt de partida de cada infant.</p></div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Sense emoció percebuda, s'aprèn a avorrir-se; amb por, arriba l'apagada emocional.</li>
+    <li>Context quotidià primer, llibre després.</li>
+    <li>Memoritzar per gust i respectar els ritmes de cadascú.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c8">
+  <p class="ch-label"><span class="num">08</span> Part II · Un cervell en construcció</p>
+  <h2>Com aprenem i com desaprenem</h2>
+  <p class="work"><b>Pregunta</b>Com aprenem? Podem desaprendre?</p>
+  <p class="lead">Qualsevol aprenentatge, conceptual, actitudinal o d'aptituds, queda fixat en un <b>patró dinàmic de connexions</b>. Els aprenentatges significatius passen per l'amígdala (emocions) i per l'hipocamp (memòria), però les xarxes recorren tot el cervell.</p>
+  <div class="minitoc"><a href="#c8-xarxes">Xarxes extenses</a><a href="#c8-formen">Com es formen</a><a href="#c8-repetir">Repetir amb novetats</a><a href="#c8-utilitat">Què és útil per al cervell</a><a href="#c8-espiral">L'espiral i els errors</a><a href="#c8-son">El son</a></div>
+
+  <h3 id="c8-xarxes">Com més extensa és la xarxa, millor</h3>
+  <p>Si la xarxa d'un aprenentatge és extensa, el recordem millor i el fem servir amb més eficiència. L'exemple preferit de l'autor: l'alumnat de secundària amb professors de matemàtiques que gesticulen molt aplica millor els conceptes. Per imitació, s'activen les seves neurones motores, que queden associades als conceptes i després es reaprofiten per resoldre problemes.</p>
+  <div class="box aula"><span class="lbl">A l'aula</span><p>Calcular percentatges amb els tirs lliures de bàsquet a educació física, recordar un animal per una lectura a classe de llengua. Comprar mandarines al mercat activa a la vegada matemàtiques, física, ecologia i emocions. No cal fer-ho tot transversal, però sí <b>contextualitzar sempre</b> amb contextos propers. L'autor apunta una contradicció: les proves clàssiques, monotemàtiques, no afavoreixen els coneixements transversals.</p></div>
+
+  <h3 id="c8-formen">Com es formen les connexions: fer <i>zapping</i></h3>
+  <p>Quan un axó arriba a una neurona inactiva, «passa» i en busca una altra, com qui fa <i>zapping</i> davant d'un canal en negre. Per tant, <b>un cervell estimulat acaba amb més connexions</b>. Atenció: estimulat no vol dir sobreestimulat, que porta a l'estrès. Si la connexió resulta útil, es manté; si és molt útil, s'hi fabriquen neurotrofines que n'atreuen més i la reforcen. L'experiència és això.</p>
+
+  <h3 id="c8-repetir">Repetir, sí, però amb petites novetats</h3>
+  <p>El treball repetitiu consolida, i cal continuar fent-lo. Però repetir sempre igual reforça un sol patró, fa perdre l'interès i porta a l'avorriment. Introduir <b>petits elements de novetat</b> que no distreguin de l'objectiu reforça la xarxa i, a més, l'amplia i la ramifica.</p>
+
+  <h3 id="c8-utilitat">Què considera útil el cervell</h3>
+  <p>En els aprenentatges motors és fàcil de veure: quan aprenem a caminar, les connexions que fan tropessar desapareixen i les que permeten avançar es mantenen. En els aprenentatges conceptuals i actitudinals, el que el cervell percep com a màxima utilitat és <b>l'acceptació, la valoració i el reconeixement social</b> de companys, docents i famílies.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>El refermament positiu és clau. És el fonament del pes que l'autor dona a la mirada, al treball cooperatiu i al plaer social (<a href="#c12">cap. 12</a>).</p></div>
+
+  <h3 id="c8-espiral">L'espiral i els errors</h3>
+  <p>Cada aprenentatge nou s'assenta sobre les xarxes que ja contenen elements semblants, com afegir una torre a un castell de peces. Té dues conseqüències:</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Com més saps, més aprens</span><p>Com més riques i relacionades són les xarxes, més fàcil és integrar-hi el que és nou. Amb molts solcs al terreny, germinen més llavors.</p></div>
+    <div class="card"><span class="tag">Els errors queden a la base</span><p>Si falta una columna al castell, no s'hi pot construir res a sobre. Una connexió consolidada costa molt de desfer: <b>aprendre és fàcil; desaprendre, extremadament complex</b>.</p></div>
+  </div>
+  <p>Per això els psicòlegs no desfan les connexions de les conductes desadaptatives: en creen de noves, a través de la reflexió, el raonament i les emocions, que fan de <b>baipàs</b>, com un pont nou al costat del vell. I per això els docents hem de preparar bé el que no sabem abans d'explicar-ho. Desaprendre no és oblidar: s'oblida el que no ha quedat ben fixat.</p>
+
+  <h3 id="c8-son">El son consolida</h3>
+  <p>El que aprenem durant el dia queda en xarxes de memòria a curt termini. El pas a la memòria a llarg termini es produeix <b>quan dormim</b>. Com més petits, més hores necessiten. Cal ensenyar a reduir el ritme abans d'anar a dormir; l'estrès és el gran enemic del son. A l'adolescència el son arriba de manera natural més tard, i l'autor fa notar la paradoxa que just llavors els horaris escolars sovint s'avancen.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Aprenentatges contextualitzats i transversals: xarxes més amples.</li>
+    <li>Repetició amb novetats; reconeixement social com a refermament.</li>
+    <li>Prepara bé el que expliques: els errors costen molt de desfer.</li>
+    <li>Sense son no hi ha consolidació.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="interludi">
+  <p class="ch-label"><span class="num">✈</span> Interludi</p>
+  <h2>Fem un avió de paper: la cerebroflèxia</h2>
+  <p class="lead">A la meitat del llibre, l'autor proposa un descans: fer un avió de paper. Primer amb un full rectangular; després, amb el mateix procediment, amb un paper d'una altra forma. No surt igual.</p>
+  <p>Es pot fer un bon avió amb un paper irregular sense retallar-lo? Sí: amb un primer plec que el converteixi en rectangle, o assajant altres maneres de plegar. La forma inicial del paper equival als gens i a la biologia de cada alumne, que no podem canviar (ni cal). El que sí que podem fer és concentrar-nos en <b>com el pleguem</b> per aprofitar-lo al màxim i fer un avió que voli tan alt com sigui possible.</p>
+  <div class="box key"><span class="lbl">Cerebroflèxia</span><p>És el nom que l'autor dona a la capacitat de l'educació, a l'escola, a la família i a la societat, de modelar el cervell de les persones. És la gran responsabilitat i el gran repte dels educadors, i sovint també un goig.</p></div>
+  <details class="ex"><summary><span class="st-t">Activitat per a un claustre o una reunió de famílies</span><span class="meta-s">Proposta · 20 min</span></summary><div class="body">
+    <ol>
+      <li>Repartiu fulls de formes diferents (rectangles, quadrats, trapezis, triangles) sense dir-ho.</li>
+      <li>Tothom fa el mateix model d'avió seguint les mateixes instruccions i el prova.</li>
+      <li>Compareu els resultats: qui ha hagut d'adaptar el procediment? Com?</li>
+      <li>Llegiu el paràgraf de la cerebroflèxia i relacioneu-lo amb la diversitat de l'aula: què és el «paper» i què són els «plecs» a la vostra escola?</li>
+      <li>Tanqueu amb una pregunta: quin plec podem fer diferent la setmana que ve?</li>
+    </ol>
+  </div></details>
+  <p class="small muted">L'interludi és també una demostració pràctica de la sorpresa com a recurs per recuperar l'atenció (<a href="#c10-atencio">cap. 10</a>).</p>
+</section>
+
+<section class="chapter" id="c9">
+  <p class="ch-label"><span class="num">09</span> Part III · L'adolescència</p>
+  <h2>Control emocional i límits</h2>
+  <p class="work"><b>Pregunta</b>Per què l'adolescència és tan entretinguda? I per què els adolescents intenten saltar-se les normes?</p>
+  <p class="lead">Som l'única espècie amb una adolescència tan profunda. Hi entren infants dependents i n'han de sortir adults capaços de viure de manera independent. Cada dia es lleven amb un cos i una ment una mica diferents.</p>
+  <div class="minitoc"><a href="#c9-connexions">Grans aprenentatges</a><a href="#c9-descontrol">El descontrol que madura</a><a href="#c9-grup">El pes del grup</a><a href="#c9-limits">Límits per trencar</a><a href="#c9-apagada">L'apagada emocional</a></div>
+
+  <h3 id="c9-connexions">L'època dels grans aprenentatges</h3>
+  <p>El cervell adolescent prioritza les connexions entre <b>zones llunyanes</b>. Com que els aprenentatges amb xarxes extenses es recorden i s'apliquen millor, és el moment dels aprenentatges més conceptuals: literatura, filosofia, ciències, història, i també ètica i moral. El cervell adolescent busca el seu lloc al món, i l'ètica serveix precisament per encaixar socialment: per això els interessen la justícia, la igualtat i la dignitat.</p>
+  <div class="box aula"><span class="lbl">A l'aula</span><p>Oferir <b>elements de reflexió ètica</b> des de qualsevol matèria (educació física, literatura, física, biologia) i, molt especialment, des de la filosofia. Les emocions continuen sent «l'element multiplicador de l'equació de l'aprenentatge»: sense elles, potser aprovaran l'examen, però ho oblidaran.</p></div>
+
+  <h3 id="c9-descontrol">El descontrol emocional és la prova que maduren</h3>
+  <p>Quan l'amígdala engega una emoció, avisa l'escorça prefrontal, que ens en fa conscients i ens permet reconduir-la: això és el control emocional. A l'adolescència aquestes connexions maduren: <b>assagen la seva utilitat</b>. S'activen xarxes diferents per gestionar la mateixa emoció. Una ens sembla adulta; l'altra, una criaturada.</p>
+  <div class="flow">
+    <div class="st"><b>Assaig</b>L'adolescent gestiona una emoció d'una manera o d'una altra.</div><span class="ar">→</span>
+    <div class="st"><b>Reacció de l'entorn</b>Acceptació o rebuig de docents, família i, sobretot, iguals.</div><span class="ar">→</span>
+    <div class="st"><b>Selecció</b>Les connexions valorades es mantenen; les altres tendeixen a desaparèixer.</div><span class="ar">→</span>
+    <div class="st"><b>Maduració</b>Any rere any s'acumulen les més eficients.</div>
+  </div>
+
+  <h3 id="c9-grup">El pes del grup</h3>
+  <p>Els docents som una font d'aprovació, però limitada: compten la família, la societat i, sobretot, els iguals, amb qui construiran la societat futura. Un grup que riu les «animalades» d'un company afavoreix que aquella manera de gestionar les emocions s'implanti. Per això és tan important vetllar per la dinàmica de l'aula. Aquest procés d'assaig i error dona, fins a cert punt, una oportunitat de reconduir conductes desadaptatives, a través de la reflexió i, sobretot, de les emocions i de la sensació d'acceptació o desaprovació que transmetem.</p>
+
+  <h3 id="c9-limits">Límits fets per ser trencats</h3>
+  <p>La maduració del control emocional porta el desig de trencar els límits: és la manera de trobar el seu lloc. L'impuls és biològic; la manera concreta de trencar-los, cultural.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Si els límits…</th><th>…el cervell adolescent</th></tr></thead>
+    <tbody>
+      <tr><td>No existeixen</td><td>No madura de manera prou equilibrada.</td></tr>
+      <tr><td>Són tan estrictes que és impossible trencar-los</td><td>Tampoc madura de manera equilibrada.</td></tr>
+      <tr><td>Existeixen i se'n poden trencar alguns</td><td>Madura millor. «Calen límits, i és sa que els vulguin trencar i que en trenquin alguns.»</td></tr>
+    </tbody>
+  </table></div>
+  <p>Cada adolescent necessita els seus límits i els percep a la seva manera. Cal saber que els voldran trencar i tenir pensat com respondrem, sense una pauta única: un adolescent tímid pot necessitar que valorem que n'ha trencat un; un de massa irrespectuós, just el contrari.</p>
+
+  <h3 id="c9-apagada">Alerta amb l'apagada emocional</h3>
+  <p>Les emocions ens donen ganes de viure, d'avançar, d'aprendre. Quan s'apaguen (l'estrès n'és un dels factors principals), la mirada es torna «morta». Els primers senyals són l'<b>apatia</b> i una atenció baixa i dispersa: el «passo de tot», «no m'importa res». No sempre dir-ho és sentir-ho, però cal estar a l'aguait.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Adolescència: connexions llunyanes, aprenentatges conceptuals i ètics.</li>
+    <li>El descontrol és assaig: la nostra reacció ajuda a seleccionar.</li>
+    <li>Límits, sí, i pensats per poder-ne trencar alguns.</li>
+    <li>Apatia i atenció dispersa poden ser l'inici d'una apagada emocional.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c10">
+  <p class="ch-label"><span class="num">10</span> Part III · L'adolescència</p>
+  <h2>Novetats, drogues i atenció</h2>
+  <p class="work"><b>Pregunta</b>Per què l'adolescència és l'edat més temptadora per iniciar-se en el consum de drogues? I què hem de fer perquè estiguin atents a les nostres explicacions?</p>
+  <p class="lead">A l'adolescència també es descobreix la sexualitat, es dispara la cerca de novetats i maduren les àrees de l'atenció, de la lògica i el raonament i de la recompensa.</p>
+  <div class="minitoc"><a href="#c10-sexualitat">Sexualitat</a><a href="#c10-novetats">Cerca de novetats</a><a href="#c10-drogues">Drogues</a><a href="#c10-raonament">Raonament</a><a href="#c10-atencio">Atenció</a><a href="#c10-recompensa">Recompensa</a></div>
+
+  <h3 id="c10-sexualitat">La sexualitat</h3>
+  <p>En els humans la sexualitat és, sobretot, un potent generador de vincles socials. L'autor distingeix tres aspectes: el <b>sexe biològic</b> (que depèn dels gens), la <b>identitat de gènere</b> (sentir-se home o dona) i l'<b>atracció sexual</b> (inclosa l'absència de desig); els dos últims depenen de circuits en part biològics i en part apresos. Des del punt de vista del cervell, totes les combinacions són igual de naturals, encara que unes siguin més freqüents. Viure aquest procés amb por o rebuig, o amb suport, deixa associacions per a tota la vida. La funció del docent és acompanyar i vetllar per un ambient de respecte des de la tutoria.</p>
+
+  <h3 id="c10-novetats">La cerca de novetats: una aliada</h3>
+  <p>És un tret de personalitat lligat a l'exploració de l'entorn físic i intel·lectual, que es dispara davant d'un estímul nou. Té a veure amb la dopamina, amb la creativitat i amb el desig de trencar límits. El cervell adolescent l'activa molt perquè està preparat per a grans aprenentatges.</p>
+  <div class="box aula"><span class="lbl">Contextos, preguntes i problemes</span>
+    <p>L'autor va coordinar durant nou anys la prova de biologia de les PAU a Catalunya, on es plantejaven preguntes amb <b>contextos reals</b> (una notícia, un article científic) en lloc de «Els mitocondris: estructura i funció». L'acceptació va ser molt bona i l'alumnat que tria biologia al batxillerat va créixer espectacularment. El mateix efecte tenen l'aprenentatge basat en preguntes i problemes significatius, o explicar química a través de la cuina (i menjar-se les galetes a classe).</p>
+  </div>
+
+  <h3 id="c10-drogues">La cara fosca: les drogues</h3>
+  <p>Si no poden satisfer la cerca de novetats en el seu entorn, en busquen en altres llocs, i les drogues n'ofereixen. Segons l'enquesta estatal publicada el 2014 que cita el llibre, a Espanya aproximadament el 30 % dels adolescents de 14 a 18 anys n'havien consumit els últims trenta dies, i gairebé el 80 % alguna vegada. Totes, incloses les socialment acceptades (alcohol, tabac, marihuana), activen sobretot la <b>dopamina</b>, la mateixa de la cerca de novetats, la motivació i la recompensa: d'aquí el seu poder addictiu. La marihuana no és innòcua per ser «natural».</p>
+  <div class="box key"><span class="lbl">La prevenció que proposa l'autor</span>
+    <ul>
+      <li>Potenciar la creativitat i <b>canalitzar la cerca de novetats</b> (no restringir-la): novetats esportives, intel·lectuals, socials, culturals.</li>
+      <li>Posar límits sabent que els intentaran trencar.</li>
+      <li>Fer que se sentin sempre acceptats i recolzats per la família i la societat, per mantenir el plaer i la recompensa socials.</li>
+    </ul>
+    <p>És un bon antídot contra les drogues i contra l'apagada emocional, i alhora una excel·lent estratègia d'aprenentatge.</p>
+  </div>
+
+  <h3 id="c10-raonament">Raonament i lògica: practicar-los</h3>
+  <p>Per madurar, cal practicar. Els grups de discussió, en què argumenten i fan servir la lògica, combinen aquests processos amb el desig de socialitzar-se amb els iguals, que és font de motivació i de plaer.</p>
+
+  <h3 id="c10-atencio">L'atenció: el truc és la sorpresa</h3>
+  <p>L'atenció s'origina al <b>tàlem</b>. L'autor ho explica amb un viatge per Austràlia: una carretera recta de milers de quilòmetres on l'atenció decau. Els senyals de cangurs la recuperen una estona, fins que deixen de ser una novetat; un senyal d'emús la torna a despertar; i un d'<b>unicorns</b> va fer que, per un segon, el biòleg somiés a veure'n un.</p>
+  <div class="flow">
+    <div class="st"><b>Estímul repetitiu</b>El tàlem no s'activa: anem amb pilot automàtic.</div><span class="ar">→</span>
+    <div class="st"><b>Estímul inesperat</b>El tàlem s'activa i desperta l'hipocamp i l'amígdala.</div><span class="ar">→</span>
+    <div class="st"><b>Memòria i emoció actives</b>Just les dues estructures que cal tenir actives per aprendre.</div>
+  </div>
+  <div class="box aula"><span class="lbl">A l'aula</span><p>Les normes d'accentuació amb un acudit; una anècdota de ciències o d'història que sorprengui i tingui relació amb el que es treballa. A primària cal canviar sovint d'activitat; a poc a poc han d'aprendre a gestionar l'atenció sols, però també als adolescents (i a la universitat) els convé que els sorprenguem de tant en tant. «El truc de l'atenció és la capacitat de sorpresa.»</p></div>
+
+  <h3 id="c10-recompensa">Saber esperar la recompensa</h3>
+  <p>L'àrea motivacional de premi i recompensa permet endarrerir una recompensa: és imprescindible per planificar el futur (forma part del control executiu). Per als infants, «demà equival a l'infinit»: la recompensa ha de ser immediata. Aquesta capacitat comença a madurar a l'adolescència i, segons el llibre, no acaba de fer-ho fins cap als <b>34 anys</b> de mitjana.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Respecte i acompanyament davant la diversitat sexual.</li>
+    <li>Canalitzar la cerca de novetats protegeix de les drogues i ajuda a aprendre.</li>
+    <li>Atenció = sorpresa i novetat amb relació amb el contingut.</li>
+    <li>Als infants, recompensa immediata; als adolescents, paciència amb l'espera.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c11">
+  <p class="ch-label"><span class="num">11</span> Part IV · Maduració i entorn social</p>
+  <h2>Ritmes, idiomes i camins de tornada</h2>
+  <p class="work"><b>Pregunta</b>Hi ha períodes crítics en la maduració del cervell que no permeten tornar enrere, o és un camí reversible? Per què podem aprendre idiomes després dels quatre anys?</p>
+  <p class="lead">Un capítol «calaix de sastre» sobre tres qüestions: els ritmes individuals de maduració, l'aprenentatge de llengües i la possibilitat de recuperar el que no es va aconseguir en el seu moment.</p>
+
+  <h3 id="c11-ritmes">Cada cervell, el seu ritme</h3>
+  <p>Totes les edats del llibre són mitjanes. L'autor ho exemplifica amb el batxillerat: tots els tutors avisen que les notes de primer ja compten per a l'accés a la universitat, i tothom ho entén racionalment, però uns estudien des del primer dia i d'altres no ho apliquen fins al final de segon. Una de les causes és la diferent maduració de les xarxes de recompensa. Per a un alumne de setze anys, esperar dos anys és <b>una vuitena part de la seva vida</b>.</p>
+
+  <h3 id="c11-llengues">Ser bilingüe: un avantatge</h3>
+  <p>L'autor, trilingüe (català, castellà abans dels tres anys i anglès d'adolescent), recorda la pregunta d'unes famílies a Oxford, el 1995: «Quins problemes tens per ser bilingüe?». Llavors no hi havia dades; ara sí.</p>
+  <ul>
+    <li>Les persones bilingües augmenten la <b>reserva cognitiva</b> (el nombre de xarxes actives).</li>
+    <li>Tenen més desenvolupada la zona de presa de decisions: el cervell decideix contínuament en quina llengua parlar. Responen unes centèsimes més tard, però fan raonaments més amplis i complexos.</li>
+    <li>Cada llengua té el seu lloc: cal afavorir la que està en desavantatge en el context social perquè totes s'assimilin de manera equilibrada, i distingir llengües maternes, d'interès social i d'interès acadèmic.</li>
+    <li>Amb la llengua materna s'activen més les zones emocionals; amb les altres, les racionals.</li>
+  </ul>
+
+  <h3 id="c11-idiomes">Es pot aprendre una llengua a qualsevol edat, però no de la mateixa manera</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Etapa</th><th>Com s'aprèn</th><th>Implicació</th></tr></thead>
+    <tbody>
+      <tr><td><b>Fins als 4-5 anys</b></td><td>Per contagi i imitació, com la llengua materna. Se'n poden aprendre diverses alhora sense confondre-les.</td><td>Moment idoni per als sons i les entonacions: cantar en diverses llengües, amb persones natives o que pronunciïn com elles.</td></tr>
+      <tr><td><b>4-11 anys</b></td><td>La finestra natural es tanca una mica i s'obre la de les destreses acadèmiques. Les zones implicades són una mica diferents.</td><td>El contagi ja no funciona: la llengua com a destresa.</td></tr>
+      <tr><td><b>Adolescència</b></td><td>Etapa dels grans aprenentatges.</td><td>Pedagogia també adaptada. L'autor no s'atreveix a concretar-la perquè no n'és especialista.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="c11-revers">Es pot tornar enrere?</h3>
+  <p>No: la maduració del cervell no és un camí de doble sentit i cada etapa té les seves característiques. Però no és una visió desesperançadora. Si ens passem una sortida de l'autovia, no podem fer mitja volta, però sí <b>buscar un desviament</b> que ens torni al bon camí. La plasticitat del cervell permet reconduir aprenentatges no desfent el que es va aprendre, sinó potenciant rutes alternatives amb exemples i contextos encara més significatius que l'original.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>«Les estratègies d'aprenentatge han de ser diferents segons l'estadi de desenvolupament de cada cervell respecte del que ha d'aprendre, per aprofitar al màxim la connectivitat de cada moment.»</p></div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Les edats són mitjanes: cada alumne madura al seu ritme.</li>
+    <li>El bilingüisme és un avantatge cognitiu.</li>
+    <li>No es pot tornar enrere, però sempre es pot buscar un altre camí.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c12">
+  <p class="ch-label"><span class="num">12</span> Part IV · Maduració i entorn social</p>
+  <h2>Ambient social, mirades i grup</h2>
+  <p class="work"><b>Pregunta</b>Com influeix l'ambient social en els aprenentatges? Quina importància té la manera com mirem l'alumnat? En definitiva, s'aprèn millor aïllat o en grup?</p>
+  <p class="lead">L'evolució ha modelat el nostre cervell per viure en societat. L'ambient que més influeix en els aprenentatges, amb diferència, és el <b>social</b>: la relació amb els companys, els docents, la família i la societat.</p>
+  <div class="minitoc"><a href="#c12-cares">Les primeres cares</a><a href="#c12-mirades">Mirades que eduquen</a><a href="#c12-coop">Cooperar</a><a href="#c12-joc">Jugar</a></div>
+
+  <h3 id="c12-cares">El primer que interessa són les persones</h3>
+  <p>Tres dies després de néixer, els nadons ja es fixen en la mirada de qui els cuida. L'experiment del sonall: el nadó el mira per comprovar que no el colpejarà i, de seguida, centra la mirada en la vostra cara; si somrieu, somriu; si feu mala cara, plora.</p>
+
+  <h3 id="c12-mirades">La mirada del docent</h3>
+  <p>Un estudi en aules de primària va filmar la cara dels mestres quan un alumne resolia bé un problema de matemàtiques. La mirada transmetia més aprovació si el resolia un noi que una noia, sense que el mestre (home o dona) en fos conscient. Si mirem amb més aprovació els nois, poden acabar sent millors en matemàtiques per la potenciació externa, no perquè ho fossin d'inici. El llibre recull altres biaixos semblants: mirades més emotives cap a les nadones, currículums puntuats millor amb nom masculí, professors homes més ben valorats a la universitat.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>Quan percebem una imatge, l'amígdala hi afegeix el to emocional i l'hipocamp hi busca records; si és desconeguda o alarmant, el tàlem activa l'atenció. Per això <b>cada mirada activa emocions</b> en l'alumne: por, ira, alegria, indiferència. La manera com el mirem (i com es miren entre ells) influeix en com percep el que aprèn, el fet d'aprendre i la imatge que construeix de si mateix. Sense igualtat no hi ha dignitat.</p></div>
+  <p>Que ningú s'angoixi: una mirada puntual de disgust no és cap problema. El problema és <b>mirar sempre igual</b> una persona transmetent-li emocions desagradables. Per evitar-ho, primer cal adonar-se'n. Els infants ho saben aviat: el «mira, mama, mira!» busca la mirada d'aprovació més que no pas l'acció. I a través de la mirada entre companys també es pot exercir assetjament.</p>
+
+  <h3 id="c12-coop">Cooperar: el plaer social</h3>
+  <p>Si el cervell busca viure en societat i valora l'acceptació social com el més útil, cal aprofitar-ho. Treballar en grup no és seure al voltant d'una taula fent el mateix, sinó <b>saber que la meva feina és important per als altres i la dels altres per a mi</b>. El treball individual també és imprescindible: la cooperació implica que cadascú aporti alguna cosa que surt del seu treball individual.</p>
+  <div class="box warn"><span class="lbl">«Amb cooperatiu s'avança menys»</span><p>A curt termini, potser sí en alguns casos. Però l'educació ha de pensar a mitjà i llarg termini: alumnes que sàpiguen treballar sols i en grup, que es motivin per continuar aprenent i busquin nous reptes. Si l'objectiu fos només formar professionals competitius, potser n'hi hauria prou amb el treball individual i processos selectius; si és créixer en dignitat, la cooperació és clau.</p></div>
+
+  <h3 id="c12-joc">El joc, la manera natural d'aprendre</h3>
+  <p>Totes les cries de mamífer juguen, però només els humans juguem tota la vida. El joc neix de la curiositat, la motivació i la cerca de novetats, i promou la flexibilitat mental: a través del joc descobreixen possibilitats, interpreten la realitat, assagen rols, aprenen normes, regulen el comportament i descarreguen emocions. «L'aprenentatge, tot i ser molt seriós, ha de ser viscut sempre pels infants com un joc.» I els docents hem de ser aprenents i «joganers» amb ells.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Revisa a qui mires i com: les mirades sostingudes eduquen o desmotiven.</li>
+    <li>Cooperar = aportació individual imprescindible per a un resultat comú.</li>
+    <li>El joc és la forma instintiva d'aprendre.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c13">
+  <p class="ch-label"><span class="num">13</span> Part IV · Maduració i entorn social</p>
+  <h2>Motivació i creativitat</h2>
+  <p class="work"><b>Pregunta</b>Què és la motivació? I la creativitat? Hi ha relació entre aquests dos processos mentals, o els he agrupat en un mateix capítol perquè no se m'ha acudit res de millor?</p>
+  <p class="lead">Sense motivació, a l'alumnat se li forma una closca que el fa impermeable a tot. Una moto preciosa i potent no serveix de res sense benzina: <b>la motivació és el combustible de l'aprenentatge</b>. I la creativitat, en els infants, és tan normal com respirar.</p>
+  <div class="minitoc"><a href="#c13-que">Què és</a><a href="#c13-ingredients">Els ingredients</a><a href="#c13-optimisme">Motivació i optimisme</a><a href="#c13-desmotivar">No desmotivar</a><a href="#c13-tool">Revisor</a><a href="#c13-creativitat">Creativitat</a><a href="#c13-plaers">Els tres plaers</a></div>
+
+  <h3 id="c13-que">Què és la motivació</h3>
+  <p>Un procés intern del cervell, un estat mental, que repercuteix en tot el cos. La seva finalitat biològica és <b>activar, dirigir i mantenir una conducta per aconseguir un objectiu concret</b>. La gestiona el nucli accumbens, que augmenta el flux sanguini al cervell i als músculs: per això la notem vigoritzant. Els infants encara no poden motivar-se voluntàriament; la capacitat d'automotivar-se madura a l'adolescència i, en part, s'aprèn per imitació dels adults.</p>
+
+  <h3 id="c13-ingredients">Els ingredients de la motivació</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Ingredient</th><th>Què diu el llibre</th><th>Exemple</th></tr></thead>
+    <tbody>
+      <tr><td><b>Objectiu tangible</b></td><td>Sense objectius no hi ha motivació.</td><td>Una disfressa d'astronauta motiva més que un coet real per anar a Mart.</td></tr>
+      <tr><td><b>Repte significatiu</b></td><td>Que formi part del seu dia a dia, important per a la «supervivència», que inclou el lloc dins del grup.</td><td>Problemes de la vida real; el joc en els infants.</td></tr>
+      <tr><td><b>Necessitat</b></td><td>La motivació equilibra el que ens demana l'entorn i com hi hem de respondre: per motivar cal generar necessitats.</td><td>Una pregunta que necessiten respondre per avançar.</td></tr>
+      <tr><td><b>Poder triar (risc)</b></td><td>Haver de triar entre opcions, sense saber quina és la millor, motiva. Millor una tria binària: amb opcions intermèdies, triem la del mig i la motivació baixa.</td><td>El «Vostè tria» de l'inici del llibre.</td></tr>
+      <tr><td><b>Obstacles amb optimisme</b></td><td>Cal saber que hi ha traves per superar, però percebre-les amb optimisme.</td><td>Reptes ajustats amb èxits visibles.</td></tr>
+      <tr><td><b>Novetat i emoció</b></td><td>Al cervell li agrada acceptar reptes, sobretot socials, i buscar respostes a situacions amb càrrega emotiva.</td><td>Contextos sorprenents.</td></tr>
+      <tr><td><b>Acceptació social</b></td><td>Res no la reforça millor.</td><td>Reconeixement del grup, del docent, de la família.</td></tr>
+      <tr><td><b>Condicions ambientals</b></td><td>Temperatura no gaire alta, llum tan natural com sigui possible, sense cansament ni panxa massa plena.</td><td>Revisar l'aula.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="c13-optimisme">Motivació, plaer i optimisme es retroalimenten</h3>
+  <p>Actuar motivat allibera neurohormones que activen les reserves d'energia i provoquen plaer: la motivació és en si mateixa una recompensa i ajuda a endarrerir-ne d'altres. Els mateixos neurotransmissors (serotonina, dopamina, endorfines, noradrenalina) generen <b>optimisme</b>. Les persones motivades són més optimistes i les optimistes es motiven més fàcilment. Per això, quan els adolescents comencen a motivar-se de manera conscient, els motiva molt discutir sobre qüestions morals i ètiques.</p>
+
+  <h3 id="c13-desmotivar">Tan important com motivar és no desmotivar</h3>
+  <p>Les renyes injustificades o excessives, la ridiculització, la infravaloració o les simples mirades de desaprovació poden desmotivar un infant o un adolescent durant molt de temps i generar un bloqueig difícil de trencar. Una broma «d'adult» sobre una mancança, davant dels companys, pot ser viscuda molt negativament. L'humor és un gran aliat, però mai dirigit a persones o col·lectius concrets. L'autor recorda també l'efecte de presentar els estudiants com «una generació perduda» durant la crisi: quina motivació podien trobar per aprendre?</p>
+
+  <div class="tool" id="c13-tool">
+    <div class="tool-h"><h4>Revisor de motivació d'una activitat</h4><span class="tg">Llista de revisió</span></div>
+    <p class="small muted">Pensa en una activitat concreta que hagis de fer aviat i marca els ingredients que té. Es desa al navegador. <span class="src ext">Proposta</span> construïda amb el capítol 13.</p>
+    <div class="checklist" data-key="motiv">
+      <label class="check"><input type="checkbox"><span class="ct">Té un objectiu concret que l'alumnat veurà avançar en poc temps.</span><span class="w">tangible</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Parteix d'un repte o un problema que forma part de la seva vida.</span><span class="w">significatiu</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Genera una necessitat: hi ha alguna cosa que necessiten saber o fer per avançar.</span><span class="w">necessitat</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Inclou una tria real entre dues opcions.</span><span class="w">elecció</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Té dificultats que es poden superar i ho comunico amb optimisme.</span><span class="w">optimisme</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha un element de novetat o de sorpresa.</span><span class="w">novetat</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Té una dimensió emocional (una història, una persona, una situació propera).</span><span class="w">emoció</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">El resultat de cadascú importa als altres (cooperació, públic, reconeixement).</span><span class="w">social</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Jo mateix m'hi engresco i ho sabré transmetre.</span><span class="w">imitació</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">L'aula té bona llum, temperatura moderada i el grup no està esgotat.</span><span class="w">ambient</span></label>
+    </div>
+    <div class="out" data-verdict="motiv" data-t="4,7" data-m0="&lt;b&gt;Hi falta combustible&lt;/b&gt;Tria un o dos ingredients fàcils d'afegir: una tria binària, un context proper o una petita sorpresa." data-m1="&lt;b&gt;Va ben encaminada&lt;/b&gt;Revisa els ingredients socials i emocionals: són els que el cervell valora més." data-m2="&lt;b&gt;Activitat ben carregada&lt;/b&gt;Recorda que no cal tenir-ho tot: segons el &lt;i&gt;bonus track&lt;/i&gt;, tirant d'un element, els altres venen sols.">
+      <div class="meter"><i></i></div>
+      <div class="vtxt"></div>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="motiv"></span><button class="btn sm" type="button" data-reset="motiv">Reinicia</button></div>
+  </div>
+
+  <h3 id="c13-creativitat">La creativitat ve de sèrie</h3>
+  <p>La creativitat és la <b>capacitat de qüestionar suposicions, trencar límits intel·lectuals, reconèixer patrons amagats, observar l'entorn de manera crítica i fer connexions noves entre elements que no estan vinculats</b>. Va lligada a l'abstracció (l'educació plàstica l'estimula) i hi intervenen l'escorça prefrontal i diversos gens. Fer servir una pedra per obrir una nou no és creatiu; polir-la perquè l'obri millor, sí. Classificar botons a infantil és un acte creatiu. I l'«experiment» de l'ampolla: un infant avorrit amb una ampolla de plàstic la convertirà en coet, nina o tren.</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Experiència</span><p>Coneixement, i aprendre a aprendre. S'adquireix amb l'edat.</p></div>
+    <div class="card"><span class="tag">Pensament creatiu</span><p>El que tots els infants mostren espontàniament. Amb l'edat tendim a perdre'l.</p></div>
+    <div class="card"><span class="tag">Motivació</span><p>Madura amb l'edat. Sense ella, no hi ha creativitat pràctica.</p></div>
+  </div>
+  <p>Amb l'edat elaborem bloquejos mentals: si tot ho miréssim com a nou, avançaríem molt a poc a poc. Però ho podem conservar davant de <b>qualsevol novetat</b>, i si de petits hem treballat el cervell creatiu, de grans ens serà més fàcil activar-lo.</p>
+  <div class="box aula"><span class="lbl">Com mantenir el pensament creatiu</span>
+    <ul>
+      <li><b>Fluïdesa d'idees</b>: pluja d'idees sense crítica ni rebuig immediats (responsables de bona part del bloqueig creatiu).</li>
+      <li>Opinió, diàleg i argumentació; classificacions; interpretar críticament l'entorn sortint fora.</li>
+      <li><b>Joc no guiat</b>, sempre creatiu, i <b>humor</b>: un acudit trenca l'expectativa i provoca un esclat de pensament divergent.</li>
+      <li><b>Temps per pensar</b>, estar relaxats i distreure's. Els adults som més creatius quan estem cansats, perquè l'escorça frontal afluixa el control sobre la prefrontal; no cal cansar l'alumnat, però sí deixar estones lliures i un ambient relaxat i motivador.</li>
+    </ul>
+  </div>
+
+  <h3 id="c13-plaers">Els tres plaers</h3>
+  <p>El que és clau per sobreviure, la biologia ho premia amb plaer.</p>
+  <div class="g3">
+    <div class="card"><span class="tag">Físic</span><p>Menjar, sexe. Tots els animals el tenen.</p></div>
+    <div class="card"><span class="tag">Social</span><p>Estar amb altres. Els humans hem socialitzat fins i tot els plaers físics.</p></div>
+    <div class="card"><span class="tag">Intel·lectual</span><p>Aprendre una cosa útil, crear, estar motivat per un projecte. En els infants, aprendre paraules noves activa els centres del plaer.</p></div>
+  </div>
+  <div class="box key"><span class="lbl">Idea clau</span><p>Aprendre, crear i estar motivat formen part del nostre kit de supervivència, i el nexe és el plaer. Per afavorir-los, cal fer-ho des del plaer.</p></div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Objectius tangibles, reptes significatius, necessitats, tria binària i optimisme.</li>
+    <li>No desmotivar: res de ridiculitzar ni bromes sobre mancances.</li>
+    <li>La creativitat no s'ensenya: es protegeix i es posa a treballar.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c14">
+  <p class="ch-label"><span class="num">14</span> Part IV · Maduració i entorn social</p>
+  <h2>Imitació: ser aprenents</h2>
+  <p class="work"><b>Pregunta</b>La imitació té valor educatiu? Quina importància tenen els models que oferim? En conseqüència, què hem de ser, ensenyants o aprenents?</p>
+  <p class="lead">L'autor promet un capítol curt per compensar el llarg anterior, i després diu que és pura casualitat. És una petita broma: la sorpresa i l'humor activen l'atenció. Cal predicar amb l'exemple. Per què?</p>
+
+  <h3 id="c14-imitadors">Imitadors nats</h3>
+  <p>Traieu la llengua a un nadó de poques setmanes: no somriurà, us imitarà. Si voleu que somrigui, somrieu-li. Trenta-sis hores després de néixer ja prefereixen la cara de la mare o de qui més els cuida. Imitem el que veiem fer, el que sentim dir i fins i tot el que ens sembla que senten els altres, sobretot a la infància i a l'adolescència.</p>
+  <p>La imitació serveix per adaptar-se a l'entorn: si a un adult li funciona un comportament, per què no ha de funcionar als joves? Però també perpetua <b>estereotips</b> (sexisme, racisme, classisme), com fan alguns programes de televisió, que es nodreixen de la societat i alhora en creen una.</p>
+
+  <h3 id="c14-mirall">Les neurones mirall</h3>
+  <p>Aquesta capacitat se sustenta en les anomenades neurones mirall, repartides per moltes zones (motores, del llenguatge, de l'empatia, del control emocional, de la creativitat). Per això alguns investigadors prefereixen dir que tot el cervell funciona com un gran mirall. Ens permeten reproduir moviments, expressions, emocions i sentiments, posar-nos a la pell dels altres (empatia), imaginar accions que llegim (per això la bona literatura ensenya tant) i intuir intencions a partir de poques dades.</p>
+  <div class="box evid"><span class="lbl">Amb criteri</span><p>El paper de les neurones mirall en l'empatia i en l'aprenentatge social és un camp de recerca encara obert i debatut. La conclusió educativa del capítol, però, no en depèn: els infants i els adolescents aprenen molt per observació i imitació.</p></div>
+
+  <h3 id="c14-coherencia">Dir, pensar i fer</h3>
+  <div class="box key"><span class="lbl">Idea clau</span><p>El que diem ha de coincidir amb el que pensem i fem, incloses les actituds més inconscients, perquè l'alumnat sabrà i imitarà el que pensem i fem, no el que diem.</p></div>
+  <ul class="say good">
+    <li>Si volem que vibrin amb la ciència o la literatura, hem de vibrar nosaltres i demostrar-ho.</li>
+    <li>No els podem demanar que estudiïn amb gust moltes hores si nosaltres no hi estaríem disposats.</li>
+    <li>No els podem demanar respecte si no els respectem, ni si no ens respectem dins de l'equip docent.</li>
+    <li>No els podem exigir que valorin els companys si nosaltres no els valorem tots.</li>
+  </ul>
+  <p>No som els únics models: «competim» amb la societat. Per això cal reflexionar sobre els models que oferim, sabent que no seran els únics. Oferir-ne d'alternatius ja els fa créixer.</p>
+
+  <h3 id="c14-aprenents">Aprenents, no ensenyants</h3>
+  <p>No es refereix a fer cursos (que ja fem), sinó a l'<b>actitud a l'aula</b>. Si ens comportem com a ensenyants, estimularem els seus circuits d'«ensenyar»; si ens comportem com a aprenents, amb un rol diferent del seu, els estimularem inconscientment a aprendre.</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Les actituds no s'expliquen: s'imiten.</li>
+    <li>Coherència entre el que diem, pensem i fem.</li>
+    <li>A l'aula, ser el primer aprenent.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c15">
+  <p class="ch-label"><span class="num">15</span> Part IV · Maduració i entorn social</p>
+  <h2>Consciència i autoconsciència</h2>
+  <p class="work"><b>Pregunta</b>S'aprèn conscientment o preconscientment? Cal ser autoconscients per aprendre?</p>
+  <p class="lead">Moltes actituds i coneixements arriben a l'alumnat de manera preconscient (emocions, imitació, dimensió social). Però si l'alumnat es fa conscient dels seus aprenentatges, tot el que aprengui serà molt més fructífer. Cal educar també en l'autoconsciència.</p>
+
+  <h3 id="c15-coneix">«Coneix-te a tu mateix»</h3>
+  <p>El lema del temple de Delfos resumeix la idea: mirar cap a dins dels propis processos mentals, amb autocrítica, per guanyar llibertat interior, que és la millor porta cap a la dignitat. L'autor hi afegeix la distinció entre el «jo soc» i el «nosaltres som»: confondre'ls («jo som») és propi del totalitarisme; dissoldre's en el grup («nosaltres soc»), de la submissió.</p>
+
+  <h3 id="c15-consciencia">La consciència és una construcció (i una mica una il·lusió)</h3>
+  <p>Una matinada assolellada amb olor de cafè: fora de la ment no hi ha llum, sinó energia electromagnètica; ni olor, sinó partícules volàtils. El cervell ho integra tot en una percepció única i coherent, i per fer-ho ha de <b>manipular la informació</b>: els canvis de color es detecten unes 75 mil·lèsimes de segon abans que els de moviment, però els veiem sincronitzats. Si la imatge arriba borrosa, el cervell la reinterpreta segons l'experiència prèvia i les expectatives. Els mags fa temps que se n'aprofiten.</p>
+  <div class="box key"><span class="lbl">Idea clau</span><p>Tot el que transmetem a l'alumnat li arriba filtrat i modificat per les seves preconcepcions, desitjos i expectatives. Per això <b>cap estratègia funciona igual amb tothom</b> i cal adaptar la metodologia a cada situació.</p></div>
+
+  <h3 id="c15-auto">L'autoconsciència</h3>
+  <p>És la capacitat de ser conscients que som conscients: analitzar de manera deliberada fragments de l'activitat preconscient. La fem servir quan reflexionem sobre un aprenentatge, recuperem records a voluntat o busquem explicacions alternatives. És <b>l'única manera d'alterar de manera voluntària i reflexiva els patrons de conducta preconscients</b>. I aquests pensaments conscients també modelen el cervell: amplien la xarxa on se sustenta l'aprenentatge.</p>
+  <div class="g2">
+    <div class="card"><span class="tag">Atenció voluntària</span><p>Fixar-nos de manera dirigida en un fet extern o un pensament intern per a un objectiu. És la via que fa servir l'autoconsciència per localitzar els propis processos mentals.</p></div>
+    <div class="card"><span class="tag">Atenció reflexa</span><p>La que captura un estímul que «sacseja» la ment (una imatge, un text, un conflicte cognitiu). Serveix per activar la consciència en conjunt.</p></div>
+  </div>
+  <div class="box aula"><span class="lbl">A l'aula</span>
+    <ul>
+      <li><b>Estones de quietud</b> perquè analitzin conscientment el que han après, també les actituds: consoliden i desenvolupen la crítica i l'autocrítica.</li>
+      <li>Un <b>conflicte cognitiu</b> que qüestioni el que ja saben per despertar la consciència; després, atenció dirigida per treballar-hi.</li>
+      <li>Un ambient que permeti mantenir l'atenció i fer servir les emocions per estimular-la.</li>
+    </ul>
+    <p>L'alumnat que treballa l'autoconsciència és més crític, menys manipulable i més disposat a col·laborar.</p>
+  </div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Gran part del que aprenen ho aprenen sense adonar-se'n.</li>
+    <li>Fer-se conscient d'un aprenentatge el multiplica.</li>
+    <li>Cada alumne reinterpreta el que expliquem: adaptem-nos.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c16">
+  <p class="ch-label"><span class="num">16</span> Part V · Enemics i aliats</p>
+  <h2>Estrès, plaer i motivació</h2>
+  <p class="work"><b>Pregunta</b>Quin és l'enemic número u de l'educació? I quins són els seus principals aliats?</p>
+  <p class="lead">Si l'educació tingués un Al Capone, seria l'<b>estrès</b>; els seus Eliot Ness, el <b>plaer i la motivació</b>. Segons l'informe de 2012 de la Societat Espanyola per a l'Estudi de l'Ansietat i l'Estrès que cita el llibre, un 8 % dels infants i un 20 % dels adolescents pateixen estrès crònic.</p>
+
+  <h3 id="c16-que">L'estrès puntual és bo</h3>
+  <p>L'estrès és un estat de tensió davant d'una amenaça, física o psicològica, real o imaginada. Hi intervenen l'amígdala, l'hipocamp, l'escorça prefrontal i l'hipotàlem, que allibera hormones com el <b>cortisol</b>: dirigeix energia (glucosa) cap als músculs, com qui tensa braços i cames en veure cotxes aturats a la carretera, i focalitza l'atenció en l'amenaça. L'estrès puntual ajuda a afrontar reptes i fins i tot és formatiu: cal aprendre a gestionar-lo. El problema és quan es torna <b>crònic</b>.</p>
+
+  <h3 id="c16-cronic">Els efectes de l'estrès crònic</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Efecte</th><th>Conseqüència educativa</th></tr></thead>
+    <tbody>
+      <tr><td><b>Altera de manera permanent connexions</b>, sobretot a l'amígdala, en persones de 9 a 24 anys sotmeses a estrès crònic intens.</td><td>D'adults, més dificultat per gestionar emocions negatives, menys autoestima i autoconfiança, més reaccions agressives.</td></tr>
+      <tr><td><b>Focalitza l'atenció</b> en un sol problema.</td><td>Les xarxes dels aprenentatges són més restringides.</td></tr>
+      <tr><td><b>Redueix la plasticitat neural</b> (el cortisol).</td><td>Dificulta crear les connexions noves que necessita qualsevol aprenentatge.</td></tr>
+      <tr><td><b>Afavoreix estats depressius.</b></td><td>El contrari de l'optimisme, la motivació, el plaer i la creativitat.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Els estudis es van fer en situacions extremes (pobresa estructural, orfenats), però els autors admeten que situacions més moderades i igualment cròniques poden tenir efectes semblants: <b>assetjament, excés d'extraescolars o de deures</b>.</p>
+  <div class="box warn"><span class="lbl">Estrès i TDAH</span><p>Segons l'autor, l'estrès agreuja els símptomes del TDAH: obliga a estar pendent d'una sola preocupació (i es percep com a falta d'atenció per al que volem nosaltres) i augmenta la necessitat de moure's per concentrar-se. Hi ha persones que mai no el manifestaran, d'altres amb molta predisposició i d'altres en què dependrà de l'ambient. En els casos acusats, la medicació controlada per un metge és molt útil; en tots, cal reduir l'estrès, i en els lleus això pot alleujar els símptomes. Per a una visió especialitzada, vegeu la guia de <a href="../9788410552128/#t1">«Comprender y atender a la diversidad»</a>.</p></div>
+
+  <div class="tool" id="c16-tool">
+    <div class="tool-h"><h4>Radar d'estrès crònic</h4><span class="tg">Llista de revisió</span></div>
+    <p class="small muted">Fonts d'estrès sostingut que el llibre esmenta, per revisar un grup, una etapa o el centre. Es desa al navegador. <span class="src ext">Proposta</span></p>
+    <div class="checklist" data-key="estres">
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha indicis d'assetjament, també a través de mirades i exclusions.</span><span class="w">cap. 12 · 16</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">La càrrega de deures sumada a les extraescolars deixa poc temps lliure.</span><span class="w">cap. 16</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Es fa servir la por al fracàs o al càstig com a motor.</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Se'ls exigeixen destreses per a les quals el seu cervell encara no està madur.</span><span class="w">cap. 7 · 11</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">L'entorn és sobreestimulant (soroll, activitats encadenades, poques pauses).</span><span class="w">cap. 5 · 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Dormen poc o malament; l'horari no té en compte el son adolescent.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha ridiculització, comparacions o etiquetes que es repeteixen.</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha alumnes amb apatia, «passo de tot» o atenció molt dispersa sostinguts.</span><span class="w">cap. 9</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Falten estones diàries d'activitat física, música, relaxació o joc lliure.</span><span class="w">cap. 17</span></label>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="estres"></span><button class="btn sm" type="button" data-reset="estres">Reinicia</button></div>
+  </div>
+
+  <h3 id="c16-aliats">Els aliats: plaer i motivació</h3>
+  <p>L'autor no hi torna a insistir (ja ho ha fet als capítols <a href="#c6-plaer">6</a>, <a href="#c12-coop">12</a> i <a href="#c13">13</a>), però en remarca la importància: l'aprenentatge s'ha de nodrir de la motivació i del plaer. I tanca el capítol tal com l'ha començat, en to dramàtic: «Visca el plaer i la motivació, mori l'estrès crònic».</p>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Estrès puntual: útil i formatiu. Estrès crònic: deixa empremta i bloqueja l'aprenentatge.</li>
+    <li>Assetjament, deures i extraescolars excessius també són estrès crònic.</li>
+    <li>Contra l'estrès, plaer i motivació.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="c17">
+  <p class="ch-label"><span class="num">17</span> Part V · Enemics i aliats</p>
+  <h2>Les «maries» i la tecnologia</h2>
+  <p class="work"><b>Pregunta</b>Les «maries» tenen utilitat? Realment hem de perdre el temps amb la música, la psicomotricitat i la plàstica? I què cal dir de les noves tecnologies?</p>
+  <p class="lead">Amb ironia, l'autor recorda la importància de les matèries «més rellevants» i després defensa les que tradicionalment s'han considerat «maries». La conclusió és sempre la mateixa: són crucials per a una educació integral i <b>afavoreixen els aprenentatges de les altres matèries</b>.</p>
+  <p class="small muted">L'autor explica que no parla de dislèxia, TDAH o ansietat perquè no és la seva especialitat; davant la sospita d'un trastorn, cal buscar l'ajuda d'un professional.</p>
+
+  <h3 id="c17-esport">Educació física i psicomotricitat</h3>
+  <div class="flow">
+    <div class="st"><b>Coordinació</b>La genera el cervell: treballar el cos enriqueix la connectivitat.</div><span class="ar">+</span>
+    <div class="st"><b>Endorfines</b>Benestar: relació directa entre activitat física i plaer d'aprendre.</div><span class="ar">+</span>
+    <div class="st"><b>Menys cortisol</b>L'esport contribueix a eliminar l'hormona de l'estrès.</div><span class="ar">+</span>
+    <div class="st"><b>Irisina → BDNF</b>Els músculs alliberen irisina, que activa al cervell el gen BDNF, que activa la plasticitat neural.</div>
+  </div>
+  <p>La psicomotricitat, a infantil i primària, demana planificar i ordenar una seqüència de moviments, i les zones que ho fan són les mateixes que després planifiquen el futur i imaginen alternatives: control executiu i creativitat.</p>
+
+  <h3 id="c17-relaxacio">Relaxació i concentració</h3>
+  <p>Ioga, taitxí o <i>mindfulness</i> (una denominació comercial de tècniques tradicionals) no són només una moda. A més de combatre l'estrès i afavorir l'autoconsciència, la pràctica regular activa la plasticitat, millora la integració sensorial i motora, el control de l'atenció, la flexibilitat cognitiva, la maduració emocional, l'empatia i la presa de decisions. L'autor proposa dedicar-hi, cada dia, estones no necessàriament llargues, igual que a l'esport.</p>
+
+  <h3 id="c17-plastica">Educació plàstica</h3>
+  <p>La manipulació fina i el llenguatge comparteixen xarxes (l'evolució les ha reciclat per a les dues funcions). Voleu millorar el llenguatge dels petits? Llengua, sí, i també manualitats tan sovint com es pugui. Les arts plàstiques milloren les habilitats socials, l'abstracció, el control emocional i la presa de decisions; l'art abstracte allibera el cervell de la «dominància de la realitat» i afavoreix associacions noves, base de la creativitat.</p>
+
+  <h3 id="c17-musica">Música</h3>
+  <p>Segons el llibre, és pràcticament l'única activitat que activa, estimula i fa servir <b>tot el cervell</b>, i comparteix xarxes amb la lògica matemàtica, la presa de decisions, el llenguatge i l'escorça motora (per això ens costa no seguir el ritme). Estimula el sistema de recompensa, millora l'atenció i l'autocontrol i desperta emocions. Proposta de l'autor: escoltar una mica de música cada dia i practicar-la de tant en tant en estones més llargues.</p>
+
+  <h3 id="c17-tic">Les tecnologies digitals</h3>
+  <p>És un tema obert, amb poques dades concloents, perquè és difícil comparar bé: els adults no servim de grup control i els joves sense tecnologia solen tenir també menys estímuls educatius. Els estudis disponibles indiquen que els nadius digitals tenen més connexions a la zona que gestiona, classifica i avalua la informació, i menys a la que gestiona la memòria, que en part hem externalitzat.</p>
+  <div class="box key"><span class="lbl">Beneficiós o perjudicial?</span><p>És una pregunta trampa: depèn del punt de referència. El cervell s'adapta sempre al que troba, i el món on viuran és diferent del que tenim. Per això cal <b>aprendre a aprendre</b> i trobar plaer a progressar. Tot té la seva mesura: ni tot el dia amb pantalles ni prescindir-ne.</p></div>
+  <div class="box aula"><span class="lbl">El que sí que està clar</span><p>Els infants han de jugar amb sorra, tocar fulles, pals i pedres, xipollejar als tolls, jugar amb construccions, nines, jocs d'encaix i fang, pintar amb pinzells i amb els dits, embrutar-se i rentar-se… i començar a gestionar les noves tecnologies.</p></div>
+  <div class="box remember"><span class="lbl">No ho oblidis</span><ul>
+    <li>Esport, relaxació, plàstica i música activen la plasticitat i redueixen l'estrès.</li>
+    <li>Cada dia una estona de moviment, de música i de calma.</li>
+    <li>Tecnologia amb mesura; experiències físiques i manipulatives, sempre.</li>
+  </ul></div>
+</section>
+
+<section class="chapter" id="conclusions">
+  <p class="ch-label"><span class="num">11</span> Tancament</p>
+  <h2>Onze claus del cervell per a la pràctica educativa</h2>
+  <p class="lead">L'autor no vol fer conclusions curtes d'un tema tan ampli, però destaca onze punts per aplicar el que sabem del cervell «sense parafernàlies ni grans canvis», des de la feina pacient i constant de cada docent. Cada clau va acompanyada de la seva traducció a l'aula.</p>
+  <ol class="lesson">
+    <li><b class="t">Un òrgan en construcció permanent</b>Parteix d'una base genètica diferent per a cada persona, però es construeix interactuant amb l'ambient gràcies a la plasticitat. <i>L'educació altera físicament les connexions: segons com sigui, formarà persones més crítiques i reflexives, o més impulsives o submises.</i> <a href="#c1">Cap. 1</a> · <a href="#c2">2</a></li>
+    <li><b class="t">El més útil és el que es valora socialment</b>Les connexions que el cervell manté millor són les dels aprenentatges ben valorats per iguals, docents i famílies. <i>El refermament positiu és clau.</i> <a href="#c8-utilitat">Cap. 8</a></li>
+    <li><b class="t">El més necessari és el que emociona</b>Les emocions es relacionen amb la supervivència. <i>Estratègies que generin emocions positives perquè, de manera preconscient, s'associï aprendre a plaer.</i> <a href="#c6">Cap. 6</a></li>
+    <li><b class="t">Les connexions depenen de l'ús</b><i>Un infant estimulat (mai sobreestimulat) que pugui decidir, examinar, relacionar, memoritzar i buscar novetats, i que en senti la necessitat, construeix una base millor.</i> <a href="#c8-formen">Cap. 8</a></li>
+    <li><b class="t">Un cervell fet per viure en societat</b><i>Afavorir els aprenentatges cooperatius: no grups on tothom fa el mateix, sinó on cada persona o subgrup aporta una part imprescindible.</i> <a href="#c12-coop">Cap. 12</a></li>
+    <li><b class="t">Novetat i sorpresa capten l'atenció</b><i>Classes riques i plurals, amb novetats i sorpreses, perquè a poc a poc aprenguin a mantenir l'atenció voluntàriament.</i> <a href="#c10-atencio">Cap. 10</a></li>
+    <li><b class="t">La motivació, detonant d'«aprendre a aprendre»</b>És energitzant, fixa l'atenció i va lligada a l'optimisme. <i>Estimular-la i mostrar models perquè aprenguin a motivar-se sols.</i> <a href="#c13">Cap. 13</a></li>
+    <li><b class="t">Les actituds s'aprenen per imitació</b><i>Si els volem motivats, respectuosos, atents i creatius, ho hem de ser nosaltres amb ells.</i> <a href="#c14">Cap. 14</a></li>
+    <li><b class="t">El cervell és un tot integrat</b>Compartimentar els coneixements contravé el seu funcionament natural. <i>Aprenentatges transversals (intel·lectuals, artístics, psicomotrius) que s'apliquen millor.</i> <a href="#c3">Cap. 3</a> · <a href="#c8-xarxes">8</a></li>
+    <li><b class="t">Maduració progressiva i ritmes propis</b>Atenció, espera de la recompensa, automotivació, abstracció, control emocional. <i>Respectar els temps: avançar-s'hi pot ser contraproduent.</i> <a href="#c7-ritmes">Cap. 7</a> · <a href="#c11">11</a></li>
+    <li><b class="t">L'estrès crònic, enemic número u</b>Altera les zones de la reflexió, el control emocional, les decisions i el control executiu. <i>Forma persones més impulsives i menys autònomes.</i> <a href="#c16">Cap. 16</a></li>
+  </ol>
+  <div class="box key"><span class="lbl">I com a colofó</span><p class="quote" style="margin:6px 0 0;border:0;padding:0">«El principal aliat de l'educació és el plaer.»</p></div>
+</section>
+
+<section class="chapter" id="bonus">
+  <p class="ch-label"><span class="num">★</span> Tancament</p>
+  <h2><i>Bonus track</i>: tot està connectat</h2>
+  <p class="lead">El premi per arribar al final és un esquema que relaciona la motivació, la creativitat, el plaer i la resta d'elements del llibre. El més important: <b>totes les fletxes són bidireccionals</b>.</p>
+  <p>L'esquema s'estructura sobre tres aspectes: les emocions i la racionalitat (a dalt), la biologia del cervell, és a dir, les neurones mirall i la plasticitat (a baix), i la dimensió de grup, amb la recompensa social de família, companys, docents i societat (a l'esquerra). Al centre, el plaer. Els docents no som superherois: no cal tirar de tots els fils alhora. Si som bons motivant, motivem; si ens sentim més còmodes ajudant a buscar novetats, fem-ho per aquí. La resta d'elements vindran sols. I si podem tirar de dos o tres llocs, encara millor.</p>
+
+  <div class="tool" id="bonus-tool">
+    <div class="tool-h"><h4>Tria la teva porta d'entrada</h4><span class="tg">Esquema interactiu</span></div>
+    <p class="small muted">Toca l'element on et sents més fort. Veuràs què diu el llibre, com tirar-ne a l'aula i què arrossega. Reconstrucció de l'esquema del llibre.</p>
+    <div class="switch" data-key="bonus">
+      <div class="scheme-frame"><span>Racionalitat · <b>Emoció</b></span></div>
+      <div class="scheme">
+        <span class="gap"></span>
+        <button type="button" data-val="motivacio">Motivació<small>energia per aprendre</small></button>
+        <span class="gap"></span>
+        <button type="button" data-val="optimisme">Optimisme<small>es pot aconseguir</small></button>
+        <div class="core">Plaer</div>
+        <button type="button" data-val="novetats">Cerca de novetats<small>curiositat</small></button>
+        <button type="button" data-val="creativitat">Creativitat<small>connexions noves</small></button>
+        <span class="gap"></span>
+        <button type="button" data-val="risc">Risc<small>possibilitat de triar</small></button>
+      </div>
+      <div class="scheme-frame" style="grid-template-columns:1fr 1fr"><span>Grup: col·laboració i recompensa social</span><span>Neurones mirall i plasticitat neural</span></div>
+      <div class="panel" data-panel="motivacio">
+        <h5>Què diu el llibre</h5><p>Activa, dirigeix i manté la conducta cap a un objectiu; energitza i és en si mateixa una recompensa. <a href="#c13">Cap. 13</a></p>
+        <h5>Com tirar-ne</h5><ul><li>Objectius tangibles que vegin avançar.</li><li>Reptes del seu dia a dia i necessitats reals.</li><li>Mostrar la teva pròpia motivació: s'imita.</li></ul>
+        <h5>Arrossega</h5><p>Optimisme (els mateixos neurotransmissors), cerca de novetats i creativitat.</p>
+      </div>
+      <div class="panel" data-panel="optimisme" hidden>
+        <h5>Què diu el llibre</h5><p>Motivació i optimisme comparteixen neurotransmissors i es retroalimenten; la llum natural també l'afavoreix. <a href="#c13-optimisme">Cap. 13</a></p>
+        <h5>Com tirar-ne</h5><ul><li>Presentar les dificultats com a superables.</li><li>Fer visibles els avenços i els èxits.</li><li>Evitar missatges de condemna («generació perduda»).</li></ul>
+        <h5>Arrossega</h5><p>Motivació i creativitat.</p>
+      </div>
+      <div class="panel" data-panel="novetats" hidden>
+        <h5>Què diu el llibre</h5><p>Tret instintiu, molt intens als 0-3 anys i a l'adolescència, lligat a la dopamina; desperta l'atenció a través del tàlem. <a href="#c10-novetats">Cap. 10</a></p>
+        <h5>Com tirar-ne</h5><ul><li>Contextos reals, preguntes i problemes.</li><li>Sorpreses relacionades amb el contingut.</li><li>Repeticions amb petites variacions.</li></ul>
+        <h5>Arrossega</h5><p>Motivació, risc i creativitat. I protegeix de les drogues.</p>
+      </div>
+      <div class="panel" data-panel="creativitat" hidden>
+        <h5>Què diu el llibre</h5><p>Ve de sèrie; amb l'edat es bloqueja, però es manté davant de qualsevol novetat. <a href="#c13-creativitat">Cap. 13</a></p>
+        <h5>Com tirar-ne</h5><ul><li>Pluja d'idees sense crítica immediata.</li><li>Joc lliure, humor, plàstica.</li><li>Temps per pensar i per distreure's.</li></ul>
+        <h5>Arrossega</h5><p>Optimisme, risc i motivació.</p>
+      </div>
+      <div class="panel" data-panel="risc" hidden>
+        <h5>Què diu el llibre</h5><p>Haver de triar entre opcions sense saber quina és la millor estimula la motivació; millor una tria binària. <a href="#c13-ingredients">Cap. 13</a> · <a href="#intro-tria">«Vostè tria»</a></p>
+        <h5>Com tirar-ne</h5><ul><li>Dues opcions reals de tasca, de format o d'ordre.</li><li>Evitar l'opció intermèdia «segura».</li><li>Acceptar els errors de la tria com a part d'aprendre.</li></ul>
+        <h5>Arrossega</h5><p>Motivació, cerca de novetats i creativitat.</p>
+      </div>
+    </div>
+  </div>
+  <p>Al llarg del llibre l'autor ha predicat amb l'exemple: cançons (emocions), una tria entre dues opcions (risc), anècdotes personals i de l'entorn (dimensió social), un interludi (sorpresa). «Sense plaer, la nostra feina, que ha de ser ajudar l'alumnat a créixer en dignitat, estarà predestinada al fracàs.»</p>
+</section>
+
+<section class="chapter" id="pla">
+  <p class="ch-label"><span class="num">→</span> Per aplicar</p>
+  <h2>Posa-ho en pràctica</h2>
+  <p class="lead">L'autor insisteix que la neurociència explica el «què» i que la pedagogia fa les propostes. Aquesta secció tradueix les conclusions del llibre en eines per a un docent i per a un equip.</p>
+  <div class="box evid"><span class="lbl">Com llegir aquesta secció</span>
+    <p>Les propostes marcades com a <span class="src lib">Llibre</span> recullen orientacions de l'obra; les marcades com a <span class="src ext">Proposta</span> són concrecions d'aquesta guia (seqüències, plantilles, llistes) construïdes amb els principis del llibre. Adapteu-les a la vostra etapa i al vostre context.</p>
+  </div>
+  <div class="minitoc"><a href="#pla-etapes">Què demana cada etapa</a><a href="#pla-sessio">Una sessió</a><a href="#pla-repetir">Repetir amb novetats</a><a href="#pla-unitat">Revisar una unitat</a><a href="#pla-llenguatge">Llenguatge</a><a href="#pla-families">Famílies</a><a href="#pla-claustre">Claustre</a></div>
+
+  <h3 id="pla-etapes">1 · Què demana cada etapa</h3>
+  <div class="tool">
+    <div class="tool-h"><h4>Explorador de les finestres del desenvolupament</h4><span class="tg">Consulta</span></div>
+    <p class="small muted">Tria una etapa per veure què prioritza el cervell, què li convé i què cal evitar, segons el llibre.</p>
+    <div class="switch" data-key="etapes">
+      <div class="seg" role="group" aria-label="Etapa"><button type="button" data-val="e03">0-3 anys</button><button type="button" data-val="e411">4-11 anys</button><button type="button" data-val="eado">Adolescència</button></div>
+      <div class="panel" data-panel="e03">
+        <h5>Què passa al cervell</h5><p>Moltes connexions entre àrees properes de l'escorça. El cervell s'impregna de l'ambient i hi adapta el comportament. Les emocions es disparen, però encara no es poden controlar. No en quedaran records conscients. <a href="#c5">Cap. 5</a></p>
+        <h5>Què li convé</h5><ul><li>Afecte, seguretat i estabilitat.</li><li>Un entorn divers on explorar al seu aire.</li><li>Ser present en les converses dels adults.</li><li>Llengües per contagi, amb parlants natius; cançons.</li></ul>
+        <h5>Què cal evitar</h5><ul><li>Ambients de conflictivitat sostinguda.</li><li>La sobreestimulació.</li></ul>
+      </div>
+      <div class="panel" data-panel="e411" hidden>
+        <h5>Què passa al cervell</h5><p>L'escorça es connecta amb l'amígdala i l'hipocamp: comencen a ser conscients de les emocions i dels records. Màxima influència sobre les destreses acadèmiques. <a href="#c7">Cap. 7</a></p>
+        <h5>Què li convé</h5><ul><li>Aprenentatges vinculats a la vida quotidiana i amb emoció.</li><li>Qualitat abans que quantitat; plaer per aprendre.</li><li>Memoritzar per gust coses significatives.</li><li>Canviar sovint d'activitat i recompenses immediates.</li><li>Llengües com a destresa, no per contagi.</li></ul>
+        <h5>Què cal evitar</h5><ul><li>Aprenentatges sense emoció: aprenen a avorrir-se.</li><li>Exigir destreses (com la lectura) abans de la maduració.</li><li>La por: porta a l'apagada emocional.</li></ul>
+      </div>
+      <div class="panel" data-panel="eado" hidden>
+        <h5>Què passa al cervell</h5><p>Connexions entre zones llunyanes; maduració per assaig i error del control emocional; cerca de novetats; maduració de l'atenció, el raonament i la recompensa diferida (fins als 34 anys). <a href="#c9">Cap. 9</a> · <a href="#c10">10</a></p>
+        <h5>Què li convé</h5><ul><li>Grans aprenentatges conceptuals i reflexió ètica.</li><li>Contextos, preguntes i problemes reals.</li><li>Grups de discussió amb iguals.</li><li>Límits que se'n puguin trencar alguns.</li><li>Sorpreses que mantinguin l'atenció.</li></ul>
+        <h5>Què cal evitar</h5><ul><li>No posar cap límit, o posar-los irrompibles.</li><li>Restringir la cerca de novetats.</li><li>Ignorar l'apatia sostinguda.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="pla-sessio">2 · Una sessió que el cervell aprofita</h3>
+  <p class="small muted">Seqüència orientativa construïda amb les onze claus. No és una recepta: tria els passos que encaixin amb la teva sessió. <span class="src ext">Proposta</span></p>
+  <ol class="lesson">
+    <li><b class="t">Obrir amb una sorpresa o una pregunta</b>Una imatge, una notícia, un objecte o un acudit relacionat amb el contingut, perquè el tàlem s'activi. <a href="#c10-atencio">Cap. 10</a></li>
+    <li><b class="t">Situar en un context proper</b>Connectar amb el que ja saben i amb la seva vida (el barri, el mercat, la cuina, l'esport). <a href="#c7-quotidia">Cap. 7</a> · <a href="#c8-espiral">8</a></li>
+    <li><b class="t">Explicar amb cos i relat</b>Gestos, anècdotes de persones i entusiasme visible: s'imiten. <a href="#c8-xarxes">Cap. 8</a> · <a href="#c14">14</a></li>
+    <li><b class="t">Triar</b>Oferir dues opcions reals per fer la tasca. <a href="#c13-ingredients">Cap. 13</a></li>
+    <li><b class="t">Cooperar amb aportació individual</b>Cada membre té una part imprescindible per al resultat comú. <a href="#c12-coop">Cap. 12</a></li>
+    <li><b class="t">Una estona de quietud</b>Què he après? Què pensava abans? Què m'ha sorprès? <a href="#c15">Cap. 15</a></li>
+    <li><b class="t">Tancar amb reconeixement</b>Fer visibles els avenços del grup i de cadascú. <a href="#c8-utilitat">Cap. 8</a></li>
+  </ol>
+
+  <h3 id="pla-repetir">3 · Repetir amb petites novetats</h3>
+  <p class="small muted">Formes de practicar el mateix contingut sense repetir el mateix patró. <a href="#c8-repetir">Cap. 8</a> <span class="src ext">Proposta</span></p>
+  <div class="tw"><table>
+    <thead><tr><th>Variació</th><th>Exemple</th></tr></thead>
+    <tbody>
+      <tr><td><b>Canviar el context</b></td><td>Els percentatges a les rebaixes, als tirs lliures, a la previsió del temps.</td></tr>
+      <tr><td><b>Canviar el canal</b></td><td>Explicar-ho cantant, dibuixant, amb el cos o fent un esquema.</td></tr>
+      <tr><td><b>Canviar el rol</b></td><td>Que ho expliquin a un company o a un grup més petit.</td></tr>
+      <tr><td><b>Canviar la matèria</b></td><td>Fer servir el contingut de matemàtiques a ciències socials o a educació física.</td></tr>
+      <tr><td><b>Afegir un repte</b></td><td>Temps, una restricció creativa, una tria binària.</td></tr>
+      <tr><td><b>Fer-ho joc</b></td><td>Un concurs cooperatiu, una endevinalla, un joc de cartes.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="pla-unitat">4 · Revisar una unitat</h3>
+  <div class="tool">
+    <div class="tool-h"><h4>Llista de revisió d'una unitat o un projecte</h4><span class="tg">Llista de revisió</span></div>
+    <p class="small muted">Recorre les onze claus del llibre. Es desa al navegador.</p>
+    <div class="checklist" data-key="unitat">
+      <label class="check"><input type="checkbox"><span class="ct">La unitat parteix d'un context proper i quotidià per a l'alumnat.</span><span class="w">cap. 7 · 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha un component emocional (una història, un repte, una persona).</span><span class="w">cap. 6</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Connecta amb altres matèries i activa xarxes diverses (cos, art, música, llengua).</span><span class="w">cap. 3 · 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He previst sorpreses i novetats al llarg de la unitat, no només a l'inici.</span><span class="w">cap. 10</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Té un objectiu tangible i un repte significatiu.</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Inclou moments de tria entre dues opcions.</span><span class="w">cap. 13</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha treball cooperatiu on cada aportació és imprescindible, i també treball individual.</span><span class="w">cap. 12</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He previst com reconeixeré els avenços (refermament positiu).</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Les repeticions incorporen petites variacions.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Hi ha estones de quietud per prendre consciència del que s'aprèn.</span><span class="w">cap. 15</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">Les exigències s'ajusten als ritmes de maduració, amb flexibilitat per a qui va més a poc a poc.</span><span class="w">cap. 7 · 11</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He revisat que res no generi estrès sostingut (càrrega, por, comparacions).</span><span class="w">cap. 16</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">He preparat bé els continguts que domino menys, per no introduir errors.</span><span class="w">cap. 8</span></label>
+      <label class="check"><input type="checkbox"><span class="ct">L'avaluació valora també els coneixements transversals, no només proves monotemàtiques.</span><span class="w">cap. 8</span></label>
+    </div>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px"><span class="small muted" data-count="unitat"></span><button class="btn sm" type="button" data-reset="unitat">Reinicia</button></div>
+  </div>
+
+  <h3 id="pla-llenguatge">5 · Llenguatge que motiva i que desmotiva</h3>
+  <p class="small muted">Frases model construïdes amb els capítols <a href="#c6">6</a>, <a href="#c12">12</a> i <a href="#c13">13</a>. <span class="src ext">Proposta</span></p>
+  <div class="g2">
+    <div><p class="small"><b>Millor així</b></p><ul class="say good">
+      <li>«L'any que ve descobrireu coses que ara ni us imagineu.»</li>
+      <li>«Costarà una mica, però teniu tot el que cal per sortir-ne.»</li>
+      <li>«Ho podeu fer d'aquesta manera o d'aquella altra: trieu.»</li>
+      <li>«La teva part és imprescindible perquè el grup acabi.»</li>
+      <li>«Mira com has millorat des de la setmana passada.»</li>
+      <li>«Avui jo també he après una cosa nova: us l'explico.»</li>
+    </ul></div>
+    <div><p class="small"><b>Millor evitar</b></p><ul class="say bad">
+      <li>«Ja veureu el que és treballar de valent l'any que ve.»</li>
+      <li>«Això és facilíssim, ho hauria de saber fer tothom.»</li>
+      <li>«Fes-ho així perquè ho dic jo.»</li>
+      <li>«Mireu què ha fet aquest…» (amb to de burla).</li>
+      <li>«El teu germà sí que en sabia.»</li>
+      <li>«No sé per què us ho explico, si no us interessa.»</li>
+    </ul></div>
+  </div>
+
+  <h3 id="pla-families">6 · Missatges per a les famílies</h3>
+  <p class="small muted">Idees del llibre que convé compartir en reunions i tutories. <span class="src lib">Llibre</span></p>
+  <div class="g2">
+    <div class="card"><span class="tag">Son i calma</span><p>El que s'aprèn es consolida dormint. Reduir el ritme abans d'anar a dormir; als adolescents el son els arriba més tard de manera natural. <a href="#c8-son">Cap. 8</a></p></div>
+    <div class="card"><span class="tag">Llegir amb gust</span><p>Llegir junts sense pressa i per plaer; mai comparar amb altres infants ni convertir-ho en una obligació estressant. <a href="#c7-ritmes">Cap. 7</a></p></div>
+    <div class="card"><span class="tag">Temps lliure</span><p>Extraescolars i deures amb mesura: l'excés pot ser estrès crònic. Joc lliure, natura, embrutar-se. <a href="#c16">Cap. 16</a> · <a href="#c17-tic">17</a></p></div>
+    <div class="card"><span class="tag">Models</span><p>Els fills imiten el que fem, no el que diem: llegir, interessar-se, respectar, motivar-se. <a href="#c14">Cap. 14</a></p></div>
+    <div class="card"><span class="tag">Límits</span><p>A l'adolescència calen límits, i és sa que en vulguin trencar alguns. Pensar com respondre. <a href="#c9-limits">Cap. 9</a></p></div>
+    <div class="card"><span class="tag">Acceptació</span><p>Sentir-se acceptat i recolzat és la millor protecció davant les drogues i l'apagada emocional. <a href="#c10-drogues">Cap. 10</a></p></div>
+  </div>
+
+  <h3 id="pla-claustre">7 · Full de ruta per a un claustre</h3>
+  <p class="small muted">Una manera de treballar el llibre en un curs escolar. <span class="src ext">Proposta</span></p>
+  <div class="stage"><span class="when">Primer trimestre</span><h4>El cervell i les emocions</h4><ul class="small"><li>Lectura compartida de la introducció i dels capítols 1-3 i 6.</li><li>Test de neuromites en una sessió de claustre.</li><li>Revisar amb la llista «On s'amaga la por» les pràctiques habituals.</li></ul></div>
+  <div class="stage"><span class="when">Segon trimestre</span><h4>Etapes, atenció i motivació</h4><ul class="small"><li>Cada cicle llegeix el capítol de la seva etapa (5, 7, 9-10).</li><li>Acordar recursos comuns de sorpresa i de context.</li><li>Revisar una unitat per cicle amb la llista de revisió.</li></ul></div>
+  <div class="stage"><span class="when">Tercer trimestre</span><h4>Grup, estrès i «maries»</h4><ul class="small"><li>Lectura dels capítols 12, 16 i 17.</li><li>Radar d'estrès crònic per etapes: deures, extraescolars, horaris.</li><li>Estones diàries de moviment, música o calma a l'horari.</li><li>Activitat de l'avió de paper amb les famílies.</li></ul></div>
+  <details class="ex"><summary><span class="st-t">Preguntes per a un seminari de lectura</span><span class="meta-s">Claustre</span></summary><div class="body">
+    <ol>
+      <li>Quines pràctiques del centre «ja fem bé» segons el llibre? Per què funcionen?</li>
+      <li>On pot aparèixer la por sense que ho vulguem: transicions d'etapa, exàmens, lectura en veu alta?</li>
+      <li>A qui mirem més i com? Com ho podríem comprovar?</li>
+      <li>Quins límits posem als adolescents i quins se'n poden trencar?</li>
+      <li>Què considerem «maries» a l'horari i què perdem si les retallem?</li>
+      <li>Quines afirmacions del llibre voldríem contrastar amb altres fonts abans d'aplicar-les?</li>
+    </ol>
+  </div></details>
+</section>
+
+<section class="chapter" id="glossari">
+  <p class="ch-label"><span class="num">→</span> Per consultar</p>
+  <h2>Glossari</h2>
+  <div class="tw"><table><tbody>
+    <tr><td><b>Amígdala</b></td><td>Estructura profunda del cervell (n'hi ha dues) que genera les emocions.</td></tr>
+    <tr><td><b>Apagada emocional</b></td><td>Desconnexió emocional davant dels aprenentatges, sovint per por o estrès. Porta avorriment i apatia.</td></tr>
+    <tr><td><b>Atenció voluntària / reflexa</b></td><td>Dirigida a un objectiu / capturada per un estímul inesperat que processa el tàlem.</td></tr>
+    <tr><td><b>Autoconsciència</b></td><td>Ser conscients que som conscients: analitzar deliberadament els propis processos mentals.</td></tr>
+    <tr><td><b>BDNF i irisina</b></td><td>Factor neurotròfic derivat del cervell, que activa la plasticitat; l'esport l'activa a través de la irisina que alliberen els músculs.</td></tr>
+    <tr><td><b>Cerca de novetats</b></td><td>Tret instintiu d'exploració de l'entorn, molt intens als 0-3 anys i a l'adolescència, lligat a la dopamina.</td></tr>
+    <tr><td><b>Cerebroflèxia</b></td><td>Terme de l'autor per a la capacitat de l'educació de modelar el cervell, com qui plega un paper.</td></tr>
+    <tr><td><b>Cervell social</b></td><td>Conjunt de zones, moltes de l'escorça, que ens permeten navegar per les relacions socials; connectat amb les emocions.</td></tr>
+    <tr><td><b>Control executiu</b></td><td>Capacitat de planificar el futur i adequar-hi el comportament.</td></tr>
+    <tr><td><b>Cortisol</b></td><td>Hormona de l'estrès. En excés sostingut redueix la plasticitat i afavoreix estats depressius.</td></tr>
+    <tr><td><b>Creativitat</b></td><td>Qüestionar suposicions, trencar límits, reconèixer patrons amagats i connectar elements no vinculats. La pràctica requereix experiència, pensament creatiu i motivació.</td></tr>
+    <tr><td><b>Dopamina</b></td><td>Neurotransmissor de la cerca de novetats, la motivació, el plaer i la recompensa; també el que activen les drogues.</td></tr>
+    <tr><td><b>Emoció / sentiment</b></td><td>Resposta automàtica i preconscient / racionalització conscient d'aquesta resposta, influïda per la cultura.</td></tr>
+    <tr><td><b>Escorça (prefrontal)</b></td><td>Capa externa del cervell, seu dels processos més complexos; la prefrontal, darrere el front, raona, planifica i controla les emocions.</td></tr>
+    <tr><td><b>Finestra</b></td><td>Etapa del desenvolupament en què el cervell prioritza un tipus de connexions: 0-3, 4-11 i adolescència.</td></tr>
+    <tr><td><b>Heretabilitat</b></td><td>Percentatge de la variació entre persones en una característica atribuïble a diferències genètiques.</td></tr>
+    <tr><td><b>Hipocamp</b></td><td>Centre gestor de la memòria; no hi desa els records, sinó les «adreces».</td></tr>
+    <tr><td><b>Neurones mirall</b></td><td>Neurones que s'activen tant si fem una acció com si la veiem fer; base de la imitació i de l'empatia segons el llibre.</td></tr>
+    <tr><td><b>Neurotransmissor</b></td><td>Molècula que transmet el missatge d'una neurona a una altra a través de la sinapsi.</td></tr>
+    <tr><td><b>Nucli accumbens</b></td><td>Zona que gestiona la motivació i intervé en el plaer; la més afectada per les addiccions.</td></tr>
+    <tr><td><b>Oxitocina</b></td><td>Neurohormona de la socialització i de l'afecte.</td></tr>
+    <tr><td><b>Plasticitat neural</b></td><td>Capacitat de crear connexions noves i reforçar les existents; base de tot aprenentatge.</td></tr>
+    <tr><td><b>Poda</b></td><td>Eliminació programada de neurones i connexions que no resulten útils.</td></tr>
+    <tr><td><b>Reserva cognitiva</b></td><td>Nombre de xarxes neurals actives; augmenta, per exemple, amb el bilingüisme.</td></tr>
+    <tr><td><b>Ressaca emocional</b></td><td>Sensibilització dels circuits emocionals durant uns trenta minuts després d'una emoció, segons el llibre.</td></tr>
+    <tr><td><b>Sinapsi</b></td><td>Zona de connexió entre dues neurones, que no arriben a tocar-se.</td></tr>
+    <tr><td><b>Tàlem</b></td><td>Estructura que decideix quins estímuls són rellevants i activa l'atenció davant del que és inesperat.</td></tr>
+    <tr><td><b>Xarxa en mode automàtic</b></td><td>Activitat màxima del cervell quan no fem res; consolida i connecta xarxes.</td></tr>
+    <tr><td><b>Xarxa neural</b></td><td>Conjunt de neurones interconnectades; cada procés mental és un patró de connexions.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="chapter" id="fonts" style="border-bottom:0">
+  <p class="ch-label"><span class="num">→</span> Per aprofundir</p>
+  <h2>Fonts i autor</h2>
+  <h3>Bibliografia per saber-ne més (selecció de l'autor)</h3>
+  <div class="g2 small">
+    <ul>
+      <li>Blakemore, S. J. i Frith, U. (2011). <i>Cómo aprende el cerebro</i>. Ariel.</li>
+      <li>Bueno, D. (2011). <i>El enigma de la libertad</i>. Bromera / PUV.</li>
+      <li>Bueno, D. (2015). «¿Otro ladrillo en el muro?». A <i>Humanidades e investigación científica</i>. Edicions de la UB.</li>
+      <li>Bueno, D. (2016). <i>Cerebroflexia. El arte de construir el cerebro</i>. Plataforma.</li>
+      <li>Burguet, M. i Bueno, D. (2014). <i>Educació per a una cultura de pau</i>. Edicions de la UB.</li>
+      <li>Forés, A. i altres (2015). <i>Neuromitos en la educación</i>. Plataforma.</li>
+    </ul>
+    <ul>
+      <li>Mora, F. (2014). <i>Neuroeducación</i>. Alianza.</li>
+      <li>Mora, F. (2014). <i>Cómo funciona el cerebro</i>. Alianza.</li>
+      <li>Redolar, D. (ed.) (2014). <i>Neurociencia cognitiva</i>. Médica Panamericana.</li>
+      <li>Sánchez, X. i altres (2014). <i>¿Somos una especie violenta?</i> Edicions de la UB.</li>
+      <li>Swaab, D. F. (2014). <i>Somos nuestro cerebro</i>. Plataforma.</li>
+    </ul>
+  </div>
+  <h3>Sobre l'autor</h3>
+  <p class="small">David Bueno i Torrens (Barcelona, 1965) és professor i investigador de genètica a la Universitat de Barcelona i ha estat investigador a la Universitat d'Oxford. La seva recerca se centra en la formació del sistema nerviós i la seva relació amb la conducta i l'aprenentatge. Ha dedicat una part important de la seva feina a la divulgació científica. Les dades biogràfiques corresponen a l'edició del llibre.</p>
+  <h3>Altres guies relacionades del catàleg</h3>
+  <ul class="small">
+    <li><a href="../9788418058059/"><i>¿Cómo aprendemos?</i></a> (Héctor Ruiz Martín): memòria, emocions, motivació i avaluació des de la ciència cognitiva.</li>
+    <li><a href="../9788412714784/"><i>«Edumitos»</i></a> (Héctor Ruiz Martín): neuromites i idees sense suport científic.</li>
+    <li><a href="../9788446056805/"><i>Cómo se aprende</i></a> (Kirschner i Hendrick): les obres clau de la psicologia de l'educació.</li>
+  </ul>
+  <footer>
+    <p><b>Font única:</b> Bueno i Torrens, D. (2017). <i>Neurociencia para educadores. Todo lo que los educadores siempre han querido saber sobre el cerebro de sus alumnos y nunca nadie se ha atrevido a explicárselo de manera comprensible y útil</i>. Octaedro, col·lecció «Rosa Sensat». Traducció de Maria Tricas i David Bueno. ISBN 978-84-9921-991-2.</p>
+    <p>Guia elaborada a partir del llibre per a ús docent. En resumeix i parafraseja el contingut i no substitueix la lectura de l'obra original.</p>
+    <p class="noprint"><a href="#top">↑ Torna a l'inici</a></p>
+  </footer>
+</section>
+
+</div><!-- /wrap -->
+</main>
+<script>
+(function(){
+"use strict";
+var store={get:function(k,d){try{var v=localStorage.getItem('guiaNPE:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+           set:function(k,v){try{localStorage.setItem('guiaNPE:'+k,JSON.stringify(v))}catch(e){}}};
+function $(s,c){return (c||document).querySelector(s)}
+function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---------- theme ---------- */
+var root=document.documentElement;
+var TH_KEY='pedagoguia:theme';
+var th=null;try{th=localStorage.getItem(TH_KEY)}catch(e){}
+if(th!=='light'&&th!=='dark')th=null;
+if(!th){th=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+root.setAttribute('data-theme',th);
+$('#themeBtn').addEventListener('click',function(){th=th==='dark'?'light':'dark';root.setAttribute('data-theme',th);try{localStorage.setItem(TH_KEY,th)}catch(e){}});
+
+/* ---------- menu / progress / active toc ---------- */
+$$('#toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('menu')})});
+var bar=$('#progress');
+function onScroll(){var h=document.documentElement;var p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);bar.style.width=(p*100).toFixed(2)+'%'}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+var links={};$$('#toc a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id;$$('#toc a.active').forEach(function(x){x.classList.remove('active')});if(links[id]){links[id].classList.add('active')}}})},{rootMargin:'-35% 0px -60% 0px'});
+  $$('section.chapter').forEach(function(s){io.observe(s)});
+}
+
+/* ---------- expand / print ---------- */
+var eb=$('#expandBtn');
+function syncExpand(){var ds=$$('details.ex');var open=ds.length&&ds.every(function(d){return d.open});eb.classList.toggle('on',open);eb.setAttribute('aria-pressed',open?'true':'false');eb.innerHTML=open?'− Exercicis':'+ Exercicis';eb.title=open?'Tanca tots els exercicis desplegables':'Obre tots els exercicis desplegables'}
+eb.addEventListener('click',function(){var open=eb.getAttribute('aria-pressed')!=='true';$$('details.ex').forEach(function(d){d.open=open});syncExpand()});
+document.addEventListener('toggle',function(e){if(e.target.matches&&e.target.matches('details.ex'))syncExpand()},true);
+syncExpand();
+var printState=[];
+window.addEventListener('beforeprint',function(){printState=$$('details').map(function(d){var o=d.open;d.open=true;return o})});
+window.addEventListener('afterprint',function(){$$('details').forEach(function(d,i){d.open=printState[i]})});
+
+/* ---------- search ---------- */
+var q=$('#q'),res=$('#results'),idx=[];
+function buildIndex(){
+  idx=[];
+  $$('main section.chapter').forEach(function(sec){
+    var h2=$('h2',sec);var title=h2?h2.textContent:'';
+    $$('p,li,td,h3,h4,summary,.card',sec).forEach(function(el){
+      if(el.closest('.tool')&&!el.closest('.checklist'))return;
+      if(el.matches('.card')&&$('p,li,h4',el))return;
+      var t=el.textContent.replace(/\s+/g,' ').trim();if(t.length<3)return;
+      idx.push({el:el,t:t,n:norm(t),sec:title});
+    });
+  });
+}
+buildIndex();
+function doSearch(){
+  var v=q.value.trim();if(v.length<2){res.classList.remove('show');res.innerHTML='';return}
+  var nv=norm(v),out=[],seen=new Set();
+  for(var i=0;i<idx.length&&out.length<30;i++){var it=idx[i];var p=it.n.indexOf(nv);if(p<0)continue;var key=it.sec+'|'+it.t.slice(0,60);if(seen.has(key))continue;seen.add(key);
+    var s=Math.max(0,p-50),e=Math.min(it.t.length,p+nv.length+70);
+    var snip=(s>0?'…':'')+esc(it.t.slice(s,p))+'<mark>'+esc(it.t.slice(p,p+nv.length))+'</mark>'+esc(it.t.slice(p+nv.length,e))+(e<it.t.length?'…':'');
+    out.push('<a class="r" href="#" data-i="'+i+'"><b>'+esc(it.sec)+'</b>'+snip+'</a>')}
+  res.innerHTML=out.length?out.join(''):'<div class="empty">Cap resultat per a «'+esc(v)+'».</div>';res.classList.add('show');
+}
+q.addEventListener('input',doSearch);q.addEventListener('focus',doSearch);
+document.addEventListener('click',function(e){if(!e.target.closest('.search'))res.classList.remove('show')});
+q.addEventListener('keydown',function(e){if(e.key==='Escape'){q.value='';doSearch();q.blur()}if(e.key==='Enter'){var f=$('.r',res);if(f)f.click()}});
+res.addEventListener('click',function(e){var a=e.target.closest('.r');if(!a)return;e.preventDefault();var it=idx[+a.dataset.i];var d=it.el.closest('details');if(d)d.open=true;
+  res.classList.remove('show');document.body.classList.remove('menu');it.el.scrollIntoView({behavior:'smooth',block:'center'});it.el.classList.remove('flash');void it.el.offsetWidth;it.el.classList.add('flash')});
+
+
+/* ---------- checklists ---------- */
+$$('.checklist').forEach(function(cl){var key=cl.dataset.key;var st=store.get('ck-'+key,{});var boxes=$$('input[type=checkbox]',cl);
+  function update(){var n=boxes.filter(function(b){return b.checked}).length;var cnt=$('[data-count="'+key+'"]');if(cnt)cnt.textContent=n+' de '+boxes.length+' marcats'}
+  boxes.forEach(function(b,i){b.checked=!!st[i];b.addEventListener('change',function(){st[i]=b.checked;store.set('ck-'+key,st);update()})});
+  var rb=$('[data-reset="'+key+'"]');if(rb)rb.addEventListener('click',function(){st={};store.set('ck-'+key,st);boxes.forEach(function(b){b.checked=false});update()});
+  update()});
+
+/* ---------- quizzes ---------- */
+$$('.quiz').forEach(function(qz){var key=qz.dataset.key;var st=store.get('quiz-'+key,{});var qs=$$('.q',qz);var score=$('[data-quiz-score="'+key+'"]');
+  function paint(q,i){var v=st[i];q.classList.remove('done','right','wrong');$$('button',q).forEach(function(b){b.classList.toggle('sel',b.dataset.v===v)});
+    if(v){q.classList.add('done',v===q.dataset.a?'right':'wrong')}}
+  function upd(){var ans=0,ok=0;qs.forEach(function(q,i){if(st[i]){ans++;if(st[i]===q.dataset.a)ok++}});
+    if(score)score.textContent=ans?(ok+' de '+ans+' encerts'+(ans<qs.length?' · en queden '+(qs.length-ans):' · completat')):qs.length+' preguntes'}
+  qs.forEach(function(q,i){paint(q,i);$$('button',q).forEach(function(b){b.addEventListener('click',function(){st[i]=b.dataset.v;store.set('quiz-'+key,st);paint(q,i);upd()})})});
+  var rb=$('[data-quiz-reset="'+key+'"]');if(rb)rb.addEventListener('click',function(){st={};store.set('quiz-'+key,st);qs.forEach(paint);upd()});
+  upd()});
+
+/* ---------- panells commutables (etapes, esquema) ---------- */
+$$('.switch').forEach(function(sw){var key=sw.dataset.key;var btns=$$('[data-val]',sw);var pans=$$('[data-panel]',sw);if(!btns.length)return;
+  var cur=store.get('sw-'+key,btns[0].dataset.val);
+  if(!btns.some(function(b){return b.dataset.val===cur}))cur=btns[0].dataset.val;
+  function show(v){cur=v;btns.forEach(function(b){var on=b.dataset.val===v;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false')});pans.forEach(function(p){p.hidden=p.dataset.panel!==v});store.set('sw-'+key,v)}
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.val)})});
+  show(cur)});
+
+/* ---------- valoració de les llistes ---------- */
+$$('[data-verdict]').forEach(function(out){var key=out.dataset.verdict;var cl=$('.checklist[data-key="'+key+'"]');if(!cl)return;
+  var boxes=$$('input[type=checkbox]',cl);var t=out.dataset.t.split(',').map(Number);var bar=$('.meter i',out),txt=$('.vtxt',out);
+  function upd(){var n=boxes.filter(function(b){return b.checked}).length;var lvl=n<t[0]?0:(n<t[1]?1:2);txt.innerHTML=out.getAttribute('data-m'+lvl);if(bar)bar.style.width=(100*n/boxes.length).toFixed(0)+'%'}
+  boxes.forEach(function(b){b.addEventListener('change',upd)});
+  var rb=$('[data-reset="'+key+'"]');if(rb)rb.addEventListener('click',function(){setTimeout(upd,0)});
+  upd()});
+
+})();
+</script>
+</body>
+</html>

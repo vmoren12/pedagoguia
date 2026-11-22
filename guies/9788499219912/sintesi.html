@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Síntesi · Neurociencia para educadores</title>
+<meta name="description" content="Síntesi imprimible en dues pàgines A4 de «Neurociencia para educadores» (David Bueno i Torrens, Octaedro, 2017): com es construeix el cervell que aprèn i què implica per a l'aula.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="ca" href="sintesi.html">
+<link rel="alternate" hreflang="es" href="es/sintesi.html">
+<script src="../../assets/js/lang.js" defer></script>
+<style>
+/* Síntesi A4 · Pedagoguia
+   Dos fulls de 210 × 297 mm. En pantalla s'escalen per cabre-hi; en imprimir, mida real. */
+@page { size: A4; margin: 0; }
+:root {
+  --ink: #1d1d1b; --ink-2: #3a3a37; --muted: #6c6a64; --line: #e3dfd5;
+  --accent: #2f5d50; --accent-2: #3f7a69; --accent-soft: #eaf1ed; --accent-ink: #1f4037;
+  --warm: #9c4a2c; --warm-soft: #f7ece6; --gold: #8a6d1f; --gold-soft: #f6f0dc;
+  --blue: #2d4a6b; --blue-soft: #e8eef5;
+  --serif: "Iowan Old Style", "Charter", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; }
+body { background: #e7e5df; color: var(--ink); font: 8.2pt/1.36 var(--sans); }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+b, strong { font-weight: 650; }
+
+/* Barra de pantalla */
+.bar {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; background: rgba(251, 250, 247, .92); backdrop-filter: blur(10px);
+  border-bottom: 1px solid #d9d4c8; font: 14px/1.2 var(--sans);
+}
+.bar a, .bar button {
+  display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px;
+  border: 1px solid #1d1d1b; border-radius: 999px; background: #f6f5f2; color: #1d1d1b;
+  font: inherit; font-size: 13px; text-decoration: none; cursor: pointer;
+}
+.bar a:hover, .bar button:hover { background: #fff; }
+.bar .back { border-color: transparent; background: transparent; padding: 0 8px; }
+.bar .back:hover { background: #eeece6; }
+.bar svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.bar .t { flex: 1; min-width: 0; color: #6c6a64; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.sheets { padding: 24px 16px 48px; }
+.sheet {
+  position: relative; width: 210mm; height: 297mm; margin: 0 auto 24px; padding: 11mm 12mm 9mm;
+  background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .08), 0 18px 40px -20px rgba(0, 0, 0, .3);
+  display: flex; flex-direction: column; gap: 3.2mm; overflow: hidden; zoom: var(--s, 1);
+}
+
+/* Capçalera */
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 6mm; padding-bottom: 2.6mm; border-bottom: 1.4pt solid var(--ink); }
+.kicker { font-size: 6.6pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2mm; }
+.head h1 { font: 500 19pt/1.05 var(--serif); letter-spacing: -.01em; }
+.head .src { margin-top: 1.2mm; color: var(--muted); font-size: 7.6pt; }
+.head .side { text-align: right; font-size: 7pt; color: var(--muted); line-height: 1.4; white-space: nowrap; }
+.head .side b { display: block; font: 500 13pt/1 var(--serif); color: var(--ink); }
+.head.slim h1 { font-size: 14pt; }
+
+/* Blocs */
+.row { display: grid; gap: 3.2mm; }
+.c2 { grid-template-columns: 1fr 1fr; }
+.c21 { grid-template-columns: 1.25fr 1fr; }
+.c12 { grid-template-columns: 1fr 1.25fr; }
+.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.card { border: .7pt solid var(--line); border-radius: 2.2mm; padding: 2.8mm 3.2mm; min-width: 0; }
+.card.fill { background: #faf9f6; }
+.card.accent { background: var(--accent); color: #f3f7f5; border-color: var(--accent); }
+.card.accent h2 { color: #fff; }
+.card.accent .h-num { background: rgba(255, 255, 255, .16); color: #fff; }
+h2 { display: flex; align-items: center; gap: 2mm; font: 600 9.6pt/1.2 var(--serif); color: var(--ink); margin-bottom: 1.8mm; }
+h3 { font-size: 7.2pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 2mm 0 1mm; }
+.h-num { display: inline-grid; place-items: center; width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font: 700 6.8pt/1 var(--sans); flex: none; }
+.lead { color: var(--ink-2); }
+.note { margin-top: 1.6mm; font-size: 7.2pt; color: var(--muted); }
+.note.ev { padding-left: 2.2mm; border-left: 1.2pt solid var(--gold); }
+.tag { display: inline-block; padding: .3mm 1.6mm; border-radius: 99px; font-size: 6.6pt; font-weight: 700; letter-spacing: .04em; }
+.tag.g { background: var(--accent-soft); color: var(--accent-ink); }
+.tag.w { background: var(--warm-soft); color: var(--warm); }
+.tag.y { background: var(--gold-soft); color: var(--gold); }
+
+/* Llistes */
+.dots li { position: relative; padding-left: 3mm; margin-top: .9mm; }
+.dots li::before { content: ""; position: absolute; left: .4mm; top: 1.45mm; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: var(--accent); }
+.checks li { position: relative; padding-left: 3.8mm; margin-top: .9mm; }
+.checks li::before { content: ""; position: absolute; left: .3mm; top: .9mm; width: 1.1mm; height: 2mm; border: solid var(--accent); border-width: 0 1.1pt 1.1pt 0; transform: rotate(45deg); }
+.nums { counter-reset: n; }
+.nums li { position: relative; padding-left: 5mm; margin-top: 1.1mm; counter-increment: n; }
+.nums li::before { content: counter(n); position: absolute; left: 0; top: -.1mm; width: 3.6mm; height: 3.6mm; border-radius: 50%; background: var(--accent); color: #fff; font: 700 6pt/3.6mm var(--sans); text-align: center; }
+.nums.w li::before { background: var(--warm); }
+.cols2 { columns: 2; column-gap: 4mm; }
+.cols2 li { break-inside: avoid; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4mm; }
+.dense { gap: 2.4mm; padding-top: 10mm; font-size: 7.9pt; }
+.dense .row { gap: 2.4mm; }
+.dense .card { padding: 2.2mm 2.8mm; }
+.dense h2 { margin-bottom: 1.2mm; }
+.dense .note { margin-top: 1.1mm; }
+.dense .dots li, .dense .checks li { margin-top: .6mm; }
+
+/* Fórmula del modelo simple */
+.formula { display: grid; grid-template-columns: 1fr auto 1fr auto 1.1fr; align-items: stretch; gap: 1.6mm; margin: 1.4mm 0 2mm; }
+.formula .term { display: grid; place-items: center; text-align: center; padding: 2.2mm 1.4mm; border-radius: 1.8mm; font-weight: 650; font-size: 8pt; line-height: 1.2; }
+.formula .term small { display: block; font-weight: 400; font-size: 6.6pt; opacity: .85; margin-top: .4mm; }
+.formula .op { align-self: center; font: 500 14pt/1 var(--serif); color: var(--muted); }
+.t-d { background: var(--blue-soft); color: var(--blue); }
+.t-c { background: var(--gold-soft); color: var(--gold); }
+.t-r { background: var(--accent); color: #fff; }
+
+/* Tabla de mitos */
+.myths { display: grid; grid-template-columns: 1fr 1.7fr; border-top: .7pt solid var(--line); }
+.myths > div { padding: 1.5mm 2mm 1.5mm 0; border-bottom: .7pt solid var(--line); }
+.myths .m { position: relative; padding-left: 4mm; color: var(--warm); font-weight: 600; }
+.myths .m::before { content: ""; position: absolute; left: .4mm; top: 2.6mm; width: 2.2mm; height: .9pt; background: var(--warm); }
+.myths .hd { font-size: 6.6pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 0; }
+.myths .hd.m { color: var(--muted); }
+.myths .hd.m::before { display: none; }
+
+/* Predictores */
+.pred { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+.pred .grp { border-radius: 1.8mm; padding: 2mm 2.4mm; }
+.pred .grp.d { background: var(--blue-soft); }
+.pred .grp.c { background: var(--gold-soft); }
+.pred .grp p { font-size: 6.8pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1mm; }
+.pred .grp.d p { color: var(--blue); }
+.pred .grp.c p { color: var(--gold); }
+.pred li { padding: .7mm 0; border-top: .6pt solid rgba(0, 0, 0, .07); }
+.pred li:first-child { border-top: 0; }
+.pred li.plus { color: var(--muted); font-style: italic; }
+
+/* Escalera y barras de conciencia fonológica */
+.ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1mm; align-items: end; margin: .6mm 0 1.4mm; }
+.ladder span { display: grid; align-content: end; text-align: center; padding: 1.2mm .6mm; border-radius: 1.2mm 1.2mm 0 0; background: var(--accent-soft); color: var(--accent-ink); font-weight: 650; font-size: 7pt; }
+.ladder span small { display: block; font-weight: 400; font-size: 6.2pt; color: var(--muted); }
+.ladder span:nth-child(1) { height: 8mm; }
+.ladder span:nth-child(2) { height: 10mm; }
+.ladder span:nth-child(3) { height: 12mm; }
+.ladder span:nth-child(4) { height: 14mm; background: var(--accent); color: #fff; }
+.ladder span:nth-child(4) small { color: rgba(255, 255, 255, .8); }
+.axis { display: flex; justify-content: space-between; font-size: 6.2pt; color: var(--muted); margin-bottom: 1.6mm; }
+.bars li { display: grid; grid-template-columns: 1fr 22mm; align-items: center; gap: 2mm; margin-top: .9mm; }
+.bars i { display: block; height: 2.2mm; border-radius: 99px; background: var(--accent); }
+
+/* Secuencia de un grafema nuevo */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4mm; }
+.flow > div { position: relative; padding: 1.8mm 2mm; border-radius: 1.8mm; background: var(--accent-soft); }
+.flow > div:not(:last-child)::after { content: ""; position: absolute; right: -1.3mm; top: 50%; width: 1.6mm; height: 1.6mm; border: solid var(--accent); border-width: 1pt 1pt 0 0; transform: translateY(-50%) rotate(45deg); background: transparent; }
+.flow b { display: block; font-size: 7pt; color: var(--accent-ink); }
+.flow.noarrow > div::after { display: none; }
+.flow em { display: block; margin-top: .6mm; font: italic 7.2pt/1.25 var(--serif); color: var(--ink-2); }
+
+/* Antes, durante y después */
+.adt { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2mm; margin-top: 1mm; }
+.adt > div { padding: 1.4mm 1.8mm; border-radius: 1.4mm; background: var(--gold-soft); font-size: 7.2pt; }
+.adt b { display: block; color: var(--gold); font-size: 6.6pt; letter-spacing: .08em; text-transform: uppercase; }
+
+.peer { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; margin-top: 1.4mm; font-size: 7.2pt; }
+.peer li { margin-top: .5mm; }
+.peer li b { display: inline-block; width: 3mm; color: var(--accent); }
+
+.say { margin-top: 1.4mm; padding: 1.6mm 2.2mm; border-radius: 1.4mm; background: var(--warm-soft); font: italic 7.6pt/1.3 var(--serif); color: var(--ink-2); }
+
+.verdicts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm; margin-top: 1.6mm; }
+.verdicts > div { padding: 1.4mm 1.8mm; border: .7pt solid var(--line); border-radius: 1.4mm; font-size: 7.1pt; }
+.verdicts b { display: block; font-size: 7pt; }
+
+.foot { margin-top: auto; display: flex; justify-content: space-between; gap: 6mm; padding-top: 2mm; border-top: .7pt solid var(--line); font-size: 6.4pt; color: var(--muted); }
+
+@media print {
+  body { background: #fff; }
+  .bar { display: none; }
+  .sheets { padding: 0; }
+  .sheet { margin: 0; box-shadow: none; zoom: 1; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+}
+.tiny { font-size: 7pt; }
+.c4 { grid-template-columns: repeat(4, 1fr); }
+.mini-tiers { display: grid; gap: .8mm; margin-top: 1mm; }
+.mini-tiers span { display: block; padding: .9mm 1.6mm; border-radius: 1.2mm; background: var(--accent-soft); color: var(--accent-ink); font-size: 6.8pt; }
+.mini-tiers span:first-child { background: var(--accent); color: #fff; }
+.bars li { grid-template-columns: 27mm 1fr; }
+.bars li span { font-size: 7.2pt; }
+.pred li b { color: var(--accent-ink); }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="back" href="./" aria-label="Torna a la guia">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Guia
+  </a>
+  <span class="t">Síntesi en 2 pàgines A4 · Neurociencia para educadores</span>
+  <a class="lang-btn" href="es/sintesi.html" data-pg-lang="es" hreflang="es" lang="es" title="Versión en castellano" aria-label="Versión en castellano">ES</a>
+  <button type="button" onclick="window.print()">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><path d="M7 14h10v6H7z"/></svg>Imprimeix o PDF
+  </button>
+</div>
+
+<main class="sheets">
+
+<!-- ============================ FULL 1 ============================ -->
+<section class="sheet dense" aria-label="Pàgina 1: com és i com es construeix el cervell">
+  <header class="head">
+    <div>
+      <p class="kicker">Síntesi · Com es construeix el cervell que aprèn</p>
+      <h1>Neurociencia para educadores</h1>
+      <p class="src">David Bueno i Torrens · Octaedro, col·lecció Rosa Sensat, 2017 · 37 preguntes en 17 capítols</p>
+    </div>
+    <div class="side"><b>1 / 2</b>Pedagoguia</div>
+  </header>
+
+  <div class="row c21">
+    <div class="card">
+      <h2><span class="h-num">1</span>Educar és canviar el cervell dels altres</h2>
+      <p class="lead">Tot el que aprenem es desa en <b>patrons de connexions</b> entre neurones (més de cent bilions). La mida del cervell no fa més intel·ligent: compten les connexions.</p>
+      <ul class="dots">
+        <li><b>Plasticitat:</b> el cervell es construeix i es reconstrueix tota la vida interactuant amb l'ambient.</li>
+        <li>És <b>bidireccional</b>: mentre canviem el seu cervell, l'alumnat canvia el nostre.</li>
+        <li>Segons com eduquem, formem persones més <b>reflexives</b> o més <b>impulsives</b>.</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h2><span class="h-num">2</span>Per a què eduquem</h2>
+      <p>Per ajudar les persones a <b>créixer en dignitat</b>: respecte per un mateix i pels altres, aprofitar fortaleses i afrontar febleses, transformar la societat.</p>
+      <p style="margin-top:1.6mm">La neurociència <b>no substitueix la pedagogia</b>: explica per què funciona el que ja fa bé (emocions, context, grup, joc, plaer).</p>
+      <p style="margin-top:1.6mm;opacity:.85;font-size:7.2pt">«Ho estem fent bé», però saber com ho percep el cervell ajuda a afinar.</p>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div class="card">
+      <h2><span class="h-num">3</span>Els gens condicionen, no determinen</h2>
+      <p>Com les instruccions d'un moble: unes no deixen opció (grup sanguini, 100 % heretable); d'altres condicionen el resultat, però l'ambient decideix (la vida mental).</p>
+      <ul class="bars" style="margin-top:1.4mm">
+        <li><span>CI en infants · 45 %</span><i style="width:45%"></i></li>
+        <li><span>Empatia · 47 %</span><i style="width:47%"></i></li>
+        <li><span>Creativitat · 55 %</span><i style="width:55%"></i></li>
+        <li><span>Impulsivitat · 62 %</span><i style="width:62%"></i></li>
+      </ul>
+      <p class="note">Heretabilitat que recull el llibre. 25 alumnes = 25 genètiques: educació social i individualitzada.</p>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">4</span>Neuromites</h2>
+      <div class="myths" style="grid-template-columns:1fr 1fr">
+        <div class="m">Fem servir el 10 % del cervell</div><div class="m">Més gran, més intel·ligent</div>
+        <div class="m">Hemisferi racional i emocional</div><div class="m">Ensenyar segons l'estil o l'hemisferi</div>
+        <div class="m">Mozart fa més intel·ligent</div><div class="m">Intel·ligències independents</div>
+        <div class="m">Nois i noies, capacitats diferents</div><div class="m">Hi ha matèries «maria»</div>
+      </div>
+      <p class="note">El cervell funciona com un <b>tot integrat</b>. Quan descansa, és quan més activitat té: distreure's i dormir consoliden.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="h-num">5</span>Les finestres del desenvolupament</h2>
+    <div class="flow">
+      <div><b>Abans de néixer</b>tub neural (dia 18), escorça (set. 25), poda (set. 28)<em>tabac, alcohol i drogues hi afecten; l'esport i l'afecte, també</em></div>
+      <div><b>0-3 anys</b>connexions dins l'escorça: el cervell s'impregna de l'ambient<em>caràcter i temperament; afecte i estabilitat</em></div>
+      <div><b>4-11 anys</b>escorça + amígdala i hipocamp: consciència d'emocions i records<em>destreses acadèmiques; o aprenen a avorrir-se</em></div>
+      <div><b>Adolescència</b>connexions entre zones llunyanes; control emocional per assaig<em>grans aprenentatges conceptuals i ètics</em></div>
+    </div>
+    <p class="note">Les edats són mitjanes: cada cervell madura al seu ritme. No es pot tornar enrere, però sí trobar camins alternatius.</p>
+  </div>
+
+  <div class="card">
+      <h2><span class="h-num">6</span>Les emocions: l'accelerador</h2>
+      <p>Patrons de conducta <b>automàtics i preconscients</b> que generen les amígdales davant d'un canvi o una amenaça. La reflexió (escorça) fa de <b>fre i volant</b>.</p>
+      <ul class="dots">
+        <li>Amb emoció, el cervell ho considera important per sobreviure: <b>ho desa millor</b>.</li>
+        <li>Amb por també s'aprèn, però s'aprèn a tenir <b>por d'aprendre</b>. No s'ha d'aplicar mai.</li>
+        <li>Amb plaer, de grans tindran <b>plaer per aprendre</b>.</li>
+      </ul>
+    </div>
+
+  <div class="row c2">
+    <div class="card">
+      <h2><span class="h-num">7</span>Com aprenem</h2>
+      <ul class="checks">
+        <li><b>Xarxes extenses</b> (transversals, en context) es recorden i s'apliquen millor.</li>
+        <li>Un cervell <b>estimulat</b> (mai sobreestimulat) fa més connexions.</li>
+        <li>Repetir consolida; repetir <b>amb petites novetats</b> amplia la xarxa.</li>
+        <li>El més útil per al cervell: <b>l'acceptació social</b>.</li>
+        <li>Aprendre és fàcil; <b>desaprendre</b>, molt difícil: els errors queden a la base.</li>
+        <li>La consolidació es fa <b>dormint</b>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">8</span>L'adolescència</h2>
+      <ul class="dots">
+        <li>El <b>descontrol emocional</b> és la prova que el control madura: assaja i selecciona segons l'acceptació.</li>
+        <li><b>Límits</b>: sense cap ni irrompibles, no maduren equilibradament.</li>
+        <li><b>Cerca de novetats</b> (dopamina): aliada per aprendre; si no es canalitza, porta cap a les drogues.</li>
+        <li>Saber esperar la recompensa madura fins als <b>34 anys</b>.</li>
+        <li>Alerta amb l'<b>apagada emocional</b>: apatia, «passo de tot».</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>Síntesi de l'obra citada. Tot el contingut procedeix del llibre; el detall, els exemples i les eines són a la guia completa.</span>
+    <span>Pedagoguia · Guia 9788499219912</span>
+  </footer>
+</section>
+
+<!-- ============================ FULL 2 ============================ -->
+<section class="sheet dense" aria-label="Pàgina 2: què fer a l'aula">
+  <header class="head slim">
+    <div>
+      <p class="kicker">Síntesi · Del cervell a l'aula</p>
+      <h1>«El principal aliat de l'educació és el plaer»</h1>
+    </div>
+    <div class="side"><b>2 / 2</b>Pedagoguia</div>
+  </header>
+
+  <div class="row c21">
+    <div class="card">
+      <h2><span class="h-num">9</span>La motivació, combustible de l'aprenentatge</h2>
+      <ul class="dots cols2">
+        <li><b>Objectiu tangible</b>: que vegin com avança.</li>
+        <li><b>Repte significatiu</b> del seu dia a dia.</li>
+        <li>Generar una <b>necessitat</b>.</li>
+        <li>Poder <b>triar</b>, millor entre dues opcions.</li>
+        <li>Obstacles superables, amb <b>optimisme</b>.</li>
+        <li><b>Novetat</b>, emoció i acceptació social.</li>
+        <li>Llum natural, temperatura moderada, sense cansament.</li>
+        <li>Tan important com motivar és <b>no desmotivar</b>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">10</span>L'atenció: sorpresa</h2>
+      <p>El <b>tàlem</b> només s'activa davant del que és inesperat, i llavors desperta l'hipocamp i l'amígdala.</p>
+      <p class="say">«El truc de l'atenció és la capacitat de sorpresa.»</p>
+      <p class="note">Infants: canviar sovint d'activitat. Adolescents: aprendre a gestionar-la, amb sorpreses de tant en tant.</p>
+    </div>
+  </div>
+
+  <div class="row c3">
+    <div class="card fill">
+      <h2><span class="h-num">11</span>Mirades</h2>
+      <ul class="dots">
+        <li>Cada mirada activa emocions.</li>
+        <li>Els mestres miraven amb més aprovació els nois que resolien bé problemes de mates.</li>
+        <li>El problema és <b>mirar sempre igual</b> amb desaprovació.</li>
+      </ul>
+    </div>
+    <div class="card fill">
+      <h2><span class="h-num">12</span>Cooperar i jugar</h2>
+      <ul class="dots">
+        <li>Cooperar: cada aportació és <b>imprescindible</b>; no tothom fent el mateix.</li>
+        <li>El treball individual també cal.</li>
+        <li>El <b>joc</b> és la forma instintiva d'aprendre.</li>
+      </ul>
+    </div>
+    <div class="card fill">
+      <h2><span class="h-num">13</span>Imitació</h2>
+      <ul class="dots">
+        <li>Les actituds no s'expliquen: <b>s'imiten</b>.</li>
+        <li>Coherència entre el que diem, pensem i fem.</li>
+        <li>Ser <b>aprenents</b> a l'aula, no només ensenyants.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div class="card">
+      <h2><span class="h-num">14</span>La creativitat ve de sèrie</h2>
+      <p>Qüestionar, trencar límits, veure patrons, connectar el que no està connectat. Pràctica = <b>experiència + pensament creatiu + motivació</b>.</p>
+      <ul class="checks" style="margin-top:1mm">
+        <li>Pluja d'idees <b>sense crítica immediata</b>.</li>
+        <li>Joc lliure, humor, plàstica, classificar.</li>
+        <li><b>Temps per pensar</b>, relaxar-se i distreure's.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">15</span>Autoconsciència</h2>
+      <p>Ser conscients que som conscients: l'única via per canviar de manera reflexiva els patrons preconscients. El cervell reinterpreta el que expliquem segons el que ja pensava.</p>
+      <ul class="checks" style="margin-top:1mm">
+        <li><b>Estones de quietud</b> per pensar què han après.</li>
+        <li>Un <b>conflicte cognitiu</b> que sacsegi el que ja saben.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div class="card">
+      <h2><span class="h-num">16</span>Enemic número u: l'estrès crònic</h2>
+      <p>L'estrès puntual és útil i formatiu. El <b>crònic</b> (cortisol) altera connexions, estreny l'atenció, redueix la plasticitat i afavoreix la depressió.</p>
+      <div class="adt">
+        <div><b>Fonts</b>assetjament, deures i extraescolars excessius, por</div>
+        <div><b>Senyals</b>apatia, impulsivitat, atenció dispersa</div>
+        <div><b>Aliats</b>plaer, motivació, esport, son</div>
+      </div>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">17</span>Les «maries» no ho són</h2>
+      <div class="verdicts">
+        <div><span class="tag g">Esport</span><b>Endorfines, menys cortisol; irisina → BDNF → plasticitat</b></div>
+        <div><span class="tag g">Relaxació</span><b>Atenció, flexibilitat, maduració emocional</b></div>
+        <div><span class="tag y">Plàstica</span><b>Llenguatge, abstracció, creativitat</b></div>
+        <div><span class="tag y">Música</span><b>Activa tot el cervell, recompensa i emocions</b></div>
+      </div>
+      <p class="note">Tecnologia amb mesura; sorra, fang, tolls i pinzells, sempre.</p>
+    </div>
+  </div>
+
+  <div class="row c21">
+  <div class="card fill">
+    <h2><span class="h-num">18</span><span><i>Bonus track</i>: tot està connectat</span></h2>
+    <p>Motivació, optimisme, cerca de novetats, creativitat i risc (poder triar) giren al voltant del <b>plaer</b>, sobre la base de les neurones mirall i la plasticitat, i del grup i la recompensa social. Totes les fletxes són bidireccionals: <b>no cal tirar de tots els fils</b>; tira del que se't doni millor i la resta vindrà.</p>
+  </div>
+  <div class="card fill">
+    <h2><span class="h-num">19</span>Mapa mínim</h2>
+    <ul class="pred" style="display:block">
+      <li><b>Amígdales</b> · emocions</li>
+      <li><b>Hipocamp</b> · gestiona la memòria (les «adreces»)</li>
+      <li><b>Tàlem</b> · atenció davant del que és inesperat</li>
+      <li><b>Escorça prefrontal</b> · raonament, control emocional, creativitat</li>
+      <li><b>Nucli accumbens</b> · motivació i plaer</li>
+      <li><b>Hipotàlem</b> · hormones de l'estrès</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="card accent">
+    <h2><span class="h-num">20</span>Cinc gestos per començar demà</h2>
+    <div class="flow noarrow" style="grid-template-columns:repeat(5,1fr)">
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">1 · Sorprendre</b><span style="color:#f3f7f5">obrir amb una pregunta, un objecte o un acudit</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">2 · Contextualitzar</b><span style="color:#f3f7f5">partir del barri, el mercat, la cuina</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">3 · Deixar triar</b><span style="color:#f3f7f5">dues opcions reals</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">4 · Reconèixer</b><span style="color:#f3f7f5">mirada i paraula d'aprovació</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">5 · Moure's</b><span style="color:#f3f7f5">una estona de moviment, música o calma</span></div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>Síntesi de <i>Neurociencia para educadores</i> (Octaedro, 2017). No substitueix la lectura de l'obra.</span>
+    <span>Pedagoguia · Guia 9788499219912</span>
+  </footer>
+</section>
+
+</main>
+
+<script>
+/* Escala els fulls a l'amplada disponible en pantalla */
+(function () {
+  var mm = 96 / 25.4, sheetW = 210 * mm;
+  function fit() {
+    var avail = document.documentElement.clientWidth - 32;
+    document.documentElement.style.setProperty('--s', Math.min(1, avail / sheetW).toFixed(3));
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('beforeprint', function () { document.documentElement.style.setProperty('--s', 1); });
+  window.addEventListener('afterprint', fit);
+  fit();
+})();
+</script>
+</body>
+</html>
