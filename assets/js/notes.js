@@ -40,7 +40,8 @@
       privacy: 'Les notes es desen només en aquest navegador. Exporta-les per fer-ne una còpia o passar-les a un altre dispositiu.',
       noSection: 'Introducció', openNote: 'Ves a la nota', editNote: 'Edita la nota',
       count: function (n) { return n === 1 ? '1 nota' : n + ' notes'; },
-      colors: { y: 'groc', p: 'rosa', g: 'verd', b: 'blau', v: 'lila' }
+      colors: { y: 'groc', p: 'rosa', g: 'verd', b: 'blau', v: 'lila' },
+      version: { ca: 'versió catalana', es: 'versió castellana' }
     },
     es: {
       notes: 'Notas', myNotes: 'Mis notas', thisGuide: 'Esta guía', allGuides: 'Todas las guías',
@@ -61,10 +62,12 @@
       privacy: 'Las notas se guardan solo en este navegador. Expórtalas para hacer una copia o pasarlas a otro dispositivo.',
       noSection: 'Introducción', openNote: 'Ir a la nota', editNote: 'Editar la nota',
       count: function (n) { return n === 1 ? '1 nota' : n + ' notas'; },
-      colors: { y: 'amarillo', p: 'rosa', g: 'verde', b: 'azul', v: 'lila' }
+      colors: { y: 'amarillo', p: 'rosa', g: 'verde', b: 'azul', v: 'lila' },
+      version: { ca: 'versión catalana', es: 'versión castellana' }
     }
   };
-  var LANG = (document.documentElement.lang || 'ca').slice(0, 2) === 'es' ? 'es' : 'ca';
+  function currentLang() { return (document.documentElement.lang || 'ca').slice(0, 2) === 'es' ? 'es' : 'ca'; }
+  var LANG = currentLang();
   var T = I18N[LANG];
   var COLORS = ['y', 'p', 'g', 'b', 'v'];
 
@@ -75,7 +78,23 @@
     search: 'M11 4.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM20 20l-4.2-4.2'
   };
 
-  /* ---------- Guia actual ---------- */
+  /* ---------- Guia actual ----------
+     Cada guia té dues versions: guies/ISBN/ (català) i guies/ISBN/es/ (castellà).
+     Un subratllat s'ancora al text d'una versió concreta, per això cada nota
+     recorda la llengua on es va fer (lang). */
+  function guidePath(isbn, lang) { return 'guies/' + isbn + '/' + (lang === 'es' ? 'es/' : ''); }
+
+  /* Notes d'abans de les guies bilingües: no porten lang i es van fer sobre
+     l'única versió que hi havia (en castellà, excepte la guia de Kirschner). */
+  var LEGACY_LANG = { '9788446056805': 'ca' };
+  function migrate(n) {
+    if (n && !n.deleted && typeof n.guide === 'string' && !n.lang) {
+      n.lang = LEGACY_LANG[n.guide] || 'es';
+      n.path = guidePath(n.guide, n.lang);
+    }
+    return n;
+  }
+
   var guideMeta = document.querySelector('meta[name="pg-guide"]');
   var GUIDE = null;
   if (guideMeta) {
@@ -83,10 +102,12 @@
     var h1 = document.querySelector('h1');
     GUIDE = {
       isbn: guideMeta.content,
+      lang: LANG,
       title: titleMeta ? titleMeta.content : (h1 ? h1.textContent.trim() : document.title),
-      path: 'guies/' + guideMeta.content + '/'
+      path: guidePath(guideMeta.content, LANG)
     };
   }
+  function isHere(n) { return !!GUIDE && n.guide === GUIDE.isbn && n.lang === GUIDE.lang; }
   var container = null;
 
   /* ---------- Utilitats ---------- */
@@ -134,7 +155,10 @@
   function load() {
     try {
       var d = JSON.parse(localStorage.getItem(KEY));
-      if (d && d.notes && typeof d.notes === 'object') return d;
+      if (d && d.notes && typeof d.notes === 'object') {
+        Object.keys(d.notes).forEach(function (k) { migrate(d.notes[k]); });
+        return d;
+      }
     } catch (e) {}
     return blank();
   }
@@ -258,7 +282,7 @@
     guideNotes().sort(function (a, b) { return (a.pos || 0) - (b.pos || 0); }).forEach(function (n) { paint(n, buildIndex()); });
   }
 
-  function guideNotes() { return GUIDE ? live().filter(function (n) { return n.guide === GUIDE.isbn; }) : []; }
+  function guideNotes() { return live().filter(isHere); }
 
   function sectionOf(node) {
     var el = node.nodeType === 1 ? node : node.parentElement;
@@ -281,7 +305,7 @@
     while (k < idx.nodes.length - 1 && idx.starts[k + 1] <= s) k++;
     var sec = sectionOf(idx.nodes[k]);
     var note = {
-      id: uid(), guide: GUIDE.isbn, guideTitle: GUIDE.title, path: GUIDE.path,
+      id: uid(), guide: GUIDE.isbn, lang: GUIDE.lang, guideTitle: GUIDE.title, path: GUIDE.path,
       color: color, quote: text.slice(s, e),
       prefix: text.slice(Math.max(0, s - CONTEXT), s), suffix: text.slice(e, e + CONTEXT), pos: s,
       section: sec.id, sectionTitle: sec.title, comment: '', tags: [], created: now()
@@ -443,7 +467,7 @@
     drop(id);
     toast(T.deleted, T.undo, function () {
       db.notes[id] = copy; put(copy);
-      if (container && GUIDE && copy.guide === GUIDE.isbn) repaint();
+      if (container && isHere(copy)) repaint();
     });
   }
 
@@ -471,7 +495,7 @@
 
   function scoped() {
     var list = live();
-    if (view.scope === 'guide' && GUIDE) list = list.filter(function (n) { return n.guide === GUIDE.isbn; });
+    if (view.scope === 'guide' && GUIDE) list = list.filter(isHere);
     return list;
   }
 
@@ -488,6 +512,7 @@
 
   function openViewer() {
     if (drawer) return;
+    if (!GUIDE) { LANG = currentLang(); T = I18N[LANG]; } // el catàleg pot canviar d'idioma sense recarregar
     closePop(); hideToolbar();
     lastFocus = document.activeElement;
     scrim = h('div.pg-scrim', { onclick: closeViewer });
@@ -579,10 +604,13 @@
 
   function toggle(arr, v) { var i = arr.indexOf(v); if (i === -1) arr.push(v); else arr.splice(i, 1); }
 
+  /* Agrupa per guia i versió; la versió s'indica quan no és la de la pàgina */
   function groupNotes(list) {
     var groups = {};
     list.forEach(function (n) {
-      var g = groups[n.guide] || (groups[n.guide] = { title: n.guideTitle || n.guide, notes: [], current: GUIDE && n.guide === GUIDE.isbn });
+      var key = n.guide + ':' + n.lang;
+      var title = (n.guideTitle || n.guide) + (n.lang && n.lang !== LANG ? ' · ' + T.version[n.lang] : '');
+      var g = groups[key] || (groups[key] = { title: title, notes: [], current: isHere(n) });
       g.notes.push(n);
     });
     return Object.keys(groups).map(function (k) { return groups[k]; })
@@ -591,7 +619,7 @@
   }
 
   function renderItem(n) {
-    var orphan = GUIDE && n.guide === GUIDE.isbn && orphans[n.id];
+    var orphan = isHere(n) && orphans[n.id];
     return h('article.pg-item', { 'data-c': n.color }, [
       h('button.pg-item-main', { type: 'button', title: T.openNote, onclick: function () { goTo(n); } }, [
         h('span.pg-quote', { text: n.quote }),
@@ -605,11 +633,11 @@
   }
 
   function goTo(n) {
-    if (GUIDE && n.guide === GUIDE.isbn) {
+    if (isHere(n)) {
       if (window.innerWidth < 900) closeViewer();
       reveal(n.id, true);
     } else {
-      location.href = ROOT + (n.path || 'guies/' + n.guide + '/') + '#pg-note=' + encodeURIComponent(n.id);
+      location.href = ROOT + guidePath(n.guide, n.lang) + '#pg-note=' + encodeURIComponent(n.id);
     }
   }
 
@@ -666,6 +694,7 @@
         if (!n || typeof n.id !== 'string') return;
         if (!n.deleted && (typeof n.quote !== 'string' || typeof n.guide !== 'string')) return;
         if (!n.deleted && COLORS.indexOf(n.color) === -1) n.color = 'y';
+        migrate(n);
         var cur = db.notes[n.id];
         if (!cur) { db.notes[n.id] = n; if (!n.deleted) added++; }
         else if ((n.updated || '') > (cur.updated || '')) { db.notes[n.id] = n; if (!n.deleted) updated++; }

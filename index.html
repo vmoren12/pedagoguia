@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pedagoguia · Guies pràctiques basades en la recerca</title>
-<meta name="description" content="Guies pràctiques basades en la recerca per orientar decisions d'aula, elaborades a partir de llibres de referència de l'àmbit educatiu.">
+<meta name="description" data-i18n-attr="content:docDesc" content="Guies pràctiques basades en la recerca per orientar decisions d'aula, elaborades a partir de llibres de referència de l'àmbit educatiu.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141513" media="(prefers-color-scheme: dark)">
@@ -16,10 +16,11 @@
 <link rel="stylesheet" href="assets/css/pedagoguia.css">
 <link rel="stylesheet" href="assets/css/notes.css">
 <script>
-  /* Tema abans del primer pintat per evitar parpelleig */
+  /* Tema i idioma abans del primer pintat per evitar parpelleig */
   (function () {
     try {
       var t = localStorage.getItem('pedagoguia:theme');
+      if (localStorage.getItem('pedagoguia:lang') === 'es') document.documentElement.lang = 'es';
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
   })();
@@ -28,26 +29,30 @@
 <script src="assets/js/notes.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#cataleg">Ves al catàleg</a>
+<a class="skip" href="#cataleg" data-i18n="skip">Ves al catàleg</a>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="./" aria-label="Pedagoguia, inici">
+    <a class="brand" href="./" aria-label="Pedagoguia, inici" data-i18n-attr="aria-label:home">
       <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.69" stroke-linecap="round"><path d="M27.10 11.98V24.62"/><path d="M4.90 8.72V21.36"/><path d="M18.83 16.76V29.40"/></g><g stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M12.97 2.60 Q19.43 5.40 21.05 9.01 L10.95 14.83 Q9.34 11.22 2.88 8.43Z" fill="var(--paper, #fbfaf7)"/><path d="M29.12 11.92 Q22.66 7.26 21.05 9.01 L10.95 14.83 Q12.57 13.09 19.03 17.75Z" fill="var(--paper, #fbfaf7)"/></g><path d="M29.12 11.92 Q22.66 7.26 21.05 9.01 L10.95 14.83 Q12.57 13.09 19.03 17.75Z" fill="currentColor" fill-opacity=".22" stroke="none"/></svg>
       <span>Pedagoguia</span>
     </a>
     <div class="header-actions">
-      <button class="icon-btn" type="button" data-pg-notes aria-label="Les meves notes i subratllats" title="Les meves notes i subratllats">
+      <div class="lang-switch" id="langSwitch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:lang">
+        <button type="button" data-lang="ca" lang="ca" aria-pressed="true" title="Català">CA</button>
+        <button type="button" data-lang="es" lang="es" aria-pressed="false" title="Castellano">ES</button>
+      </div>
+      <button class="icon-btn" type="button" data-pg-notes aria-label="Les meves notes i subratllats" title="Les meves notes i subratllats" data-i18n-attr="aria-label:notes;title:notes">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10l4 4V19.5H5zM15 4.5V9h4M8.5 13h7M8.5 16h4.5"/></svg>
       </button>
-      <button class="icon-btn" type="button" data-feedback aria-label="Notificar un error o fer un suggeriment" title="Notificar un error o fer un suggeriment">
+      <button class="icon-btn" type="button" data-feedback aria-label="Notificar un error o fer un suggeriment" title="Notificar un error o fer un suggeriment" data-i18n-attr="aria-label:feedback;title:feedback">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.2 3.6c-.3.3-.8 0-.8-.4V16h0a1 1 0 0 1-1-1z"/><path d="M12 7.5v4"/><path d="M12 13.6v.01"/></svg>
       </button>
-      <button class="icon-btn" type="button" id="themeToggle" aria-label="Canviar el tema de color" title="Canviar el tema de color">
+      <button class="icon-btn" type="button" id="themeToggle" aria-label="Canviar el tema de color" title="Canviar el tema de color" data-i18n-attr="aria-label:theme;title:theme">
         <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
       </button>
-      <a class="icon-btn" href="https://github.com/vmoren12/pedagoguia" target="_blank" rel="noopener" aria-label="Repositori a GitHub (s'obre en una pestanya nova)" title="Repositori a GitHub">
+      <a class="icon-btn" href="https://github.com/vmoren12/pedagoguia" target="_blank" rel="noopener" aria-label="Repositori a GitHub (s'obre en una pestanya nova)" title="Repositori a GitHub" data-i18n-attr="aria-label:github;title:githubTitle">
         <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M12 2.2a9.8 9.8 0 0 0-3.1 19.1c.5.1.7-.2.7-.5v-1.7c-2.7.6-3.3-1.3-3.3-1.3-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.5 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A9.8 9.8 0 0 0 12 2.2z"/></svg>
       </a>
     </div>
@@ -56,51 +61,51 @@
 
 <main>
   <section class="intro container">
-    <h1>De la recerca a l'aula</h1>
-    <p class="intro-text">Guies de llibres de referència en educació: <span class="hl hl-1">idees clau de la recerca</span>, <span class="hl hl-2">pautes per aplicar-la</span> i <span class="hl hl-3">eines per a l'aula</span>.</p>
+    <h1 data-i18n="h1">De la recerca a l'aula</h1>
+    <p class="intro-text" data-i18n-html="intro">Guies de llibres de referència en educació: <span class="hl hl-1">idees clau de la recerca</span>, <span class="hl hl-2">pautes per aplicar-la</span> i <span class="hl hl-3">eines per a l'aula</span>.</p>
     <p class="intro-meta" id="introMeta" aria-live="polite"></p>
   </section>
 
-  <section class="catalog container" id="cataleg" aria-label="Catàleg">
+  <section class="catalog container" id="cataleg" aria-label="Catàleg" data-i18n-attr="aria-label:catalog">
     <div class="toolbar" role="search">
       <label class="search">
-        <span class="visually-hidden">Cerca al catàleg</span>
+        <span class="visually-hidden" data-i18n="searchLabel">Cerca al catàleg</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
-        <input id="search" type="search" placeholder="Cerca per títol, autoria, tema, paraula clau o ISBN" autocomplete="off" spellcheck="false">
+        <input id="search" type="search" data-i18n-attr="placeholder:searchPh" placeholder="Cerca per títol, autoria, tema, paraula clau o ISBN" autocomplete="off" spellcheck="false">
         <kbd aria-hidden="true">/</kbd>
       </label>
       <button class="btn btn-ghost filters-toggle" type="button" id="filtersToggle" aria-controls="facets" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
-        Filtres<span class="toggle-count" id="filtersCount" hidden></span>
+        <span data-i18n="filters">Filtres</span><span class="toggle-count" id="filtersCount" hidden></span>
       </button>
     </div>
 
     <div class="active-filters" id="activeFilters" hidden></div>
 
     <div class="catalog-layout">
-      <aside class="facets" id="facets" aria-label="Filtres"></aside>
+      <aside class="facets" id="facets" aria-label="Filtres" data-i18n-attr="aria-label:filters"></aside>
 
       <div class="results">
         <div class="results-head">
           <p class="result-count" id="resultCount" aria-live="polite"></p>
           <div class="results-controls">
             <label class="select">
-              <span class="visually-hidden">Ordena per</span>
+              <span class="visually-hidden" data-i18n="sortBy">Ordena per</span>
               <select id="sort">
-                <option value="recent">Més recents</option>
-                <option value="title">Títol (A–Z)</option>
-                <option value="year">Any d'edició</option>
+                <option value="recent" data-i18n="sortRecent">Més recents</option>
+                <option value="title" data-i18n="sortTitle">Títol (A–Z)</option>
+                <option value="year" data-i18n="sortYear">Any d'edició</option>
               </select>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
             </label>
-            <div class="segmented" role="radiogroup" aria-label="Vista" id="viewSwitch">
-              <button type="button" role="radio" data-view="fitxes" aria-label="Vista de fitxes" title="Fitxes">
+            <div class="segmented" role="radiogroup" aria-label="Vista" id="viewSwitch" data-i18n-attr="aria-label:view">
+              <button type="button" role="radio" data-view="fitxes" aria-label="Vista de fitxes" title="Fitxes" data-i18n-attr="aria-label:viewCards;title:viewCardsTitle">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4" width="6" height="7.5" rx="1"/><rect x="3.5" y="13.5" width="6" height="7" rx="1"/><path d="M13 6h7.5M13 9h5M13 15.5h7.5M13 18.5h5"/></svg>
               </button>
-              <button type="button" role="radio" data-view="graella" aria-label="Vista de graella" title="Graella">
+              <button type="button" role="radio" data-view="graella" aria-label="Vista de graella" title="Graella" data-i18n-attr="aria-label:viewGrid;title:viewGridTitle">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/></svg>
               </button>
-              <button type="button" role="radio" data-view="llista" aria-label="Vista de llista" title="Llista">
+              <button type="button" role="radio" data-view="llista" aria-label="Vista de llista" title="Llista" data-i18n-attr="aria-label:viewList;title:viewListTitle">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6h12M8.5 12h12M8.5 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01" stroke-width="2.4"/></svg>
               </button>
             </div>
@@ -110,13 +115,16 @@
         <ol class="books" id="books" data-view="fitxes"></ol>
 
         <div class="empty" id="emptyState" hidden>
-          <p class="empty-title">Cap guia coincideix amb la cerca.</p>
-          <p>Prova amb altres paraules o <button type="button" class="link-btn" data-clear>esborra els filtres</button>. Si trobes a faltar un llibre, <button type="button" class="link-btn" data-feedback="book">suggereix-lo</button>.</p>
+          <p class="empty-title" data-i18n="emptyTitle">Cap guia coincideix amb la cerca.</p>
+          <p data-i18n-html="emptyText">Prova amb altres paraules o <button type="button" class="link-btn" data-clear>esborra els filtres</button>. Si trobes a faltar un llibre, <button type="button" class="link-btn" data-feedback="book">suggereix-lo</button>.</p>
         </div>
 
         <noscript>
           <ol class="books" data-view="llista">
             <li class="book"><a class="row-link" href="guies/9788411821865/">Aprender a enseñar a leer y a escribir</a> · Ripoll, Gómez Merino i Ávila Clemente · SM, 2024</li>
+            <li class="book"><a class="row-link" href="guies/9788418058059/">¿Cómo aprendemos?</a> · Héctor Ruiz Martín · Graó, 2020</li>
+            <li class="book"><a class="row-link" href="guies/9788412714784/">«Edumitos»</a> · Héctor Ruiz Martín · ISTF, 2023</li>
+            <li class="book"><a class="row-link" href="guies/9788446056805/">Cómo se aprende</a> · Kirschner i Hendrick · Akal, 2025</li>
           </ol>
         </noscript>
       </div>
@@ -126,21 +134,25 @@
   <section class="about" id="sobre" aria-labelledby="sobre-title">
     <div class="container about-grid">
       <div>
-        <h2 id="sobre-title">Sobre el projecte</h2>
-        <p>Pedagoguia reorganitza llibres d'educació en guies per consultar-los en el moment de planificar. El catàleg creix a poc a poc i cada guia es manté oberta a correccions.</p>
+        <h2 id="sobre-title" data-i18n="aboutTitle">Sobre el projecte</h2>
+        <p data-i18n="aboutText">Pedagoguia reorganitza llibres d'educació en guies per consultar-los en el moment de planificar. El catàleg creix a poc a poc i cada guia es manté oberta a correccions.</p>
       </div>
       <dl class="principles">
         <div>
-          <dt>Procés d'elaboració</dt>
-          <dd>Contingut generat per IA a partir de la font original.</dd>
+          <dt data-i18n="p1t">Procés d'elaboració</dt>
+          <dd data-i18n="p1d">Contingut generat per IA a partir de la font original.</dd>
         </div>
         <div>
-          <dt>Per a l'aula</dt>
-          <dd>Esquemes, activitats i eines, llestos per imprimir o consultar al mòbil.</dd>
+          <dt data-i18n="p2t">Per a l'aula</dt>
+          <dd data-i18n="p2d">Esquemes, activitats i eines, llestos per imprimir o consultar al mòbil.</dd>
         </div>
         <div>
-          <dt>Revisió oberta</dt>
-          <dd>Qualsevol persona pot notificar errors o suggerir llibres. <button type="button" class="link-btn" data-feedback>Fes una aportació</button></dd>
+          <dt data-i18n="p3t">Revisió oberta</dt>
+          <dd data-i18n-html="p3d">Qualsevol persona pot notificar errors o suggerir llibres. <button type="button" class="link-btn" data-feedback>Fes una aportació</button></dd>
+        </div>
+        <div>
+          <dt data-i18n="p4t">Dues llengües</dt>
+          <dd data-i18n="p4d">Totes les guies, en català i en castellà, sigui quina sigui la llengua de l'obra.</dd>
         </div>
       </dl>
     </div>
@@ -149,10 +161,10 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p class="footer-note">Les guies són materials de suport i no substitueixen la lectura de les obres originals. Els drets dels llibres i de les portades pertanyen als seus autors i editorials.</p>
-    <nav class="footer-nav" aria-label="Peu de pàgina">
+    <p class="footer-note" data-i18n="footNote">Les guies són materials de suport i no substitueixen la lectura de les obres originals. Els drets dels llibres i de les portades pertanyen als seus autors i editorials.</p>
+    <nav class="footer-nav" aria-label="Peu de pàgina" data-i18n-attr="aria-label:footNav">
       <a href="https://github.com/vmoren12/pedagoguia" target="_blank" rel="noopener">GitHub</a>
-      <button type="button" class="link-btn" data-feedback>Notificar un error</button>
+      <button type="button" class="link-btn" data-feedback data-i18n="report">Notificar un error</button>
     </nav>
   </div>
 </footer>
@@ -160,27 +172,27 @@
 <dialog class="dialog" id="feedbackDialog" aria-labelledby="feedbackTitle">
   <form method="dialog" class="dialog-inner">
     <header class="dialog-head">
-      <h2 id="feedbackTitle">Fes una aportació</h2>
-      <button class="icon-btn" value="close" aria-label="Tanca">
+      <h2 id="feedbackTitle" data-i18n="dlgTitle">Fes una aportació</h2>
+      <button class="icon-btn" value="close" aria-label="Tanca" data-i18n-attr="aria-label:close">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
     </header>
     <p class="dialog-context" id="feedbackContext" hidden></p>
     <div class="notice" role="note">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></svg>
-      <p>Les aportacions es gestionen a <strong>GitHub</strong>, en una pestanya nova. Hi necessitaràs un compte gratuït, i el que escriguis serà públic.</p>
+      <p data-i18n-html="notice">Les aportacions es gestionen a <strong>GitHub</strong>, en una pestanya nova. Hi necessitaràs un compte gratuït, i el que escriguis serà públic.</p>
     </div>
     <ul class="choice-list">
       <li><a class="choice" data-kind="content" target="_blank" rel="noopener">
-        <span class="choice-text"><strong>Error de contingut</strong><span>Una dada, una cita o una explicació d'una guia que cal revisar.</span></span>
+        <span class="choice-text" data-i18n-html="cContent"><strong>Error de contingut</strong><span>Una dada, una cita o una explicació d'una guia que cal revisar.</span></span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a></li>
       <li><a class="choice" data-kind="book" target="_blank" rel="noopener">
-        <span class="choice-text"><strong>Suggeriment de llibre</strong><span>Una obra de l'àmbit educatiu que mereix la seva guia.</span></span>
+        <span class="choice-text" data-i18n-html="cBook"><strong>Suggeriment de llibre</strong><span>Una obra de l'àmbit educatiu que mereix la seva guia.</span></span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a></li>
       <li><a class="choice" data-kind="app" target="_blank" rel="noopener">
-        <span class="choice-text"><strong>Millora de l'aplicació</strong><span>Un problema de funcionament, d'accessibilitat o una idea per al web.</span></span>
+        <span class="choice-text" data-i18n-html="cApp"><strong>Millora de l'aplicació</strong><span>Un problema de funcionament, d'accessibilitat o una idea per al web.</span></span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a></li>
     </ul>

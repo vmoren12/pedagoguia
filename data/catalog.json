@@ -2,10 +2,42 @@
   "site": {
     "name": "Pedagoguia",
     "repo": "https://github.com/vmoren12/pedagoguia",
+    "languages": ["ca", "es"],
+    "defaultLanguage": "ca",
     "issueTemplates": {
       "content": "error-contingut.yml",
       "book": "suggeriment-llibre.yml",
       "app": "millora-app.yml"
+    },
+    "terms": {
+      "es": {
+        "Infantil": "Infantil",
+        "Primària": "Primaria",
+        "Secundària": "Secundaria",
+        "Batxillerat i FP": "Bachillerato y FP",
+        "Transversal": "Transversal",
+        "Lectoescriptura": "Lectoescritura",
+        "Ciència cognitiva": "Ciencia cognitiva",
+        "Avaluació": "Evaluación",
+        "Castellà": "Castellano",
+        "Català": "Catalán",
+        "Anglès": "Inglés",
+        "consciència fonològica": "conciencia fonológica",
+        "descodificació": "decodificación",
+        "mètodes de lectura": "métodos de lectura",
+        "comprensió lectora": "comprensión lectora",
+        "memòria": "memoria",
+        "càrrega cognitiva": "carga cognitiva",
+        "motivació": "motivación",
+        "avaluació formativa": "evaluación formativa",
+        "neuromites": "neuromitos",
+        "estils d'aprenentatge": "estilos de aprendizaje",
+        "tècniques d'estudi": "técnicas de estudio",
+        "pseudociència": "pseudociencia",
+        "instrucció directa": "instrucción directa",
+        "feedback": "feedback",
+        "mutacions letals": "mutaciones letales"
+      }
     }
   },
   "guides": [
@@ -26,9 +58,13 @@
       "summary": "Què diu la investigació sobre l'aprenentatge inicial de la lectura i l'escriptura i com portar-ho a l'aula: consciència fonològica, coneixement de les lletres, descodificació, escriptura inicial i primeres passes de la comprensió.",
       "highlights": ["12 capítols", "Activitats d'aula", "Eines interactives", "Glossari"],
       "tags": ["consciència fonològica", "descodificació", "mètodes de lectura", "comprensió lectora"],
+      "es": {
+        "summary": "Qué dice la investigación sobre el aprendizaje inicial de la lectura y la escritura y cómo llevarlo al aula: conciencia fonológica, conocimiento de las letras, decodificación, escritura inicial y primeros pasos de la comprensión.",
+        "highlights": ["12 capítulos", "Actividades de aula", "Herramientas interactivas", "Glosario"]
+      },
       "publisherUrl": "https://tienda.grupo-sm.com/producto/aprender-a-ensenar-a-leer-y-a-escribir/",
       "added": "2026-11-20",
-      "updated": "2026-11-20"
+      "updated": "2026-11-22"
     },
     {
       "isbn": "9788418058059",
@@ -45,11 +81,15 @@
       "stages": ["Primària", "Secundària", "Batxillerat i FP"],
       "language": "Castellà",
       "summary": "Què ha descobert la ciència cognitiva sobre com aprenem i què implica per ensenyar: memòria i pràctica de l'evocació, càrrega cognitiva, transferència, motivació, creences, autoregulació, feedback i avaluació, amb un annex sobre neuromites.",
-      "highlights": ["19 capítols", "Secció «Para aplicar»", "Eines interactives", "Síntesi A4"],
+      "highlights": ["19 capítols", "Secció «Per aplicar»", "Eines interactives", "Síntesi A4"],
       "tags": ["memòria", "càrrega cognitiva", "motivació", "avaluació formativa"],
+      "es": {
+        "summary": "Qué ha descubierto la ciencia cognitiva sobre cómo aprendemos y qué implica para enseñar: memoria y práctica de la evocación, carga cognitiva, transferencia, motivación, creencias, autorregulación, feedback y evaluación, con un anexo sobre neuromitos.",
+        "highlights": ["19 capítulos", "Sección «Para aplicar»", "Herramientas interactivas", "Síntesis A4"]
+      },
       "publisherUrl": "https://www.grao.com/libros/como-aprendemos-39884",
       "added": "2026-11-21",
-      "updated": "2026-11-21"
+      "updated": "2026-11-22"
     },
     {
       "isbn": "9788412714784",
@@ -68,9 +108,13 @@
       "summary": "44 idees molt esteses sobre com aprenem que no se sostenen davant la recerca (estils d'aprenentatge, piràmides, emocions, lectura, neuromites, intel·ligències múltiples, tecnologia) i què sabem en lloc seu per decidir millor a l'aula.",
       "highlights": ["44 edumites", "Eines interactives", "Pla per al claustre", "Síntesi A4"],
       "tags": ["neuromites", "estils d'aprenentatge", "tècniques d'estudi", "pseudociència"],
+      "es": {
+        "summary": "44 ideas muy extendidas sobre cómo aprendemos que no se sostienen ante la investigación (estilos de aprendizaje, pirámides, emociones, lectura, neuromitos, inteligencias múltiples, tecnología) y qué sabemos en su lugar para decidir mejor en el aula.",
+        "highlights": ["44 edumitos", "Herramientas interactivas", "Plan para el claustro", "Síntesis A4"]
+      },
       "publisherUrl": "https://science-teaching.org/es/libros/edumitos-ideas-sobre-el-aprendizaje-sin-respaldo-cientifico",
       "added": "2026-11-21",
-      "updated": "2026-11-21"
+      "updated": "2026-11-22"
     },
     {
       "isbn": "9788446056805",
@@ -86,10 +130,14 @@
       "year": 2025,
       "topics": ["Ciència cognitiva", "Avaluació"],
       "stages": ["Primària", "Secundària", "Batxillerat i FP"],
-      "language": "Català",
+      "language": "Castellà",
       "summary": "Les obres clau de la psicologia de l'educació i què signifiquen a l'aula: memòria de treball i esquemes, novells i experts, càrrega cognitiva, motivació i autoeficàcia, bastida, instrucció directa, avaluació formativa i feedback, aprenentatge en context i els mites i mutacions letals que cal evitar.",
       "highlights": ["35 capítols", "33 obres de referència", "Eines interactives", "Síntesi A4"],
       "tags": ["càrrega cognitiva", "instrucció directa", "feedback", "mutacions letals"],
+      "es": {
+        "summary": "Las obras clave de la psicología de la educación y qué significan en el aula: memoria de trabajo y esquemas, novatos y expertos, carga cognitiva, motivación y autoeficacia, andamiaje, instrucción directa, evaluación formativa y feedback, aprendizaje en contexto y los mitos y mutaciones letales que conviene evitar.",
+        "highlights": ["35 capítulos", "33 obras de referencia", "Herramientas interactivas", "Síntesis A4"]
+      },
       "publisherUrl": "https://www.akal.com/libro/como-se-aprende_54437/",
       "added": "2026-11-22",
       "updated": "2026-11-22"

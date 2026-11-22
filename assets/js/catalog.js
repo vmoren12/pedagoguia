@@ -1,23 +1,124 @@
 /* Pedagoguia — catàleg
    Llegeix data/catalog.json i pinta el catàleg: cerca, filtres per facetes,
-   ordenació, tres vistes (fitxes, graella, llista), tema de color i diàleg
-   d'aportacions (GitHub Issues). L'estat es reflecteix a l'URL. */
+   ordenació, tres vistes (fitxes, graella, llista), tema de color, idioma
+   (català per defecte, castellà a triar) i diàleg d'aportacions (GitHub Issues).
+   L'estat es reflecteix a l'URL. */
 (function () {
   'use strict';
 
   var DATA_URL = 'data/catalog.json';
   var NEW_DAYS = 45;
   var TAG_LIMIT = 8;
-  var KEYS = { theme: 'pedagoguia:theme', view: 'pedagoguia:view' };
+  var KEYS = { theme: 'pedagoguia:theme', view: 'pedagoguia:view', lang: 'pedagoguia:lang' };
   var VIEWS = ['fitxes', 'graella', 'llista'];
+  var LANGS = ['ca', 'es'];
   var STAGE_ORDER = ['Infantil', 'Primària', 'Secundària', 'Batxillerat i FP', 'Transversal'];
 
-  /* Facetes de filtre: valors dins d'un grup es combinen amb O; grups entre si, amb I. */
+  /* ---------- Textos de la interfície ----------
+     El català és a l'HTML i al codi; aquí hi ha els textos dinàmics en totes dues
+     llengües i, a STATIC_ES, la versió castellana dels textos fixos de l'HTML
+     (elements amb data-i18n, data-i18n-html o data-i18n-attr). */
+  var I18N = {
+    ca: {
+      and: ' i ', etAl: ' et al.',
+      facetStage: 'Etapa', facetTopic: 'Temàtica', facetTag: 'Etiquetes', facetLanguage: 'Idioma de l’edició',
+      facetEmpty: 'Encara no hi ha opcions.', less: 'Mostra’n menys', more: function (n) { return 'Mostra’n ' + n + ' més'; },
+      removeFilter: function (k, v) { return 'Treu el filtre ' + k + ': ' + v; }, clearAll: 'Esborra-ho tot',
+      shopTitle: function (p) { return 'Fitxa del llibre a l’editorial (' + p + ')'; },
+      shopLabel: function (t, p) { return 'Fitxa de «' + t + '» a l’editorial ' + p + ' (s’obre en una pestanya nova)'; },
+      isNew: 'Nova', report: 'Notifica un error en aquesta guia', reportLabel: function (t) { return 'Notifica un error a la guia: ' + t; },
+      filterTag: 'Filtra per aquesta etiqueta',
+      factStage: 'Etapa', factEdition: 'Edició', factLanguage: 'Idioma de l’edició', factGuide: 'Guia',
+      guideLangs: 'Català · Castellà',
+      headBook: 'Llibre', headTopic: 'Temàtica', headStage: 'Etapa', headEdition: 'Edició', headLanguage: 'Idioma',
+      results: function (n, total) { return n + ' ' + (n === 1 ? 'resultat' : 'resultats') + ' de ' + total; },
+      guides: function (n) { return n + ' ' + (n === 1 ? 'guia' : 'guies'); },
+      published: function (n) { return n + ' ' + (n === 1 ? 'guia publicada' : 'guies publicades'); },
+      updated: function (m) { return ' · Actualitzat el ' + m; },
+      loadError: 'No s’ha pogut carregar el catàleg.', retry: 'Torna-ho a provar d’aquí a una estona.',
+      searchShort: 'Cerca al catàleg', contextGuide: 'Guia: '
+    },
+    es: {
+      and: ' y ', etAl: ' et al.',
+      facetStage: 'Etapa', facetTopic: 'Temática', facetTag: 'Etiquetas', facetLanguage: 'Idioma de la edición',
+      facetEmpty: 'Aún no hay opciones.', less: 'Mostrar menos', more: function (n) { return 'Mostrar ' + n + ' más'; },
+      removeFilter: function (k, v) { return 'Quitar el filtro ' + k + ': ' + v; }, clearAll: 'Borrar todo',
+      shopTitle: function (p) { return 'Ficha del libro en la editorial (' + p + ')'; },
+      shopLabel: function (t, p) { return 'Ficha de «' + t + '» en la editorial ' + p + ' (se abre en una pestaña nueva)'; },
+      isNew: 'Nueva', report: 'Notificar un error en esta guía', reportLabel: function (t) { return 'Notificar un error en la guía: ' + t; },
+      filterTag: 'Filtrar por esta etiqueta',
+      factStage: 'Etapa', factEdition: 'Edición', factLanguage: 'Idioma de la edición', factGuide: 'Guía',
+      guideLangs: 'Catalán · Castellano',
+      headBook: 'Libro', headTopic: 'Temática', headStage: 'Etapa', headEdition: 'Edición', headLanguage: 'Idioma',
+      results: function (n, total) { return n + ' ' + (n === 1 ? 'resultado' : 'resultados') + ' de ' + total; },
+      guides: function (n) { return n + ' ' + (n === 1 ? 'guía' : 'guías'); },
+      published: function (n) { return n + ' ' + (n === 1 ? 'guía publicada' : 'guías publicadas'); },
+      updated: function (m) { return ' · Actualizado en ' + m; },
+      loadError: 'No se ha podido cargar el catálogo.', retry: 'Vuelve a intentarlo dentro de un rato.',
+      searchShort: 'Buscar en el catálogo', contextGuide: 'Guía: '
+    }
+  };
+
+  var STATIC_ES = {
+    docTitle: 'Pedagoguia · Guías prácticas basadas en la investigación',
+    docDesc: 'Guías prácticas basadas en la investigación para orientar decisiones de aula, elaboradas a partir de libros de referencia del ámbito educativo.',
+    skip: 'Ir al catálogo',
+    home: 'Pedagoguia, inicio',
+    notes: 'Mis notas y subrayados',
+    feedback: 'Notificar un error o hacer una sugerencia',
+    theme: 'Cambiar el tema de color',
+    lang: 'Idioma',
+    github: 'Repositorio en GitHub (se abre en una pestaña nueva)',
+    githubTitle: 'Repositorio en GitHub',
+    h1: 'De la investigación al aula',
+    intro: 'Guías de libros de referencia en educación: <span class="hl hl-1">ideas clave de la investigación</span>, <span class="hl hl-2">pautas para aplicarla</span> y <span class="hl hl-3">herramientas para el aula</span>.',
+    catalog: 'Catálogo',
+    searchLabel: 'Buscar en el catálogo',
+    searchPh: 'Busca por título, autoría, tema, palabra clave o ISBN',
+    filters: 'Filtros',
+    sortBy: 'Ordenar por',
+    sortRecent: 'Más recientes',
+    sortTitle: 'Título (A–Z)',
+    sortYear: 'Año de edición',
+    view: 'Vista',
+    viewCards: 'Vista de fichas', viewCardsTitle: 'Fichas',
+    viewGrid: 'Vista de cuadrícula', viewGridTitle: 'Cuadrícula',
+    viewList: 'Vista de lista', viewListTitle: 'Lista',
+    emptyTitle: 'Ninguna guía coincide con la búsqueda.',
+    emptyText: 'Prueba con otras palabras o <button type="button" class="link-btn" data-clear>borra los filtros</button>. Si echas en falta un libro, <button type="button" class="link-btn" data-feedback="book">sugiérelo</button>.',
+    aboutTitle: 'Sobre el proyecto',
+    aboutText: 'Pedagoguia reorganiza libros de educación en guías para consultarlos en el momento de planificar. El catálogo crece poco a poco y cada guía se mantiene abierta a correcciones.',
+    p1t: 'Proceso de elaboración', p1d: 'Contenido generado por IA a partir de la fuente original.',
+    p2t: 'Para el aula', p2d: 'Esquemas, actividades y herramientas, listos para imprimir o consultar en el móvil.',
+    p3t: 'Revisión abierta', p3d: 'Cualquier persona puede notificar errores o sugerir libros. <button type="button" class="link-btn" data-feedback>Haz una aportación</button>',
+    p4t: 'Dos idiomas', p4d: 'Todas las guías, en catalán y en castellano, sea cual sea el idioma de la obra.',
+    footNote: 'Las guías son materiales de apoyo y no sustituyen la lectura de las obras originales. Los derechos de los libros y de las portadas pertenecen a sus autores y editoriales.',
+    footNav: 'Pie de página',
+    report: 'Notificar un error',
+    dlgTitle: 'Haz una aportación',
+    close: 'Cerrar',
+    notice: 'Las aportaciones se gestionan en <strong>GitHub</strong>, en una pestaña nueva. Necesitarás una cuenta gratuita, y lo que escribas será público.',
+    cContent: '<strong>Error de contenido</strong><span>Un dato, una cita o una explicación de una guía que hay que revisar.</span>',
+    cBook: '<strong>Sugerencia de libro</strong><span>Una obra del ámbito educativo que merece su guía.</span>',
+    cApp: '<strong>Mejora de la aplicación</strong><span>Un problema de funcionamiento, de accesibilidad o una idea para la web.</span>'
+  };
+
+  function readLang() {
+    var saved = store(KEYS.lang);
+    return LANGS.indexOf(saved) !== -1 ? saved : 'ca';
+  }
+
+  var lang = 'ca';
+  var T = I18N.ca;
+  var collator = new Intl.Collator('ca', { sensitivity: 'base' });
+
+  /* Facetes de filtre: valors dins d'un grup es combinen amb O; grups entre si, amb I.
+     Els valors es guarden en català (URL estable) i es tradueixen en pintar-los. */
   var FACETS = [
-    { key: 'stage', param: 'etapa', label: 'Etapa', get: function (g) { return g.stages || []; }, order: STAGE_ORDER },
-    { key: 'topic', param: 'tematica', label: 'Temàtica', get: function (g) { return g.topics || []; } },
-    { key: 'tag', param: 'etiqueta', label: 'Etiquetes', get: function (g) { return g.tags || []; }, limit: TAG_LIMIT },
-    { key: 'language', param: 'idioma', label: 'Idioma de la guia', get: function (g) { return g.language ? [g.language] : []; } }
+    { key: 'stage', param: 'etapa', label: 'facetStage', get: function (g) { return g.stages || []; }, order: STAGE_ORDER },
+    { key: 'topic', param: 'tematica', label: 'facetTopic', get: function (g) { return g.topics || []; } },
+    { key: 'tag', param: 'etiqueta', label: 'facetTag', get: function (g) { return g.tags || []; }, limit: TAG_LIMIT },
+    { key: 'language', param: 'idioma', label: 'facetLanguage', get: function (g) { return g.language ? [g.language] : []; } }
   ];
 
   var SORTS = {
@@ -26,7 +127,6 @@
     year: function (a, b) { return (b.year || 0) - (a.year || 0) || collator.compare(a.title, b.title); }
   };
 
-  var collator = new Intl.Collator('ca', { sensitivity: 'base' });
   var state = { guides: [], site: null, query: '', sort: 'recent', view: null, selected: {}, expanded: {} };
   var el = {};
 
@@ -75,10 +175,10 @@
   }
   function joinList(items) {
     if (items.length < 2) return items.join('');
-    return items.slice(0, -1).join(', ') + ' i ' + items[items.length - 1];
+    return items.slice(0, -1).join(', ') + T.and + items[items.length - 1];
   }
   function shortAuthors(authors) {
-    return authors.length > 2 ? authors[0] + ' et al.' : joinList(authors);
+    return authors.length > 2 ? authors[0] + T.etAl : joinList(authors);
   }
   function formatIsbn(isbn) {
     var s = String(isbn).replace(/\D/g, '');
@@ -89,19 +189,89 @@
     return g.isbnDisplay || formatIsbn(g.isbn);
   }
   function formatMonth(iso) {
-    try { return new Intl.DateTimeFormat('ca', { month: 'long', year: 'numeric' }).format(new Date(iso + 'T00:00:00')); }
+    try { return new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric' }).format(new Date(iso + 'T00:00:00')); }
     catch (e) { return iso; }
   }
   function isNew(iso) {
     var t = Date.parse(iso + 'T00:00:00');
     return !isNaN(t) && (Date.now() - t) / 864e5 <= NEW_DAYS;
   }
-  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
   function store(key, value) {
     try {
       if (value === undefined) return localStorage.getItem(key);
       localStorage.setItem(key, value);
     } catch (e) { return null; }
+  }
+
+  /* ---------- Idioma ---------- */
+  /* Valor canònic (català) → etiqueta a la llengua activa */
+  function term(v) {
+    if (lang === 'ca') return v;
+    var dict = (state.site && state.site.terms && state.site.terms[lang]) || {};
+    return dict[v] || v;
+  }
+  function terms(list) { return (list || []).map(term); }
+  /* Camps de la fitxa traduïbles (summary, highlights…): g.es.summary si existeix */
+  function field(g, key) {
+    var tr = lang !== 'ca' && g[lang];
+    return tr && tr[key] !== undefined ? tr[key] : g[key];
+  }
+  /* Ruta a la guia en la llengua activa: guies/ISBN/ (català) o guies/ISBN/es/ */
+  function guideHref(g) { return g.path + (lang === 'ca' ? '' : lang + '/'); }
+
+  var staticCa = null;
+  function captureStatic() {
+    staticCa = { text: [], html: [], attr: [] };
+    $$('[data-i18n]').forEach(function (n) { staticCa.text.push([n, n.textContent]); });
+    $$('[data-i18n-html]').forEach(function (n) { staticCa.html.push([n, n.innerHTML]); });
+    $$('[data-i18n-attr]').forEach(function (n) {
+      n.getAttribute('data-i18n-attr').split(';').forEach(function (pair) {
+        var a = pair.split(':')[0].trim();
+        staticCa.attr.push([n, a, n.getAttribute(a)]);
+      });
+    });
+    staticCa.title = document.title;
+  }
+
+  function applyStatic() {
+    var es = lang === 'es';
+    staticCa.text.forEach(function (r) { r[0].textContent = es ? STATIC_ES[r[0].getAttribute('data-i18n')] || r[1] : r[1]; });
+    staticCa.html.forEach(function (r) { r[0].innerHTML = es ? STATIC_ES[r[0].getAttribute('data-i18n-html')] || r[1] : r[1]; });
+    staticCa.attr.forEach(function (r) {
+      var key = null;
+      r[0].getAttribute('data-i18n-attr').split(';').forEach(function (pair) {
+        var kv = pair.split(':');
+        if (kv[0].trim() === r[1]) key = (kv[1] || '').trim();
+      });
+      r[0].setAttribute(r[1], es && STATIC_ES[key] ? STATIC_ES[key] : r[2]);
+    });
+    document.title = es ? STATIC_ES.docTitle : staticCa.title;
+    document.documentElement.lang = lang;
+    if (el.search && window.matchMedia && window.matchMedia('(max-width: 640px)').matches) el.search.placeholder = T.searchShort;
+    $$('[data-lang]', el.langSwitch).forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
+    });
+  }
+
+  function setLang(next, save) {
+    if (LANGS.indexOf(next) === -1) next = 'ca';
+    lang = next;
+    T = I18N[lang];
+    collator = new Intl.Collator(lang, { sensitivity: 'base' });
+    if (save) store(KEYS.lang, lang);
+    applyStatic();
+  }
+
+  function initLang() {
+    el.langSwitch = $('#langSwitch');
+    captureStatic();
+    setLang(readLang(), false);
+    el.langSwitch.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-lang]');
+      if (!b || b.getAttribute('data-lang') === lang) return;
+      setLang(b.getAttribute('data-lang'), true);
+      if (state.guides.length) { renderIntroMeta(); render(); }
+    });
   }
 
   /* ---------- Tema ---------- */
@@ -143,7 +313,7 @@
   function openFeedback(guide) {
     var ctx = $('#feedbackContext');
     ctx.textContent = '';
-    if (guide) ctx.append('Guia: ', h('strong', { text: guide.title }));
+    if (guide) ctx.append(T.contextGuide, h('strong', { text: guide.title }));
     ctx.hidden = !guide;
     $$('.choice', el.dialog).forEach(function (a) { a.href = issueUrl(a.getAttribute('data-kind'), guide); });
     if (typeof el.dialog.showModal === 'function') el.dialog.showModal();
@@ -166,17 +336,20 @@
   }
 
   /* ---------- Cerca i filtres ---------- */
+  /* La cerca troba les guies tant pels termes en català com pels de castellà */
   function haystack(g) {
+    var dict = (state.site && state.site.terms && state.site.terms.es) || {};
+    var tr = function (list) { return (list || []).map(function (v) { return v + ' ' + (dict[v] || ''); }).join(' '); };
     return normalize([
       g.title, g.subtitle, (g.authors || []).join(' '), g.publisher, g.collection, g.year,
-      (g.topics || []).join(' '), (g.stages || []).join(' '), (g.tags || []).join(' '),
-      g.language, g.summary, g.isbn, isbnLabel(g)
+      tr(g.topics), tr(g.stages), tr(g.tags), tr(g.language ? [g.language] : []),
+      g.summary, g.es && g.es.summary, g.isbn, isbnLabel(g)
     ].join(' '));
   }
 
   function matchesQuery(g) {
-    var terms = normalize(state.query).split(/\s+/).filter(Boolean);
-    return terms.every(function (t) { return g._hay.indexOf(t) !== -1; });
+    var words = normalize(state.query).split(/\s+/).filter(Boolean);
+    return words.every(function (t) { return g._hay.indexOf(t) !== -1; });
   }
 
   function matchesFacets(g, skipKey) {
@@ -217,10 +390,10 @@
     if (f.order) {
       values.sort(function (a, b) {
         var ia = f.order.indexOf(a), ib = f.order.indexOf(b);
-        return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || collator.compare(a, b);
+        return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || collator.compare(term(a), term(b));
       });
     } else {
-      values.sort(function (a, b) { return (counts[b] || 0) - (counts[a] || 0) || collator.compare(a, b); });
+      values.sort(function (a, b) { return (counts[b] || 0) - (counts[a] || 0) || collator.compare(term(a), term(b)); });
     }
     return values.map(function (v) { return { value: v, count: counts[v] || 0 }; });
   }
@@ -247,18 +420,18 @@
           }),
           h('label.check', { for: id }, [
             h('span.check-box', { 'aria-hidden': 'true' }),
-            h('span.check-label', { text: o.value }),
+            h('span.check-label', { text: term(o.value) }),
             h('span.check-count', { text: String(o.count) })
           ])
         ]);
       }));
 
       var group = h('fieldset.facet', {}, [
-        h('legend', { text: f.label }),
-        options.length ? list : h('p.facet-empty', { text: 'Encara no hi ha opcions.' }),
+        h('legend', { text: T[f.label] }),
+        options.length ? list : h('p.facet-empty', { text: T.facetEmpty }),
         f.limit && options.length > f.limit ? h('button.facet-more', {
           type: 'button',
-          text: expanded ? 'Mostra’n menys' : 'Mostra’n ' + (options.length - f.limit) + ' més',
+          text: expanded ? T.less : T.more(options.length - f.limit),
           onclick: function () { state.expanded[f.key] = !expanded; renderFacets(); }
         }) : null
       ]);
@@ -275,16 +448,16 @@
     FACETS.forEach(function (f) {
       state.selected[f.key].forEach(function (v) {
         chips.push(h('button.active-chip', {
-          type: 'button', 'aria-label': 'Treu el filtre ' + f.label + ': ' + v,
+          type: 'button', 'aria-label': T.removeFilter(T[f.label], term(v)),
           onclick: function () { toggleValue(f.key, v); }
-        }, [h('span.active-chip-key', { text: f.label }), v, icon(ICON_X)]));
+        }, [h('span.active-chip-key', { text: T[f.label] }), term(v), icon(ICON_X)]));
       });
     });
     el.active.textContent = '';
     el.active.hidden = !chips.length;
     if (!chips.length) return;
     chips.forEach(function (c) { el.active.appendChild(c); });
-    el.active.appendChild(h('button.link-btn', { type: 'button', text: 'Esborra-ho tot', onclick: clearAll }));
+    el.active.appendChild(h('button.link-btn', { type: 'button', text: T.clearAll, onclick: clearAll }));
   }
 
   /* ---------- Portades ---------- */
@@ -319,43 +492,44 @@
     if (!g.publisherUrl) return placeholder ? h('span.shop-btn' + (cls || ''), { 'aria-hidden': 'true' }) : null;
     return h('a.shop-btn' + (cls || ''), {
       href: g.publisherUrl, target: '_blank', rel: 'noopener',
-      title: 'Fitxa del llibre a l’editorial (' + g.publisher + ')',
-      'aria-label': 'Fitxa de «' + g.title + '» a l’editorial ' + g.publisher + ' (s’obre en una pestanya nova)'
+      title: T.shopTitle(g.publisher),
+      'aria-label': T.shopLabel(g.title, g.publisher)
     }, [icon(ICON_SHOP)]);
   }
 
-  function badgeNew(g) { return isNew(g.added) ? h('span.badge', { text: 'Nova' }) : null; }
-  function topicLabel(g) { return (g.topics || [])[0] || ''; }
+  function badgeNew(g) { return isNew(g.added) ? h('span.badge', { text: T.isNew }) : null; }
+  function topicLabel(g) { return term((g.topics || [])[0] || ''); }
 
   function viewFitxes(g, i) {
+    var href = guideHref(g);
     return h('li.book.book-card', { style: '--i:' + i }, [
-      h('a.book-cover', { href: g.path, tabindex: '-1', 'aria-hidden': 'true' }, [book3d(g, i)]),
+      h('a.book-cover', { href: href, tabindex: '-1', 'aria-hidden': 'true' }, [book3d(g, i)]),
       h('div.book-body', {}, [
         h('div.book-meta', {}, [
           h('span', { text: topicLabel(g) }),
           badgeNew(g),
           shopLink(g),
           h('button.report-btn', {
-            type: 'button', title: 'Notifica un error en aquesta guia',
-            'aria-label': 'Notifica un error a la guia: ' + g.title,
+            type: 'button', title: T.report,
+            'aria-label': T.reportLabel(g.title),
             onclick: function () { openFeedback(g); }
           }, [icon(ICON_FLAG)])
         ]),
-        h('h3.book-title', {}, [h('a', { href: g.path, text: g.title })]),
+        h('h3.book-title', {}, [h('a', { href: href, text: g.title })]),
         g.subtitle ? h('p.book-subtitle', { text: g.subtitle }) : null,
         h('p.book-authors', { text: joinList(g.authors) }),
-        h('p.book-summary', { text: g.summary }),
+        h('p.book-summary', { text: field(g, 'summary') }),
         (g.tags || []).length ? h('ul.tag-list', {}, g.tags.map(function (t) {
           var on = state.selected.tag.indexOf(t) !== -1;
           return h('li', {}, [h('button.tag', {
-            type: 'button', 'aria-pressed': String(on), title: 'Filtra per aquesta etiqueta',
-            text: t, onclick: function () { toggleValue('tag', t); }
+            type: 'button', 'aria-pressed': String(on), title: T.filterTag,
+            text: term(t), onclick: function () { toggleValue('tag', t); }
           })]);
         })) : null,
         h('dl.book-facts', {}, [
-          fact('Etapa', joinList(g.stages || [])),
-          fact('Edició', g.publisher + ', ' + g.year),
-          fact('Idioma de la guia', g.language),
+          fact(T.factStage, joinList(terms(g.stages))),
+          fact(T.factEdition, g.publisher + ', ' + g.year),
+          fact(T.factLanguage, term(g.language)),
           fact('ISBN', isbnLabel(g), 'mono')
         ])
       ])
@@ -368,7 +542,7 @@
 
   function viewGraella(g, i) {
     return h('li.book.book-tile', { style: '--i:' + i }, [
-      h('a.tile-link', { href: g.path }, [
+      h('a.tile-link', { href: guideHref(g) }, [
         book3d(g, i),
         h('span.tile-text', {}, [
           h('span.tile-meta', {}, [h('span.tile-topic', { text: topicLabel(g) }), badgeNew(g)]),
@@ -382,16 +556,16 @@
 
   function viewLlista(g, i) {
     return h('li.book.book-row', { style: '--i:' + i }, [
-      h('a.row-link', { href: g.path }, [
+      h('a.row-link', { href: guideHref(g) }, [
         h('span.row-thumb', { 'aria-hidden': 'true' }, [coverFront(g)]),
         h('span.row-main', {}, [
           h('span.row-title', {}, [g.title, badgeNew(g)]),
           h('span.row-authors', { text: joinList(g.authors) })
         ]),
         h('span.row-col.row-topic', { text: topicLabel(g) }),
-        h('span.row-col.row-stage', { text: (g.stages || []).join(', ') }),
+        h('span.row-col.row-stage', { text: terms(g.stages).join(', ') }),
         h('span.row-col.row-year', { text: g.publisher + ' · ' + g.year }),
-        h('span.row-col.row-lang', { text: g.language })
+        h('span.row-col.row-lang', { text: term(g.language) })
       ]),
       shopLink(g, '', true)
     ]);
@@ -408,8 +582,8 @@
     var frag = document.createDocumentFragment();
     if (state.view === 'llista' && list.length) {
       frag.appendChild(h('li.row-head', { 'aria-hidden': 'true' }, [
-        h('span', { text: 'Llibre' }), h('span', { text: 'Temàtica' }), h('span', { text: 'Etapa' }),
-        h('span', { text: 'Edició' }), h('span', { text: 'Idioma' })
+        h('span', { text: T.headBook }), h('span', { text: T.headTopic }), h('span', { text: T.headStage }),
+        h('span', { text: T.headEdition }), h('span', { text: T.headLanguage })
       ]));
     }
     list.forEach(function (g, i) { frag.appendChild(RENDERERS[state.view](g, i)); });
@@ -419,9 +593,7 @@
 
     el.empty.hidden = list.length > 0;
     var filtered = state.query || activeCount();
-    el.count.textContent = filtered
-      ? plural(list.length, 'resultat', 'resultats') + ' de ' + state.guides.length
-      : plural(state.guides.length, 'guia', 'guies');
+    el.count.textContent = filtered ? T.results(list.length, state.guides.length) : T.guides(state.guides.length);
   }
 
   function renderControls() {
@@ -433,6 +605,11 @@
     var n = activeCount();
     el.filtersCount.hidden = !n;
     el.filtersCount.textContent = n ? String(n) : '';
+  }
+
+  function renderIntroMeta() {
+    var latest = state.guides.reduce(function (m, g) { var d = g.updated || g.added || ''; return d > m ? d : m; }, '');
+    $('#introMeta').textContent = T.published(state.guides.length) + (latest ? T.updated(formatMonth(latest)) : '');
   }
 
   function render() {
@@ -539,8 +716,8 @@
     el.count.textContent = '';
     el.books.textContent = '';
     el.empty.hidden = false;
-    $('.empty-title', el.empty).textContent = 'No s’ha pogut carregar el catàleg.';
-    $('p:last-child', el.empty).textContent = 'Torna-ho a provar d’aquí a una estona.';
+    $('.empty-title', el.empty).textContent = T.loadError;
+    $('p:last-child', el.empty).textContent = T.retry;
   }
 
   function init() {
@@ -555,8 +732,7 @@
     el.filtersToggle = $('#filtersToggle');
     el.filtersCount = $('#filtersCount');
 
-    if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) el.search.placeholder = 'Cerca al catàleg';
-
+    initLang();
     initTheme();
     initHeader();
     initFeedback();
@@ -569,11 +745,7 @@
         state.site = data.site || null;
         state.guides = (data.guides || []).map(function (g) { g._hay = haystack(g); return g; });
         if (!state.view) state.view = defaultView();
-
-        var latest = state.guides.reduce(function (m, g) { var d = g.updated || g.added || ''; return d > m ? d : m; }, '');
-        $('#introMeta').textContent = plural(state.guides.length, 'guia publicada', 'guies publicades') +
-          (latest ? ' · Actualitzat el ' + formatMonth(latest) : '');
-
+        renderIntroMeta();
         render();
         handleDeepLink();
       })

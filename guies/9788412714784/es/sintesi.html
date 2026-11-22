@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Síntesis · «Edumitos»</title>
+<meta name="description" content="Síntesis imprimible en dos páginas A4 de «Edumitos. Ideas sobre el aprendizaje sin respaldo científico» (Héctor Ruiz Martín, ISTF, 2023): los 44 edumitos y lo que dice la evidencia.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="ca" href="../sintesi.html">
+<link rel="alternate" hreflang="es" href="sintesi.html">
+<script src="../../../assets/js/lang.js" defer></script>
+<style>
+/* Síntesis A4 · Pedagoguia
+   Dos hojas de 210 × 297 mm. En pantalla se escalan para caber; al imprimir, tamaño real. */
+@page { size: A4; margin: 0; }
+:root {
+  --ink: #1d1d1b; --ink-2: #3a3a37; --muted: #6c6a64; --line: #e3dfd5;
+  --accent: #2f5d50; --accent-2: #3f7a69; --accent-soft: #eaf1ed; --accent-ink: #1f4037;
+  --warm: #9c4a2c; --warm-soft: #f7ece6; --gold: #8a6d1f; --gold-soft: #f6f0dc;
+  --blue: #2d4a6b; --blue-soft: #e8eef5;
+  --serif: "Iowan Old Style", "Charter", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; }
+body { background: #e7e5df; color: var(--ink); font: 8.2pt/1.36 var(--sans); }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+b, strong { font-weight: 650; }
+
+/* Barra de pantalla */
+.bar {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; background: rgba(251, 250, 247, .92); backdrop-filter: blur(10px);
+  border-bottom: 1px solid #d9d4c8; font: 14px/1.2 var(--sans);
+}
+.bar a, .bar button {
+  display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px;
+  border: 1px solid #1d1d1b; border-radius: 999px; background: #f6f5f2; color: #1d1d1b;
+  font: inherit; font-size: 13px; text-decoration: none; cursor: pointer;
+}
+.bar a:hover, .bar button:hover { background: #fff; }
+.bar .back { border-color: transparent; background: transparent; padding: 0 8px; }
+.bar .back:hover { background: #eeece6; }
+.bar svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.bar .t { flex: 1; min-width: 0; color: #6c6a64; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.sheets { padding: 24px 16px 48px; }
+.sheet {
+  position: relative; width: 210mm; height: 297mm; margin: 0 auto 24px; padding: 11mm 12mm 9mm;
+  background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .08), 0 18px 40px -20px rgba(0, 0, 0, .3);
+  display: flex; flex-direction: column; gap: 3.2mm; overflow: hidden; zoom: var(--s, 1);
+}
+
+/* Cabecera */
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 6mm; padding-bottom: 2.6mm; border-bottom: 1.4pt solid var(--ink); }
+.kicker { font-size: 6.6pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2mm; }
+.head h1 { font: 500 19pt/1.05 var(--serif); letter-spacing: -.01em; }
+.head .src { margin-top: 1.2mm; color: var(--muted); font-size: 7.6pt; }
+.head .side { text-align: right; font-size: 7pt; color: var(--muted); line-height: 1.4; white-space: nowrap; }
+.head .side b { display: block; font: 500 13pt/1 var(--serif); color: var(--ink); }
+.head.slim h1 { font-size: 14pt; }
+
+/* Bloques */
+.row { display: grid; gap: 3.2mm; }
+.c2 { grid-template-columns: 1fr 1fr; }
+.c21 { grid-template-columns: 1.25fr 1fr; }
+.c12 { grid-template-columns: 1fr 1.25fr; }
+.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.card { border: .7pt solid var(--line); border-radius: 2.2mm; padding: 2.8mm 3.2mm; min-width: 0; }
+.card.fill { background: #faf9f6; }
+.card.accent { background: var(--accent); color: #f3f7f5; border-color: var(--accent); }
+.card.accent h2 { color: #fff; }
+.card.accent .h-num { background: rgba(255, 255, 255, .16); color: #fff; }
+h2 { display: flex; align-items: center; gap: 2mm; font: 600 9.6pt/1.2 var(--serif); color: var(--ink); margin-bottom: 1.8mm; }
+h3 { font-size: 7.2pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 2mm 0 1mm; }
+.h-num { display: inline-grid; place-items: center; width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font: 700 6.8pt/1 var(--sans); flex: none; }
+.lead { color: var(--ink-2); }
+.note { margin-top: 1.6mm; font-size: 7.2pt; color: var(--muted); }
+.note.ev { padding-left: 2.2mm; border-left: 1.2pt solid var(--gold); }
+.tag { display: inline-block; padding: .3mm 1.6mm; border-radius: 99px; font-size: 6.6pt; font-weight: 700; letter-spacing: .04em; }
+.tag.g { background: var(--accent-soft); color: var(--accent-ink); }
+.tag.w { background: var(--warm-soft); color: var(--warm); }
+.tag.y { background: var(--gold-soft); color: var(--gold); }
+
+/* Listas */
+.dots li { position: relative; padding-left: 3mm; margin-top: .9mm; }
+.dots li::before { content: ""; position: absolute; left: .4mm; top: 1.45mm; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: var(--accent); }
+.checks li { position: relative; padding-left: 3.8mm; margin-top: .9mm; }
+.checks li::before { content: ""; position: absolute; left: .3mm; top: .9mm; width: 1.1mm; height: 2mm; border: solid var(--accent); border-width: 0 1.1pt 1.1pt 0; transform: rotate(45deg); }
+.nums { counter-reset: n; }
+.nums li { position: relative; padding-left: 5mm; margin-top: 1.1mm; counter-increment: n; }
+.nums li::before { content: counter(n); position: absolute; left: 0; top: -.1mm; width: 3.6mm; height: 3.6mm; border-radius: 50%; background: var(--accent); color: #fff; font: 700 6pt/3.6mm var(--sans); text-align: center; }
+.nums.w li::before { background: var(--warm); }
+.cols2 { columns: 2; column-gap: 4mm; }
+.cols2 li { break-inside: avoid; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4mm; }
+.dense { gap: 2.4mm; padding-top: 10mm; font-size: 7.9pt; }
+.dense .row { gap: 2.4mm; }
+.dense .card { padding: 2.2mm 2.8mm; }
+.dense h2 { margin-bottom: 1.2mm; }
+.dense .note { margin-top: 1.1mm; }
+.dense .dots li, .dense .checks li { margin-top: .6mm; }
+
+/* Fórmula del modelo simple */
+.formula { display: grid; grid-template-columns: 1fr auto 1fr auto 1.1fr; align-items: stretch; gap: 1.6mm; margin: 1.4mm 0 2mm; }
+.formula .term { display: grid; place-items: center; text-align: center; padding: 2.2mm 1.4mm; border-radius: 1.8mm; font-weight: 650; font-size: 8pt; line-height: 1.2; }
+.formula .term small { display: block; font-weight: 400; font-size: 6.6pt; opacity: .85; margin-top: .4mm; }
+.formula .op { align-self: center; font: 500 14pt/1 var(--serif); color: var(--muted); }
+.t-d { background: var(--blue-soft); color: var(--blue); }
+.t-c { background: var(--gold-soft); color: var(--gold); }
+.t-r { background: var(--accent); color: #fff; }
+
+/* Tabla de mitos */
+.myths { display: grid; grid-template-columns: 1fr 1.7fr; border-top: .7pt solid var(--line); }
+.myths > div { padding: 1.5mm 2mm 1.5mm 0; border-bottom: .7pt solid var(--line); }
+.myths .m { position: relative; padding-left: 4mm; color: var(--warm); font-weight: 600; }
+.myths .m::before { content: ""; position: absolute; left: .4mm; top: 2.6mm; width: 2.2mm; height: .9pt; background: var(--warm); }
+.myths .hd { font-size: 6.6pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 0; }
+.myths .hd.m { color: var(--muted); }
+.myths .hd.m::before { display: none; }
+
+/* Predictores */
+.pred { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+.pred .grp { border-radius: 1.8mm; padding: 2mm 2.4mm; }
+.pred .grp.d { background: var(--blue-soft); }
+.pred .grp.c { background: var(--gold-soft); }
+.pred .grp p { font-size: 6.8pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1mm; }
+.pred .grp.d p { color: var(--blue); }
+.pred .grp.c p { color: var(--gold); }
+.pred li { padding: .7mm 0; border-top: .6pt solid rgba(0, 0, 0, .07); }
+.pred li:first-child { border-top: 0; }
+.pred li.plus { color: var(--muted); font-style: italic; }
+
+/* Escalera y barras de conciencia fonológica */
+.ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1mm; align-items: end; margin: .6mm 0 1.4mm; }
+.ladder span { display: grid; align-content: end; text-align: center; padding: 1.2mm .6mm; border-radius: 1.2mm 1.2mm 0 0; background: var(--accent-soft); color: var(--accent-ink); font-weight: 650; font-size: 7pt; }
+.ladder span small { display: block; font-weight: 400; font-size: 6.2pt; color: var(--muted); }
+.ladder span:nth-child(1) { height: 8mm; }
+.ladder span:nth-child(2) { height: 10mm; }
+.ladder span:nth-child(3) { height: 12mm; }
+.ladder span:nth-child(4) { height: 14mm; background: var(--accent); color: #fff; }
+.ladder span:nth-child(4) small { color: rgba(255, 255, 255, .8); }
+.axis { display: flex; justify-content: space-between; font-size: 6.2pt; color: var(--muted); margin-bottom: 1.6mm; }
+.bars li { display: grid; grid-template-columns: 1fr 22mm; align-items: center; gap: 2mm; margin-top: .9mm; }
+.bars i { display: block; height: 2.2mm; border-radius: 99px; background: var(--accent); }
+
+/* Secuencia de un grafema nuevo */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4mm; }
+.flow > div { position: relative; padding: 1.8mm 2mm; border-radius: 1.8mm; background: var(--accent-soft); }
+.flow > div:not(:last-child)::after { content: ""; position: absolute; right: -1.3mm; top: 50%; width: 1.6mm; height: 1.6mm; border: solid var(--accent); border-width: 1pt 1pt 0 0; transform: translateY(-50%) rotate(45deg); background: transparent; }
+.flow b { display: block; font-size: 7pt; color: var(--accent-ink); }
+.flow.noarrow > div::after { display: none; }
+.flow em { display: block; margin-top: .6mm; font: italic 7.2pt/1.25 var(--serif); color: var(--ink-2); }
+
+/* Antes, durante y después */
+.adt { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2mm; margin-top: 1mm; }
+.adt > div { padding: 1.4mm 1.8mm; border-radius: 1.4mm; background: var(--gold-soft); font-size: 7.2pt; }
+.adt b { display: block; color: var(--gold); font-size: 6.6pt; letter-spacing: .08em; text-transform: uppercase; }
+
+.peer { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; margin-top: 1.4mm; font-size: 7.2pt; }
+.peer li { margin-top: .5mm; }
+.peer li b { display: inline-block; width: 3mm; color: var(--accent); }
+
+.say { margin-top: 1.4mm; padding: 1.6mm 2.2mm; border-radius: 1.4mm; background: var(--warm-soft); font: italic 7.6pt/1.3 var(--serif); color: var(--ink-2); }
+
+.verdicts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm; margin-top: 1.6mm; }
+.verdicts > div { padding: 1.4mm 1.8mm; border: .7pt solid var(--line); border-radius: 1.4mm; font-size: 7.1pt; }
+.verdicts b { display: block; font-size: 7pt; }
+
+.foot { margin-top: auto; display: flex; justify-content: space-between; gap: 6mm; padding-top: 2mm; border-top: .7pt solid var(--line); font-size: 6.4pt; color: var(--muted); }
+
+@media print {
+  body { background: #fff; }
+  .bar { display: none; }
+  .sheets { padding: 0; }
+  .sheet { margin: 0; box-shadow: none; zoom: 1; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+}
+
+/* Lista de edumitos */
+.ml { display: grid; gap: 1.15mm; }
+.ml.cols { grid-template-columns: 1fr 1fr; column-gap: 4mm; }
+.ml li { display: grid; grid-template-columns: 4.6mm 1fr; gap: 1.2mm; align-items: start; line-height: 1.3; }
+.ml .n { display: inline-grid; place-items: center; height: 3.6mm; border-radius: .8mm; background: var(--warm-soft); color: var(--warm); font: 700 6pt/1 var(--sans); margin-top: .2mm; }
+.ml .my { display: block; color: var(--warm); font-weight: 650; text-decoration: line-through; text-decoration-thickness: .6pt; text-decoration-color: rgba(156, 74, 44, .45); }
+.ml .ok { color: var(--ink-2); }
+.blk { font-size: 6.6pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 1.4mm; }
+.sheet .card h2 { margin-bottom: 1.6mm; }
+.sheet .ml { font-size: 9pt; gap: 2.4mm; }
+.sheet .ml .n { height: 3.9mm; font-size: 6.4pt; }
+.dense .ml { font-size: 8.8pt; gap: 2.1mm; }
+.sheet .dots li { font-size: 8.6pt; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="back" href="./" aria-label="Volver a la guía">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Guía
+  </a>
+  <span class="t">Síntesis en 2 páginas A4 · «Edumitos»</span>
+  <a class="lang-btn" href="../sintesi.html" data-pg-lang="ca" hreflang="ca" lang="ca" title="Versió en català" aria-label="Versió en català">CA</a>
+  <button type="button" onclick="window.print()">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><path d="M7 14h10v6H7z"/></svg>Imprimir o PDF
+  </button>
+</div>
+
+<main class="sheets">
+
+<!-- ============================ HOJA 1 ============================ -->
+<section class="sheet" aria-label="Página 1: evidencia, aprendizaje, estudio y emociones">
+  <header class="head">
+    <div>
+      <p class="kicker">Síntesis · Ideas sobre el aprendizaje sin respaldo científico</p>
+      <h1>«Edumitos»</h1>
+      <p class="src">Héctor Ruiz Martín · International Science Teaching Foundation, 2023</p>
+    </div>
+    <div class="side"><b>1 / 2</b>Pedagoguia</div>
+  </header>
+
+  <div class="row c21">
+    <div class="card">
+      <h2><span class="h-num">1</span>Experiencia, ciencia y sesgos</h2>
+      <ul class="dots">
+        <li>La experiencia personal está filtrada por <b>sesgos</b> que no evitamos aunque los conozcamos; el de <b>confirmación</b> nos hace ver y recordar lo que encaja con lo que ya creemos.</li>
+        <li><b>Correlación no implica causalidad.</b> Solo los experimentos con grupos comparables identifican causas, y un estudio no es el consenso.</li>
+        <li>La ciencia no da certezas ni decide los fines de la educación: ayuda a <b>manejar mejor la incertidumbre</b>.</li>
+        <li>La <b>pseudociencia</b> tiene un coste de oportunidad y, a veces, perjudica el aprendizaje.</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h2><span class="h-num">2</span>Qué es un edumito</h2>
+      <p>Una idea muy extendida sobre cómo aprendemos que, puesta a prueba, no ha recibido respaldo suficiente.</p>
+      <p style="margin-top:1.6mm">No significa que sea falsa sin más, sino que no se sostiene ante las pruebas o los modelos con mayor consenso. Solo se incluyen temas con consenso ampliamente mayoritario.</p>
+      <p style="margin-top:1.6mm;opacity:.85;font-size:7.2pt">Educación informada por la evidencia es estar dispuesto a cambiar de opinión cuando las pruebas no nos dan la razón.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="h-num">3</span>Aprendizaje y enseñanza</h2>
+    <ul class="ml cols">
+      <li><span class="n">01</span><span><b class="my">Cada uno tiene su estilo de aprendizaje</b><span class="ok">Adaptar al «estilo» no mejora nada. Palabra + imagen ayuda a todos; el canal depende del contenido.</span></span></li>
+      <li><span class="n">06</span><span><b class="my">Lo mejor es «aprender haciendo»</b><span class="ok">Activo es mentalmente activo: ¿en qué pasarán más tiempo pensando?</span></span></li>
+      <li><span class="n">02</span><span><b class="my">Las pirámides de aprendizaje</b><span class="ok">Porcentajes inventados; Dale nunca los publicó. Importa qué se hace con la información.</span></span></li>
+      <li><span class="n">07</span><span><b class="my">La taxonomía de Bloom es una pirámide</b><span class="ok">Es una clasificación. Toda habilidad va ligada a un conocimiento concreto.</span></span></li>
+      <li><span class="n">03</span><span><b class="my">Se aprende mejor descubriendo solo</b><span class="ok">Guiar es más eficaz y eficiente; menos guía solo con buena base previa.</span></span></li>
+      <li><span class="n">08</span><span><b class="my">Cada docente, su método</b><span class="ok">Hay técnicas más eficaces, y se aprenden. Un método debe superar la prueba controlada y la de la escala.</span></span></li>
+      <li><span class="n">04</span><span><b class="my">Saben cómo aprenden mejor</b><span class="ok">Lo cómodo da ilusión de saber. Evaluarse es la mejor forma de saber qué se sabe.</span></span></li>
+      <li><span class="n">09</span><span><b class="my">El cooperativo perjudica a los buenos</b><span class="ok">Grupos heterogéneos, nota común y evaluación individual: mejoran todos.</span></span></li>
+      <li><span class="n">05</span><span><b class="my">Si sale bien en la práctica, se ha aprendido</b><span class="ok">Bloques 89 % → 20 % a la semana; mezclado 60 % → 63 %. Dificultades deseables.</span></span></li>
+    </ul>
+  </div>
+
+  <div class="row c2">
+    <div class="card">
+      <h2><span class="h-num">4</span>Técnicas de estudio</h2>
+      <ul class="ml">
+        <li><span class="n">10</span><span><b class="my">Subrayar ayuda a recordar</b><span class="ok">Como leer, salvo si se subraya poco, pensando, y para apoyar la evocación.</span></span></li>
+        <li><span class="n">11</span><span><b class="my">Seguir practicando lo que ya sale</b><span class="ok">Apenas aporta: mejor volver a ello días después (espaciar).</span></span></li>
+        <li><span class="n">12</span><span><b class="my">Estudiar con música va bien</b><span class="ok">Compite con la memoria de trabajo, sobre todo con letra. Mejor en las pausas.</span></span></li>
+        <li><span class="n">13</span><span><b class="my">Copiar ayuda a retener</b><span class="ok">Copiar es leer más despacio. Mejor reelaborar o aplicar.</span></span></li>
+        <li><span class="n">14</span><span><b class="my">Resumir siempre funciona</b><span class="ok">Solo si se reelabora con palabras propias. Explicarse y autoevaluarse rinden más.</span></span></li>
+      </ul>
+      <p class="note ev">Engañan: releer, subrayar, copiar, masificar. Consolidan: <b>evocar, espaciar, entrelazar, elaborar</b>.</p>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">5</span>Emociones y aprendizaje</h2>
+      <ul class="ml">
+        <li><span class="n">15</span><span><b class="my">La emoción hace memorable el contenido</b><span class="ok">Fija el episodio (memoria episódica), no el concepto. Interesante ≠ divertido.</span></span></li>
+        <li><span class="n">16</span><span><b class="my">La motivación depende del interés</b><span class="ok">Pesa más la confianza en lograrlo. El éxito motiva más que al revés.</span></span></li>
+        <li><span class="n">17</span><span><b class="my">Los intereses son de cada uno</b><span class="ok">El interés se despierta en clase: curiosidad, un problema, el grupo, la utilidad.</span></span></li>
+        <li><span class="n">18</span><span><b class="my">Motivados = aprendiendo</b><span class="ok">¿Motivados para qué? Cómo evaluamos orienta cómo estudian.</span></span></li>
+        <li><span class="n">19</span><span><b class="my">Se olvida lo que no emociona</b><span class="ok">Se olvida por masificar y comprender poco. Espaciar y dar sentido.</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>Síntesis de la obra citada. Todo el contenido procede del libro; el detalle, los estudios y las herramientas están en la guía completa.</span>
+    <span>Pedagoguia · Guía 9788412714784</span>
+  </footer>
+</section>
+
+<!-- ============================ HOJA 2 ============================ -->
+<section class="sheet dense" aria-label="Página 2: lectura, cerebro, habilidades y tecnología">
+  <header class="head slim">
+    <div>
+      <p class="kicker">Síntesis · Lectura, cerebro, habilidades y tecnología</p>
+      <h1>Lo que no funciona como creemos, y lo que sí</h1>
+    </div>
+    <div class="side"><b>2 / 2</b>Pedagoguia</div>
+  </header>
+
+  <div class="row c2">
+    <div class="card">
+      <h2><span class="h-num">6</span>Aprendizaje de la lectura</h2>
+      <ul class="ml">
+        <li><span class="n">20</span><span><b class="my">Con un entorno motivador, leen solos</b><span class="ok">Leer es un invento cultural: conciencia fonológica, código y práctica, enseñados explícitamente.</span></span></li>
+        <li><span class="n">21</span><span><b class="my">Mejor reconocer palabras enteras</b><span class="ok">La vía léxica se construye con la fonológica. Buenos métodos: esenciales para algunos, buenos para todos.</span></span></li>
+        <li><span class="n">22</span><span><b class="my">La dislexia es visual</b><span class="ok">Es fonológica. Las inversiones de letras son &lt;1 % de sus errores. Respuesta educativa y temprana.</span></span></li>
+        <li><span class="n">23</span><span><b class="my">Lectura rápida sin perder comprensión</b><span class="ok">Más de 300-400 palabras/min es leer en diagonal. Lo que importa es la fluidez.</span></span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2><span class="h-num">7</span>Tecnología y aprendizaje</h2>
+      <ul class="ml">
+        <li><span class="n">41</span><span><b class="my">La tecnología atrofia la memoria</b><span class="ok">No se atrofia; recordamos peor lo que delegamos porque lo atendemos menos.</span></span></li>
+        <li><span class="n">42</span><span><b class="my">Los jóvenes ya no saben atender</b><span class="ok">Misma capacidad, más distracciones: cambia el entorno, no el cerebro.</span></span></li>
+        <li><span class="n">43</span><span><b class="my">Las pantallas escolares dañan la salud</b><span class="ok">Miopía, sueño o adicción no se deben al uso escolar. Lo que cuenta es el valor añadido.</span></span></li>
+        <li><span class="n">44</span><span><b class="my">Los nativos digitales aprenden distinto</b><span class="ok">Sin pruebas. La competencia digital se enseña. Innovar exige conocer las causas reales.</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="h-num">8</span>Cerebro y memoria</h2>
+    <ul class="ml cols">
+      <li><span class="n">24</span><span><b class="my">La memoria solo sirve para memorizar</b><span class="ok">Es la capacidad de aprender: una red de significados, no un disco duro.</span></span></li>
+      <li><span class="n">29</span><span><b class="my">El desarrollo va por etapas (Piaget)</b><span class="ok">Habilidades presentes muy pronto que mejoran de forma gradual y en paralelo.</span></span></li>
+      <li><span class="n">25</span><span><b class="my">La memoria es un músculo</b><span class="ok">Solo se fortalece por parcelas, con conocimientos: 79 dígitos, pero 4-9 letras.</span></span></li>
+      <li><span class="n">30</span><span><b class="my">Todo depende de la maduración</b><span class="ok">Los conocimientos previos pesan más que la edad. Si esperamos a que estén preparados, nunca lo estarán.</span></span></li>
+      <li><span class="n">26</span><span><b class="my">Cerebro izquierdo lógico, derecho creativo</b><span class="ok">Los dos hemisferios trabajan siempre juntos; nada los «equilibra».</span></span></li>
+      <li><span class="n">31</span><span><b class="my">Más estímulos, mejor cerebro del bebé</b><span class="ok">La privación perjudica; el exceso no mejora. Afecto, conversación y lectura compartida.</span></span></li>
+      <li><span class="n">27</span><span><b class="my">Solo usamos el 10 % del cerebro</b><span class="ok">Lo usamos todo, casi siempre, incluso durmiendo.</span></span></li>
+      <li><span class="n">32</span><span><b class="my">Mozart hace más inteligentes</b><span class="ok">Efecto pasajero en adultos, poco replicado: activación de cualquier música alegre.</span></span></li>
+      <li><span class="n">28</span><span><b class="my">La neurociencia guía el aula</b><span class="ok">Casi todo lo útil viene de la psicología. Ojo con lo que se vende como «neuro».</span></span></li>
+      <li><span class="n">33</span><span><b class="my">La gimnasia cerebral funciona</b><span class="ok">Bases sin sentido y sin estudios rigurosos: coste de oportunidad.</span></span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="h-num">9</span>Habilidades cognitivas</h2>
+    <ul class="ml cols">
+      <li><span class="n">34</span><span><b class="my">Latín, ajedrez o programar mejoran la mente</b><span class="ok">Cada disciplina mejora esa disciplina: la transferencia lejana es muy rara.</span></span></li>
+      <li><span class="n">38</span><span><b class="my">Habilidades sí, conocimientos no</b><span class="ok">Pensamiento crítico, creatividad y comprensión dependen de conocimientos profundos.</span></span></li>
+      <li><span class="n">35</span><span><b class="my">La atención dura 30 minutos</b><span class="ok">Va y viene siempre; la redirige la motivación. Los cambios ayudan a recuperarla.</span></span></li>
+      <li><span class="n">39</span><span><b class="my">Todo está en Internet</b><span class="ok">Sin conocimientos no hay criterio. Profundidad antes que amplitud.</span></span></li>
+      <li><span class="n">36</span><span><b class="my">La escuela mata la creatividad</b><span class="ok">Aumenta durante la escolaridad; se nutre de conocimientos y de no temer al error.</span></span></li>
+      <li><span class="n">40</span><span><b class="my">La multitarea se entrena</b><span class="ok">Es alternar, y siempre cuesta. Diapositivas con poco texto.</span></span></li>
+      <li><span class="n">37</span><span><b class="my">Inteligencias múltiples</b><span class="ok">Sin respaldo empírico: habilidad general + específicas. Cuidado con etiquetar.</span></span></li>
+    </ul>
+  </div>
+
+  <div class="card accent">
+    <h2><span class="h-num">10</span>Lo que sí funciona: cinco gestos</h2>
+    <div class="flow noarrow" style="grid-template-columns:repeat(5,1fr)">
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">1 · Evocar</b><span style="color:#f3f7f5">preguntas sin apuntes y comprobar después</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">2 · Espaciar</b><span style="color:#f3f7f5">volver a lo aprendido días y semanas después</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">3 · Guiar</b><span style="color:#f3f7f5">explicar y preguntar para que piensen</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">4 · Profundizar</b><span style="color:#f3f7f5">conocimientos en varios contextos</span></div>
+      <div style="background:rgba(255,255,255,.12)"><b style="color:#fff">5 · Dudar</b><span style="color:#f3f7f5">pedir pruebas antes de adoptar algo</span></div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>Síntesis de <i>«Edumitos»</i> (ISTF, 2023). No sustituye la lectura de la obra.</span>
+    <span>Pedagoguia · Guía 9788412714784</span>
+  </footer>
+</section>
+
+</main>
+
+<script>
+/* Escala las hojas al ancho disponible en pantalla */
+(function () {
+  var mm = 96 / 25.4, sheetW = 210 * mm;
+  function fit() {
+    var avail = document.documentElement.clientWidth - 32;
+    document.documentElement.style.setProperty('--s', Math.min(1, avail / sheetW).toFixed(3));
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('beforeprint', function () { document.documentElement.style.setProperty('--s', 1); });
+  window.addEventListener('afterprint', fit);
+  fit();
+})();
+</script>
+</body>
+</html>

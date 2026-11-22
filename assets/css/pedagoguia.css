@@ -149,6 +149,15 @@ svg.fill { fill: currentColor; stroke: none; }
 .header-nav a:hover { color: var(--ink); background: var(--sunken); }
 .header-actions { display: flex; align-items: center; gap: 2px; margin-left: auto; margin-right: -8px; }
 
+/* Selector d'idioma (CA · ES) */
+.lang-switch { display: inline-flex; margin-right: 6px; padding: 2px; border: 1px solid var(--line-2); border-radius: var(--radius-sm); background: var(--surface); }
+.lang-switch button {
+  min-width: 30px; height: 26px; padding: 0 6px; border: 0; border-radius: calc(var(--radius-sm) - 2px); background: transparent; cursor: pointer;
+  font: 600 .7rem/1 var(--sans); letter-spacing: .06em; color: var(--muted); transition: color .15s, background-color .15s;
+}
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-ink); }
+
 .i-moon { display: none; }
 :root[data-theme="dark"] .i-sun { display: none; }
 :root[data-theme="dark"] .i-moon { display: block; }
@@ -431,7 +440,7 @@ a.tile-shop:hover, a.tile-shop:focus-visible { opacity: 1; color: var(--accent);
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(20px, 4vw, 56px); }
 .about h2 { font-family: var(--serif); font-size: 1.35rem; margin-bottom: 8px; }
 .about-grid > div > p { color: var(--ink-2); font-size: .95rem; }
-.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; }
 .principles dt { font-weight: 600; font-size: .9rem; margin-bottom: 4px; }
 .principles dd { font-size: .9rem; color: var(--ink-2); }
 

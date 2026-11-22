@@ -18,10 +18,21 @@
 </head>
 <body>
 <main class="intro container" style="min-height:100dvh;display:grid;align-content:center;gap:14px">
-  <h1>Aquesta pàgina no és al catàleg.</h1>
-  <p class="intro-text">Pot ser que l'enllaç hagi canviat o que la guia encara no s'hagi publicat.</p>
-  <p><a class="btn btn-primary" href="/pedagoguia/">Torna al catàleg
+  <h1 data-es="Esta página no está en el catálogo.">Aquesta pàgina no és al catàleg.</h1>
+  <p class="intro-text" data-es="Puede que el enlace haya cambiado o que la guía aún no se haya publicado.">Pot ser que l'enllaç hagi canviat o que la guia encara no s'hagi publicat.</p>
+  <p><a class="btn btn-primary" href="/pedagoguia/"><span data-es="Volver al catálogo">Torna al catàleg</span>
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
 </main>
+<script>
+  /* Català per defecte; castellà si s'ha triat al catàleg o a una guia */
+  (function () {
+    var es = false;
+    try { es = localStorage.getItem('pedagoguia:lang') === 'es'; } catch (e) {}
+    if (!es) return;
+    document.documentElement.lang = 'es';
+    document.title = 'Página no encontrada · Pedagoguia';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-es]'), function (n) { n.textContent = n.getAttribute('data-es'); });
+  })();
+</script>
 </body>
 </html>
